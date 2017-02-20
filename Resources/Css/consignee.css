@@ -1,0 +1,120 @@
+.consigee_list{
+	width: 844px;
+	border: 1px solid #E8E8E8;
+	margin: auto;
+	margin-top: 36px;
+	text-align: center;
+}
+.consigee_list_title{
+	
+	height: 56px;
+	line-height: 56px;
+	background: #fbfbfb;
+	border-bottom: 1px solid #E8E8E8;
+}
+.consigee_list_title li{
+	float: left;
+	font-weight: bold;
+}
+.consigee_title_one,.address_name{
+	width: 134px;
+}
+.consigee_title_two,.address_iphone{
+	width:163px
+}
+.consigee_title_three{
+	width: 221px;
+}
+.address_add{
+	padding: 0 10px;
+	padding-top: 38px;
+	width: 201px;
+	line-height: 1.6;
+	text-align: left;
+}
+.consigee_title_four,.address_operate{
+	width: 170px;
+}
+.address_tacityly{
+	padding-left: 10px;
+	text-align: left;
+	
+}
+.address_list li{
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	color: #333333;
+	border-bottom: 1px solid #E8E8E8;
+}
+.address_list li div{
+	
+	float: left;
+	
+}
+.address_operate span{
+	padding: 0 8px;
+	cursor: pointer;
+}
+.xuanzhong{
+	width: 102px;
+	height: 38px;
+	line-height: 38px;
+	color: #d7c97c;
+	font-weight: bold;
+	margin-top: 31px;
+	background: url(../img/tacityle.png) no-repeat center;
+	text-align: center;
+	display: none;
+	cursor: pointer;
+}
+.she_tacityly{
+	margin-left: 8px;
+	cursor: pointer;
+}
+
+.active{
+	display: block;
+}
+.hidden{
+	display: none;
+}
+.add_shouhuo{
+	width: 200px;
+	height: 38px;
+	margin-left: 50px;
+	margin-top: 24px;
+	text-align: center;
+	line-height: 38px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

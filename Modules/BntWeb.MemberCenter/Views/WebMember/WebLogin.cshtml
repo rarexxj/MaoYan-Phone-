@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@using System.Web.Optimization
+@section Styles{
+    @Styles.Render("~/css/web/reg")
+}
+<div class="banner" style="background: url(Resources/img/banner.jpg) no-repeat center; background-size: cover;">
+    <input type="hidden" id="smscode" />
+    <div class="reg_box">
+        <div class="register_box_1">
+            <div class="reg_title_1 clearfix font_s16">
+                <h3 class="denglu_one  fl font_s16">普通登录</h3>
+                <h3 class="denglu_two deng_type fl font_s16">手机动态密码登录</h3>
+            </div>
+            <div class="input_list">
+                <form id="loginform">
+                    <div class="denglu_first">
+                        <div class="reg_list clearfix">
+                            <div class="btn btn_p fl"></div>
+                            <input type="text" class="userIphone1 fl" name="PhoneNumber" id="PhoneNumber" placeholder="请输入用户名/手机号码" value="" />
+                        </div>
+                        <div class="reg_list clearfix">
+                            <div class="btn btn_m fl"></div>
+                            <input type="password" class="password fl" name="Password" id="Password" placeholder="请输入密码" value="" />
+                        </div>
+                        <div class="clearfix">
+                            <a href="@Url.Action("WebRegister", "WebMember", new {area = "MemberCenter"})" class="fl color_666">新用户注册</a>
+                            <a href="@Url.Action("ForgetPassword", "WebMember", new {area = MemberCenterModule.Area})" class="fr color_orange">忘记密码&nbsp;?</a>
+                        </div>
+                        <div class="submit submit_1 font_s18 bg_orange">登录</div>
+                        <div class="qaw clearfix">
+                            <div class="qq_btn fl"></div>
+                            <div class="weixin_btn fl"></div>
+                        </div>
+                    </div>
+                    <div class="denglu_second hidden">
+                        <div class="reg_list clearfix">
+                            <div class="btn btn_p fl"></div>
+                            <input type="text" class="userIphone2 fl" name="DPhoneNumber" id="DPhoneNumber" placeholder="请输入手机号码" value="" />
+                        </div>
+                        <div class="reg_list clearfix">
+                            <div class="btn btn_m fl"></div>
+                            <input type="text" class="yan with_125 fl" name="SmsVerifyCode" placeholder="请输入动态密码" id="" value="" />
+                            <input type="button" class="code-btn reg_yan1" id="sendbtn" value="获取动态密码" />
+                        </div>
+                        <div class="clearfix">
+                            <a href="@Url.Action("WebRegister", "WebMember", new {area = "MemberCenter"})" class="fl color_666">新用户注册</a>
+                            <a href="@Url.Action("ResetPassword", "WebMember", new {area = "MemberCenter"})" class="fr color_orange">忘记密码&nbsp;?</a>
+                        </div>
+                        <div class="submit submit_2 font_s18 bg_orange">登录</div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    @Scripts.Render("~/js/web/login")
+    <script type="text/javascript">
+        var url_LoginWithSms="@Url.Action("LoginWithSms", "WebMember", new { area = MemberCenterModule.Area })";
+        var url_Personal="@Url.Action("WebPersonal", "WebMember", new { area = MemberCenterModule.Area })";
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

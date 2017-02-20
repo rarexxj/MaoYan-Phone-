@@ -1,0 +1,111 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Core.SystemUsers
+@using BntWeb.FileSystems.Media
+@using BntWeb.OrderProcess.Models
+
+@{
+    ViewBag.Title = OrderProcessModule.DisplayName;
+    ViewBag.SubTitle = "申请售后";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+
+    var orderDetails = ViewBag.OrderDetails as Order;
+    var goodsorderId = ViewBag.goodsorderId;
+    var money = ViewBag.money;
+}
+@section Styles{
+    @Styles.Render("~/css/refund/refundtype")
+
+}
+  <!--右侧数据加载-->
+<div class="per_nav_right fr font_s14 color_666 minh660" style="min-height: 0">
+    <div class="service-lx  color_444 fl borderrighte8" style="padding-bottom: 100px;">
+        <p class="servicetit per_right_title font_s18">选择售后类型</p>
+        <div class="servicekuangbox">
+            <div class="servicekuang">
+                <a class="servicexh" href="@Url.Action("AllRefund","WebRefund",new {area=OrderProcessModule.Area,reMoney=money,goodsOrderId=goodsorderId,orderId=orderDetails?.Id??Guid.Empty, refundType= RefundType.OnlyRefund,applyId=Guid.Empty })">仅退款</a>@*servicewrite.html*@
+             
+            </div>
+            <div class="serviceshunxu">1.申请退款 >2.卖家同意退款申请 >3.退款成功</div>
+        </div>
+        <div class="servicekuangbox">
+            <div class="servicekuang">
+                <a class="servicexh2" href="@Url.Action("AllRefund","WebRefund",new {area=OrderProcessModule.Area,reMoney=money,goodsOrderId=goodsorderId,orderId=orderDetails?.Id??Guid.Empty,refundtype=RefundType.RefundAndReturn,applyId=Guid.Empty })">退货并退款</a>@*servicewrite.html*@
+               
+            </div>
+            <div class="serviceshunxu">1.申请退货 >2.买家退货，填写物流信息 >3.卖家确认收货，退款成功</div>
+        </div>
+        <div class="servicekuangbox">
+            <div class="servicekuang">
+                <a class="servicexh" href="@Url.Action("AllRefund","WebRefund",new {area=OrderProcessModule.Area,reMoney=money,goodsOrderId=goodsorderId,orderId=orderDetails?.Id??Guid.Empty,refundType=RefundType.OnlyReturn,applyId=Guid.Empty })">仅换货</a>@*servicewrite.html*@
+             
+            </div>
+            <div class="serviceshunxu">1.申请退货 >2.买家退货，填写物流信息 >3.卖家确认收货，换货成功</div>
+        </div>
+    </div>
+    <div class="service-xx color_444 fl borderlefte8">
+        <p class="servicetit per_right_title font_s18">订单信息</p>
+        @{
+            if (orderDetails != null)
+            {
+
+                <div>
+                    <ul class="xxxxul">
+                        @foreach (var item in orderDetails.OrderGoods)
+                        {
+                            if (item.Id == ViewBag.goodsorderId)
+                            {
+                                <li class="xxxxli xxxxtopli clearfix">
+                                    <div class="fl xxxxtopliimg">
+                                        <img src="@item.GoodsImage.MediumThumbnail" alt="">
+                                    </div>
+                                    <div class="fl xxxxtoplimain">
+                                        <span class="xxxxtoplimaint color_333">@item.GoodsName</span>
+                                        <div class="xxxxtoplimainb color_999">
+                                            @item.GoodsAttribute
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                        <li class="xxxxli clearfix">
+                            <div class="fl color_999 xxxxli-title">订单时间：</div>
+                            <div class="fl color_333 xxxxli-xx">@orderDetails.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</div>
+                        </li>
+                        <li class="xxxxli clearfix">
+                            <div class="fl color_999 xxxxli-title">订单编号：</div>
+                            <div class="fl color_333 xxxxli-xx">@orderDetails.OrderNo</div>
+                        </li>
+                        <li class="xxxxli clearfix">
+                            <div class="fl color_999 xxxxli-title">收货人：</div>
+                            <div class="fl color_333 xxxxli-xx">@orderDetails.Consignee  @orderDetails.Tel</div>
+                        </li>
+                        <li class="xxxxli clearfix">
+                            <div class="fl color_999 xxxxli-title">收货地址：</div>
+                            <div class="fl xxxxli-addre color_333 xxxxli-xx">@orderDetails.Address</div>
+                        </li>
+                    </ul>
+                </div>
+            }
+        }
+    </div>
+    </div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            //导航点击
+            $('.index-headnavmainul .index-navli').hover(function() {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $(this).children('.index-navtwo').stop().slideToggle();
+            });
+
+            $('.order_nav li').on('click', function() {
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+}

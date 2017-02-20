@@ -1,0 +1,137 @@
+﻿
+@using BntWeb.Mall
+@using BntWeb.Mall.Models
+@using BntWeb.MemberBase.Models
+@using BntWeb.MemberCenter
+
+
+@{
+    Layout = null;
+    var list = ViewBag.Catagoery as List<GoodsCategory>;
+    var userInfo = ViewBag.CurrentUser as Member;
+}
+
+
+<div class="header">
+    <div class="index-headtop">
+        <div class="index-headtopmain clearfix width1190">
+            <div class="index-headtoptitle fl">谢谢你长得那么好看还来光顾小5家</div>
+            <ul class="index-headtoprnav fr">
+                @{
+                    if (userInfo != null)
+                    {
+                        var str = userInfo.NickName;
+                        if (string.IsNullOrEmpty(str))
+                        {
+                            str = userInfo.UserName;
+                        }
+                        <a href="@Url.Action("WebPersonal", "WebMember", new {area = MemberCenterModule.Area})">
+
+                            <li>@str</li>
+                        </a>
+                        <a href="@Url.Action("LogOff","WebMember",new {area = MemberCenterModule.Area})">
+                            <li>退出</li>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("WebLogin", "WebMember", new {area = MemberCenterModule.Area})">
+                            <li>登录</li>
+                        </a>
+                        <a href="@Url.Action("WebRegister", "WebMember", new {area = MemberCenterModule.Area})">
+                            <li>注册</li>
+                        </a>
+                    }
+
+                }
+                <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="31" })">
+                    <li class="padleft">关于我们</li>
+                </a>
+                <a target="_blank" href="@Url.Action("WebCartsList","WebCarts",new {area=MallModule.Area})">
+                    <li style="margin-right: 0;">我的购物车</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="index-headmid">
+        <div class="index-headmidmain clearfix width1190">
+            <div class="index-headmidl fl">
+                <div class="index-headlogo fl" style="background: url(/Resources/img1/logo1.png) no-repeat center"></div>
+                <div class="index-headlogofont fl">
+                    <span class="index-headlogofont1">这一刻，只因分享</span>
+                    <span class="index-headlogofont2">At this moment, For sharing</span>
+                </div>
+            </div>
+            <div class="index-headmidr fr">
+                <span class="index-headmidrfont1">大成都范围内免费配送</span>
+                <div class="index-headmidrfont2">4006-234-005</div>
+            </div>
+        </div>
+    </div>
+    <div class="index-headnav">
+        <div class="index-headnavmain clearfix width1190">
+            <ul class="index-headnavmainul clearfix">
+                <li class="active index-navli">
+                    <span class="nav-shugang"></span>
+                    <a href="@Url.Action("Index", "Home")">
+                        <span class="index-headnavmainulspan margintop18">首页</span><span class="index-headnavmainulspan1 margintop8">Home</span>
+                    </a>
+                </li>
+
+                <li class="index-navli">
+                    <span class="nav-shugang"></span>
+                    <span class="index-headnavmainulspan margintop18">产品目录</span>
+                    <span class="index-headnavmainulspan1 margintop8">Products</span>
+                    <div class="index-navtwo">
+                        <ul class="index-navtwoul">
+                            @{
+                                if (list != null)
+                                {
+                                    foreach (var item in list)
+                                    {
+                                        <li><a href="@Url.Action("GoodsList", "WebGoods", new { area = MallModule.Area ,categoryId=item.Id})">@item.Name</a></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="index-navli">
+                    <span class="nav-shugang"></span><a href="@Url.Action("HotGoods", "WebGoods", new{area = MallModule.Area})">
+                    <span class="index-headnavmainulspan margintop18">热销推荐</span><span class="index-headnavmainulspan1 margintop8">Hot-selling</span>
+                    </a>
+                </li>
+
+                <li class="index-navli">
+                    <span class="nav-shugang"></span><a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="51" })">
+                        <span class="index-headnavmainulspan margintop18">最新活动</span><span class="index-headnavmainulspan1 margintop8">Latest activities</span>
+                    </a>
+                </li>
+
+                <li class="index-navli">
+                    <span class="nav-shugang"></span><a href="@Url.Action("GoodsList", "WebGoods", new{area = MallModule.Area,categoryId ="dedcbdcb-f66b-47a9-ab4a-d9a1ba662d7e" })">
+                        <span class="index-headnavmainulspan margintop18">鲜花专区</span><span class="index-headnavmainulspan1 margintop8">Flowers</span>
+                    </a>
+                </li>
+
+                <li class="index-navli">
+                    <span class="nav-shugang"></span><a href="@Url.Action("WebPersonal","WebMember",new {area = MemberCenterModule.Area})">
+                        <span class="index-headnavmainulspan margintop18">会员中心</span><span class="index-headnavmainulspan1 margintop8">Member Center</span>
+                    </a>
+                </li>
+
+                <li class="index-navli">
+                    <span class="nav-shugang"></span><a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="41" })">
+                        <span class="index-headnavmainulspan margintop18">团购服务</span><span class="index-headnavmainulspan1 margintop8">bulk purchasing</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+@section Scripts{
+}
+
+

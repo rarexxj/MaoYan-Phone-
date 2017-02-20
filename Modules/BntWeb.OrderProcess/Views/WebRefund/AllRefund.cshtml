@@ -1,0 +1,221 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Core.SystemUsers
+@using BntWeb.OrderProcess.Models
+
+@{
+    ViewBag.Title = SystemUsersModule.DisplayName;
+    ViewBag.SubTitle = "退款";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+    var refundType = ViewBag.RefundType;
+    var orderDetails = ViewBag.OrderDetails as Order;
+    var goodsOrderId = ViewBag.goodsOrderId;
+}
+@section Styles{
+    @Styles.Render("~/css/refund/allrefund")
+    <style>
+        #doc-queue {
+            display: none;
+        }
+
+        .upload_1 {
+            width: 316px;
+            overflow: hidden;
+        }
+
+        .upload {
+            margin-left: 15px;
+            width: 418px;
+        }
+
+        #doc, #doc-button, #SWFUpload_0 {
+            width: 82px !important;
+            height: 82px !important;
+        }
+    </style>
+}
+<!--右侧数据加载-->
+<form role="form" method="POST" id="RefundForm" action="@Url.Action("WebApplyRefund","WebRefund",new {area=OrderProcessModule.Area})">
+    <div class="per_nav_right fr font_s14 color_666 heightauto">
+        <div class="service-lx  color_444 fl borderrighte8" style="padding-bottom: 40px;">
+            <input type="hidden" id="hid_refundType" value="@ViewBag.RefundType" />
+            <input type="hidden" id="OrderId" name="OrderId" value="@orderDetails.Id" />
+            <input type="hidden" id="OrderGoodsId" name="OrderGoodsId" value="@ViewBag.goodsorderId" />
+            <p class="servicetit per_right_title font_s18">退款类型：@ViewBag.RefundName</p>
+            <div>
+                <ul>
+                    @if (refundType != RefundType.OnlyRefund)
+                    {
+                        <li class="lianxifs">
+                            <div class="clearfix">
+                                <div class="fl color_999 tuikli-title2 color_333 tuikli-title21">
+                                    联系人：
+
+                                </div>
+                                <div class="fl color_999 tuikli-xx tuikli-title21">
+                                    @orderDetails.Consignee
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="fl color_999 tuikli-title2 color_333 tuikli-title21">联系方式：</div>
+                                <div class="fl color_999 tuikli-xx tuikli-title21">@orderDetails.Tel</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="fl color_999 tuikli-title2 color_333 tuikli-title21">联系地址：</div>
+                                <div class="fl color_999 tuikli-xx tuikli-title21dz">@orderDetails.Address</div>
+                            </div>
+                        </li>
+                    }
+
+
+                    @if (refundType == RefundType.OnlyRefund || refundType == RefundType.RefundAndReturn)
+                    {
+                        <li class="tuikli clearfix">
+                            <div class="fl color_999 tuikli-title color_333">退款金额：</div>
+                            <input class="fl jineinput" type="text" id="RefundAmount" name="RefundAmount" value="@ViewBag.reMoney" readonly="readonly">
+                            <div class="fl color_999 tuikli-xx">
+                                <span>元</span>
+                                @*（最多<span class="colorzhuse">6188</span>元，含运费<span class="colorzhuse">100.00</span>元）*@
+                            </div>
+                        </li>
+                    }
+                    <li class="tuikli clearfix">
+                        <div class="fl color_999 tuikli-title color_333">退款说明：</div>
+                        <textarea class="saytextarea" name="Reason" id="Reason" cols="30" rows="10"></textarea>
+
+                    </li>
+                    <li class="tuikli clearfix">
+                        <input type="hidden" id="RefundImageIds" name="RefundImageIds" />
+
+                        <div class="fl color_999 tuikli-title color_333">上传凭证：</div>
+
+                        <div class="upload_1">
+                            <ul class="upload clearfix">
+                                <li class="first_file  fl">
+                                    <input class="files" name="file" multiple="multiple" type="file" id="doc" value="" />
+                                </li>
+                            </ul>
+                        </div>
+
+                        <span class="color_999 img_tips">每张图片大小不超过5M，最多3张，支持GIF、JPG、PNG、BMP格式</span>
+                    </li>
+                </ul>
+            </div>
+         
+            <input type="button"  class="service-btn" value="提交"/>
+        </div>
+        <div class="service-xx color_444 fl borderlefte8">
+            <p class="servicetit per_right_title font_s18">订单信息</p>
+            <div>
+                <ul class="xxxxul">
+                    @{
+
+                        foreach (var item in orderDetails.OrderGoods)
+                        {
+                            if (item.Id == goodsOrderId)
+                            {
+                                <li class="xxxxli xxxxtopli clearfix">
+                                    <div class="fl xxxxtopliimg">
+                                        <img src="@item.GoodsImage.MediumThumbnail" alt="">
+                                    </div>
+                                    <div class="fl xxxxtoplimain">
+                                        <span class="xxxxtoplimaint color_333">@item.GoodsName</span>
+                                        <div class="xxxxtoplimainb color_999">
+                                            @item.GoodsAttribute
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="xxxxli clearfix">
+                                    <div class="fl color_999 xxxxli-title">单价：</div>
+                                    <div class="fl color_333 xxxxli-xx">
+                                        <span>@item.Price</span> 元 * <span>@item.Quantity</span>(数量)
+                                    </div>
+                                </li>
+                            }
+                        }
+                        <li class="xxxxli clearfix">
+                            <div class="fl color_999 xxxxli-title">订单时间：</div>
+                            <div class="fl color_333 xxxxli-xx">@orderDetails.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</div>
+                        </li>
+                        <li class="xxxxli clearfix">
+                            <div class="fl color_999 xxxxli-title">订单编号：</div>
+                            <div class="fl color_333 xxxxli-xx">@orderDetails.OrderNo</div>
+                        </li>
+
+                        <li class="xxxxli clearfix">
+                            <div class="fl color_999 xxxxli-title">邮费：</div>
+                            <div class="fl xxxxli-addre color_333 xxxxli-xx">@orderDetails.ShippingFee 元</div>
+                        </li>
+                    }
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</form>
+
+
+@section Scripts{
+    @Scripts.Render("~/js/web/uploadify")
+    <script type="text/javascript">
+        var allImageIds = "";
+        //退款申请提交
+        $('.service-btn').on('click', function () {
+            $('.upload img').each(function () {
+                allImageIds += $(this).data("id") + ",";
+            });
+            if (allImageIds.length> 1)
+                allImageIds = allImageIds.substring(0, allImageIds.length - 1);
+            $("#RefundImageIds").val(allImageIds);
+            $.ajax({
+                type: 'POST',
+                url: $("#RefundForm").attr("action"),
+                cache: false,
+                data: $("#RefundForm").serialize()
+            }).done(function (data) {
+                if (data.Success) {
+                    my_alert("退款申请成功");
+                    history.go(0);
+                } else {
+                    my_alert(data.ErrorMessage);
+                    return false;
+                }
+            });
+
+        });
+
+        //退款上传凭证：图片上传
+        $("#doc").uploadify({
+            'swf': '/Resources/Web/js/update/uploadify.swf',
+            'fileSizeLimit': '5120KB',
+            'fileTypeExts': '*.jpg;*.jpeg;*.png,*.gif',
+            'uploader': '/Api/v1/File/Upload',
+            'formData': { 'mediumThumbnailWidth': 200, 'mediumThumbnailHeight': 200 },
+            width: 100,
+            buttonText: '',
+            multi: false,
+            'onFallback': function () {
+                $.MsgBox.Confirm("提示", "您的浏览器没有安装flash插件，需安装后才能上传，现在安装？", function () {
+                    window.location.href = "http://get.adobe.com/cn/flashplayer/";
+                });
+            },
+            'onUploadSuccess': function (file, data, response) {
+                var rs = JSON.parse(data);
+                if (rs.returnCode == "200") {
+                    var oimg = rs.data[0];
+                    if ($(".upload li").length >= 4) {
+                    } else {
+                        $("#doc").parent().before('<li class="fl first_file"><img style="width:82px;height:82px" data-id="' + oimg.Id + '" src="' + oimg.MediumThumbnail + ' "/>  <div class="pic_datails"></div></li>');
+                    }
+
+                }
+            }
+        });
+
+        //图片删除
+        $(".upload").on("click", ".pic_datails", function () {
+            $(this).parent().remove();
+        });
+
+    </script>
+}

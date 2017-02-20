@@ -1,0 +1,94 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Mall.Models;
+@using BntWeb.Mall.ViewModels
+
+@{
+
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+    var list = ViewBag.Exchange as List<ExchangeModel>;
+
+}
+@section Styles{
+    @Styles.Render("~/css/web/exchange")
+}
+    
+<div class="per_nav_right fr font_s14 color_666">
+    <div class="nav_rights jfdhright">
+        <div class="order_right_title color_444">
+            <div class="myjf-title">积分兑换</div>
+            <div class="order_sou clearfix jifencurrentbox">
+                <div class="currentjif fl">当前可用积分：<span class="integral">@(ViewBag.MyIntenal?.Available ?? 0)</span></div>
+            </div>
+
+        </div>
+        <div class="jfdhbox">
+            <div class="jfdhbox-ds">
+                <ul class="jfdhboxul clearfix">
+                    @{
+                        if (list != null)
+                        {
+                            foreach (var item in list)
+                            {
+                                <li>
+                                    
+                                    <div class="jfdhimgbox">
+                                        <img src="@(item.GoodsImage?.MediumThumbnail)" alt="">
+                                    </div>
+                                    <div class="jfdh-main clearfix">
+                                        <div class="fl jfdh-mainl">
+                                            <span class="jfdh-maint">@item.Name</span>
+                                            <span class="jfdh-mainpoint">@item.ExchangeIntegral 积分</span>
+                                        </div>
+                                        <div class="fl jfdh-mainr" data-id="@item.Id" data-nowinteg="@item.ExchangeIntegral" >兑换</div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    }
+               
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    @Html.Action("PagePartial", "Home", new { area = "Home", url = ViewBag.Url, totalPage = ViewBag.TotalPage, currentPage = ViewBag.CurrentPage })
+</div>
+ 
+
+    @section Scripts{
+      
+        @Scripts.Render("~/js/page")
+        @Scripts.Render("~/js/exchangeGood")
+
+        <script type="text/javascript">
+            var url_exchangeIn="@Url.Action("ExchangeOrder", "WebSubmitOrder", new { area=MallModule.Area})"
+        </script>
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

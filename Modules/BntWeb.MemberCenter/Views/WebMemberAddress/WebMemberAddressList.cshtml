@@ -1,0 +1,165 @@
+﻿@using System.Web.Optimization
+@using BntWeb.MemberBase.Models
+@{
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+    var addressList = ViewBag.AddressList as List<MemberAddress>;
+}
+@section Styles{
+    @Styles.Render("~/css/web/personal")
+    @Styles.Render("~/css/web/address")
+
+}
+<input type="hidden" id="Id" value="@ViewBag.Id" />
+<div class="per_nav_right fr font_s14 color_666">
+    <div class="per_right_title color_444">
+        <h3 class="font_s18">收货地址</h3>
+    </div>
+    <div class="consigee_list">
+        <!--导航-->
+        <ul class="consigee_list_title clearfix">
+            <li class="consigee_title_one">收货人</li>
+            <li class="consigee_title_two">联系方式</li>
+            <li class="consigee_title_three">收货地址</li>
+            <li class="consigee_title_four">操作</li>
+        </ul>
+        <!--地址列表-->
+        <ul class="address_list">
+            @{
+                if (addressList != null)
+                {
+                    for (int i=0; i < addressList.Count; i++)
+                    {
+                        <li class="clearfix">
+                            <div class="address_name">@addressList[i].Contacts</div>
+                            <div class="address_iphone color_999">@addressList[i].Phone</div>
+                            <div class="address_add">
+                                <p>@addressList[i].Address</p>
+                            </div>
+                            <div class="address_operate">
+                                <span class="color_orange bianji"  data-contacts="@addressList[i].Contacts"
+                                       data-phone="@addressList[i].Phone" data-address="@addressList[i].Address" data-addressid="@addressList[i].Id"
+                                      data-province="@addressList[i].Province" data-city="@addressList[i].City"
+                                      data-district="@addressList[i].District" data-isdefault="@addressList[i].IsDefault">编辑</span>
+                                <span class="color_orange add_detail" data-id="@addressList[i].Id">删除</span>
+                            </div>
+                            <div class="address_tacityly">
+                                @if (addressList[i].IsDefault)
+                                {
+                                    <div class="xuanzhong active">默认地址</div>
+                                    <span class="color_orange she_tacityly hidden " data-memberId="@addressList[i].MemberId" data-id="@addressList[i].Id">设为默认地址</span>
+
+                                }
+                                else
+                                {
+                                    <div class="xuanzhong">默认地址</div>
+                                    <span class="color_orange she_tacityly  " data-memberId="@addressList[i].MemberId" data-id="@addressList[i].Id">设为默认地址</span>
+                                }
+                                
+                            </div>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+    <div class="add_shouhuo font_s16 bg_orange">添加收货地址</div>
+</div>
+<form id="AddAddressForm" role="form" method="POST" action="@Url.Action("WebCreateAddress", "WebMemberAddress", new {area = MemberCenterModule.Area})">
+
+    <input type="hidden" id="AddressId" name="AddressId" value=""/>
+    <input type="hidden" id="DefaultAddress" name="IsDefault" value="true" />
+    <div class="add_address" style="display: none">
+        
+        <div class="zezao"></div>
+        <div class="address_box">
+            <div class="address_title">
+                <h3 class="font_s18 color_orange1 shuohuo_add">添加收货地址</h3>
+                <div class="detail_x"></div>
+            </div>
+            <div class="add_info">
+                <div class="address_one clearfix">
+                    <div class="add_man fl">
+                        <span class="f_title">收货人：</span>
+                        <input type="text" class="shouhuo_man" name="Contacts" id="Contacts" value=""/>
+                    </div>
+                    <div class="add_iphone fr">
+                        <span class="f_title">手机号码：</span>
+                        <input type="" class="shuohuo_iphone" name="Phone" id="Phone" value=""/>
+                    </div>
+                </div>
+                <div class="address_two clearfix">
+                    <div class="fl">
+                        <span class="f_title">所在地区：</span>
+                        <select name="Province" id="Province" class="Province"></select>
+                    </div>
+                    <div class="city_box fl">
+                        <select name="City" id="City" class="City"></select>
+                    </div>
+                    <div class="fr">
+                        <select name="District" id="District" class="District"></select>
+                    </div>
+                </div>
+                <div class="address_three clearfix">
+                    <span class="f_title">详细地址：</span>
+                    <textarea class="address_texa" name="Address" id="Address" rows="" cols=""></textarea>
+                </div>
+                <div class="address_four clearfix">
+                    <div class="acquiesce fl">
+                        <span class="fl moren bg_orange" id="IsDefault"></span><p class="fr">设为默认</p>
+                    </div>
+                    <div class="choic_btn clearfix font_s16 fl">
+                        <div class="fl yes bg_orange">确定</div>
+                        <div class="fr no">取消</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</form>
+
+
+@section Scripts{
+    @Scripts.Render("~/js/web/addressList")
+    <script type="text/javascript">
+        //添加收货地址
+        var url_addaddress = "@Url.Action("WebCreateAddress", "WebMemberAddress", new { area = MemberCenterModule.Area })";
+        //收货地址列表
+        var url_addressList = "@Url.Action("WebMemberAddressList", "WebMemberAddress", new { area = MemberCenterModule.Area })";
+        //删除收货地址
+        var url_deleteaddress = "@Url.Action("WebDeleteAddress", "WebMemberAddress", new { area = MemberCenterModule.Area })";
+        //编辑收货地址
+        var url_editaddress = "@Url.Action("WebEditAddress", "WebMemberAddress", new { area = MemberCenterModule.Area })";
+        //设置默认收货地址
+        var url_defaultaddress = "@Url.Action("SetDefaultAddress", "WebMemberAddress", new { area = MemberCenterModule.Area })";
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

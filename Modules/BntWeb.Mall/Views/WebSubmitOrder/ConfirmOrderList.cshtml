@@ -1,0 +1,425 @@
+﻿@using System.Web.Optimization
+
+@using BntWeb.Mall.ApiModels
+@using BntWeb.Mall.Models
+@using BntWeb.MemberBase.Models
+@using BntWeb.MemberCenter
+@using BntWeb.OrderProcess
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var defaultAddress = ViewBag.DefaultAddress as MemberAddress ?? new MemberAddress();
+    var singleGoods = ViewBag.Goods as SingleGoods;
+    var purchaseGoods = ViewBag.PurchaseGoods as Goods;
+    var otherAddress = ViewBag.OtherAddress as List<MemberAddress>;
+    var myCarts = ViewBag.MyCarts as List<ListCartModel>;
+    var optionalGoods = ViewBag.OptionalGoods as List<Goods>;
+    var optList = ViewBag.OptList as List<OptGoodsModel>;
+}
+@section Styles{
+ @Styles.Render("~/css/admin/dd")
+}
+<form id="SubmitForm" role="form" method="post" action="@Url.Action("Submit","WebSubmitOrder",new {area=MallModule.Area})">
+<div class="main" style="padding-bottom: 90px;">
+
+<input type="hidden" id="CouponId" name="CouponId"/>
+<input type="hidden" id="AddressId" name="AddressId" value="@defaultAddress.Id"/>
+<input type="hidden" id="OptGoods" name="OptGoods"/>
+<input type="hidden" id="NowBuyGoods" name="NowBuyGoods"/>@*SingleGood*@
+<input type="hidden" id="CartGoods" name="CartGoods"/>
+<input type="hidden" id="PurGood" name="PurGood" />
+<input type="hidden" id="Mycarts" value="@ViewBag.MyCarts"/> 
+<input type="hidden" id="singleGoods" value="@ViewBag.Goods"/>
+<input type="hidden" id="purchaseGoods" value="@ViewBag.PurchaseGoods" />
+   
+<div class="bread">
+    <a class="bread-a home" href="## ">确认订单</a>
+
+</div>
+<div class="getaddressbox width1190">
+    <div class="gtad-title">确认收货地址</div>
+    <div class="gtad-admain">
+        @{
+            if (defaultAddress != null)
+            {
+                <dl class="gtad-admaindl">
+                    <dt id="d1">默认收货地址</dt>
+                    <dd id="d2">收货人 :@defaultAddress.Contacts</dd>
+                    <dd id="d3">联系方式 : @defaultAddress.Phone</dd>
+                    <dd id="d4">收货地址 : @defaultAddress.Address</dd>
+                </dl>
+            }
+        }
+
+
+    </div>
+    <div class="adaddressbox">
+        <span class="otheraddr">选择其他收货地址</span>
+        <span class="adaddr">添加收货地址</span>
+    </div>
+</div>
+<div class="shopcarbox width1190">
+    <div class="allchioce bixuanpro">
+        <ol class="clearfix">
+            <li class="width240 nocenter clearfix"></li>
+            <li class="width200">商品信息</li>
+            <li class="width208">规格</li>
+            <li class="width154">单价</li>
+            <li class="width145">数量</li>
+            <li class="width154">小计</li>
+            <li class="width80">操作</li>
+        </ol>
+        <ul class="goodul">
+            @{
+                if (myCarts == null) {
+
+            @*商品*@
+            if (singleGoods != null)
+            {
+                <li class="allchioceli clearfix" data-id="@singleGoods.Id">
+                   
+                    <div class="width240 nocenter neir clearfix">
+                        <div class="kong"></div>
+                        <img src="@(singleGoods.Image?.MediumThumbnail)" alt="">
+                    </div>
+                    <div class="width200 neir xinxi">@singleGoods.Goods.Name</div>
+                    <div class="width208 neir guig">
+                        @(singleGoods.Attributes[0].AttributeValue)
+                    </div>
+                    <div class="width154 neir linehight126 danjia" style="color: #666;">
+                        ¥<span style="color: #666;"
+                               class="danjia-xx">@singleGoods.Price</span>
+                        </div>
+                        <div class="width145 neir numout">
+                            <div class="cheap-num">
+                                <div style="margin-top: 36px; margin-left: 38px;" class="num-box">
+                                    <span class="but-cut fl">-</span>
+                                    <input class="but-num width40" id="GoodQuality" name="GoodQuality" value="@singleGoods.Goods.Quantity" type="text">
+                                    <span class="but-add  fl">+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="width154 neir linehight126 peice-danjian" style="color: #c0a85f;">
+                            ¥<span class="peice-danjianxx"> @(singleGoods.Goods.Quantity*singleGoods.Goods.ShopPrice)</span>
+                        </div>
+                    </li>
+            }
+
+            @*加价购商品*@
+           
+                if (purchaseGoods != null)
+                {
+                        <li class="allchioceli clearfix" data-id="@purchaseGoods.Id">
+                         
+                            <div class="width240 nocenter neir clearfix">
+                                <div class="kong"></div>
+                                <img src="@(purchaseGoods.MainImage?.MediumThumbnail)" alt="">
+                            </div>
+                            <div class="width200 neir xinxi">@purchaseGoods.Name</div>
+                            <div class="width208 neir guig">
+                                @ViewBag.Attribute
+                            </div>
+                            <div class="width154 neir linehight126 danjia" style="color: #666;">
+                                ¥<span style="color: #666;"
+                                                   class="danjia-xx">@purchaseGoods.ShopPrice</span>
+                            </div>
+                            <div class="width145 neir numout">
+                                <div class="cheap-num">
+                                    <div style="margin-top: 36px; margin-left: 38px;" class="num-box">
+                                        <span class="but-cut fl">-</span>
+                                        <input class="but-num width40" value="1" id="PurQuality" name="PurQuality" type="text">
+                                        <span class="but-add  fl">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="width154 neir linehight126 peice-danjian" style="color: #c0a85f;">
+                                ¥<span class="peice-danjianxx"> @purchaseGoods.ShopPrice</span>
+                            </div>
+                        </li>
+                   
+                }
+
+            }
+            else
+            {
+                foreach (var item in myCarts)
+                {
+                    <li class="allchioceli clearfix" data-id="@item.SingleGoodsId">
+                        <div class="width240 nocenter neir clearfix">
+                            <div class="kong"></div>
+                            <img src="@(item.GoodsImage?.MediumThumbnail)" alt="">
+                        </div>
+                        <div class="width200 neir xinxi">@item.GoodsName</div>
+                        <div class="width208 neir guig">
+                            @item.GoodsAttribute
+                        </div>
+                        <div class="width154 neir linehight126 danjia" style="color: #666;">
+                            ¥<span style="color: #666;"
+                                   class="danjia-xx">@item.Price</span>
+                            </div>
+                            <div class="width145 neir numout">
+                                <div class="cheap-num">
+                                    <div style="margin-top: 36px; margin-left: 38px;" class="num-box">
+                                        <span class="but-cut fl">-</span>
+                                        <input class="but-num width40" id="GoodQuality" name="GoodQuality" value="@item.Quantity" type="text">
+                                        <span class="but-add  fl">+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="width154 neir linehight126 peice-danjian" style="color: #c0a85f;">
+                                ¥<span class="peice-danjianxx"> @(item.Price*item.Quantity)</span>
+                            </div>
+                        </li>
+                    }
+
+                }
+            }
+        </ul>
+    </div>
+    <div class="allchioce zixuanpro">
+        <p></p>
+        @*自选商品*@
+        <ul class="optul">
+            @{
+                if (optionalGoods != null)
+                {
+
+                    foreach (var item in optionalGoods)
+                    {
+                        var remark = "";
+                        var quantity = "1";
+                        if (optList != null && optList.Count > 0)
+                        {
+                            var opt = optList.Find(me => me.id == item.Id.ToString());
+                            remark = opt?.number;
+                            quantity = opt?.quantity.ToString();
+                        }
+                        <li class="allchioceli clearfix">
+                            <div class="width240 nocenter neir clearfix">
+                                <input type="checkbox" class="checkdp" @((optList!= null && optList.Count>0 && optList.Select(me=>me.id).ToList().Contains(item.Id.ToString())) ? "checked":"") name="optgood" data-id="@item.Id">
+                                <img src="@(item.MainImage?.MediumThumbnail)">
+                            </div>
+                            <div class="width200 neir xinxi">@item.Name</div>
+                            <div class="width208 neir guig">
+                                <input type="text" id="OptionalMemo" name="OptionalMemo" value="@remark" placeholder="备注">
+                            </div>
+                            <div class="width154 neir linehight126 danjia" style="color: #666;">
+                                ¥<span style="color: #666;"
+                                       class="danjia-xx">@item.ShopPrice</span>
+                                </div>
+                                <div class="width145 neir numout">
+                                    <div class="cheap-num">
+                                        <div style="margin-top: 36px; margin-left: 38px;" class="num-box">
+                                            <span class="but-cut fl">-</span>
+                                            <input class="but-num width40" value="@quantity" type="text" disabled>
+                                            <span class="but-add  fl">+</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="width154 neir linehight126 peice-danjian" style="color: #c0a85f;">
+                                    ¥<span class="peice-danjianxx">@item.ShopPrice</span>
+                                </div>
+
+                            </li>
+
+                    }
+
+                    }
+                
+            }
+
+        </ul>
+    </div>
+</div>
+<div class="sureorder-allbox width1190 clearfix">
+    <div class="allboxl fl">
+        <div class="bzhubox">
+            <span class="fl beizhufont">订单备注</span>
+            <textarea name="Memo" id="Memo"cols="30" rows="10" clas="fl" placeholder="选填，给卖家留言（限50字）"
+                      class="beizhuxx"></textarea>
+        </div>
+        <div class="givetimebox clearfix">
+            <span class="gicetime beizhufont fl">送货时间</span>
+            <input type="text" id="BestTime" name="BestTime" value=""/>
+        </div>
+        <div class="jifenbox">
+            @*<input type="checkbox" class="jifeninput fl" id="jifen"><label for="jifen" class="jifendik fl">积分抵扣</label>*@
+
+            @*<div class="jifenpricebox">
+                共有<span class="jifen">@(ViewBag.MyIntenal?.Available ?? 0)</span>积分，可抵扣¥<span class="jifenprice">@(ViewBag.MyIntenal?.Available ?? 0)</span>
+                <input type="hidden" id="Integral" name="Integral"/>
+            </div>*@
+        </div>
+        <div class="clearfix useyhqbox">
+            <div class="fl useyhq">
+                使用优惠券（<span class="useyhqnum">@ViewBag.MyCouponCount</span>）
+            </div>
+            <span class="chioceyhq fl">选择优惠券</span>
+        </div>
+    </div>
+    <div class="allboxr fr">
+        <ul class="allbrul fl">
+            <li>商品合计：</li>
+            @*<li>积分抵扣：</li>*@
+            <li>优惠券：</li>
+            <li> 运费：</li>
+        </ul>
+        <ol class="allbrol fl">
+            <li class="price-all">¥<span></span></li>
+            @*<li class="jifen">¥<span>0</span></li>*@
+            <li class="yhq">¥<span>0</span></li>
+            <li class="yunf">¥<span>0</span></li>
+        </ol>
+    </div>
+</div>
+<div class="zongjibox width1190 clearfix">
+    <div class="fr">
+        <div class="zongjibox1 clearfix">
+            <div class="zongjifont fl">商品总计：¥<span class="zongjiprice">1000</span></div>
+            <div class="tijiao fr" style="cursor:pointer;">提交订单</div>
+        </div>
+        @{
+            if (defaultAddress != null)
+            {
+                <div class="zongjibox2">
+                    <span id="c1">@defaultAddress.Contacts</span> <span id="c2">@defaultAddress.Phone</span>
+                </div>
+                <div class="zongjibox3">@defaultAddress.Address</div>
+            }
+        }
+
+    </div>
+</div>
+</div>
+ </form>
+
+@*选择其他收货地址*@
+<div class="add_address" id="other" style="display: none;">
+    <div class="zezao"></div>
+    <div class="address_box2">
+        <div class="address_title">
+            <h3 class="font_s18 color_orange1 shuohuo_add">选择其他收货地址</h3>
+            <div class="detail_x"></div>
+        </div>
+        <div class="add_info2">
+            <div class="add-chiocebox ">
+                @{
+                    if (otherAddress != null)
+                    {
+                        foreach (var item in otherAddress)
+                        {
+                <div class="add-chioce clearfix" data-id="@item.Id">
+                    <ul class="fl">
+                        <li>收&nbsp;货&nbsp;人：</li>
+                        <li>联系方式：</li>
+                        <li>联系地址：</li>
+                    </ul>
+                    <ol class="fl">
+                        <li id="a1">@item.Contacts</li>
+                        <li id="a2">@item.Phone</li>
+                        <li id="a3">@item.Address</li>
+                    </ol>
+                    <span class="morenaddr">默认地址</span>
+                    <div class="chioceaddbz"></div>
+                </div>
+                        }
+                    }
+                }
+            </div>
+        </div>
+        <div class="choic_btn2 clearfix">
+            <button class="sure fl chioceaddbtn">确定</button><button class="fl chioceaddbtn quxiao">取消</button>
+        </div>
+    </div>
+
+</div>
+@*添加收货地址*@
+<form id="AddAddressForm" role="form" method="POST" action="@Url.Action("WebCreateAddress", "WebMemberAddress", new {area = MemberCenterModule.Area})">
+    <div class="add_address" id="add" style="display: none">
+        <div class="zezao"></div>
+        <div class="address_box">
+            <div class="address_title">
+                <h3 class="font_s18 color_orange1 shuohuo_add">添加收货地址</h3>
+                <div class="detail_x"></div>
+            </div>
+            <div class="add_info">
+                <div class="address_one clearfix">
+                    <div class="add_man fl">
+                        <span class="f_title">收货人：</span>
+                        <input type="text" class="shouhuo_man" name="Contacts" id="Contacts" value="" />
+                    </div>
+                    <div class="add_iphone fr">
+                        <span class="f_title">手机号码：</span>
+                        <input type="" class="shuohuo_iphone" name="Phone" id="Phone" value="" />
+                    </div>
+                </div>
+                <div class="address_two clearfix">
+                    <div class="fl">
+                        <span class="f_title">所在地区：</span>
+                        <select name="Province" id="Province" class="Province"></select>
+                    </div>
+                    <div class="city_box fl">
+                        <select name="City" id="City" class="City"></select>
+                    </div>
+                    <div class="fr">
+                        <select name="District" id="District" class="District"></select>
+                    </div>
+                </div>
+                <div class="address_three clearfix">
+                    <span class="f_title">详细地址：</span>
+                    <textarea class="address_texa" name="Address" id="Address" rows="" cols=""></textarea>
+                </div>
+                <div class="address_four clearfix">
+                    <div class="acquiesce fl">
+                        <span class="fl moren" id="IsDefault"></span><p class="fr">设为默认</p>
+                    </div>
+                    <div class="choic_btn clearfix font_s16 fl">
+                        <div class="fl yes bg_orange">确定</div>
+                        <div class="fr no">取消</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</form>
+@*优惠券*@
+<div class="add_address" id="coupon" style="display:none">
+    <div class="zezao"></div>
+    <div class="address_box3">
+        <div class="address_title">
+            <h3 class="font_s18 color_orange1 shuohuo_add">添加优惠券</h3>
+            <div class="detail_x"></div>
+        </div>
+        <div class="add_info2">
+            <div class="shiyongbox">
+                <ul class="shiyongul clearfix">
+                    <li class="shiyong">
+                        <span class="shiyongspan1">
+                          满<i>199</i><span>减</span><i class="yhqprice">50</i>
+                        </span>
+                        <span class="shiyongspan2">全店通用</span>
+                        <span class="shiyongspan3">有效期：<i>2016-07-29</i> 至 <i>2016-08-01</i></span>
+                    </li>
+                </ul>
+            </div>
+         
+
+        </div>
+        <div class="choic_btn2 clearfix">
+            <button class="sure fl chioceaddbtn marginleft172">确定</button>
+            <button class="fl chioceaddbtn quxiao">取消</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/js/goodDetails")
+    @Scripts.Render("~/js/confirmorder")
+@Scripts.Render("~/js/date"); 
+    <script type="text/javascript">
+        var url_myCouponList = "@Url.Action("MyCouponsList", "WebSubmitOrder",new {area=MallModule.Area})";
+        //表单提交（订单提交)后跳到付款方式
+        var url_payType = "@Url.Action("PayType", "WebOrder", new { area = OrderProcessModule.Area })";
+    </script>
+}

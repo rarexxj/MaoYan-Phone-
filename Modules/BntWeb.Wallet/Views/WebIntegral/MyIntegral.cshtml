@@ -1,0 +1,80 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Wallet.Models
+
+@{
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+    var list = ViewBag.ListWalletBill as List<WalletBill>;
+
+}
+
+@section Styles{
+@Styles.Render("~/css/web/integral")
+}
+<div class="per_nav_right fr font_s14 color_666">
+    <div class="nav_rights">
+
+        <div class="order_right_title color_444">
+            <div class="myjf-title">我的积分</div>
+            <div class="order_sou clearfix jifencurrentbox">
+                <div class="currentjif fl">当前可用积分：<span>@(ViewBag.MyIntenal?.Available ?? 0)</span></div>
+                <a class="jifduih fl" href="@Url.Action("Exchange","WebGoods",new {area="Mall" })">积分兑换</a>
+            </div>
+
+        </div>
+        
+        <div class="order_right_title">
+            <ul class="order_nav clearfix myjf_nav">
+                <li data-status="">积分变动</li>
+                <li data-status="1">积分收入</li>
+                <li data-status="2">积分支出</li>
+            </ul>
+        </div>
+
+        <!--积分切换处-->
+        <div class="">
+            <ul class="order_list_name clearfix">
+                <li class="order_one jifen_one">来源/用途</li>
+                <li class="order_two jifen_two">积分变动</li>
+                <li class="order_three jifen_three">时间</li>
+                <li class="order_four jifen_four">备注</li>
+            </ul>
+            <!--商品列表-->
+            <ul class="order_feilei">
+                @{
+                    if (list != null)
+                    {
+                        foreach (var item in list)
+                        {
+                            <li>
+                                <div class="order_xinxi jifen_xinxi clearfix">
+                                    <div class="jifen_xinxi1 fl">@item.Remark</div>
+                                    @if (item.BillType == BillType.TakeIn)
+                                    {
+                                        <div class="jifen_xinxi2 fl">+@item.Money</div>
+                                    }
+                                    else
+                                    {
+                                        <div class="jifen_xinxi2 fl">-@item.Money</div>
+                                    }
+
+                                    <div class="jifen_xinxi3 fl">@(item.CreateTime.ToString("yyyy/MM/dd hh:mm:ss"))</div>
+                                    <div class="jifen_xinxi4 fl">@item.BillTag</div>
+                                </div>
+                            </li>
+
+                        }
+                    }
+                }
+              
+            </ul>
+        </div>
+    </div>
+  @Html.Action("PagePartial", "Home", new { area = "Home", url = ViewBag.Url, totalPage = ViewBag.TotalPage, currentPage = ViewBag.CurrentPage })
+</div>
+@section Scripts{
+    @Scripts.Render("~/js/web/myintegral")
+
+    <script type="text/javascript">
+        var url_myIntagral="@Url.Action("MyIntegral", "WebIntegral", new { area=WalletModule.Area})"
+    </script>
+}

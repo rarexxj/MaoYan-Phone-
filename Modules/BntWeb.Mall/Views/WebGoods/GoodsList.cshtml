@@ -1,0 +1,129 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Carousel.ApiModel
+@using BntWeb.Mall.Models;
+
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    var list = ViewBag.GoodsList as List<Goods>;
+    var carousel = ViewBag.Carousel as List<CarouseModel>;
+}
+@section Styles{
+
+}
+
+<div class="main" style="padding-bottom: 90px;">
+    <div class="bannerbox">
+        <div class="banner bd">
+            <ul>
+                @{
+                    if (carousel != null)
+                    {
+                        foreach (var item in carousel)
+                        {
+                            if (item.ShotUrl?.Split('|').Length == 2)
+                            {
+                                var url = Url.Action("GoodsDetails", "WebGoods", new { area = "Mall", goodId = (item.ShotUrl?.Split('|')[1]) });
+                                <li>
+                                    <a href="@(string.IsNullOrWhiteSpace(item.ShotUrl) ? "javascript:void(0);" : url)" target="_balnk" title="">
+                                        <img src="@(item.CoverImage?.RelativePath)"/>
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a href="@("javascript:void(0);")" target="_balnk" title="">
+                                        <img src="@(item.CoverImage?.RelativePath)" width="1920" height="672" />
+                                    </a>
+                                </li>
+                            }
+
+                        }
+                    }
+                }
+            </ul>
+        </div>
+        <div class="hd">
+            <ul class="clearfix">
+                <li class="on"></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="width1190 listTopNav">
+        <p><a href="@Url.Action("Index", "Home")">首页</a> > <a href="javascript:location.reload();">@ViewBag.CategoryName</a></p>
+        <h2>进口好材料，温柔托住你的疲惫</h2>
+        <span>严选材料，填充物饱满，随时随地小憩之选</span>
+    </div>
+    <div class="productList width1190">
+        <ul class="productListUl">
+            @{
+                if (list != null)
+                {
+                    foreach (var item in list)
+                    {
+                        <a href="@Url.Action("GoodsDetails", "WebGoods", new { area = MallModule.Area, goodId = item?.Id })">
+                            <li class="napolun-product">
+                                <img src="@(item.MainImage?.MediumThumbnail)" alt="">
+                                <div class="napolun-intro-1">
+                                    <span class="napolun-introname">@item.Name</span>
+                                    <span class="napolun-introprice">￥@item.ShopPrice</span>
+                                </div>
+                                <span class="@(item.IsHot?"hotsell":"")"></span>
+                            </li>
+                        </a>
+                    }
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+@section Scripts{
+    @*分页的js*@
+    @Scripts.Render("~/js/page")
+    <script type="text/javascript">
+        $(function () {
+            //导航点击
+            $('.index-headnavmainul .index-navli').hover(function () {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $(this).children('.index-navtwo').stop().slideToggle();
+            });
+            //banner图轮播
+            jQuery(".bannerbox").slide({
+                mainCell: ".bd ul",
+                autoPlay: true,
+                mouseOverStop: false
+            });
+        })
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

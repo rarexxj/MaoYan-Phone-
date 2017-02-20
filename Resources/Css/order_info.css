@@ -1,0 +1,365 @@
+.per_nav_right_1{
+	width: 948px;
+    min-height: 740px;
+}
+.order_info_statues{
+	height: 204px;
+	border: 1px solid #E8E8E8;
+}
+.order_statues_one{
+	width: 453px;
+	height: 204px;
+	padding-left: 20px;
+}
+.order_statues_address{
+	width: 420px;
+	height: 188px;
+	padding-left: 52px;
+	padding-top:16px ;
+	border-left: 1px solid #E8E8E8;
+}
+.o_statues{
+	height: 62px;
+	padding-left: 62px;
+	margin-top: 36px;
+	background: url(../img/order_statues.png) no-repeat left;
+}
+.o_statues1{
+	height: 62px;
+	line-height: 62px;
+	padding-left: 62px;
+	margin-top: 36px;
+	background: url(../img/order_success.png) no-repeat left;
+}
+.o_statues2{
+	height: 62px;
+	padding-left: 62px;
+	margin-top: 36px;
+	background: url(../img/order_success.png) no-repeat left;
+}
+.o_caozuo{
+	line-height: 1.6;
+}
+.pay_box{
+	width: 368px;
+	margin-left: 62px;
+	margin-top: 22px;
+}
+.pay_box div{
+	height: 38px;
+	width: 174px;
+	line-height: 38px;
+	text-align: center;
+	cursor: pointer;
+}
+.o_pay{
+	background:#dccc8d ;
+	color: #FFFFFF;
+}
+.o_detail{
+	background: #8d8169;
+	color: #c9ba84;
+}
+.order_statues_address p{
+	line-height: 2.8;
+}
+.o_address{
+	
+	max-width: 305px;
+	line-height: 1.4;
+	margin-top: 12px;
+}
+.order_list_name {
+    height: 38px;
+    line-height: 38px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #666666;
+    border-bottom: 1px solid #E8E8E8;
+  }
+.o_list{
+	margin-top: 20px;
+	border: 1px solid #E8E8E8;
+}
+.pay_jilu{
+	height: 176px;
+	margin-top: 20px;
+	padding: 15px 0;
+	padding-right: 20px;
+	border: 1px solid #E8E8E8;
+	}
+
+.pay_boxs{
+	width: 222px;
+}
+.pay_boxs p{
+	height: 42px;
+	line-height: 42px;
+}
+.sum_pay{
+	line-height: 120px;
+	padding-right: 20px;
+}
+.order_statues_1{
+	    margin-left: 40px;
+    width: 100px;
+   
+    text-align: center;
+}
+.pin_1{
+	font-weight: bold;
+    width: 86px;
+    height: 36px;
+    line-height: 36px;
+    cursor: pointer;
+    display: block;
+    color: #666666;
+    border: 1px solid #E8E8E8;
+    text-align: center;
+}
+.order_caozuo_1{
+	margin-top: 45px;
+}
+.wuliu{
+	margin-top: 20px;
+	border: 1px solid #E8E8E8;
+	display: none;
+}
+.wuliu_list_name{
+	    height: 38px;
+    line-height: 38px;
+    font-size: 14px;
+    color: #666666;
+    border-bottom: 1px solid #E8E8E8;
+}
+.yundan{
+	margin-right: 20px;
+}
+.wuliu_info {
+	min-height: 250px;
+	padding-left: 20px;
+	padding-top: 26px;
+	padding-bottom: 26px;
+}
+.wuliu_data{
+	margin-top: 15px;
+	line-height: 2.4;
+}
+.wuliu_list_1{
+	margin-left:50px ;
+	
+}
+.wuliu_jincheng{
+	line-height: 1.6;
+	max-width: 698px;
+	margin-left: 22px;
+	margin-top: 5px;
+}
+.wuliu_pic{
+	height: 40px;
+}
+.o_list_1{
+	    border: 1px solid #E8E8E8;
+}
+.order_one_1{
+	margin-left: 176px;
+}
+.order_two_1{
+	margin-left: 190px;
+}
+.order_three_1{
+	margin-left: 144px;
+}
+.order_four_1{
+	margin-left: 118px;
+}
+.order_five_1{
+	margin-left: 126px;
+}
+.order_jieshao_1{
+	width: 150px;
+	margin-left: 20px;
+	text-align: center;
+}
+.order_name_1{
+	line-height: 1.5;
+	margin-top:52px ;
+}
+.order_height_1{
+	line-height: 1.5;
+	text-align: center;
+}
+.order_price_1{
+	width: 270px;
+	margin-top: 44px;
+}
+.order_price_tol_1{
+	width: 66px;
+	text-align: center;
+}
+.order_num_1{
+	width: 232px;
+	text-align: center;
+}
+.order_price_2{
+	width: 74px;
+	text-align: center;
+}
+.pinjia{
+	height: 618px;
+	margin-bottom: 64px;
+	border: 1px solid #E8E8E8;
+	border-top: none;
+	padding: 0 20px;
+	font-weight: bold;
+	color: #000;
+}
+.pinjia_title {
+	line-height: 80px;
+}
+.pinjia_box span{
+	display: block;
+	width: 26px;
+	height: 26px;
+	float: left;
+	margin-left: 8px;
+	cursor: pointer;
+
+	}
+	.full_orange1{
+		background: url(../img/pinjia1.png) no-repeat center;
+	}
+.full_orange{
+	background: url(../img/pinjia.png) no-repeat center;
+	
+}
+.xingxing li{
+	margin-bottom: 20px;
+	
+}
+.pinjia_text{
+	width: 786px;
+	height: 178px;
+	margin-left: 10px;
+	border: 1px solid #E8E8E8;
+	padding: 10px;
+	outline: none;
+	resize: none;
+}
+.pinjia_info span{
+	line-height: 1;
+	margin-left: 16px;
+}
+.upload{
+	margin-left:96px;
+	margin-top: 20px;
+}
+.upload li{
+	position: relative;
+	margin-right: 20px;
+	
+}
+.first_file{
+	width: 82px;
+	height: 82px;
+	background: url(../img/file_bg.jpg) no-repeat center;
+	border: 1px solid #e4e4e4;
+}
+.files{
+	width: 82px;
+	height: 82px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	filter: alpha(opacity=0);
+	opacity: 0;
+}
+.tijiao{
+	width: 90px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	margin-left: 96px;
+	margin-top: 32px;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+	
+}
+.upload li img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+}
+.active{
+	display: block;
+}
+.hidden{
+	display: none;
+}
+.pic_datails{
+	width: 20px;
+	height: 20px;
+	background: url(../img/details1.png) no-repeat center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: -10px;
+	margin-top: -10px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

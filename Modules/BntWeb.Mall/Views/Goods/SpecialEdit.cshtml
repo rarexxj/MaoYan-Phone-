@@ -1,0 +1,238 @@
+﻿@using System.Web.Optimization
+@using BntWeb.FileSystems.Media
+@using BntWeb.Mall.Models
+@{
+    ViewBag.Title = MallModule.DisplayName;
+    ViewBag.SubTitle = "编辑商品";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+   
+}
+@model Goods
+@section Styles {
+    @Styles.Render("~/css/ztree")
+    @Styles.Render("~/css/admin/editable")
+    <style>
+        input[readonly] { background: #fff !important; }
+        .profile-picture img { width: 150px; height: 150px; }
+        .singleGoodsInfo { margin: 20px; }
+            .singleGoodsInfo div { margin: 10px; }
+    </style>
+}
+<form class="form-horizontal" role="form" id="SpecialGoodsForm" action="@Url.Action("SpecialEditOnPost", "Goods", new { area = MallModule.Area })">
+    <div class="col-sm-12 widget-container-span" style="padding: 0px;">
+        <div class="widget-box" style="margin: 0px;">
+            <div class="widget-header" style="background-color: #fff; background-image: none; border: 0px; border-bottom: 1px solid #DDD;">
+                <div class="widget-toolbar no-border" style="float: left;">
+                    <ul class="nav nav-tabs" id="myTab2">
+                        <li class="active">
+                            <a data-toggle="tab" href="#basic">基本信息</a>
+                        </li>
+
+                        <li>
+                            <a data-toggle="tab" href="#description">商品描述</a>
+                        </li>
+
+                        <li>
+                            <a data-toggle="tab" href="#goodsImages">商品图片</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+            <div class="widget-body" style="border: 0px;">
+                <div class="widget-main padding-12 no-padding-left no-padding-right">
+                    <input type="hidden" id="type" value="@Model.SpecialType"/>
+                    <div class="tab-content padding-4">
+                        <div id="basic" class="tab-pane in active">
+                            <div class="slim-scroll">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="SpecialType"> 类型 </label>
+                                    <div class="col-sm-8 col-md-8">
+                                        <div class="clearfix">
+                                            <select id="SpecialType" name="SpecialType" onchange='_change()'>
+                                                <option value="1" @(Model.SpecialType == SpecialType.Optional ? "selected=selected" : "")>自选</option>
+                                                <option value="2" @(Model.SpecialType == SpecialType.PurchasePrice ? "selected=selected" : "")>加价购</option>
+                                                <option value="3" @(Model.SpecialType == SpecialType.IntegralExchange ? "selected=selected" : "")>积分换购</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="Name"> 商品名称 </label>
+                                    <input type="hidden" id="Id" name="Id" value="@Model.Id"/>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="Name" name="Name" placeholder="商品名称" class="col-xs-10 col-sm-5" value="@Model.Name"/><span class="red">*</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="Abstract"> 商品简介 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="Abstract" name="Abstract" placeholder="商品简介" class="col-xs-5 col-sm-3" value="@Model.Abstract"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="GoodsNo"> 货号 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="GoodsNo" name="GoodsNo" placeholder="货号" class="col-xs-5 col-sm-3" value="@Model.GoodsNo"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-4"></div>
+                                <div class="form-group" id="jifen" style="display: none;">
+                                    <label class="col-sm-1 control-label no-padding-right" for="ExchangeIntegral"> 所需积分 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="ExchangeIntegral" name="ExchangeIntegral" placeholder="所需积分" class="col-xs-3 col-sm-1" value="@Model.ExchangeIntegral"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-4"></div>
+                                <div class="form-group" id="nowmoney" style="display: block">
+                                    <label class="col-sm-1 control-label no-padding-right" for="ShopPrice"> 现价 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="ShopPrice" name="ShopPrice" placeholder="现价" class="col-xs-3 col-sm-1" value="@Model.ShopPrice"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="Stock"> 库存 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="Stock" name="Stock" placeholder="库存" class="col-xs-3 col-sm-1" value="@Model.Stock"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--包邮设置-->
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="FreeShipping"> 包邮 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <label class="inline" style="margin-right: 30px; cursor: pointer">
+                                                <input type="checkbox" id="FreeShipping" name="FreeShipping" class="ace" value="true" @(Model.FreeShipping ? "checked='checked'" : "")/>
+                                                <span class="lbl"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="description" class="tab-pane">
+                            <div class="slim-scroll" data-height="100">
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="Description"> 商品介绍 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <textarea id="Description" name="Description" placeholder="请填商品描述" style="height: 400px; width: 100%" class="col-xs-10 col-sm-12">@Model.Description</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="goodsImages" class="tab-pane">
+                            <div class="slim-scroll" data-height="100">
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right"> 商品主图 </label>
+                                    <div class="col-sm-8 image">
+                                        <div class="col-sm-10">
+                                            @Html.Action("UploadPartial", "File", new {area = "SystemSettings", controlId = "MainImage", sourceId = Model.Id, moduleKey = MallModule.Key, sourceType = "MainImage", fileType = FileType.Image, isPublic = true, mediumThumbnailHeight = 500, mediumThumbnailWidth = 700, smallThumbnailWidth = 350, smallThumbnailHeight = 250, maxFiles = 4})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9" style="margin-top: 18px;">
+            <button class="btn btn-info" type="submit">
+                <i class="icon-ok bigger-110"></i>
+                保存
+            </button>
+        </div>
+    </div>
+</form>
+@section Scripts {
+    @Scripts.Render("~/js/ztree")
+    @Scripts.Render("~/js/admin/editable")
+    @Scripts.Render("~/js/admin/jquery-form")
+    @Scripts.Render("~/js/kindeditor")
+    <script type="text/javascript">
+        //初始化积分加价购显示积分和原价
+        if ($("#type").val() === "IntegralExchange") {
+            $("#jifen").css('display', 'block');
+            $("#nowmoney").css('display', 'none');
+        } else {
+            $("#jifen").css('display', 'none');
+            $("#nowmoney").css('display', 'block');
+        }
+        var editor;
+        KindEditor.ready(function (K) {
+            editor = K.create('#Description', {
+                afterBlur: function () { this.sync(); }
+            });
+        });
+        jQuery(function ($) {
+          
+            bntToolkit.initForm($("#SpecialGoodsForm"), {
+                OriginalPrice: {
+                    required: true
+                },
+                ExchangeIntegral: {
+                    number:true
+                },
+                Name: {
+                    required: false
+                },
+                ShopPrice: {
+                    required: false
+                },
+                Description: {
+                    required: true
+                }
+            }, null, success);
+        });
+
+        // post-submit callback
+        function success(result, statusText, xhr, $form) {
+            if (!result.Success) {
+                bntToolkit.error(result.ErrorMessage);
+            } else {
+                location.href = "@Url.Action("SpecialList", "Goods", new {area = MallModule.Area })";
+            }
+        }
+        //类型改变事件
+        function _change() {
+            var optionValue = $("#SpecialType").find("option:selected").text();
+            if (optionValue === "积分换购") {
+                $("#jifen").css('display', 'block');
+                $("#nowmoney").css('display', 'none');
+            } else {
+                $("#jifen").css('display', 'none');
+                $("#nowmoney").css('display', 'block');
+            }
+        }
+
+    </script>
+
+}

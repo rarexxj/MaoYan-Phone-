@@ -1,0 +1,258 @@
+.order_nav li{
+	font-weight: bold;
+	font-size: 14px;
+	width: 110px;
+	line-height: 56px;
+	text-align: center;
+	float: left;
+	color: #666666;
+	cursor: pointer;
+}
+.order_right_title{
+	    height: 56px;
+    background: #fbfbfb;
+    border-bottom: 1px solid #E8E8E8;
+    position: relative;
+}
+.order_sou{
+	position: absolute;
+	right:20px ;
+	top: 11px;
+}
+.order_sou input{
+	padding-left: 10px;
+	height: 32px;
+	width: 204px;
+	border: 1px solid #C3C3C3;
+	border-right: none;
+	color: #666666;
+}
+.order_seach{
+	height: 34px;
+	width: 36px;
+	background: url(../img/seach.png) no-repeat center;
+	background-color:#dccc8d;
+	cursor: pointer;
+}
+.order_nav li:first-child:hover{
+	background: #FFFFFF;
+	width: 109px;
+	height: 57px;
+	border-right: 1px solid #E8E8E8;	
+	border-left: none;
+}
+.order_nav li:hover{
+	background: #FFFFFF;
+	width: 108px;
+	height: 57px;
+	border-right: 1px solid #E8E8E8;
+	border-left: 1px solid #E8E8E8;
+	color: #ab8332;
+}
+.order_list_name{
+	height: 56px;
+	line-height: 56px;
+	font-weight: bold;
+	font-size: 14px;
+	color: #000000;
+	border-bottom: 1px solid #E8E8E8;
+}
+.order_list_name li{
+	float: left;
+}
+.order_one{
+	margin-left:20px ;
+}
+.order_two{
+	margin-left: 320px;
+}
+.order_three{
+	margin-left: 80px;
+}
+.order_four{
+	margin-left: 80px;
+}
+.order_five{
+	margin-left: 80px;
+}
+.order_six{
+	margin-left: 84px;
+}
+.order_data{
+	padding: 0 20px;
+	height: 40px;
+	line-height: 40px;
+	color: #666666;
+}
+.order_xinxi{
+	height: 128px;
+	line-height: 128px;
+	border-top: 1px solid #E8E8E8;
+	border-bottom: 1px solid #E8E8E8;
+	/*padding: 0 20px;*/
+}
+.order_img{
+	width:84px ;
+	height: 84px;
+	margin-top: 22px;
+}
+.order_jieshao{
+	width: 210px;
+	margin-left: 30px;
+	margin-top: 36px;
+	
+}
+.order_name{
+	line-height: 1.4;
+	margin-bottom: 6px;
+}
+.order_height{
+	line-height: 2;
+}
+.order_price{
+	width: 76px;
+	text-align: center;
+}
+.order_num{
+	width: 140px;
+	text-align: center;
+}
+.order_price_tol {
+	width: 80px;
+	text-align: center;
+}
+.order_statues{
+	margin-left: 40px;
+	width: 100px;
+	margin-top: 42px;
+	text-align: center;
+}
+.order_statues p{
+	
+	line-height: 1.6;
+}
+.order_info{
+	cursor: pointer;
+}
+.order_info:hover{
+	color: #AB8332;
+}
+.order_caozuo{
+	width: 160px;
+	margin-top: 22px;
+}
+ .pay{
+	
+	font-weight: bold;
+	width: 92px;
+	height: 40px;
+	line-height:40px ;
+	cursor: pointer;
+	display: block;
+	color: #FFFFFF;
+	text-align: center;
+margin-bottom: 15px;
+}
+.order_word{
+	text-align: center;
+	line-height: 2;
+	cursor: pointer;
+}
+.order_time{
+	height: 54px;
+	width: 120px;
+	margin: auto;
+	text-align: center;
+	line-height: 1.4;
+    padding-top: 12px;
+    margin-right: 12px;
+	cursor: pointer;
+	padding-left:24px;
+	background: url(../img/clock.png) no-repeat  0 16px;
+}
+
+.pin{
+	font-weight: bold;
+	 width: 92px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    display: block;
+    color: #666666;
+    border: 1px solid #E8E8E8;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+	
+}
+.pin:hover{
+	background: #FBFBFB;
+}
+.order_caozuo .pay{
+	display: block;
+	margin: auto;
+}
+.order_xinxi .or_list{
+	
+	border-top: 1px solid #E8E8E8;
+}
+.order_xinxi .or_list:first-child{
+	border-top: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

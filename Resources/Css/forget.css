@@ -1,0 +1,101 @@
+
+.forget_box{
+	height: 580px;
+}
+
+.forget_center{
+	width: 1190px;
+	height: 486px;
+	border: 1px solid #E8E8E8;
+	margin: auto;
+	margin-top: 38px;
+	text-align: center;
+}
+.forget_mima{
+	height: 58px;
+	line-height: 58px;
+	padding-left: 29px;
+	border-bottom: 1px solid #E8E8E8;
+	text-align: left;
+}
+.forget_jindu {
+	
+	margin-top:45px ;
+}
+.with_98{
+	width: 85px;
+	height: 38px;
+	border: 1px solid #C3C3C3;
+	border-left: none;
+}
+.forget_list{
+	display: inline-block;
+	margin-top: 70px;
+	position: relative;
+}
+.tishi{
+	position: absolute;
+	top:128px ;
+	left: 38px;
+	display: none;
+}
+.next_bu{
+	height: 40px;
+	width: 282px;
+	text-align: center;
+	line-height: 40px;
+	color: #FFFFFF;
+	margin-top: 50px;
+	cursor: pointer;
+}
+
+.forget_deng{
+	display: block;
+	width: 180px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #FFFFFF;
+	margin: auto;
+	margin-top: 20px;
+}
+.forget_suc{
+	display: block;
+	margin: auto;
+	margin-top: 62px;
+	margin-bottom: 40px;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

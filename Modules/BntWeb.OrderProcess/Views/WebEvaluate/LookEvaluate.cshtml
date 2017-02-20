@@ -1,0 +1,123 @@
+﻿@using System.Web.Optimization
+@using BntWeb.FileSystems.Media
+@using BntWeb.OrderProcess.ApiModels
+
+@{
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+    var list = ViewBag.EvaluateList as List<EvaluateDetailsModel>;
+    var img = ViewBag.EvaluteImages as List<StorageFile>;
+    var webAvatar = ViewBag.MemberAvatar as StorageFile ?? new StorageFile();
+}
+
+
+
+@section Styles{
+    @*两者引用是一样的*@
+    @Styles.Render("~/css/refund/allrefund")
+}
+
+ <!--模块引入-->
+<div class="per_nav_right_1 fr font_s14 color_666 border_none">
+    <div class="o_list_1">
+        <ul class="order_list_name clearfix bg_pink">
+            <li class="order_one_1">商品</li>
+            <li class="order_two_1">规格</li>
+            <li class="order_three_1">单价</li>
+            <li class="order_four_1">数量</li>
+            <li class="order_five_1">小计</li>
+
+        </ul>
+        @{
+            if (list.Count != 0)
+            {
+                foreach (var item in list)
+                {
+                
+                    <div class="order_xinxi border_none">
+                        <div class="order_img fl"
+                             style="background: url(@(item.MainImage?.MediumThumbnail)) no-repeat center; background-size: cover;"></div>
+                        <div class="order_jieshao_1 fl">
+                            <p class="order_name_1 color_000">@item.GoodsName</p>
+
+                        </div>
+                        <div class="order_price_1 color_999 fl">
+                            <p class="order_height_1">@item.GoodsAttribute</p>
+                          
+                        </div>
+                        <div class="order_price_tol_1  fl">￥@item.Price</div>
+                        <div class="order_num_1 color_000 fl">@item.Quantity</div>
+                        <div class="order_price_2 color_orange fl">￥@(item.Quantity*item.Price)</div>
+                    </div>
+                }
+            }
+        }
+
+    </div>
+@{
+    if (list.Count != 0 && list.Count>0)
+    {
+        var avgScore = 1;
+        avgScore = (int) ((list[0].Score + list[0].DesMatchScore + list[0].LogisticsScore)/3);
+        <div class="lookpinjia clearfix">
+            <div class="lookpj-logo fl" style="background-image: url(@(webAvatar.MediumThumbnail))"></div>
+            <div class="lookpj-rb fl">
+                <div class="clearfix">
+                    <span class="fl lookpj-name">@list[0].MemberName</span>
+                    <div class="fl lookpj-stars">
+                        @{
+                            for (var i = 1; i <= 5; i++)
+                            {
+                                if (i <= avgScore)
+                                {
+                                    <span class="star"></span>
+                                }
+                                else
+                                {
+                                    <span></span>
+                                }
+                            }
+                        }
+                    </div>
+                    <span class="fr lookpj-time">@list[0].EvaluateTime.ToString("yyyy-MM-dd hh:mm")</span>
+                </div>
+                <p class="lookpj-p">@list[0].Content</p>
+                <div class="lookpj-img">
+                    @{
+                        if (img != null)
+                        {
+                            foreach (var item in img)
+                            {
+                                <img src="@(item?.MediumThumbnail)" alt="">
+                            }
+                        }
+                    }
+
+                </div>
+                <span class="lookpj-gg">@list[0].GoodsAttribute</span>
+            </div>
+
+            <span>回复内容：@list[0].ReplyContent  </span>
+            <span class="fr lookpj-time">@(list[0].ReplyTime?.ToString("yyyy-MM-dd hh:mm"))</span>
+        </div>
+    }
+}
+   
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/js/web/evaluateWeb")
+    @Scripts.Render("~/js/web/uploadify")
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            //导航点击
+            $('.index-headnavmainul .index-navli').hover(function() {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $(this).children('.index-navtwo').stop().slideToggle();
+            });
+
+        });
+
+    </script>
+}

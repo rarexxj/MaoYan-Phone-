@@ -1,0 +1,82 @@
+﻿@using System.Web.Optimization
+@{
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+}
+@section Styles{
+    @Styles.Render("~/css/web/personal")
+}
+
+<form id="phoneform" role="form" method="post" action="@Url.Action("WebChangePhoneNumberOnPost", "WebMember", new { area = MemberCenterModule.Area })">
+    <div class="per_nav_right fr font_s14 color_666 per_nav_right2" id="sOne">
+
+        <input type="hidden" id="smscode" />
+        <div class="iphone_one">
+            <div class="per_right_title color_444">
+                <h3 class="font_s18">修改绑定手机</h3>
+            </div>
+            <div class="per_right_bottom">
+                <div class="tab tab_iphone clearfix">
+                    <span class="per_word2 fl">手机：</span>
+                    <input id="PhoneOne" type="hidden" value="@ViewBag.PhoneNumber" />
+                    <div class="userIphone  fl">@ViewBag.PhoneNumber</div>
+                </div>
+                <div class="tab tab_b">
+                    <span class="per_word2">验证码：</span>
+                    <input type="text" class="yanzheng" name="SmsVerifyCode" id="SmsVerifyCode" />
+                    <input type="button" class="code-btn code1 bg_gay" id="sendbtnOne" value="获取验证码" />
+                </div>
+                <p class="yan_cuo color_red">验证码错误</p>
+                <div class="next_bu font_s16 bg_orange">下一步</div>
+
+            </div>
+        </div>
+        <div class="phonetwo" style="display: none">
+
+            <input id="PhoneNumber" type="hidden" name="PhoneNumber" value="@ViewBag.PhoneNumber" />
+            <div class="per_right_title color_444">
+                <h3 class="font_s18">绑定新手机</h3>
+            </div>
+            <div class="per_right_bottom">
+                <div class="tab tab_iphone clearfix">
+                    <span class="per_word2 ">手机：</span>
+                    <input type="text" class="yanzheng iphone" name="NewPhoneNumber" id="NewPhoneNumber" value="" />
+                </div>
+                <div class="tab tab_b">
+                    <span class="per_word2">验证码：</span>
+                    <input type="text" class="yanzheng yanzheng1" name="NewSmsVerifyCode" />
+                    <input type="button" class="code-btn code2 bg_gay" id="sendbtnTwo" value="获取验证码" />
+                </div>
+                <p class="yan_cuo color_red">验证码错误</p>
+                <div class="next_bu font_s16 bg_orange" id="finish">完成</div>
+
+            </div>
+        </div>
+
+    </div>
+</form>
+
+
+@section Scripts{
+    @Scripts.Render("~/js/web/phonechange")
+    <script type="text/javascript">
+        
+        var url_changephone = "@Url.Action("WebChangePhoneNumberOnPost", "WebMember", new { area = MemberCenterModule.Area })";
+        var url_personal="@Url.Action("WebPersonal", "WebMember", new { area = MemberCenterModule.Area })";
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

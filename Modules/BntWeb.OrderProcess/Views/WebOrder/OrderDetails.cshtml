@@ -1,0 +1,431 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Core.SystemUsers
+@using BntWeb.FileSystems.Media
+@using BntWeb.OrderProcess.Models
+@using BntWeb.Utility.Extensions
+
+@{
+    ViewBag.Title = SystemUsersModule.DisplayName;
+    ViewBag.SubTitle = "订单详情";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+
+
+}
+@section Styles{
+    @Styles.Render("~/css/refund/allrefund")
+
+}
+@model Order
+<!--模块引入-->
+<div class="per_nav_right_1 fr font_s14 color_666 border_none">
+    <div class="order_info_statues clearfix">
+        <input type="hidden" id="orderId" value="@Model.Id"/>
+        <!--订单状态-->
+        <div class="order_statues_one fl">
+            @{
+                if (Model.OrderStatus == OrderStatus.PendingPayment) //代付款
+                {
+                    <div class="o_statues font_s18">
+                        <span class="o_order_statues fwb">订单状态:</span>
+                        <span class="color_orange fwb">等待买家付款</span>
+                        <div class="o_caozuo font_s12  color_666">
+                            还剩下&nbsp;&nbsp;&nbsp;&nbsp;<span class="color_orange font_s18"><i>00</i>&nbsp;:&nbsp;<i class="min">00</i>&nbsp;:&nbsp;<i class="second">00</i></span>
+                            <i class="font_s14 color_000">&nbsp;&nbsp;支付(若未支付订单将取消)</i>
+                        </div>
+                    </div>
+                    <div class="pay_box clearfix font_s16">
+                        <div class="fl o_pay paynow" data-id="@Model.Id">立即付款</div>
+                        <div class="fr o_detail cancel" data-id="@Model.Id">取消订单</div>
+                    </div>
+                }
+                if (Model.RefundStatus == OrderRefundStatus.NoRefund)
+                {
+                    if (Model.OrderStatus == OrderStatus.WaitingForDelivery) //待发货
+                    {
+
+                        <div class="o_statues font_s18">
+                            <span class="o_order_statues fwb">订单状态:</span>
+                            <span class="color_orange fwb">等待卖家发货</span>
+                            <div class="o_caozuo font_s12  color_666">
+                            </div>
+                        </div>
+                        <div class="pay_box clearfix font_s16">
+                            <div class="fl o_pay remind" data-id="@Model.Id">提醒发货</div>
+                        </div>
+                    }
+                    else if (Model.OrderStatus == OrderStatus.WaitingForReceiving) //待收货
+                    {
+                        var time = Convert.ToDateTime(Model.ShippingTime).AddDays(10);
+                        var hours = time.Subtract(DateTime.Now).Hours;
+                        var strResult = hours / 24 + "天" + hours % 24 + "小时";
+
+                        <div class="o_statues font_s18">
+                            <span class="o_order_statues fwb">订单状态:</span>
+                            <span class="color_orange fwb">卖家已发货，等待买家收货</span>
+                            <div class="o_caozuo font_s12  color_666">
+                                还剩下&nbsp;&nbsp;&nbsp;&nbsp;<span class="color_orange font_s18"><i>@strResult</i></span>
+                                <i class="font_s14 color_000">&nbsp;&nbsp;自动确认</i>
+                            </div>
+                        </div>
+                        <div class="pay_box clearfix font_s16">
+                            <div class="fl o_pay confirmreceipt" data-id="@Model.Id">确认收货</div>
+                        </div>
+                    }
+                    else if (Model.OrderStatus == OrderStatus.Completed && Model.EvaluateStatus == EvaluateStatus.NotEvaluated) //交易完成 未评价
+                    {
+                        <div class="o_statues font_s18">
+                            <span class="o_order_statues fwb">订单状态:</span>
+                            <span class="color_orange fwb">卖家已发货，交易完成</span>
+                            <div class="o_caozuo font_s12  color_666">
+
+                            </div>
+                        </div>
+                        <div class="pay_box clearfix font_s16">
+                            <div class="fl o_pay" id="evaluation">评价</div>
+                            <div class="fr o_detail delete_order" data-id="@Model.Id">删除订单</div>
+                        </div>
+                    }
+
+                    else if (Model.EvaluateStatus == EvaluateStatus.Evaluated) //已评价
+                    {
+                        <div class="o_statues font_s18">
+                            <span class="o_order_statues fwb">订单状态:</span>
+                            <span class="color_orange fwb">卖家已发货，交易完成</span>
+                            <div class="o_caozuo font_s12  color_666">
+
+                            </div>
+                        </div>
+                        <div class="pay_box clearfix font_s16">
+                            <div class="fl o_pay" id="lookevalu">查看评价</div>
+                            <div class="fr o_detail delete_order" data-id="@Model.Id">删除订单</div>
+                        </div>
+                    }
+                    else if (Model.OrderStatus == OrderStatus.Closed) //已关闭
+                    {
+                        <div class="o_statues font_s18">
+                            <span class="o_order_statues fwb">订单状态:</span>
+                            <span class="color_orange fwb">交易关闭</span>
+                            <div class="o_caozuo font_s12  color_666">
+                            </div>
+                        </div>
+                        <div class="pay_box clearfix font_s16">
+                            <div class="fl o_pay delete_order" data-id="@Model.Id">删除订单</div>
+                        </div>
+                    }
+                }
+                else if (Model.RefundStatus == OrderRefundStatus.Refunding) // 申请售后
+                {
+                    <div class="o_statues font_s18">
+                        <span class="o_order_statues fwb">订单状态:</span>
+                        <span class="color_orange fwb">退款中</span>
+                        <div class="o_caozuo font_s12  color_666">
+                        </div>
+                    </div>
+                    <div class="pay_box clearfix font_s16">
+
+                    </div>
+
+
+                }
+                else if (Model.RefundStatus == OrderRefundStatus.Refunded)
+                {
+                    <div class="o_statues font_s18">
+                        <span class="o_order_statues fwb">订单状态:</span>
+                        <span class="color_orange fwb">已退款</span>
+                        <div class="o_caozuo font_s12  color_666">
+                        </div>
+                    </div>
+                    <div class="pay_box clearfix font_s16">
+
+                    </div>
+
+
+                }
+
+            }
+
+
+
+        </div>
+        <div class="order_statues_address fr">
+            <p>订单时间：<span>@Model.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</span></p>
+            <p>订单编号：<span>@Model.OrderNo</span></p>
+            <p>&nbsp;&nbsp;&nbsp;收货人：<span>@Model.Consignee</span></p>
+            <p class="clearfix">
+                <span class="o_shuohuo fl">收货地址：</span><span class="o_address fl"> @Model.Address</span>
+            </p>
+        </div>
+    </div>
+    <!--快递物流-->
+    <div class="wuliu">
+        <ul class="wuliu_list_name clearfix bg_pink">
+            <li class="order_one fl fwb">@Model.ShippingName</li>
+            <li class="yundan fr">运单号：@Model.ShippingNo</li>
+        </ul>
+        <div class="wuliu_info">
+            <div class="wuliu_pic">
+
+            </div>
+
+            <!--物流列表-->
+            <div class="wuliu_list">
+                <div class="wuliu_data clearfix">
+                    <span class="fl color_000">2016-07-28</span>
+                    <ul class="wuliu_list_1 fl">
+                        <li class="clearfix">
+                            <span class="fl">08:45:45</span><span class="wuliu_jincheng fl">而无法IDE无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟无法IDE挖坟挖坟</span>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl">08:45:45</span><span class="wuliu_jincheng fl">而无法IDE挖坟</span>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl">08:45:45</span><span class="wuliu_jincheng fl">而无法IDE挖坟</span>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl">08:45:45</span><span class="wuliu_jincheng fl">而无法IDE挖坟</span>
+                        </li>
+                        <li class="clearfix">
+                            <span class="fl">08:45:45</span><span class="wuliu_jincheng fl">而无法IDE挖坟</span>
+                        </li>
+
+                    </ul>
+                </div>
+                <a href="http://www.kuaidi100.com/chaxun?com=@(Model.ShippingCode)&nu=@(Model.ShippingNo)" target="_blank">查看物流</a>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="o_list">
+        <ul class="order_list_name clearfix bg_pink">
+            <li class="order_one">商品</li>
+            <li class="order_two">单价</li>
+            <li class="order_three">数量</li>
+            <li class="order_four">实付款</li>
+            <li class="order_five">订单状态</li>
+            <li class="order_six">操作</li>
+        </ul>
+        @{
+            var orderGoods = Model.OrderGoods;
+            if (orderGoods != null && orderGoods.Count > 0)
+            {
+                //优惠总金额
+                var money = Model.CouponMoney + Model.IntegralMoney;
+                //商品总金额
+                var moneyTotal = Model.OrderAmount;
+                var rate = money / moneyTotal;
+
+
+                foreach (var item in orderGoods)
+                {
+                    var sfk = Math.Round(item.Price * item.Quantity * (1 - rate), 2);
+
+                    <div class="order_xinxi border_none">
+                        <div class="order_img fl"
+                             style="background: url(@(item.GoodsImage1?.MediumThumbnail)) no-repeat center; background-size: cover;"></div>
+                        <div class="order_jieshao fl">
+                            <p class="order_name color_000">@item.GoodsName</p>
+                            <p class="order_height color_999">@item.GoodsAttribute</p>
+                        </div>
+                        <div class="order_price color_000 fl">@item.Price</div>
+                        <div class="order_num color_000 fl">@item.Quantity</div>
+                        <div class="order_price_tol color_orange fl">￥@sfk</div>
+                        <div class="order_statues_1 color_666 fl">
+                            <p class="o_statues_1">@Model.OrderStatus.Description() </p>
+                        </div>
+
+                        <!--订单操作-->
+                        <div class="order_caozuo_1 font_s14 fr">
+                            @if (Model.OrderStatus != OrderStatus.PendingPayment && item.RefundStatus == OrderRefundStatus.NoRefund && item.GoodType == GoodType.General)
+                            {
+                                if (Model.PayOnline)
+                                {
+                                    <a class="pin_1" href="@Url.Action("RefundType", "WebRefund", new {area = OrderProcessModule.Area, goodsOrderId = item.Id, money = sfk, orderId = Model.Id})" data-id="@item.Id" data-money="@Math.Round(item.Price*item.Quantity*(1 - rate), 2)">申请退款</a>
+                                }
+
+                            }
+                            else
+                            {
+                                var singleId = item.SingleGoodsId;
+                                if (item.SingleGoodsId == Guid.Empty)
+                                {
+                                    singleId = item.GoodsId;
+                                }
+                                if (item.RefundStatus == OrderRefundStatus.Refunded || item.RefundStatus == OrderRefundStatus.Refunding)
+                                {
+                                    <a class="pin_1" href="@Url.Action("WebApplyInfo", "WebRefund", new {area = OrderProcessModule.Area, orderId = Model.Id, orderGoodsId = singleId})">退款详情</a>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+            }
+        }
+
+    </div>
+
+    <div class="pay_jilu bg_pink clearfix">
+        <div class="pay_boxs fr">
+            <p class="clearfix">
+                <span class="font_s14 fl">商品合计：</span><span class="color_orange font_s18 fr">￥@Model.OrderAmount</span>
+            </p>
+            <p class="clearfix">
+                <span class="font_s14 fl">积分抵扣：</span><span class="color_orange font_s18 fr">￥@Model.IntegralMoney</span>
+            </p>
+            <p class="clearfix">
+                <span class="font_s14 fl">优惠券：</span><span class="color_orange font_s18 fr">￥@Model.CouponMoney</span>
+            </p>
+            <p class="clearfix">
+                <span class="font_s14 fl">运费：</span><span class="color_orange font_s18 fr">￥@Model.ShippingFee</span>
+            </p>
+        </div>
+    </div>
+    <p class="sum_pay fr">
+        <span>实付款：</span><i class="color_orange">￥</i><span class="color_orange font_s24">@(Model.OrderAmount - Model.IntegralMoney - Model.CouponMoney) </span>
+    </p>
+
+</div>
+
+
+
+@section Scripts{
+
+    <script type="text/javascript">
+        var timer = null;
+        var t = '@Model.CreateTime.AddHours(1).ToString("yyyy/MM/dd HH:mm:ss")';
+        var endTime = new Date(t).getTime(); //time是后台上传的时间
+        var nowTime = new Date().getTime();
+        var allsecond = (endTime - nowTime) / 1000;
+        $(function () {
+            //取消订单
+            $(".cancel").bind("click", function () {
+                var obj = $(this);
+                var orderId = obj.data("id");
+                if (confirm("您确定要取消订单吗？")) {
+                    $.ajax({
+                        url: '@Url.Action("WebCancelOrder", "WebOrder", new {area = OrderProcessModule.Area, orderId = Model.Id})',
+                        type: "post",
+                        data: { d: Date.now() },
+                        success: function (data) {
+                            if (data.Success) {
+                                my_alert("取消成功！");
+                                location.href = "/OrderDetail/" + orderId;
+
+                            } else {
+                                my_alert(data.ErrorMessage);
+                            }
+                        },
+                        error: function () { }
+                    });
+                }
+            });
+
+            //删除订单
+            $(".delete_order").bind("click", function () {
+                var obj = $(this);
+                var orderId = obj.data("id");
+                if (confirm("您确定要删除订单吗？")) {
+                    $.ajax({
+                        url: '@Url.Action("WebDeleteOrder", "WebOrder", new {area = OrderProcessModule.Area, orderId = Model.Id})',
+                        type: "post",
+                        data: { d: Date.now() },
+                        success: function (data) {
+                            if (data.Success) {
+                                my_alert("删除成功！");
+                                location.href = '@Url.Action("WebOrderList", "WebOrder", new {area = OrderProcessModule.Area})';
+
+                            } else {
+                                my_alert(data.ErrorMessage);
+                            }
+                        },
+                        error: function () { }
+                    });
+                }
+            });
+
+
+            //确认收货
+            $(".confirmreceipt").bind("click", function () {
+                var obj = $(this);
+                var orderId = obj.data("id");
+                if (confirm("您确定要确定收货吗？")) {
+                    $.ajax({
+                        url: '@Url.Action("WebCompleteOrder", "WebOrder", new {area = OrderProcessModule.Area, orderId = Model.Id})',
+                        type: "post",
+                        data: { d: Date.now() },
+                        success: function (data) {
+                            if (data.Success) {
+                                my_alert("确认成功！");
+                                location.href = "/OrderDetail/" + orderId;
+                            } else {
+                                my_alert(data.ErrorMessage);
+                            }
+                        },
+                        error: function () { }
+                    });
+                }
+            });
+
+            //提醒发货Remind
+            $(".remind").bind("click", function () {
+                var obj = $(this);
+                var orderId = obj.data("id");
+                if (confirm("您确定要提醒发货吗？")) {
+                    $.ajax({
+                        url: '@Url.Action("WebRemind", "WebOrder", new {area = OrderProcessModule.Area, orderId = Model.Id})',
+                        type: "post",
+                        data: { d: Date.now() },
+                        success: function (data) {
+                            if (data.Success) {
+                                my_alert("提醒成功！");
+                            } else {
+                                my_alert(data.ErrorMessage);
+                            }
+                        },
+                        error: function () { }
+                    });
+                }
+            });
+
+            //立即付款
+            $(".paynow").bind("click", function () {
+                var obj = $(this);
+                var orderId = obj.data("id");
+                location.href = '@Url.Action("PayType", "WebOrder", new {area = OrderProcessModule.Area, orderId = Model.Id})';
+
+            });
+
+
+            window.setInterval("CountDown()", 1000);; //时间调用
+
+
+        });
+
+
+        //倒计时
+        function CountDown() {
+            allsecond--;
+            if (allsecond > 0) {
+                var minute = Math.floor((allsecond / 60) % 60);
+                var second = Math.floor(allsecond % 60);
+                $('.min').html(minute < 10 ? "0" + minute : minute);
+                $('.second').html(second < 10 ? "0" + second : second);
+            }
+        }
+        var orderId = $("#orderId").val();
+        //评价
+        var evaluation="@Url.Action("WebEvaluateList", "WebEvaluate" ,new {area=OrderProcessModule.Area})";
+        $("#evaluation").on('click', function () {
+            location.href = evaluation + "?orderId=" + orderId;
+        });
+
+        //查看评价 
+        var lookevaluation="@Url.Action("LookEvaluate", "WebEvaluate" ,new {area=OrderProcessModule.Area})";
+        $("#lookevalu").on('click', function () {
+            location.href = lookevaluation + "?orderId=" + orderId;
+        });
+    </script>
+
+}

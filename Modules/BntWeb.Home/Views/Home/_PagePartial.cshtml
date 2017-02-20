@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = null;
+    var totalCount = ViewBag.TotalPage;
+    var currentPage = ViewBag.CurrentPage;
+    var url = ViewBag.Url;
+
+    if (totalCount > 1)
+    {
+        var begin = 1;
+        var end = 9;
+
+        if (totalCount <= 9)
+        {
+            end = totalCount;
+        }
+
+        if (totalCount > 9 && currentPage > 5)
+        {
+            begin = currentPage - 4;
+            end = currentPage + 4;
+        }
+
+        if (totalCount > 9 && currentPage + 4 > totalCount)
+        {
+            begin = totalCount - 8;
+            end = totalCount;
+        }
+        <div class="cb" id="pageGro">
+            <div class="pageUp" @(currentPage == totalCount ? "disabled" : "")><a href="@(currentPage>1 ?@url.Replace("[pageNo]", (currentPage-1).ToString()):"javascript:;")">上一页</a></div>
+            <div class="pageList">
+                <ul>
+                    @if (begin > 1)
+                {
+                        <li><a href="@url.Replace("[pageNo]", "1")" @(currentPage == 1 ? "class=cur" : "")>1</a></li>
+                    }
+                    @if (begin > 2)
+                {
+                        <span>...</span>
+                    }
+                    @for (int i = begin; i <= end; i++)
+                {
+                        <li><a href="@url.Replace("[pageNo]", i.ToString())" @(currentPage == i ? "class=cur" : "")>@i</a></li>
+                    }
+                    @if (end < totalCount - 1)
+                {
+                        <span>...</span>
+                    }
+                    @if (end < totalCount)
+                {
+                        <li><a href="@url.Replace("[pageNo]", totalCount.ToString())" @(currentPage == 1 ? "class=cur" : "")>@totalCount</a></li>
+                    }
+                </ul>
+            </div>
+        <div class="pageDown @(currentPage == totalCount ? "disabled" : "")"><a href="@(currentPage<totalCount?@url.Replace("[pageNo]", (currentPage+1).ToString()):"javascript:;")">下一页</a></div>
+        </div>
+
+        <script type="text/javascript">
+            function pageGo(locUrl,totalPage) {
+                var pageIndex = $("#txtPageNo").val();
+                if (Number(pageIndex) <= Number(totalPage) && Number(pageIndex)>0) {
+                    location.href = locUrl + Number(pageIndex);
+                }
+                return false;
+            }
+        </script>
+    }
+}
