@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>鼎盛ABC</title>
+    <link rel="stylesheet" href="/Html/css/reset.css">
+    <link rel="stylesheet" href="/Html/css/swiper.min.css">
+    <link rel="stylesheet" href="/Html/css/main.css">
+    <link rel="stylesheet" href="/Html/css/shopchioce.css">
+    <script src="/Html/js/public/jQuery.js"></script>
+    <script src="/Html/js/public/vue.js"></script>
+    <script src="/Html/js/public/main.js"></script>
+    <script src="/Html/js/public/swiper.min.js"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=0BDWPPDo9jHudqHGOAqT18Hn5eu6WZV8"></script>
+    <style type="text/css">
+        body, html, #allmap {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+</head>
+<body style="background-color: #f0f0f0">
+<div class="shop" id="shop">
+    <div id="allmap"></div>
+    <div class="mainbox" v-show="kaiguan">
+        <span class="close" @click="kaiguan=false"></span>
+        <span class="name">{{nowinfo.MerchantName}}</span>
+        <div class="gongg clearfix"><span class="adresslogo fl"></span><span class="address fl">门店地址：{{nowinfo.Address}}</span></div>
+        <span class="tel gongg"><span class="tellogo"></span>客服电话：{{nowinfo.PhoneNumber}}</span>
+        <span class="submit">查看详情</span>
+    </div>
+</div>
+
+<!--<div class="new-loading">-->
+<!--<ul class="small-loading">-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--</ul>-->
+<!--</div>-->
+<script src="/Html/js/mjs/shopchioce.js"></script>
+</body>
+
+</html>

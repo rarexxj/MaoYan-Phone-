@@ -1,0 +1,132 @@
+.swiper-container {
+    width: 7.5rem;
+    height: 3.72rem;
+
+}
+
+.nearybyshop .swiper-wrapper .swiper-slide {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 7.5rem;
+    height: 3.72rem;
+}
+
+.shop-mainbox {
+    padding: 0rem 0.3rem;
+    background-color: #fff;
+}
+
+.logo15 {
+    background: url("img/logo31.png") no-repeat;
+    width: 0.32rem;
+    height: 0.32rem;
+    background-position: center;
+    background-size: cover;
+    margin-top: 0.3rem;
+    margin-right: 0.2rem;
+}
+
+.logo16 {
+    background: url("img/logo32.png") no-repeat;
+    width: 0.32rem;
+    height: 0.32rem;
+    background-position: center;
+    background-size: cover;
+    margin-top: 0.3rem;
+    margin-right: 0.2rem;
+}
+
+.lianxifs-title {
+    line-height: 0.9rem;
+    background: url("img/logo18.png") no-repeat right center;
+    background-size: 0.14rem 0.24rem;
+    display: block;
+}
+
+.dizhi-title {
+    line-height: 0.9rem;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.lianxifs-title span, .dizhi-title span {
+    color: #666666;
+    font-size: 0.28rem;
+}
+
+.mendian {
+    width: 6.35rem;
+}
+
+.tel {
+    font-size: 0.28rem;
+    color: #c8994c;
+    line-height: 0.5rem;
+    margin-top: 0.1rem;
+}
+
+.dizhi-xx {
+    color: #898989;
+    line-height: 0.5rem;
+    display: block;
+    font-size: 0.28rem;
+    margin-top: 0.1rem;
+}
+
+.dizhi-map {
+    display: block;
+    color: #e7bc85;
+    line-height: 0.5rem;
+}
+
+.swiper-pagination-bullet-active {
+    background: #fff;
+}
+
+.shangjia {
+    padding: 0 0.3rem;
+    background-color: #fff;
+    margin-top: 0.2rem;
+}
+
+.shangjia h2 {
+    font-size: 0.28rem;
+    color: #000;
+    line-height: 0.8rem;
+}
+
+.shangjia p {
+    line-height: 0.5rem;
+    color: #999999;
+    font-size: 0.28rem;
+}
+
+.btn {
+    height: 1rem;
+    line-height: 1rem;
+    display: block;
+    color: #fff;
+    font-size: 0.28rem;
+    text-align: center;
+    background-color: #c8994c;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.shopname {
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    z-index: 100;
+    background: rgba(0,0,0,0.5);
+    width:100%;
+}
+.shopname span{
+    color: #fff;
+    font-size: 0.3rem;
+    margin-left: 0.3rem;
+    padding:0.05rem 0;
+    display: block;
+    font-weight: bold;
+}

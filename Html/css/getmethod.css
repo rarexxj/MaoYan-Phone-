@@ -1,0 +1,39 @@
+.getmethod {
+    background-color: #1b1b20;
+    padding: 0 0.47rem 1rem 0.47rem;
+}
+
+.gettitle {
+    font-size: 0.34rem;
+    color: #fff;
+    padding-top: 0.75rem;
+    margin-bottom: 0.52rem;
+    display: block;
+}
+
+.wztitle {
+    height: 1.2rem;
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2rem;
+    font-size: 0.34rem;
+    color: #1b1b20;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 0.22rem;
+}
+
+.tipt {
+    display: block;
+    font-size: 0.32rem;
+    color: #fff;
+    line-height: 1rem;
+}
+.tipwz{
+    color: #ddd;
+    font-size: 0.26rem;
+}
+.xfptip{
+    margin-bottom: 0.46rem;
+}

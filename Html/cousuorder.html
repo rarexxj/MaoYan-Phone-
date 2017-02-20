@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>鼎盛ABC</title>
+    <link rel="stylesheet" href="/Html/css/reset.css">
+    <link rel="stylesheet" href="/Html/css/swiper.min.css">
+    <link rel="stylesheet" href="/Html/css/main.css">
+    <link rel="stylesheet" href="/Html/css/costorder.css">
+    <script src="/Html/js/public/jQuery.js"></script>
+    <script src="/Html/js/public/vue.js"></script>
+    <script src="/Html/js/public/main.js"></script>
+    <script src="/Html/js/public/swiper.min.js"></script>
+
+</head>
+<body style="background-color: #e8e9ec">
+<div class="my-order" id="main" v-cloak="">
+    <div>
+        <div class="">
+            <ul class="navul clearfix">
+                <li class=""><a href="costorder.html?orderType=0" class="">消费品</a></li>
+                <li class=""><a href="cousuorder.html?orderType=0" class="active">投资品</a></li>
+            </ul>
+        </div>
+        <div class="ordernavbox swiper-container">
+            <div class="ordernav swiper-wrapper">
+                <a href="/Html/cousuorder.html?orderType=0" class="active swiper-slide">全部</a>
+                <a href="/Html/cousuorder.html?orderType=1" class="swiper-slide">待付款</a>
+                <a href="/Html/cousuorder.html?orderType=2" class="swiper-slide">待收货</a>
+                <a href="/Html/cousuorder.html?orderType=3" class="swiper-slide">待发货</a>
+                <a href="/Html/cousuorder.html?orderType=4" class="swiper-slide">已完成</a>
+            </div>
+        </div>
+    </div>
+    <div class="orderbox">
+        <div class="content">
+            <div class="box normal" v-for="list in info.Orders" :data-orderId="list.Id">
+                <a href="javascript:;">
+                    <div class="top">
+                        <div class="shop fl">{{list.OrderNo}}</div>
+                        <div class="st fr" v-if="list.OrderStatus == 0">待付款</div>
+                        <div class="st fr" v-if="list.OrderStatus==5">定金审核中</div>
+                        <div class="st fr" v-if="list.OrderStatus==6">定金已支付</div>
+                        <div class="st fr" v-if="list.OrderStatus==7">定金审核不通过</div>
+                        <div class="st fr" v-if="list.OrderStatus==8">余额审核中</div>
+                        <div class="st fr" v-if="list.OrderStatus==9">余款已审核</div>
+                        <div class="st fr" v-if="list.OrderStatus==10">余款审核不通过</div>
+                        <div class="st fr" v-if="list.OrderStatus == 3">已完成</div>
+                        <div class="st fr" v-if="list.OrderStatus == 4">已关闭</div>
+                    </div>
+                    <div class="pro-style clearfix" v-for="listchild in list.OrderGoods">
+                        <div class="img fl"
+                             :style="{backgroundImage:'url('+listchild.GoodsImage.RelativePath+')'}"></div>
+                        <div class="info fl">
+                            <div class="name">{{listchild.GoodsName}}</div>
+                            <div class=" clearfix zhongl">
+                                <div class="fl">
+                                    <span class="zl">重量：<i>{{listchild.Weight}}g</i></span>
+                                    <span class="sxf">手续费：<i>{{listchild.ProcessingFee}}</i></span>
+                                </div>
+                                <div class="price fr">¥ <span>{{listchild.Price.toFixed(2)}}</span>
+                                </div>
+                            </div>
+                            <span class="number">x {{listchild.Quantity}}</span>
+                        </div>
+                        <span class="zt" v-if="list.PickUp==0">自提</span>
+                    </div>
+                    <div class="total clearfix">
+                        <span class="time fl">{{list.ShippingTime}}</span>
+                        <div class="fr">
+                            <span class="fl num">共{{list. OrderGoods.length}}件商品</span><span class="zongjia fl">总计：¥{{list.PayFee.toFixed(2)}}</span>
+                        </div>
+
+                        <div class="btns f-cb">
+                            <a :href="'/Html/pay.html?id='+list.Id+'&time='+list.CreateTime+'&type='+1+'&fkzt='+1" class="btn  cur" v-if="list.OrderStatus==0||list.OrderStatus==7">立即付款</a>
+                            <div class="btn canclebtn" v-if="list.OrderStatus==0||list.OrderStatus==7">取消订单</div>
+                            <div class="btn cur confirm-btns" v-if="list.OrderStatus==9">确认收货
+                            </div>
+                            <div class="delete-btns btn cur" v-if="list.OrderStatus==4||list.OrderStatus==3">关闭订单</div>
+                            <a :href="'/Html/pay.html?id='+list.Id+'&time='+list.CreateTime+'&type='+1+'&fkzt='+2" class="btn cur" v-if="list.OrderStatus==6||list.OrderStatus==10">补足余款</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="pop dn pop-com">
+                <div class="box">
+                    <p class="tit">确认收货</p>
+                    <div class="btnb">
+                        <p><a class="no">取消</a></p>
+                        <p class="quxiao"><a class="ok confirm-btn">确定</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="pop dn pop-can">
+                <div class="box">
+                    <p class="tit">确认取消订单?</p>
+                    <div class="btnb">
+                        <p><a class="no">取消</a></p>
+                        <p class="quxiao"><a class="ok cancle-btn">确定</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="pop dn pop-del">
+                <div class="box">
+                    <p class="tit">确认删除订单?</p>
+                    <div class="btnb">
+                        <p><a class="no">取消</a></p>
+                        <p class="quxiao"><a class="ok delete-btn">确定</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="nothingbox" style="z-index: 101" v-if="info.TotalCount==0">-->
+                <!--<div class="nothing">-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="nothing">
+        <div class="tb"></div>
+        <p>订单里没有商品哦</p>
+    </div>
+</div>
+<div class="new-loading">
+<ul class="small-loading">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</div>
+<script src="/Html/js/mjs/cousuorder.js"></script>
+</body>
+
+</html>

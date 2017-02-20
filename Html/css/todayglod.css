@@ -1,0 +1,48 @@
+.bg{
+    width:6.44rem;
+    height: 1.1rem;
+    border-radius: 6px;
+    background: #fff;
+    position: absolute;
+    top:1rem;
+    left:50%;
+    margin-left: -3.22rem;
+}
+.wez{
+    font-size: 0.32rem;
+    color: #1f2024;
+    line-height: 1.1rem;
+    margin-left: 0.5rem;
+}
+.danw{
+    font-size: 0.3rem;
+    color: #888;
+    line-height: 1.1rem;
+    margin-right: 0.42rem;
+}
+.text{
+    height:1.1rem;
+    border:none;
+    margin-left:1rem;
+    width:2rem;
+    color: #c8994c;
+    font-size: 0.32rem;
+}
+.quer{
+    width:6.46rem;
+    height: 0.9rem;
+    text-align: center;
+    line-height:0.9rem;
+    border-radius: 6px;
+    background: #c8994c;
+    display: block;
+    position: absolute;
+    left:50%;
+    margin-left: -3.23rem;
+    top:2.48rem;
+    font-size: 0.36rem;
+    color: #fff;
+}
+.today{
+    position: relative;
+}

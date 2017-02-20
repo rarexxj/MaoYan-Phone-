@@ -1,0 +1,57 @@
+.address .addlist {
+    background: #fff;
+    margin-bottom: 16px;
+    border-bottom: 0.01rem solid #e8e8e8;
+    border-top: 0.01rem solid #e8e8e8;
+}
+
+.address .addlist a {
+    display: block;
+    height: 1.6rem;
+    padding: 0 0.15rem;
+}
+
+.address .addlist.first {
+    border: 0;
+}
+
+.address .name {
+    min-width: 2.78rem;
+    font-size: 0.26rem;
+    color: #444444;
+    line-height: 0.7rem;
+}
+
+.address .ph {
+    font-size: 0.24rem;
+    line-height: 0.7rem;
+    color: #666666;
+}
+
+.address .add {
+    font-size: 0.24rem;
+    line-height: 0.34rem;
+    color: #666666;
+}
+
+.address .submit {
+    width: 6.1rem;
+    display: block;
+    height: 0.88rem;
+    background: #c8994c;
+    font-size: 0.36rem;
+    color: #fff;
+    margin: 0.77rem auto 0;
+    border: 0;
+    border-radius: 0.07rem;
+    text-align: center;
+    line-height: 0.88rem;
+}
+
+.address .addlist.first {
+    background: #b98358;
+}
+
+.address .addlist.first .name, .address .addlist.first .ph, .address .addlist.first .add {
+    color: #fff;
+}

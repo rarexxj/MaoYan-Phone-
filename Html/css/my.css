@@ -1,0 +1,170 @@
+.my{
+    background-color: #e8e9ec;
+}
+.mybg{
+    display: block;
+    width:7.5rem;
+    height: 2.54rem;
+    padding-top: 0.4rem;
+    background-color: #222222;
+}
+
+.txbg{
+    width:1.48rem;
+    height: 1.48rem;
+    border-radius: 50%;
+    background-color: #fff;
+    margin:0 auto;
+    position: relative;
+}
+.name{
+    font-size: 0.3rem;
+    color: #fff;
+    display: block;
+    text-align: center;
+    margin-top: 0.2rem;
+    line-height: 1;
+}
+.touximg{
+    width: 1.4rem;
+    height: 1.4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+    left: 0.04rem;
+    top: 0.04rem;
+}
+.mymainbox{
+    margin-top: 0.2rem;
+}
+.main{
+    padding:0.2rem;
+    background-color: #fff;
+}
+.neir1{
+    height: 0.89rem;
+    padding:0 0.2rem 0 0.6rem;
+    background: url("img/logo18.png") no-repeat right center;
+    background-size: 0.16rem 0.3rem;
+    border-bottom: 1px solid #f6f6f6;
+    font-size: 0.3rem;
+    color: #333333;
+    line-height: 0.89rem;
+    position: relative;
+    display: block;
+}
+.neir1 span{
+    position: absolute;
+    left:0;
+    top:0.24rem;
+}
+.zh{
+    background: url("img/logo20.png") no-repeat center;
+    width:0.38rem;
+    height:0.38rem;
+    background-size: cover;
+    display: inline-block;
+}
+.dd{
+    background: url("img/logo21.png") no-repeat center;
+    width:0.38rem;
+    height:0.38rem;
+    background-size: cover;
+    display: inline-block;
+}
+.gwc{
+    background: url("img/logo22.png") no-repeat center;
+    width:0.38rem;
+    height:0.38rem;
+    background-size: cover;
+    display: inline-block;
+}
+.sc{
+    background: url("img/logo23.png") no-repeat center;
+    width:0.38rem;
+    height:0.38rem;
+    background-size: cover;
+    display: inline-block;
+}
+.zhaq{
+    background: url("img/logo24.png") no-repeat center;
+    width:0.38rem;
+    height:0.38rem;
+    background-size: cover;
+    display: inline-block;
+}
+.shdz{
+    background: url("img/logo25.png") no-repeat center;
+    width:0.38rem;
+    height:0.38rem;
+    background-size: cover;
+    display: inline-block;
+}
+.index-navbox {
+    border-top: 1px solid #d9d9d9;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+}
+
+/*.index-nav li {*/
+     /*width: 25%;*/
+     /*text-align: center;*/
+     /*height: 0.29rem;*/
+     /*padding: 0.56rem 0 0.15rem 0;*/
+     /*color: #333;*/
+ /*}*/
+.index-nav li {
+    width: 33.33%;
+    text-align: center;
+    height: 0.29rem;
+    padding: 0.56rem 0 0.15rem 0;
+    color: #333;
+}
+.index-nav li.index-nav1 {
+    background: url("img/logo9.png") no-repeat center 0.15rem;
+    background-size: 0.48rem 0.42rem;
+}
+
+.index-nav li.index-nav1.active {
+    background: url("img/logo8.png") no-repeat center 0.15rem;
+    background-size: 0.48rem 0.42rem;
+    color: #cc9933;
+}
+
+.index-nav li.index-nav2 {
+    background: url("img/logo11.png") no-repeat center 0.15rem;
+    background-size: 0.48rem 0.42rem;
+}
+
+.index-nav li.index-nav2.active {
+    background: url("img/logo10.png") no-repeat center 0.15rem;
+    background-size: 0.48rem 0.42rem;
+    color: #c8994c;
+}
+
+.index-nav li.index-nav3 {
+    background: url("img/logo13.png") no-repeat center 0.15rem;
+    background-size: 0.48rem 0.42rem;
+}
+
+.index-nav li.index-nav3.active {
+    background: url("img/logo12.png") no-repeat center 0.15rem;
+    background-size: 0.48rem 0.42rem;
+    color: #c8994c;
+}
+
+.index-nav li.index-nav4 {
+    background: url("img/logo15.png") no-repeat center 0.15rem;
+    background-size: 0.48rem 0.42rem;
+}
+
+.index-nav li.index-nav4.active {
+    background: url("img/logo14.png") no-repeat center 0.15rem;
+    background-size: 0.48rem 0.42rem;
+    color: #c8994c;
+}

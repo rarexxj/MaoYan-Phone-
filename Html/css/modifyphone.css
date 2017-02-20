@@ -1,0 +1,35 @@
+.myinfo .head {
+    /*margin-top: 0.2rem;*/
+}
+
+.myinfo span {
+    float: left;
+    font-size: 0.3rem;
+    color: #64666a;
+    line-height: 0.99rem;
+}
+
+.myinfo .line {
+    border-bottom: 0.01rem solid #e8e8e8;
+    background: #fff;
+    position: relative;
+}
+
+.myinfo .line a {
+    display: block;
+    height: 0.99rem;
+    padding: 0 0.48rem 0 0.15rem;
+    position: relative;
+}
+
+.jt {
+    width: 0.13rem;
+    height: 0.24rem;
+    background: url("img/logo18.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 0.15rem;
+    top: 50%;
+    margin-top: -0.12rem;
+    z-index: 2;
+}

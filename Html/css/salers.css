@@ -1,0 +1,44 @@
+.salers{
+    position: relative;
+}
+.bg {
+    width: 6.46rem;
+    height: 9.1rem;
+    background-color: #fff;
+    border-radius: 6px;
+    padding-top: 0.44rem;
+    position: absolute;
+    top:0.3rem;
+    left:50%;
+    margin-left: -3.23rem;
+}
+.bg a{
+    display: block;
+}
+
+.top1 {
+    background: url("img/img15.png") no-repeat center;
+    width: 4.78rem;
+    background-size: 3.48rem 2.46rem;
+    height:2.6rem;
+    border-bottom: 1px solid #eaeaea;
+    margin:0 auto;
+    margin-bottom: 0.45rem;
+
+}
+.top2{
+    background: url("img/img16.png") no-repeat center;
+    width: 4.78rem;
+    background-size: 3.48rem 2.46rem;
+    height:2.6rem;
+    border-bottom: 1px solid #eaeaea;
+    margin:0 auto;
+    margin-bottom: 0.45rem;
+}
+.top3{
+    background: url("img/img17.png") no-repeat center;
+    width: 4.78rem;
+    background-size: 3.48rem 2.46rem;
+    height:2.6rem;
+    margin:0 auto;
+}

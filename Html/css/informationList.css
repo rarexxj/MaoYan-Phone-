@@ -1,0 +1,89 @@
+.infoList {
+    background-color: #eee;
+}
+
+.topnavbox {
+    background-color: #fff;
+}
+
+.navul {
+
+}
+
+.navul li a {
+    display: inline-block;
+    color: #333;
+    padding: 0.28rem 0;
+    line-height: 1;
+}
+
+.navul li {
+    float: left;
+    color: #333;
+    font-size: 0.32rem;
+    text-align: center;
+    width: 33.3%;
+}
+
+.navul li a.active {
+    color: #c8994c;
+    border-bottom: 5px solid #c8994c;
+}
+
+.listmainbox {
+    margin-top: 0.2rem;
+}
+
+.listmainbox a {
+    display: block;
+}
+
+.main {
+    padding: 0.2rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+}
+
+.img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 0.18rem;
+}
+
+.maintitle {
+    color: #1b1b20;
+    line-height: 0.42rem;
+    font-size: 0.3rem;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mainjies {
+    margin-top: 0.1rem;
+    color: #888;
+    line-height: 0.35rem;
+    font-size: 0.26rem;
+    display: block;
+    height: 0.73rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.mainlaiy{
+    color: #888;
+}
+.mainright {
+    width: 5.1rem;
+}
+
+.scrolltop {
+    width: 100%;
+    height: 0.01rem;
+}

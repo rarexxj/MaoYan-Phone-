@@ -1,0 +1,136 @@
+[v-cloak] {
+    display: none;
+}
+
+input {
+    border: 0px;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a {
+    border: 0px;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+div{
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/*loading*/
+.new-loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #f7f7f7;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.small-loading {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -15px;
+    line-height: 100px;
+    text-align: center;
+    color: #fff;
+    /*background-image: url('/pages/public/css/images/newloading1.gif');*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    /*background-size: 100% auto;*/
+    border-radius: 3px;
+}
+
+.small-loading > li {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #67d8fd;
+    border-radius: 4px;
+    opacity: 0.2;
+    -webkit-animation: show1 0.8s infinite ease-in-out;
+}
+
+@-webkit-keyframes show1 {
+    100% {
+        opacity: 0.8;
+    }
+}
+
+.small-loading > li:first-child {
+    top: 1px;
+    left: 50%;
+    margin-left: -2px;
+    -webkit-animation-delay: -0.8s;
+}
+
+.small-loading > li:nth-child(2) {
+    right: 5px;
+    top: 5px;
+    -webkit-animation-delay: -0.7s;
+}
+
+.small-loading > li:nth-child(3) {
+    right: 1px;
+    top: 50%;
+    margin-top: -2px;
+    -webkit-animation-delay: -0.6s;
+}
+
+.small-loading > li:nth-child(4) {
+    right: 5px;
+    bottom: 5px;
+    -webkit-animation-delay: -0.5s;
+}
+
+.small-loading > li:nth-child(5) {
+    bottom: 1px;
+    left: 50%;
+    margin-left: -2px;
+    -webkit-animation-delay: -0.4s;
+}
+
+.small-loading > li:nth-child(6) {
+    left: 5px;
+    bottom: 5px;
+    -webkit-animation-delay: -0.3s;
+}
+
+.small-loading > li:nth-child(7) {
+    left: 1px;
+    top: 50%;
+    margin-top: -2px;
+    -webkit-animation-delay: -0.2s;
+}
+
+.small-loading > li:nth-child(8) {
+    left: 5px;
+    top: 5px;
+    -webkit-animation-delay: -0.1s;
+}
+
+/*oppo*/
+.oppo {
+    width: 4.36rem;
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    padding: 0.28rem 0.1rem;
+    position: fixed;
+    top: 50%;
+    margin-top: -0.5rem;
+    left: 50%;
+    margin-left: -2.18rem;
+    font-size: 0.3rem;
+    line-height: 0.44rem;
+    text-align: center;
+    border-radius: 0.08rem;
+    color: #fff;
+    z-index: 99;
+}
+
+

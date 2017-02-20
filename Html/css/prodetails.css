@@ -1,0 +1,483 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.infoBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.pro-info .swiper-container {
+    border-bottom: 1px solid #e8e8e8;
+    width: 100%;
+    height: 7.5rem;
+}
+
+.pro-info .swiper-pagination-bullet-active {
+    background-color: #fff;
+}
+
+.pro-info .swiper-slide {
+    width: 100%;
+    height: 7.5rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.pro-info .content {
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0.3rem 0.25rem 0.25rem 0.25rem;
+    background: #fff;
+}
+
+.pro-info .content .name {
+    font-size: 0.36rem;
+    font-weight: bold;
+    line-height: 0.48rem;
+    color: #1c1f23;
+}
+
+.pro-info .content .price {
+    width:5rem;
+    font-size: 0.48rem;
+    line-height: 0.36rem;
+    color: #c8994c;
+    font-family: 'Arial';
+    margin-top: 0.28rem;
+    font-weight: bold;
+}
+
+.pro-info .content .price .dec {
+    font-size: 0.3rem;
+}
+
+.pro-info .content .price .old {
+    font-size: 0.24rem;
+    color: #999999;
+}
+
+.pro-info .content .price .oldp {
+    text-decoration: line-through;
+}
+.pricebox{
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.pro-info .content .freight {
+    font-size: 0.24rem;
+    line-height: 1;
+    color: #64666a;
+    margin-top: 0.18rem;
+}
+
+.pro-info .content .buynum {
+    font-size: 0.24rem;
+    line-height: 1;
+    color: #64666a;
+    margin-top: 0.14rem;
+    padding-bottom: 0.3rem;
+}
+.touzi{
+    border-bottom: 1px solid #e0e0e0;
+}
+.touzi .dingj{
+    margin-right: 0.2rem;
+}
+.touzi span{
+    font-size: 0.3rem;
+    color: #777;
+    line-height: 1rem;
+    font-weight: bold;
+}
+.touzi span i{
+    color: #c8994c;
+}
+.pro-info .content .tips {
+}
+
+.tiptitle {
+    font-size: 0.32rem;
+    color: #1c1f23;
+    margin-top: 0.22rem;
+    margin-bottom: 0.22rem;
+}
+
+.tipz {
+    color: #777777;
+    line-height: 0.36rem;
+    font-size: 0.26rem;
+}
+
+.pro-info .size {
+    height: 1rem;
+    line-height: 1rem;
+    background: #fff;
+    padding: 0 0.25rem;
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+    margin-top: 0.2rem;
+    color: #1c1f23;
+    font-size: 0.3rem;
+    position: relative;
+}
+
+.pro-info .size i {
+    position: absolute;
+    width: 0.16rem;
+    height: 0.3rem;
+    background: url("img/logo41.png") no-repeat;
+    background-size: cover;
+    top: 0.36rem;
+    right: 0.17rem;
+}
+
+.pro-info .information {
+    background: #fff;
+}
+
+.pro-info .information .btns {
+    margin-top: 0.2rem;
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+    height: 0.98rem;
+}
+
+.pro-info .information .btn {
+    float: left;
+    width: 50%;
+    height: 0.98rem;
+    font-size: 0.3rem;
+    color: #333;
+    line-height: 0.98rem;
+    text-align: center;
+    border-bottom: 0.04rem solid #fff;
+}
+
+.pro-info .information .btn.cur {
+    color: #c8994c;
+}
+
+.pro-info .information .infoajax {
+    width: 7.1rem;
+    overflow: hidden;
+    padding:0 0.2rem;
+}
+
+.goshop {
+    width: 100%;
+    background: #fff;
+    height: 1.26rem;
+    border-top: 1px solid #e8e8e8;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+}
+
+.goshop .tb {
+    width: 0.4rem;
+    height: 0.4rem;
+    margin: 0 auto 0;
+}
+
+.goshop span {
+    display: block;
+    text-align: center;
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+    color: #999;
+    margin-top: 0.15rem;
+}
+
+.goshop #coll {
+    float: left;
+    width: 1.29rem;
+    border-right: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.goshop #coll .tb {
+    background: url("img/logo42.png") no-repeat;
+    background-size: cover;
+}
+
+.goshop #coll.cur .tb {
+    background: url("img/logo43.png") no-repeat;
+    background-size: cover;
+}
+
+.goshop .goshopc {
+    float: left;
+    width: 1.29rem;
+    height: 1.06rem;
+    box-sizing: border-box;
+    padding-top: 0.3rem;
+}
+
+.goshop .goshopc .tb {
+    background: url("img/logo44.png") no-repeat;
+    background-size: cover;
+}
+
+.goshop .addshopc {
+    width: 2.24rem;
+    height: 0.8rem;
+    box-sizing: border-box;
+    border: 0.02rem solid #888888;
+    background: #fff;
+    color: #1c1f23;
+    font-size: 0.28rem;
+    text-align: center;
+    line-height: 0.8rem;
+    float: left;
+    border-radius: 6px;
+    margin-top: 0.25rem;
+    margin-right: 0.2rem;
+}
+
+.goshop .gobuy {
+    width: 2.24rem;
+    height: 0.8rem;
+    background: #c8994c;
+    color: #fff;
+    font-size: 0.28rem;
+    text-align: center;
+    line-height: 0.8rem;
+    float: left;
+    border-radius: 6px;
+    margin-top: 0.25rem;
+}
+
+.goshop .coll.cur .tb {
+    background: url("img/logo43.png") no-repeat;
+    background-size: cover;
+}
+
+.evaluateajax {
+    display: none;
+    padding:0 0.2rem;
+}
+
+.evaluateajax .memlist {
+    padding: 0.45rem 0.15rem 0.23rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.evaluateajax .memlist ul {
+    width: 6.35rem;
+}
+
+.evaluateajax .memlist li {
+    width: 1rem;
+    height: 1rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 0.27rem;
+    margin-bottom: 0.22rem;
+    float: left;
+    border-radius: 50%;
+}
+
+.size-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 51;
+    display: none;
+}
+
+.size-mask .tcbox {
+    max-height: 5rem;
+    overflow-y: auto;
+}
+
+.size-mask .size-box {
+    background: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.size-mask .size-box .imgbox {
+    width: 1.68rem;
+    height: 1.68rem;
+    background-color: #fff;
+    border-radius: 0.08rem;
+    position: relative;
+    box-shadow: 1px 2px 2px #f7f7f7;
+    margin-top: -0.28rem;
+}
+
+.size-mask .size-box .img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -0.8rem;
+    margin-top: -0.8rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.08rem;
+    background-color: #f0f0f0;
+}
+
+.size-mask .size-box .size-info {
+    width: 7rem;
+    height: 2.27rem;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0 0.25rem;
+}
+
+.size-mask .size-box .info {
+    padding-left: 0.2rem;
+    padding-top: 0.25rem;
+}
+
+.size-mask .size-box p {
+    font-size: 0.26rem;
+    line-height: 1;
+    margin-top: 0.13rem;
+    color: #64666a;
+}
+
+.size-mask .size-box .price {
+    color: #c8994c;
+    font-size: 0.36rem;
+    margin-top: 0;
+}
+
+.size-mask .size-box .tc {
+    padding-left: 0.25rem;
+    padding-top: 0.34rem;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 0.08rem;
+}
+
+.size-mask .size-box .tc .tit {
+    font-size: 0.3rem;
+    line-height: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.size-mask .size-box .tc li {
+    float: left;
+    background: #f5f5f5;
+    line-height: 0.51rem;
+    color: #333;
+    font-size: 0.26rem;
+    border-radius: 0.1rem;
+    padding: 0.01rem 0.3rem;
+    margin-right: 0.27rem;
+    margin-bottom: 0.25rem;
+    font-family: 'Arial';
+}
+
+.size-mask .size-box .tc li.cur {
+    background: #c8994c;
+    color: #fff;
+}
+.size-mask .size-box .tc li.choose-cur {
+    background-color: #c8994c;
+    color: #fff;
+}
+.size-mask .size-box .getnum {
+    height: 0.91rem;
+    padding: 0 0.26rem 0.3rem 0.22rem;
+}
+
+.size-mask .size-box .getnum .tit {
+    font-size: 0.3rem;
+    line-height: 0.91rem;
+    color: #333;
+}
+
+.size-mask .size-box .getnum .numbox {
+    margin-top: 0.16rem;
+}
+
+.size-mask .size-box .getnum .jia {
+    background: url("img/logo47.png") no-repeat;
+    background-size: cover;
+    width: 0.62rem;
+    height: 0.54rem;
+}
+
+.size-mask .size-box .getnum .jian {
+    background: url("img/logo46.png") no-repeat;
+    background-size: cover;
+    width: 0.62rem;
+    height: 0.54rem;
+}
+
+.size-mask .size-box .getnum .amount {
+    width: 0.84rem;
+    height: 0.57rem;
+    /*border: 1px solid #dbdbdb;*/
+    border-radius: 0.04rem;
+    background: none;
+    /*margin-right: 0.24rem;*/
+    font-size: 0.38rem;
+    color: #000000;
+    line-height: 0.57rem;
+    text-align: center;
+}
+
+.size-mask .size-box .get-btn {
+    padding: 0 0.25rem;
+    padding-bottom: 0.2rem;
+    font-size: 0.36rem;
+    color: #fff;
+    text-align: center;
+}
+
+.size-mask .size-box .close {
+    width: 0.44rem;
+    height: 0.44rem;
+    background: url("img/logo45.png") no-repeat;
+    background-size: 0.44rem 0.44rem;
+    position: absolute;
+    top: 0.16rem;
+    right: 0.16rem;
+}
+
+.pro-in-gocart {
+    width: 3.38rem;
+    height: 0.94rem;
+    line-height: 0.94rem;
+    border: 0.02rem solid #888;
+    box-sizing: border-box;
+    font-size: 0.3rem;
+    color: #1c1f23;
+    border-radius: 6px;
+}
+
+.pro-in-gobuy {
+    width: 3.38rem;
+    height: 0.94rem;
+    line-height: 0.94rem;
+    background-color: #c8994c;
+    box-sizing: border-box;
+    font-size: 0.3rem;
+    color: #1c1f23;
+    border-radius: 6px;
+    color: #fff;
+}
+.infoajax img{
+    width:7.1rem;
+}

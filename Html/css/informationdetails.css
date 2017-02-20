@@ -1,0 +1,77 @@
+.infoList {
+    background-color: #fff;
+}
+
+.img {
+    width: 7.5rem;
+    height: 4.5rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.title {
+    width: 5.64rem;
+    text-align: center;
+    font-size: 0.5rem;
+    color: #333333;
+    margin: 0 auto;
+    line-height: 0.72rem;
+    margin-top: 0.37rem;
+}
+
+.wz {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.2rem 0 0.7rem 0;
+    position: relative;
+}
+
+.time {
+    font-size: 0.24rem;
+    color: #999;
+    line-height: 1;
+    margin-right: 0.28rem;
+}
+
+.laiy {
+    font-size: 0.24rem;
+    color: #999;
+    line-height: 1;
+}
+
+.laiy i {
+    font-size: 0.24rem;
+    color: #999;
+    line-height: 1;
+}
+
+.content {
+    width: 6.9rem;
+    padding:0 0.3rem;
+}
+
+.content p{
+    color:#666666;
+    line-height: 0.54rem;
+    font-size: 0.32rem;
+}
+.content img {
+    max-width: 7.5rem;
+}
+
+.shouclogo {
+    background: url("img/logo42.png") no-repeat center;
+    width: 0.4rem;
+    height: 0.4rem;
+    position: absolute;
+    right: 0.6rem;
+    top: 0.2rem;
+    background-size: cover;
+}
+.shouclogo.cur{
+    background: url("img/logo43.png") no-repeat center;
+    width: 0.4rem;
+    height: 0.4rem;
+    background-size: cover;
+}

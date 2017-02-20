@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>鼎盛ABC</title>
+    <link rel="stylesheet" href="/Html/css/reset.css">
+    <link rel="stylesheet" href="/Html/css/swiper.min.css">
+    <link rel="stylesheet" href="/Html/css/main.css">
+    <link rel="stylesheet" href="/Html/css/costs.css">
+    <script src="/Html/js/public/jQuery.js"></script>
+    <script src="/Html/js/public/vue.js"></script>
+    <script src="/Html/js/public/main.js"></script>
+    <script src="/Html/js/public/swiper.min.js"></script>
+
+</head>
+<body style="">
+<div class="searchbox" id="main" v-cloak="">
+    <div class="">
+        <ul class="navul clearfix">
+            <li class=""><a href="costs.html" class="active">已消费</a></li>
+            <li class=""><a href="nocosts.html" class="">未消费</a></li>
+        </ul>
+    </div>
+    <div class="tab">
+        <div class="top clearfix">
+            <input type="date" v-model="beginTime" class="fl textinput time1">
+            <span class="fl zhi">至</span>
+            <input type="date" class="fl textinput time2" v-model="endTime">
+            <button class="fl search">搜索</button>
+        </div>
+    </div>
+    <div>
+        <ol class="dateol clearfix">
+            <li @click="monthtab($index)" v-for="li in ul" class="marginl25"  :class="li.btn==true?'active':''">{{li.month}}</li>
+        </ol>
+    </div>
+    <div class="mainnr" >
+        <dl class="mainnrdl">
+            <dt class="clearfix mainnrdt">
+                <div class="title sjh fl">手机号</div>
+                <div class="title xm fl">姓名</div>
+                <div class="title title2 xfze fl">消费总额</div>
+            </dt>
+            <dd class="clearfix mainnrdd" v-for="list in info">
+                <div class="mainwz fl">{{list.PhoneNumber}}</div>
+                <div class="mainwz mainwz3 fl">{{list.Name}}</div>
+                <div class="mainwz2 fl je">{{list.TotalFee}}</div>
+                <a :href="'costdetails.html?id='+list.Id+'&isPay='+'true'+'&beginTime='+beginTime+'&endTime='+endTime+'&month='+month"><div class="mainwz2 fl">详情</div></a>
+            </dd>
+        </dl>
+        <div class="scrolltop"></div>
+    </div>
+    <div class="xiaofze">
+        <span class="rangeje">已选时间范围内的消费金额</span>
+        <span class="price">{{price}}</span>
+    </div>
+</div>
+
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="/Html/js/mjs/costs.js"></script>
+</body>
+
+</html>

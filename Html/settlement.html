@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>鼎盛ABC</title>
+    <link rel="stylesheet" href="/Html/css/reset.css">
+    <link rel="stylesheet" href="/Html/css/swiper.min.css">
+    <link rel="stylesheet" href="/Html/css/main.css">
+    <link rel="stylesheet" href="/Html/css/settlement.css">
+    <script src="/Html/js/public/jQuery.js"></script>
+    <script src="/Html/js/public/vue.js"></script>
+    <script src="/Html/js/public/main.js"></script>
+    <script src="/Html/js/public/swiper.min.js"></script>
+
+</head>
+<body style="">
+<div class="confirm-order" id="main">
+    <div class="srollbox">
+        <div class="choadd"  v-if="info.Addresses">
+            <!--<a :href="'/Html/ShopCar/ChooseAddress.html?id='+backid">-->
+            <div class="a">
+                <div class="name fl">收货人：{{info.Addresses.Contacts}}</div>
+                <span class="tel fl">{{info.Addresses.Phone}}</span>
+                <div class="clear"></div>
+                <div class="add">收货地址：{{info.Addresses.RegionName}}{{info.Addresses.Address}}</div>
+                <i></i>
+            </div>
+            <!--</a>-->
+        </div>
+        <div class="addadd" v-else="">
+            <!--<a :href="'/Html/ShopCar/ChooseAddAddress.html?id='+backid">-->
+            <div class="a">
+                <span class="tt">请添加收货地址</span>
+            </div>
+            <!--</a>-->
+        </div>
+        <div class="shopcar detailed" v-if="info.Goods.List.length == 1">
+            <div class="box clearfix">
+                <div class="img fl" :style="{backgroundImage: 'url('+info.Goods.List[0].GoodsImage.MediumThumbnail+')'}"></div>
+                <div class="info fr">
+                    <div class="tt">{{info.Goods.List[0].GoodsName}}</div>
+                    <div class="tc f-cb">
+                        <div class="int fl"><span>重量：{{info.Goods.List[0].Weight}}</span></div>
+                    </div>
+                    <div class="bot f-cb">
+                        <div class="price fl">¥ <span class="amo">{{info.Goods.List[0].Price.toFixed(2)}}</span></div>
+                        <div class="num fr">x <span>{{info.Goods.List[0].Quantity}}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pro-list" v-if="info.Goods.List.length > 1">
+            <!--<a href="/Html/ShopCar/ProductsDetailed.html">-->
+            <div class="godeta clearfix">
+                <ul class="">
+                    <li v-for="list in info.Goods.List">
+                        <div class="img" :style="{backgroundImage:'url('+list.GoodsImage.RelativePath+')'}"></div>
+                        <div class="num">x <span>{{list.Quantity}}</span></div>
+                    </li>
+                </ul>
+                <div class="allnum fr">共{{info.Goods.TotalQuantity}}件</div>
+            </div>
+        </div>
+        <div class="line pro-money">
+            <div class="tt fl">商品金额</div>
+            <div class="price fr">¥<span class="amo">{{info.GoodsAmount.toFixed(2)}}</span></div>
+        </div>
+        <div class="line dingj" v-if="mode==0">
+            <div class="tt fl">定金</div>
+            <div class="price fr">¥<span class="amo">{{info.GoodsDeposit.toFixed(2)}}</span></div>
+        </div>
+        <div class="line moreneed" v-if="mode==0">
+            <div class="tt fl ">还需缴纳</div>
+            <div class="price fr">¥<span class="amo need">132</span></div>
+        </div>
+        <div class="line">
+            <div class="tt w145">订单说明：</div>
+            <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）">
+        </div>
+    </div>
+    <div class="car-list">
+        <div class="hj">
+            合计：<span class="price">¥ <span class="amo">{{info.GoodsAmount.toFixed(2)}}</span></span>
+        </div>
+        <div class="balance">确认订单</div>
+    </div>
+</div>
+
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="/Html/js/mjs/settlement.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>鼎盛ABC</title>
+    <link rel="stylesheet" href="/Html/css/reset.css">
+    <link rel="stylesheet" href="/Html/css/swiper.min.css">
+    <link rel="stylesheet" href="/Html/css/main.css">
+    <link rel="stylesheet" href="/Html/css/costlist.css">
+    <script src="/Html/js/public/jQuery.js"></script>
+    <script src="/Html/js/public/vue.js"></script>
+    <script src="/Html/js/public/main.js"></script>
+    <script src="/Html/js/public/swiper.min.js"></script>
+
+</head>
+<body style="" id="">
+<div class="" id="main">
+    <div class="products-nav f-cb">
+        <div class="left fl f-cb">
+            <div class="sort fl chobtn cur">综合排序</div>
+            <div class="num fl chobtn" data-type="3">销量优先</div>
+            <div class="screen fl chobtn" data-type="">筛选</div>
+            <a href="/Html/search2.html" class="kind fl"></a>
+        </div>
+    </div>
+    <div class="sort-mask">
+        <div class="sort-box">
+            <ul>
+                <li class="typecur com" data-type="0">综合排序</li>
+                <li class="lth" data-type="1">价格从低到高</li>
+                <li class="htl" data-type="2">价格从高到低</li>
+            </ul>
+        </div>
+    </div>
+    <div class="screen-mask">
+    </div>
+    <div class="chioce">
+        <span class="chiocet">自定义价格区间</span>
+        <div class="chiocesearchbox">
+            <div class="chiocesearch clearfix">
+                <input class="text1 fl" type="tel"><span class="gang fl">-</span> <input class="text2 fl" type="tel">
+                <span class="qianlogo1">￥</span>
+                <span class="qianlogo2">￥</span>
+            </div>
+        </div>
+        <button class="chiocebtn">确定</button>
+    </div>
+    <div class="changxbox">
+        <div class="changxadverbox">
+            <ul class="clearfix changxul">
+                <li class="product1" style="" v-for="data in info">
+                    <a :href="'prodetails.html?id='+data.Id">
+                        <div class="product-img" :style="{backgroundImage: 'url('+data.MainImage.RelativePath+')'}"></div>
+                        <div>
+                            <span class="proname">{{data.Name}}</span>
+                            <span class="proprice">￥<i>{{data.ShopPrice.toFixed(2)}}</i></span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+            <div class="scrolltop"></div>
+        </div>
+    </div>
+
+</div>
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="/Html/js/mjs/costlist.js"></script>
+</body>
+
+</html>

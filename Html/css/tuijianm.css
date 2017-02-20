@@ -1,0 +1,46 @@
+.tuijianm {
+    position: relative;
+}
+
+.bg {
+    background: url("img/bg3.png") no-repeat center;
+    width: 6.26rem;
+    height: 6.67rem;
+    background-size: cover;
+    position: absolute;
+    top: 0.77rem;
+    left: 50%;
+    margin-left: -3.13rem;
+}
+
+.m {
+    color: #222222;
+    font-size: 0.3rem;
+    display: inline-block;
+    line-height: 1;
+    margin-top: 6rem;
+}
+
+.wezbox {
+    text-align: center;
+}
+
+.m i {
+    color: #222222;
+    font-size: 0.3rem;
+}
+
+.img {
+    width: 2.68rem;
+    height: 2.68rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 1.73rem;
+    left: 1.76rem;
+}
+#qrcode img{
+    width:2.68rem;
+    height:2.68rem;
+}

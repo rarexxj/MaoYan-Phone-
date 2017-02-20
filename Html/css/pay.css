@@ -1,0 +1,148 @@
+.shoppay .deadline {
+    width: 100%;
+    height: 0.67rem;
+    background: #fffbf2;
+    text-align: center;
+    line-height: 0.67rem;
+    font-size: 0.24rem;
+    color: #ff4e00;
+}
+
+.shoppay .deadline span {
+    color: #ff4e00;
+}
+
+.shoppay .line {
+    padding: 0 0.25rem;
+    height: 1rem;
+    background: #fff;
+    line-height: 1rem;
+}
+.shoppay .line.bb {
+    border-top:1px solid #e4e4e4;
+}
+.shoppay .line .tt {
+    font-size: 0.32rem;
+    color: #1c1f23;
+}
+.tel{
+    color: #c8994c;
+}
+.shoppay .line .num {
+    font-size: 0.3rem;
+    color: #1c1f23;
+}
+
+.shoppay .line .price {
+    font-family: 'Arial';
+    color: #c8994c;
+    font-size: 0.32rem;
+}
+.shoppay .line .proprice {
+    font-family: 'Arial';
+    color: #c8994c;
+    font-size: 0.36rem;
+}
+.shoppay .payline {
+    padding: 0.18rem 0.15rem;
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+    background-size: 0.4rem 0.4rem;
+    position: relative;
+}
+
+.shoppay .payline .tb {
+    width: 0.56rem;
+    height: 0.56rem;
+    margin-right: 0.2rem;
+}
+
+.shoppay .payline .tt {
+    font-size: 0.3rem;
+    line-height: 0.56rem;
+}
+
+.menaddress{
+    font-size: 0.206rem;
+    color: #777;
+    padding: 0 0.25rem;
+    background: #fff;
+}
+.shoppay .payline .tt span {
+    display: block;
+    font-size: 0.24rem;
+    line-height: 0.3rem;
+    color: #999999;
+    padding-bottom: 0.05rem;
+}
+
+.tips{
+    padding: 0 0.25rem;
+    font-size: 0.26rem;
+    color: #777;
+    line-height: 0.36rem;
+    background: #fff;
+    padding-bottom: 0.2rem;
+}
+.shoppay .payline .btn {
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url("img/logo54.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 0.17rem;
+    top: 0.21rem;
+}
+
+.shoppay .payline.cur .btn {
+    background: url("img/logo55.png") no-repeat;
+    background-size: cover;
+}
+
+.shoppay .weixin .tb {
+    background: url("img/logo52.png") no-repeat;
+    background-size: cover;
+}
+
+.shoppay .bankpay .tb {
+    background: url("img/logo53.png") no-repeat;
+    background-size: cover;
+}
+
+.bot-btn {
+    width: 7.02rem;
+    height: 0.86rem;
+    text-align: center;
+    line-height: 0.86rem;
+    font-size: 0.3rem;
+    color: #fff;
+    background-color: #c8994c;
+    display: block;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+.dian{
+    width:100%;
+    height: 1.36rem;
+}
+.btnbox{
+    height: 1.12rem;
+    background-color: #e4e4e4;
+    padding-top: 0.24rem;
+    position:fixed;
+    bottom: 0;
+    width:100%;
+}
+.wz{
+    font-size: 0.26rem;
+    color: #777;
+    line-height: 0.4rem;
+    background: #fff;
+}
+.shoppay .lheight{
+    padding:0.25rem 0.25rem;
+    height: auto;
+}
+.bordertop{
+    border-top: 1px solid #e8e8e8;
+}

@@ -1,0 +1,53 @@
+.search{
+    background-color: #e8e9ec;
+}
+.navul {
+background-color: #fff;
+}
+
+.navul li a {
+    display: inline-block;
+    color: #333;
+    padding: 0.28rem 0;
+    line-height: 1;
+}
+
+.navul li {
+    float: left;
+    color: #333;
+    font-size: 0.32rem;
+    text-align: center;
+    width: 50%;
+}
+
+.navul li a.active {
+    color: #c8994c;
+    border-bottom: 5px solid #c8994c;
+}
+.searchmainbox{
+    margin-top: 0.2rem;
+}
+.main{
+    padding:0.2rem;
+    background-color: #fff;
+}
+.main a{
+    display: block;
+}
+.img{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width:1.2rem;
+    height: 1.2rem;
+}
+.neir1{
+    height: 0.89rem;
+    padding:0 0.2rem;
+    background: url("img/logo18.png") no-repeat right center;
+    background-size: 0.16rem 0.3rem;
+    border-bottom: 1px solid #f6f6f6;
+    font-size: 0.3rem;
+    color: #666;
+    line-height: 0.89rem;
+}

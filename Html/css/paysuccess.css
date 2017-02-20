@@ -1,0 +1,44 @@
+.pay {
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+}
+
+.logo50 {
+    width: 100%;
+    height: 5.4rem;
+    background: url("img/logo50.png") no-repeat center bottom;
+    background-size: 1.48rem 1.48rem;
+    display: block;
+}
+
+.logo51 {
+    width: 100%;
+    height: 5.4rem;
+    background: url("img/logo51.png") no-repeat center bottom;
+    background-size: 1.48rem 1.48rem;
+    display: block;
+}
+
+.wz {
+    color: #000000;
+    text-align: center;
+    display: block;
+    font-size: 0.3rem;
+    line-height: 0.8rem;
+
+}
+
+.btn {
+    width: 4.66rem;
+    height: 0.76rem;
+    text-align: center;
+    line-height: 0.76rem;
+    font-size: 0.3rem;
+    display: block;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #c8994c;
+    margin: 0 auto;
+    margin-top: 0.3rem;
+}

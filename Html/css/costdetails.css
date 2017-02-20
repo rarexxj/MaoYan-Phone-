@@ -1,0 +1,157 @@
+.my {
+    background-color: #e8e9ec;
+}
+
+.mybg {
+    width: 7.5rem;
+    height: 3.93rem;
+    padding-top: 0.37rem;
+    background-color: #222222;
+    position: relative;
+}
+
+.txbg {
+    width: 1.48rem;
+    height: 1.48rem;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 auto;
+    position: relative;
+}
+
+.name {
+    font-size: 0.3rem;
+    color: #fff;
+    display: block;
+    text-align: center;
+    margin-top: 0.2rem;
+    line-height: 1;
+}
+
+.touximg {
+    width: 1.4rem;
+    height: 1.4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+    left: 0.04rem;
+    top: 0.04rem;
+}
+
+.xinx {
+    border-top: #373737 1px solid;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.box {
+    height: 1.1rem;
+    width: 31.3%;
+    text-align: center;
+}
+.box.short{
+    height: 1.1rem;
+    width: 30.3%;
+    text-align: center;
+}
+.box.long{
+    height: 1.1rem;
+    width: 38.3%;
+    text-align: center;
+}
+.wz{
+    display: block;
+    color: #fff;
+    font-size: 0.26rem;
+    line-height: 1;
+    margin-top: 0.2rem;
+}
+.xiaofbox {
+    border-left:0.01rem solid #373737;
+    border-right:0.01rem solid #373737;
+    box-sizing: border-box;
+}
+.phone{
+    display: block;
+    color: #fff;
+    font-size: 0.26rem;
+    line-height: 1;
+    margin-top: 0.2rem;
+}
+.costprice {
+    display: block;
+    color: #fff;
+    font-size: 0.36rem;
+    line-height: 1;
+    margin-top: 0.16rem;
+}
+
+.cdcard {
+    margin-top: 0.2rem;
+    display: block;
+    color: #fff;
+    font-size: 0.26rem;
+    line-height: 1;
+
+}
+.detailsmain{
+    margin-top: 0.2rem;
+    background-color: #fff;
+    padding-bottom: 0.6rem;
+}
+.navul {
+    background-color: #fff;
+    margin-bottom: 0.37rem;
+    border-bottom: 0.01rem #e6e6e6 solid;
+}
+
+.navul li a {
+    display: inline-block;
+    color: #333;
+    padding: 0.28rem 0;
+    line-height: 1;
+}
+
+.navul li {
+    float: left;
+    color: #333;
+    font-size: 0.32rem;
+    text-align: center;
+    width: 50%;
+}
+
+.navul li a.active {
+    color: #c8994c;
+    border-bottom: 5px solid #c8994c;
+}
+.mainol{
+    overflow: hidden;
+    width:6.4rem;
+    border:1px solid #e6e6e6;
+    margin:0 auto;
+}
+.mainol li{
+    float:left;
+    height:0.82rem;
+    /*background:url("img/logo18.png") no-repeat 6.1rem center;*/
+    background-size: 0.15rem 0.26rem;
+    width:5.8rem;
+    padding:0 0.3rem;
+    line-height: 0.82rem;
+    border-bottom: 0.01rem #e6e6e6 solid;
+}
+.mainol li:last-child{
+    border-bottom:none;
+}
+.proprice{
+    margin-right:0.12rem ;
+    font-size: 0.26rem;
+    color: #666666;
+}
+.proname{
+    font-size: 0.26rem;
+    color: #666666;
+}
