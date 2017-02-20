@@ -1,0 +1,528 @@
+/*底部导航*/
+.index-navbox {
+    border-top: 1px solid #dddddd;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    height: 1.08rem;
+    padding-top: 0.2rem;
+    z-index: 100;
+}
+
+.index-navbox a {
+    width: 25%;
+    text-align: center;
+    font-size: 0.3rem;
+    color: #7b6e52;
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    border-right: 0.01rem solid #dddddd;
+}
+
+.index-navbox a:last-child {
+    border-right: none;
+}
+
+.index-navbox a .index-navwz {
+    margin-top: 0.1rem;
+}
+
+.index-navbox .index-nav4 {
+    border-right: none;
+}
+
+.index-navbox .navlogo1 {
+    background: url("../img/logo11.png") no-repeat center;
+    background-size: 0.52rem 0.52rem;
+    display: block;
+    width: 0.52rem;
+    height: 0.52rem;
+    margin: 0 auto;
+}
+
+.index-navbox .navlogo2 {
+    background: url("../img/logo12.png") no-repeat center;
+    background-size: 0.52rem 0.52rem;
+    display: block;
+    width: 0.52rem;
+    height: 0.52rem;
+    margin: 0 auto;
+}
+
+.index-navbox .navlogo3 {
+    background: url("../img/logo13.png") no-repeat center;
+    background-size: 0.52rem 0.52rem;
+    display: block;
+    width: 0.52rem;
+    height: 0.52rem;
+    margin: 0 auto;
+}
+
+.index-navbox .navlogo4 {
+    background: url("../img/logo14.png") no-repeat center;
+    background-size: 0.52rem 0.52rem;
+    display: block;
+    width: 0.52rem;
+    height: 0.52rem;
+    margin: 0 auto;
+}
+
+.index-navbox .active .navlogo1 {
+    background: url("../img/logo15.png") no-repeat center;
+    background-size: 0.52rem 0.52rem;
+}
+
+.index-navbox .active .navlogo2 {
+    background: url("../img/logo16.png") no-repeat center;
+    background-size: 0.52rem 0.52rem;
+}
+
+.index-navbox .active .navlogo3 {
+    background: url("../img/logo17.png") no-repeat center;
+    background-size: 0.52rem 0.52rem;
+}
+
+.index-navbox .active .navlogo4 {
+    background: url("../img/logo18.png") no-repeat center;
+    background-size: 0.52rem 0.52rem;
+}
+
+.index-navbox .active .index-navwz {
+    color: #cebd70;
+}
+
+.index-navwz {
+    line-height: 1;
+    font-size: 0.3rem;
+    color: #7b6e52;
+    display: block;
+}
+
+.box {
+    width: 100vw;
+    height: 100vh;
+}
+
+#index {
+    width: 100%;
+    position: absolute;
+    top: 1.06rem;
+    bottom: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 1.28rem;
+    overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
+}
+
+.top {
+    height: 0.96rem;
+    background-color: #f3fbfd;
+    padding: 0 0.28rem;
+    line-height: 0.96rem;
+    display: block;
+}
+
+.like .title {
+    font-size: 0.32rem;
+    color: #666;
+    text-align: center;
+    width: 100%;
+}
+
+.main .title span {
+    font-size: 0.32rem;
+    color: #b5c4c8;
+    margin-left: 0.1rem;
+}
+
+.products {
+    width: 7.26rem;
+    padding: 0 0.12rem;
+    background: #f3fbfd;
+    padding-top: 0.12rem;
+}
+
+.products .proimg {
+    width: 100%;
+    height: 3.55rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom: 0.01rem solid #ddd;
+}
+
+.wenzbox {
+    width: 100%;
+}
+
+.products .name {
+    font-size: 0.3rem;
+    color: #3d3d45;
+    text-align: center;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.probox:nth-child(2n+0) {
+    margin-right: 0;
+}
+
+.probox {
+    display: block;
+    background: #fff;
+    width: 3.58rem;
+    border: 0.01rem solid #dddddd;
+    padding-bottom: 0.18rem;
+    float: left;
+    box-sizing: border-box;
+    margin-right: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.products .price {
+    color: #cebd70;
+    font-size: 0.3rem;
+    text-align: center;
+    display: block;
+    line-height: 1;
+    font-weight: bold;
+    margin-top: 0.1rem;
+}
+
+/**/
+.sidebar {
+    background: #fff;
+    width: 1.74rem;
+    border: 0.01rem solid #cfcfcf;
+}
+
+.sidebar .cake {
+}
+
+.sidebarnav {
+    position: absolute;
+    left: -0.02rem;
+    top: 50%;
+    z-index: 100;
+}
+
+.cake, .eat, .flower {
+    padding-top: 0.35rem;
+}
+
+.cake .logo {
+    background: url("../img/logo4.png") no-repeat center;
+    background-size: cover;
+    margin: 0 auto;
+    display: block;
+    width: 0.84rem;
+    height: 0.9rem;
+    margin-bottom: 0.14rem;
+}
+
+.eat .logo {
+    background: url("../img/logo5.png") no-repeat center;
+    background-size: cover;
+    margin: 0 auto;
+    display: block;
+    width: 0.84rem;
+    height: 0.9rem;
+    margin-bottom: 0.14rem;
+}
+
+.flower .logo {
+    background: url("../img/logo6.png") no-repeat center;
+    background-size: cover;
+    margin: 0 auto;
+    display: block;
+    width: 0.84rem;
+    height: 0.9rem;
+    margin-bottom: 0.14rem;
+}
+
+.cakewz {
+    font-size: 0.3rem;
+    color: #3d3d45;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    line-height: 1;
+    width: 0.94rem;
+    padding-bottom: 0.48rem;
+    border-bottom: 0.01rem solid #ddd;
+}
+
+.cakewz1 {
+    border-bottom: none;
+}
+
+.logo9 {
+    width: 0.82rem;
+    height: 1.05rem;
+    background: url("../img/logo9.png") no-repeat center;
+    background-size: cover;
+    margin-bottom: 0.03rem;
+    display: none;
+}
+
+.logo10 {
+    width: 0.82rem;
+    height: 1.05rem;
+    background: url("../img/logo10.png") no-repeat center;
+    background-size: cover;
+}
+
+.rightbar {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 19;
+}
+
+.toleft {
+    background: url("../img/logo7.png") no-repeat center;
+    background-size: cover;
+    width: 0.45rem;
+    height: 1.07rem;
+    position: absolute;
+    right: -0.45rem;
+    top: 50%;
+    margin-top: -0.535rem;
+}
+
+.toright {
+    background: url("../img/logo8.png") no-repeat center;
+    background-size: cover;
+    width: 0.45rem;
+    height: 1.07rem;
+    position: absolute;
+    right: -0.45rem;
+    top: 50%;
+    margin-top: -0.535rem;
+}
+
+.products-nav {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+.products-nav .btn {
+    float: right;
+    width: 0.32rem;
+    height: 0.3rem;
+    background: url(../img/logo20.png) no-repeat;
+    background-size: cover;
+    margin-right: 0.36rem;
+    margin-top: 0.36rem;
+}
+.products-nav .num {
+    margin-right: 0.63rem;
+    margin-left: 0.63rem;
+}
+
+.products-nav .sort{
+    color: #3d3d45;
+    background: url(../img/logo21.png) no-repeat right center;
+    background-size: 0.15rem 0.13rem;
+    font-size: 0.3rem;
+    padding-right: 0.25rem;
+}
+.products-nav .sort.cur{
+    color: #cebd78;
+    background: url(../img/logo19.png) no-repeat right center;
+    background-size: 0.15rem 0.13rem;
+    font-size: 0.3rem;
+    padding-right: 0.25rem;
+}
+.products-nav .screen.cur,.products-nav .num.cur{
+    color: #cebd78;
+}
+
+.products-nav .left {
+    padding-left: 0.36rem;
+    font-size: 0.3rem;
+    line-height: 1.06rem;
+}
+
+
+.products2 {
+    width: 7.5rem;
+}
+
+.products2 .proimg {
+    width: 100%;
+    height: 2rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.wenzbox2 {
+    width: 2.5rem;
+}
+
+.products2 .name {
+    font-size: 0.3rem;
+    color: #3d3d45;
+    text-align: center;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*.probox:nth-child(3n+0){*/
+/*border-right:none;*/
+/*}*/
+.probox2 {
+    display: block;
+    background: #fff;
+    width: 2.5rem;
+    border-right: 0.01rem solid #e8e8e8;
+    border-bottom: 0.01rem solid #e8e8e8;
+    padding-bottom: 0.18rem;
+    float: left;
+    box-sizing: border-box;
+}
+
+.products2 .price {
+    color: #cebd70;
+    font-size: 0.3rem;
+    text-align: center;
+    display: block;
+    line-height: 1;
+    font-weight: bold;
+}
+.mainbox{
+    background: #f3fbfd;
+}
+.like{
+    padding-bottom: 0.3rem;
+}
+
+.sort-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    display: none;
+}
+.sort-mask li {
+    line-height: 0.89rem;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 0.3rem;
+    color: #999999;
+}
+.sort-mask .sort-box {
+    margin-top: 1.06rem;
+    background: #fff;
+}
+.sort-mask ul {
+    padding-left: 0.35rem;
+}
+
+.sort-mask li.typecur {
+    color: #cebd70;
+    background: url(../img/logo22.png) no-repeat 6.47rem 0.32rem;
+    background-size: 0.32rem 0.32rem;
+}
+
+.screen-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    right: 0;
+    top: 0;
+    display: none;
+}
+.shaixuanbox{
+    position: absolute;
+    width: 85%;
+    height: 100%;
+    background: #fff;
+    z-index: 101;
+    right: 0;
+    top: 0;
+}
+.screen-mask .screen-box {
+    overflow-y: auto;
+}
+.screen-mask .outbox {
+    padding: 0.35rem 0.29rem 0.28rem 0.29rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+.screen-mask .outbox .tit {
+    font-size: 0.28rem;
+    color: #999999;
+    line-height: 0.28rem;
+    margin-bottom: 0.3rem;
+}
+.screen-mask .outbox li {
+    width:1.75rem;
+    height: 0.86rem;
+    background: #eaeaea;
+    border-radius: 6px;
+    font-size: 0.28rem;
+    line-height: 0.88rem;
+    color: #333333;
+    margin-right: 0.17rem;
+    margin-bottom: 0.14rem;
+    float: left;
+    text-align: center;
+}
+.screen-mask .outbox li.cur {
+    background: #dccc8d;
+    color: #fff;
+}
+.screen-box .left{
+    text-align: center;
+    font-size: 0.3rem;
+    line-height: 1.06rem;
+    color: #999999;
+    border-bottom: 0.01rem solid #ddd;
+}
+.screen-mask .screen-btn {
+    width: 100%;
+    height: 1rem;
+    background: #dccc8d;
+    font-size: 0.36rem;
+    color: #fff;
+    text-align: center;
+    line-height: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.screen-mask .section input {
+    width: 2.45rem;
+    height: 0.88rem;
+    border:0.01rem solid #ddd;
+    border-radius: 0.07rem;
+    font-size: 0.26rem;
+    color: #666666;
+    text-align: center;
+}
+.screen-mask .section {
+    background: url(../img/logo23.jpg) no-repeat center center;
+    background-size: 0.26rem 0.02rem;
+    margin-bottom: 0.14rem;
+}
+.shaixtitle{
+    background:url("../img/logo23.png") no-repeat 0.27rem center;
+    background-size:0.13rem 0.23rem;
+}
