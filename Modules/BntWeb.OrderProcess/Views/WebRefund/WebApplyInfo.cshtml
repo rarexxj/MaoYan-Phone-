@@ -1,0 +1,229 @@
+﻿@using System.Diagnostics
+@using System.Web.Optimization
+@using BntWeb.Core.SystemUsers
+@using BntWeb.FileSystems.Media
+@using BntWeb.OrderProcess.Models
+@using BntWeb.OrderProcess.ViewModels
+@using BntWeb.Utility.Extensions
+
+@{
+    ViewBag.Title = SystemUsersModule.DisplayName;
+    ViewBag.SubTitle = "售后";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+  
+
+    var orderDetails = ViewBag.OrderDetails;
+    var apply = ViewBag.apply as RefundApplyInfoModel;
+    var orderGoods = ViewBag.orderGoods as OrderGoods;
+    var refundProof = ViewBag.refundProof as List<StorageFile>;
+}
+
+@section Styles{
+    @Styles.Render("~/css/refund/allrefund")
+
+}
+<!--右侧数据加载-->
+<form role="form" method="POST" id="RefundForm">
+    <div class="per_nav_right fr font_s14 color_666 heightauto">
+        @{
+            if (apply != null)
+            {
+                <div class="service-lx  color_444 fl borderrighte8">
+                    <div class="servicetit per_right_title font_s18 shenhebbox">
+                        退款类型：@apply.RefundType.Description()
+                        <div class="shenhebox">
+                            @if (apply.RefundStatus == RefundStatus.Processed && apply.ReviewResult == ReviewResult.UnPassed)
+                            {
+                                <span class="colorzhuse xgsq">修改申请</span>
+                            }
+                            @if (apply.RefundStatus == RefundStatus.Applying)
+                            {
+                                <span class="colorzhuse cxsq">撤销申请</span>
+                            }
+                        </div>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="shouhstatusli">
+                                <div class="shouhstatusbg">
+
+                                    售后状态：<span>@apply.RefundStatus.Description()</span>
+                                    @if (apply.RefundStatus == RefundStatus.Processed && apply.ReviewResult == ReviewResult.UnPassed)
+                                    {
+                                        <span>抱歉。你的退款申请审核未通过。你可以修改后再次发起，或者直接联系客服处理 QQ：601113254</span>
+                                    }
+                                    @if (apply.RefundStatus == RefundStatus.Processed && apply.ReviewResult == ReviewResult.Passed)
+                                    {
+                                        <span>审核通过。你可以直接联系客服处理 QQ：601113254</span>
+                                    }
+                                    @if (apply.RefundStatus == RefundStatus.Completed && apply.RefundType != RefundType.OnlyReturn)
+                                    {
+                                        <span class="tksure">退款成功！ <i>@apply.RefundAmount</i>元已按照原打款路径退回</span>
+                                    }
+
+
+                                </div>
+
+                            </li>
+
+
+                            @if (apply.RefundType != RefundType.OnlyRefund)
+                            {
+                                <li class="lianxifs">
+                                    <div class="clearfix">
+                                        <div class="fl color_999 tuikli-title2 color_333 tuikli-title21">
+                                            联系人：
+
+                                        </div>
+                                        <div class="fl color_999 tuikli-xx tuikli-title21">
+                                            @orderDetails.Consignee
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="fl color_999 tuikli-title2 color_333 tuikli-title21">联系方式：</div>
+                                        <div class="fl color_999 tuikli-xx tuikli-title21">@orderDetails.Tel</div>
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="fl color_999 tuikli-title2 color_333 tuikli-title21">联系地址：</div>
+                                        <div class="fl color_999 tuikli-xx tuikli-title21dz">@orderDetails.Address</div>
+                                    </div>
+                                </li>
+                            }
+
+                            <li class="tuikli clearfix shenheli">
+                                <div class="fl color_999 tuikli-title color_333">
+                                    退款金额：
+
+                                </div>
+                                <div class="fl color_999 tuikli-xx">
+                                    <span class="colorzhuse">@apply.RefundAmount</span>元
+                                </div>
+                            </li>
+                            <li class="tuikli clearfix shenheli">
+                                <div class="fl color_999 tuikli-title color_333">退款说明：</div>
+                                <div class="fl tuik-yuanyin color_999">@apply.Reason</div>
+
+                            </li>
+                            <li class="tuikli clearfix shenheli">
+                                <div class="fl color_999 tuikli-title color_333">上传凭证：</div>
+                                <ul class="fl clearfix shangcbox">
+
+
+                                    @if (refundProof != null)
+                                    {
+                                        foreach (var item in refundProof)
+                                        {
+                                            <li class="shangcpz  fl">
+                                                <img src="@(item?.Simplified().MediumThumbnail)" />
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    @if (apply.RefundStatus == RefundStatus.Processed && apply.ReviewResult == ReviewResult.Passed && apply.RefundType != RefundType.OnlyRefund)
+                    {
+                        <div class="serviceb-box serviceb-box2">
+                            <span class="bboxtip">请联系客服，有配送人员上门取件</span>
+                        </div>
+                    }
+
+                </div>
+            }
+       
+         
+                <div class="service-xx color_444 fl borderlefte8 service5r">
+                    <p class="servicetit per_right_title font_s18">订单信息</p>
+                    @if (orderGoods != null)
+                    {
+                    <div>
+                     
+                        <ul class="xxxxul">
+
+                            <li class="xxxxli xxxxtopli clearfix">
+                                <div class="fl xxxxtopliimg">
+                                    <img src="@(orderGoods.GoodsImage.MediumThumbnail)" alt="">
+                                </div>
+                                <div class="fl xxxxtoplimain">
+                                    <span class="xxxxtoplimaint color_333">@(orderGoods.GoodsName)</span>
+                                    <div class="xxxxtoplimainb color_999">
+                                        @(orderGoods.GoodsAttribute)
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="xxxxli clearfix">
+                                <div class="fl color_999 xxxxli-title">单价：</div>
+                                <div class="fl color_333 xxxxli-xx">
+                                    <span>@orderGoods.Price</span> 元 * <span>@orderGoods.Quantity</span>(数量)
+                                </div>
+                            </li>
+
+                            <li class="xxxxli clearfix">
+                                <div class="fl color_999 xxxxli-title">订单时间：</div>
+                                <div class="fl color_333 xxxxli-xx">@orderDetails.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</div>
+                            </li>
+                            <li class="xxxxli clearfix">
+                                <div class="fl color_999 xxxxli-title">订单编号：</div>
+                                <div class="fl color_333 xxxxli-xx">@orderDetails.OrderNo</div>
+                            </li>
+
+                            <li class="xxxxli clearfix">
+                                <div class="fl color_999 xxxxli-title">邮费：</div>
+                                <div class="fl xxxxli-addre color_333 xxxxli-xx">@orderDetails.ShippingFee 元</div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    }
+                </div>
+           
+        }
+    
+    </div>
+</form>
+
+
+@section Scripts{
+    <script type="text/javascript">
+
+
+        $(function () {
+            //撤销申请
+            $(".cxsq").bind("click", function () {
+                if (confirm("您确定要撤销退款申请吗？")) {
+                    $.ajax({
+                        url: '@Url.Action("WebRevokeApply", "WebRefund", new {area = OrderProcessModule.Area, applyId = apply?.Id})',
+                        type: "post",
+                        data: { d: Date.now() },
+                        success: function (data) {
+                            if (data.Success) {
+                                my_alert("撤销成功！");
+                                location.href = location.href;
+
+                            } else {
+                                my_alert(data.ErrorMessage);
+                            }
+                        },
+                        error: function () {
+                            my_alert("系统繁忙");
+
+                        }
+                    });
+                }
+            });
+
+
+            //修改申请
+            $(".xgsq").bind("click", function () {
+
+                location.href = '@Url.Action("AllRefund", "WebRefund", new {area=OrderProcessModule.Area,applyId=apply?.Id  })';
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,311 @@
+﻿
+@using BntWeb.Advertisement.Models
+@using BntWeb.Carousel.ApiModel
+@using BntWeb.FileSystems.Media
+@using BntWeb.Mall
+@using BntWeb.Mall.ApiModels
+@{
+
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+
+
+    List<HomeGoodsCategoryModel> homePageGoods = ViewBag.CategoryList as List<HomeGoodsCategoryModel>;
+    var advertOne = ViewBag.AdvertOne as  Advert;
+    var advertTwo = ViewBag.AdvertTwo as Advert;
+    var advertTwoSecond = ViewBag.AdvertTwoSecond as Advert;
+    var advertThreeSecond = ViewBag.AdvertThreeSecond as Advert;
+    var advertThree = ViewBag.AdvertThree as Advert;
+    var carousel = ViewBag.Carousel as List<CarouseModel>;
+    var img1 = ViewBag.AdvertImg1 as List<SimplifiedStorageFile>;
+    var img2 = ViewBag.AdvertImg2 as List<SimplifiedStorageFile>;
+    var img3 = ViewBag.AdvertImg3 as List<SimplifiedStorageFile>;
+    var img4 = ViewBag.AdvertImg4 as List<SimplifiedStorageFile>;
+    var img5 = ViewBag.AdvertImg5 as List<SimplifiedStorageFile>;
+   
+}
+
+    <div class="main">
+        <div class="bannerbox">
+            <div class="banner bd">
+                <ul>
+                    @{
+                        if (carousel != null)
+                        {
+                            foreach (var item in carousel)
+                            {
+                                if (item.ShotUrl?.IndexOf("http", StringComparison.Ordinal) >=0)
+                                {
+                                    <li>
+                                        <a href="@item.ShotUrl" target="_balnk" title="">
+                                            <img src="@(item.CoverImage?.RelativePath)" />
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href="@Url.Action("GoodsDetails","WebGoods",new {area="Mall",goodId=(item.ShotUrl?.Split('|')[1])})" target="_balnk" title="">
+                                            <img src="@(item.CoverImage?.RelativePath)" />
+                                        </a>
+                                    </li>
+                                }
+
+
+                            }
+                        }
+                    }
+                </ul>
+
+            </div>
+            <div class="hd">
+                <ul class="clearfix">
+                    <li class="on"></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <div class="index-productbox ">
+            @{
+                if (homePageGoods != null)
+                {
+                    foreach (var item in homePageGoods.Where(a => a.Id ==ViewBag.Type1Id))
+                    {
+                        <div class="napolun width1190">
+                            <div class="napolunborder clearfix">
+                                <div class="fl name">@item.Name<span>@item.EnglishName</span></div>
+                                <a href="@Url.Action("GoodsList", "WebGoods", new {area = MallModule.Area, categoryId = item.Id})">
+                                    <div class="fr more">更多</div>
+                                </a>
+                            </div>
+                            <div class="napolun-main">
+                                <ul class="napolun-ul clearfix">
+                                    @{if (img1 != null)
+                                        {
+                                            if (ViewBag.AdvertIndex1 == 1)
+                                            {
+                                                <a href="@advertOne.ShotUrl">
+                                                    <li class="napolun-adver">
+                                                        <img src="@(img1[0]?.MediumThumbnail)" alt="">
+                                                    </li>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = advertOne?.SourceId})">
+                                                    <li class="napolun-adver">
+                                                        <img src="@(img1[0]?.MediumThumbnail)" alt="">
+                                                    </li>
+                                                </a>
+                                            }
+
+                                        }
+                                        foreach (var goods in item.Goods)
+                                        {
+                                            <a href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = goods.Id})">
+                                                <li class="napolun-product">
+                                                    <img src="@(goods.MainImage?.MediumThumbnail)" alt="">
+                                                    <div class="napolun-intro-1">
+                                                        <span class="napolun-introname">@goods.Name</span>
+                                                        <span class="napolun-introprice">￥@goods.ShopPrice</span>
+                                                    </div>
+                                                    <span class="hotsell"></span>
+                                                 
+                                                </li>
+                                            </a>
+                                        }
+                                    }
+                                  
+                                </ul>
+                            </div>
+                        </div>
+                                            }
+
+                                        }
+            }
+
+            <div class="ruraocakebox">
+                @{
+                    if (homePageGoods != null)
+                    {
+                        foreach (var item in homePageGoods.Where(a=>a.Id==ViewBag.Type2Id))
+                        {
+                            <div class="ruraocake width1190">
+                                <div class="napolunborder clearfix">
+                                    <div class="fl name">@item.Name<span>@item.EnglishName</span></div>
+                                    <a href="@Url.Action("GoodsList", "WebGoods", new {area = MallModule.Area, categoryId = item.Id})">
+                                        <div class="fr more">更多</div>
+                                    </a>
+                                </div>
+                                <div class="napolun-main ruraocake-main">
+                                    <ul class="napolun-ul clearfix ruraocake-ul fl">
+                                        @{
+                                            if (img2 != null)
+                                            {
+                                                if (ViewBag.AdvertIndex2 == 1)
+                                                {
+                                                    <a href="@advertTwo.ShotUrl">
+                                                        <li class="napolun-adver ruraocake-adver">
+                                                            <img src="@(img2[0]?.MediumThumbnail)" alt="">
+                                                        </li>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = advertTwo?.SourceId})">
+                                                        <li class="napolun-adver ruraocake-adver">
+                                                            <img src="@(img2[0]?.MediumThumbnail)">
+                                                        </li>
+                                                    </a>
+                                                }
+                                            }
+                                            foreach (var goods in item.Goods)
+                                            {
+                                                <a href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = goods.Id})">
+                                                    <li class="napolun-product">
+                                                        <img src="@(goods.MainImage?.MediumThumbnail)" alt="">
+                                                        <div class="napolun-intro-1">
+                                                            <span class="napolun-introname">@goods.Name</span>
+                                                            <span class="napolun-introprice">￥@goods.ShopPrice</span>
+                                                        </div>
+                                                        <span class="hotsell"></span>
+                                                    </li>
+                                                </a>
+                                            }
+                                        }
+
+                                    </ul>
+                                    <div class="fl">
+                                        @{
+                                            if (img3 != null)
+                                            {
+                                                if (ViewBag.AdvertIndex3 == 1)
+                                                {
+                                                    <a href="@advertTwoSecond.ShotUrl">
+                                                        <li class="napolun-product ruraocake-adver2">
+                                                            <img src="@(img3[0]?.MediumThumbnail)" alt="">
+                                                        </li>
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = advertTwoSecond?.SourceId})">
+                                                        <li class="napolun-product ruraocake-adver2">
+                                                            <img src="@(img3[0]?.MediumThumbnail)" alt="">
+                                                        </li>
+                                                    </a>
+                                                }
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                                                }
+                                            }
+                }
+              
+            </div>
+            <div class="naiyoucake width1190">
+                @{
+                    if (homePageGoods != null)
+                    {
+                        foreach (var item in homePageGoods.Where(a => a.Id == ViewBag.Type3Id))
+                        {
+                            <div class="napolunborder clearfix">
+                                <div class="fl name">@item.Name<span>@item.EnglishName</span></div>
+                                <a href="@Url.Action("GoodsList", "WebGoods", new {area = MallModule.Area, categoryId = ViewBag.Type3Id})">
+                                    <div class="fr more">更多</div>
+                                </a>
+                            </div>
+                            <div class="napolun-main ruraocake-main">
+                                <ul class="napolun-ul clearfix ruraocake-ul naiyoucake-ul fl">
+                                    @{
+                                        if (img4 != null)
+                                        {
+                                            if (ViewBag.AdvertIndex4 == 1)
+                                            {
+                                                <a href="@advertThree.ShotUrl">
+                                                    <li class="napolun-adver ruraocake-adver naiyoucake-adver">
+                                                        <img src="@(img4[0]?.MediumThumbnail)" alt="">
+                                                    </li>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = advertThree?.SourceId})">
+                                                    <li class="napolun-adver ruraocake-adver naiyoucake-adver">
+                                                        <img src="@(img4[0]?.MediumThumbnail)" alt="">
+                                                        aa4
+                                                    </li>
+                                                </a>
+                                            }
+                                        }
+                                        foreach (var goods in item.Goods)
+                                        {
+                                            <a href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = goods.Id})">
+                                                <li class="napolun-product">
+                                                    <img src="@(goods.MainImage?.MediumThumbnail)" alt="">
+                                                    <div class="napolun-intro-1">
+                                                        <span class="napolun-introname">@goods.Name</span>
+                                                        <span class="napolun-introprice">￥@goods.ShopPrice</span>
+                                                    </div>
+                                                    <span class="hotsell"></span>
+                                                </li>
+                                            </a>
+                                        }
+                                    }
+                                </ul>
+                                <div class="fl">
+                                    @{
+                                        if (img5 != null)
+                                        {
+                                            if (ViewBag.AdvertIndex5 == 1)
+                                            {
+                                                <a href="@advertThreeSecond.ShotUrl">
+                                                    <li class="napolun-product ruraocake-adver2 naiyoucake-adver2">
+                                                        <img src="@(img5[0]?.MediumThumbnail)" alt="">
+                                                    </li>
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = advertThreeSecond?.SourceId})">
+                                                    <li class="napolun-product ruraocake-adver2 naiyoucake-adver2">
+                                                        <img src="@(img5[0]?.MediumThumbnail)" alt="">
+                                                    </li>
+                                                </a>
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </div>
+                                            }
+                                        }
+                }
+             
+            </div>
+        </div>
+    </div>
+@section Scripts{
+    <script type="text/javascript">
+     
+        $(function () {
+            var _width = $(window).width();
+            $('.banner ul li').height(_width / 2.85714);
+
+        //导航点击
+        $('.index-headnavmainul .index-navli').hover(function() {
+            $(this).addClass('active');
+            $(this).siblings().removeClass('active');
+            $(this).children('.index-navtwo').stop().slideToggle();
+        });
+        //banner图轮播
+        jQuery(".bannerbox").slide({
+            mainCell: ".bd ul",
+            autoPlay: true,
+            mouseOverStop: false
+        });
+    })
+
+    </script>
+}

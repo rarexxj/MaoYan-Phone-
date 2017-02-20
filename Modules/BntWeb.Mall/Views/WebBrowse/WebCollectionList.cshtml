@@ -1,0 +1,96 @@
+﻿@using System.Web.Optimization
+@using Autofac
+@using BntWeb.Environment
+@using BntWeb.Mall.Models
+@using BntWeb.Security
+@using BntWeb.Security.Identity
+@{
+    ViewBag.SubTitle = "我的收藏";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+    var user = ViewBag.CurrentUser as User;
+    var authService = HostConstObject.Container.Resolve<IAuthorizationService>();
+
+
+    var list = ViewBag.List as List<Goods>;
+}
+@section Styles{
+  @Styles.Render("~/css/browsing")
+}
+
+<div class="per_nav_right fr font_s14 color_666">
+    <div class="nav_rights jfdhright">
+        <div class="order_right_title color_444">
+            <div class="myjf-title">我的收藏</div>
+        </div>
+        <div class="jfdhbox">
+            <div class="jfdhbox-ds">
+                <ul class="jfdhboxul clearfix mycollectul">
+                    @if (list != null && list.Count > 0)
+                    {
+                        foreach (var item in list)
+                        {
+                            <li class="mycollectli">
+                                <a class="jfdhimgbox" href="@Url.Action("GoodsDetails", "WebGoods", new {area=MallModule.Area,goodId=item.Id})"><img src="@(item.MainImage?.MediumThumbnail)" alt=""></a>
+                                <div class="jfdh-main clearfix mycollect">
+                                    <p class="myct-mainp">@item.Name</p>
+                                    <span class="myct-mainprice">￥@item.ShopPrice</span>
+                                </div>
+                                <div class="collecttips clearfix">
+                                    <span class="tips-gwc fl"></span>
+                                    <span data-memberid="@ViewBag.memberid" data-goodsid="@item.Id" class="tips-xx fr">删除</span>
+                                </div>
+                            </li>
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="pags">
+        @Html.Action("PagePartial", "Home", new { area = "Home", url = ViewBag.Url, totalPage = ViewBag.TotalPage, currentPage = ViewBag.CurrentPage })
+    </div>
+</div>
+@section Scripts{
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //导航点击
+            $('.index-headnavmainul .index-navli').hover(function () {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $(this).children('.index-navtwo').stop().slideToggle();
+            });
+
+            //鼠标移动 购物消失隐藏
+            $('.mycollectul li').hover(function () {
+                $(this).find('.collecttips').show();
+            }, function () {
+                $(this).find('.collecttips').hide();
+            });
+
+            //删除
+            $('.jfdhboxul').on('click', '.tips-xx', function () {
+                var obj = $(this);
+                $.ajax({
+                    url: "/WebCollectionDel",
+                    type: "post",
+                    data: { memberid: obj.data("memberid"), goodsid: obj.data("goodsid"), d: Date.now() },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            obj.parents('.mycollectli').remove();
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function () {
+                        alert("系统繁忙");
+                    }
+                });
+            });
+        });
+    </script>
+
+}
+

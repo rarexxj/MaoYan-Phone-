@@ -1,0 +1,60 @@
+﻿@using BntWeb.Coupon
+@using BntWeb.Coupon.Models
+@using BntWeb.FileSystems.Media
+@using BntWeb.MemberCenter
+@using BntWeb.Wallet
+
+@{
+
+    Layout = null;
+    var avatarFile = ViewBag.WebAvatarFile as StorageFile;
+}
+<div class="per_nav_left fl font_s14">
+    <div class="per_left_bg ovh">
+        @{
+            if (avatarFile != null)
+            {
+                <div class="border_r1 img_user"
+                     style="background: url(@avatarFile.MediumThumbnail) no-repeat center; background-size: cover;"></div>
+            }
+            else
+            {
+                <div class="border_r1 img_user"
+                     style="background: url(Resources/img/user.jpg) no-repeat center; background-size: cover;"></div>
+            }
+
+            <p>@Model.NickName</p>
+        }
+    </div>
+    <ul class="account_list color_666">
+        <li class="account_change fl" style="cursor:pointer;">切换账号</li>
+        <li class="account_manage fr" style="cursor:pointer;">管理账号</li>
+    </ul>
+    <div class="box_bg"></div>
+    <ul class="order_list color_666 font_s14">
+        <li><a href="@Url.Action("WebOrderList","WebOrder",new {area="OrderProcess"})">我的订单</a></li>
+        <li><a href="@Url.Action("WebCollectionList","WebBrowse",new {area="Mall"})">我的收藏</a></li>
+        <li><a href="@Url.Action("WebBrowseList","WebBrowse",new {area="Mall"})">浏览历史</a></li>
+    </ul>
+    <div class="box_bg"></div>
+    <ul class="order_list color_666 font_s14">
+        <li><a href="@Url.Action("MyIntegral","WebIntegral",new {area=WalletModule.Area})">我的积分</a></li>
+        <li><a href="@Url.Action("Mycoupon", "WebCoupon", new {area = CouponModule.Area, status = CouponStatus.Unused})">我的优惠券</a></li>
+        <li><a href="@Url.Action("WebMemberAddressList", "WebMemberAddress", new {area = MemberCenterModule.Area})">收货地址</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    //切换账号
+    var url_login = "@Url.Action("WebLogin", "WebMember",new {area=MemberCenterModule.Area})";
+    var url_personal= "@Url.Action("WebPersonal", "WebMember", new {area=MemberCenterModule.Area})";
+    $(".account_change").on('click', function () {
+
+        location.href = url_login;
+    });
+    //管理账号
+
+    $(".account_manage").on('click', function () {
+        location.href = url_personal;
+    });
+
+</script>

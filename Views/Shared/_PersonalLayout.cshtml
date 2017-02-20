@@ -1,0 +1,54 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <meta http-equiv="content-language" content="zh-CN">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http:/www.bocweb.cn">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>成都猫眼食品有限责任公司</title>
+    @Styles.Render("~/css/public")
+    @Styles.Render("~/css/main")
+    @RenderSection("Styles", required: false)
+    @Scripts.Render("~/js/homepage")
+</head>
+<body>
+@{
+    Html.RenderAction("Head", "Home", new {area = "Home"});
+}
+<div class="personal_box">
+    <div class="per_center">
+        <div class="per_title color_999 font_s14">
+            <span>
+                <a href="@Url.Action("Index", "Home")" class="color_999">首页</a>
+                >
+                <a href="" class="color_999">@ViewBag.Title</a>
+
+                @if (!string.IsNullOrWhiteSpace(ViewBag.SubTitle))
+            {
+                    <a href="" class="color_999">@ViewBag.SubTitle</a>
+
+                }
+            </span>
+        </div>
+        <div class="per_nav clearfix">
+         @{ Html.RenderAction("Personal", "Home", new {area = "Home"}); } 
+            <!-- PAGE CONTENT BEGINS -->
+            @RenderBody()
+            <!-- PAGE CONTENT ENDS -->
+        </div>
+    </div>
+</div>
+
+@{ Html.RenderAction("Footer", "Home", new {area = "Home"});}
+@RenderSection("Scripts", required: false)
+</body>
+</html>

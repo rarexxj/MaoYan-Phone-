@@ -1,0 +1,129 @@
+﻿@using System.Web.Optimization
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles{
+    @Styles.Render("~/css/web/reg")
+    
+}
+<div class="banner" style="background: url(Resources/img/banner.jpg) no-repeat center; background-size: cover;">
+
+    <div class="reg_box">
+        <div class="register_box">
+            <div class="reg_title bg_pink clearfix">
+                <h3 class="font_s16 fl color_666">新用户注册</h3>
+                <a class="denglu font_s12 color_orange fr" href="@Url.Action("WebLogin", "WebMember", new {area = "MemberCenter"})">已有账号？登录</a>
+              
+            </div>
+            <div class="input_list">
+                <form role="form" method="POST" id="RegisterForm" action="@Url.Action("SaveRegister", "WebMember", new {area = MemberCenterModule.Area})">
+                    <div class="reg_list clearfix">
+                        <div class="btn btn_p fl"></div>
+                        <input type="text" class="userIphone fl" name="PhoneNumber" placeholder="请输入手机号"/>
+                    </div>
+                    <div class="reg_list clearfix">
+                        <div class="btn btn_m fl"></div>
+                        <input type="password" class="password fl" name="Password" placeholder="请设置密码"/>
+                    </div>
+                    <div class="reg_list clearfix">
+                        <div class="btn btn_m fl"></div>
+                        <input type="password" class="again_password fl" name="RePassword" placeholder="请确认密码"/>
+                    </div>
+                    <div class="reg_list clearfix">
+                        <div class="btn btn_y fl"></div>
+                        <input type="text" class="pic_yan with_140 fl" name="ImageVerifyCode" placeholder="右侧图形验证码"/>
+                        <div class="yanzhang_pic with_98 fl">
+                            <img id="sendimg" src="" onclick="SetCaptcha();">
+                            <input type="hidden" name="ImageVerifyKey"/>
+                        </div>
+                    </div>
+                    <div class="reg_list clearfix">
+                        <div class="btn btn_y1 fl"></div>
+                        <input type="text" class="yan with_140 fl" name="SmsVerifyCode" placeholder="请输入验证码"/>
+                        <input type="button" class="code-btn reg_yan" id="sendbtn" value="获取验证码"/>
+                    </div>
+
+                    <div class="xieyi_box clearfix">
+                        <input type="checkbox" class="checked fl" id="rgtagree" checked="checked"/>
+                        <span class="xieyi fl font_s14"><label for="rgtagree">我已阅读并同意</label>《<a href="@Url.Action("RegisterPage", "SinglePage", new {area= "SinglePage"})" style="cursor:pointer;" class="color_orange">用户服务使用协议</a>》</span>
+                    </div>
+                    <input class="submit font_s18 bg_orange" type="button" id="js_submit" value="注册">
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<div class="add_address" style="display:none" id="loginsuc">
+    <div class="zezao"></div>
+    <div class="address_box1 font_s14">
+        <div class="address_title">
+            <h3 class="font_s18 color_orange1">注册成功</h3>
+        </div>
+        <div class="reg_info">
+            <p>您已成功注册5客蛋糕网，您的会员卡号为：</p>
+            <h3 class="color_red">123456789</h3>
+            <p class="color_666">请尽快至个人中心完善资料以便我们能更好地为您服务，完善资料还有会员积分相赠，可用于礼品兑换。</p>
+        </div>
+        <div class="clearfix reg_btn_two">
+            <div class="reg_one color_fff fl bg_orange"><a href="@Url.Action("Index","Home",new {area= "Home"})" class="color_fff">随便逛逛</a></div>
+            <div class="fr person"><a class="color_444" href="@Url.Action("WebPersonal", "WebMember", new { area = MemberCenterModule.Area })">个人中心</a></div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+@Scripts.Render("~/js/web/register")
+<script type="text/javascript">
+
+    var url_personal='@Url.Action("WebPersonal", "WebMember", new { area = MemberCenterModule.Area })';
+</script>
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

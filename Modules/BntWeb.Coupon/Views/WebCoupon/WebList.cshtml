@@ -1,0 +1,136 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Coupon.Models;
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    var list = ViewBag.WebCouponList as List<Coupon>;
+}
+@section Styles{
+        @Styles.Render("~/css/web/personal")
+        @Styles.Render("~/css/web/address")
+
+}
+
+<div class="main" style="">
+    <div class="couponbox">
+        <div class="width1190 couponbox2">
+            <div class="couponboxin clearfix">
+                @{
+                    if (list != null)
+                    {
+                        foreach (var item in list)
+                        {
+                            <div class="coupon ">
+                                <div class="couponl fl" style="background-image: url(Resources/img1/img12.png)">
+                                    @{if (item.CouponType == CouponType.FullCut)
+                                      {
+                                          <span class="coupon-price">满 @item.Minimum 减 @item.Money</span>
+                                      }
+                                        if (item.CouponType == CouponType.Minus)
+                                        {
+                                            <span class="coupon-price">立减 @item.Money</span>
+                                        }
+                                        <span class="coupon-type">@item.Title</span>
+                                        <span class="coupon-date">有效期：@item.Term 个月</span>
+                                    }
+                                </div>
+                                <div class="couponr fl" data-type="@item.CouponType" data-code="@item.Code" data-id="@item.Id" style="background-image: url('Resources/img1/img13.png')"></div>
+                            </div>
+
+                        }
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.Action("PagePartial", "Home", new {area = "Home", url = ViewBag.Url, totalPage = ViewBag.TotalPage, currentPage = ViewBag.CurrentPage});
+    </div>
+</div>
+    @*成功领取优惠券*@
+<div class="youhqlayerbox">
+    <div class="zhezhao"></div>
+    <div class="youhqlayer">
+        <div class="youhqlayer-titlebox">
+            <span class="youhqlayer-title">优惠券领取成功！</span>
+            <span class="youhqlayer-close"></span>
+        </div>
+        <div class="clearfix youhqlayer-main">
+            <ul class="fl">
+                <li>适用范围：</li>
+                <li>优惠券额：</li>
+                <li>使用门槛：</li>
+                <li>使用时间：</li>
+            </ul>
+            <ol class="fl">
+                <li>全部商品</li>
+                <li id="d1">5.00元</li>
+                <li id="d2">订单满157.00元</li>
+                <li id="d3">2016/7/1——2016/7/31</li>
+            </ol>
+            <button onclick="CheckCoupon()">查看优惠券</button>
+        </div>
+    </div>
+</div>
+@*领取失败*@
+<div class="youhqlayerbox1">
+    <div class="zhezhao"></div>
+    <div class="youhqlayer1">
+        <div class="youhqlayer-titlebox">
+            <span class="youhqlayer-title">优惠券领取失败...</span>
+            <span class="youhqlayer-close"></span>
+        </div>
+        <div class="clearfix youhqlayer-main yhq-false">
+            亲，一种优惠券只能领取一次哦。
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @*分页的js*@
+    @Scripts.Render("~/js/page")
+    @*本身Js*@
+    @Scripts.Render("~/js/coupon/webcoupon")
+    <script type="text/javascript">
+        //优惠券列表
+        var url_currentpage = "@Url.Action("WebList", "WebCoupon", new { area= CouponModule.Area})";
+        //添加优惠券
+        var url_addcoupon = "@Url.Action("GetCoupon", "WebCoupon",new {area= CouponModule.Area })";
+        //查看优惠券点击事件
+        function CheckCoupon() {
+
+            location.href = url_mycoupon + "?status=Unused";
+        }
+
+         //我的优惠券列表
+        var url_mycoupon = "@Url.Action("Mycoupon", "WebCoupon", new { area= CouponModule.Area})";
+
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

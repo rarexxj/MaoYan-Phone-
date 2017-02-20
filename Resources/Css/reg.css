@@ -1,0 +1,239 @@
+.banner{
+	height: 580px;
+	width: 100%;
+}
+.reg_box{
+	width: 1190px;
+	height: 580px;
+	margin: auto;
+	position: relative;
+}
+.register_box{
+	
+	width: 358px;
+	height: 504px;
+	position: absolute;
+	right: 0;
+	top: 40px;
+	background: #FFFFFF;
+	}
+.reg_title{
+	height: 64px;
+	line-height: 64px;
+	padding: 0 38px;
+	border-bottom: 1px solid #E8E8E8;
+}
+.denglu{
+	padding-right: 24px;
+	background: url(../img/denglu.png) no-repeat right center;
+}
+.denglu a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.input_list{
+	padding:26px 38px 0 38px;
+	
+}
+.input_list input{
+	width: 226px;
+	height: 38px;
+	padding-left: 15px;
+	border: 1px solid #C3C3C3;
+	color: #666666;
+	font-size: 14px;
+
+}
+
+.btn_p{
+	background: url(../img/iphone.png) no-repeat center;
+}
+.btn_m{
+	background: url(../img/mima.png) no-repeat center;
+}
+.btn_y{
+	background: url(../img/yaoshi.png) no-repeat center;
+}
+.btn_y1{
+	background: url(../img/yaoshi2.png) no-repeat center;
+}
+
+.btn{
+	height: 38px;
+	width: 38px;
+	border: 1px solid #C3C3C3;
+	border-right: none;
+	background-color:#FBFBFB ;
+}
+.reg_list{
+	margin-bottom: 15px;
+}
+.input_list .with_140{
+	width: 140px;
+}
+.input_list .with_125{
+	width: 125px;
+}
+.reg_box .with_98{
+	height: 38px;
+	width: 85px;
+	border: 1px solid #C3C3C3;
+	border-left: none;
+}
+.yanzhang_pic img{
+	width: 100%;
+	height: 100%;
+}
+.input_list .reg_yan{
+	height: 40px;
+	width: 86px;
+	border: 1px solid #C3C3C3;
+	border-left: none;
+	background: #f3f3f3;
+	text-align: center;
+	padding-left: 0;
+	color: #999999;
+}
+.input_list .reg_yan1{
+	height: 40px;
+	width: 101px;
+	border: 1px solid #C3C3C3;
+	border-left: none;
+	background: #f3f3f3;
+	text-align: center;
+	padding-left: 0;
+	color: #999999;
+	
+}
+
+
+ .reg_box .checked{
+	width: 14px;
+	height: 14px;
+	margin-top: 5px;
+}
+.xieyi{
+	margin-left: 8px;
+}
+.xieyi_box{
+	line-height: 24px;
+	height: 24px;
+	color: #666666;
+	margin-top: 23px;
+}
+.submit{
+	width: 282px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #FFFFFF;
+	margin-top: 25px;
+	cursor: pointer;
+}
+.reg_info{
+	width: 300px;
+	padding-left: 38px;
+	padding-top: 10px;
+	line-height:2;
+}
+.reg_btn_two{
+	width: 298px;
+	margin-left: 38px;
+	margin-top: 12px;
+}
+.reg_btn_two .reg_one{
+	width: 144px;
+	height: 42px;
+	line-height: 42px;
+	font-size: 16px;
+	text-align: center;
+	
+}
+.person{
+	width: 142px;
+	height: 40px;
+	line-height: 42px;
+	border: 1px solid #C3C3C3;
+	font-size: 16px;
+	text-align: center;
+	background: #F5F5F5;
+}
+.person a,.reg_one a{
+	width: 100%;
+	height: 100%;
+}
+
+.register_box_1{
+	width: 358px;
+    height: 366px;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    background: #FFFFFF;
+	text-align: center;
+	color: #666666;
+}
+.denglu_one{
+	width: 179px;
+
+	border-right: 1px solid #E8E8E8;
+}
+.denglu_two{
+
+	width: 178px;
+}
+.reg_title_1{
+	    height: 64px;
+    line-height: 64px;
+}
+.reg_title_1 h3{
+	cursor: pointer;
+}
+.deng_type{
+	
+	background: #fbfbfb;
+	border-bottom: 1px solid #E8E8E8;
+}
+.qq_btn{
+	width: 33px;
+	height: 33px;
+	background: url(../img/QQ.png) no-repeat center;
+	cursor: pointer;
+	
+}
+.qaw{
+	margin-top: 18px;
+}
+.weixin_btn{
+	width: 33px;
+	height: 33px;
+	background: url(../img/weixin.png) no-repeat center;
+	margin-left: 17px;
+	cursor: pointer;
+}
+.hidden{
+	display: none;
+}
+.active{
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

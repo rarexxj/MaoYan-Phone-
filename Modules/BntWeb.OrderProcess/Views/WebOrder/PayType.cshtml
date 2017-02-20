@@ -1,0 +1,136 @@
+﻿@using System.Web.Optimization
+@using BntWeb.OrderProcess.Models
+
+@{
+    ViewBag.Title = OrderProcessModule.DisplayName;
+    ViewBag.SubTitle = "选择支付方式";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Order
+@section Styles{
+
+}
+<!--隐藏域-->
+<input type="hidden" id="OrderId" name="OrderId" value="@Model.Id" />
+<input type="hidden" id="PaymentCode" name="PaymentCode" value="alipay" />
+<div class="main" style="padding-bottom: 90px;">
+    <div class="bread">
+        <a class="bread-a home" href="javascript:;">选择支付方式</a>
+    </div>
+    @{
+        if (Model != null)
+        {
+            var time = Convert.ToDateTime(Model.CreateTime).AddHours(1);
+            <input type="hidden" id="endtime" value="@time" />
+            <input type="hidden" id="starttime" value="@DateTime.Now" />
+            <div class="payty-titbox width1190 clearfix">
+                <div class="paddinglr">
+                    <div class="payty-l fl">订单号：<span>@Model.OrderNo</span></div>
+                    <div class="payty-r fr">实付：<span>￥</span><span>@Model.PayFee</span></div>
+                </div>
+            </div>
+            <div class="paytybottom width1190">
+                <div class="paddinglr">
+                    
+                    <dl class="clearfix">
+                        <dt>选择支付方式</dt>
+                        <dd class="fl paytydd" data-code="alipay">
+                            <span class="paytyquan fl active"></span>
+                            <div class="payty-zhifubao fl"></div>
+                        </dd>
+                        <dd class="fl paytydd" data-code="weixin">
+                            <span class="paytyquan fl"></span>
+                            <div class="payty-weixin fl"></div>
+                        </dd>
+                        <dd class="fl paytydd" data-code="chinabank">
+                            <span class="paytyquan fl"></span>
+                            <div class="payty-yinlian fl"></div>
+                        </dd>
+                        <dd class="fl paytydd" data-code="payondelivery">
+                            <span class="paytyquan fl"></span>
+                            <div class="payty-huodao fl"></div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        }
+    }
+
+    <div class="paytype width1190">
+       
+        <a href="javascript:;"><button id="btnPay" name="btnPay" class="paytype-btn">立即付款</button></a>
+        <div class="paytype-time">剩余时间：<span id="timer"></span></div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @*付款方式头部js*@
+@Scripts.Render("~/js/webPayType")
+
+    <script type="text/javascript">
+
+        var payInitData = {
+            PaymentCode: "alipay",
+            OrderId: $("#OrderId").val(),
+            ReturnUrl: "@Url.Action("WebOrderList","WebOrder", new{area = OrderProcessModule.Area, orderId = Model.Id})"
+        }
+
+        //倒计时
+        var time_now_server, time_now_client, time_end, time_server_client, timerID;
+        time_end = new Date($("#endtime").val()); //结束的时间
+        time_end = time_end.getTime();
+
+        time_now_server = new Date($("#starttime").val()); //开始的时间
+        time_now_server = time_now_server.getTime();
+
+        time_now_client = new Date();
+        time_now_client = time_now_client.getTime();
+
+        time_server_client = time_now_server - time_now_client;
+
+        setTimeout("show_time()", 1000);
+
+        function show_time() {
+            var timer = document.getElementById("timer");
+            if (!timer) {
+                return;
+            }
+            timer.innerHTML = time_server_client;
+
+            var time_now, time_distance, str_time;
+            var int_day, int_hour, int_minute, int_second;
+            var time_now = new Date();
+            time_now = time_now.getTime() + time_server_client;
+            time_distance = time_end - time_now;
+            if (time_distance > 0) {
+                int_day = Math.floor(time_distance / 86400000);
+                time_distance -= int_day * 86400000;
+                int_hour = Math.floor(time_distance / 3600000);;
+                time_distance -= int_hour * 3600000;
+                int_minute = Math.floor(time_distance / 60000);
+                time_distance -= int_minute * 60000;
+                int_second = Math.floor(time_distance / 1000);
+
+                if (int_hour < 10)
+                    int_hour = "0" + int_hour;
+                if (int_minute < 10)
+                    int_minute = "0" + int_minute;
+                if (int_second < 10)
+                    int_second = "0" + int_second;
+                str_time ="0-"+int_minute + "分-" +"0-"+ int_second + "秒";
+                timer.innerHTML = str_time;
+                setTimeout("show_time()", 1000);
+            } else {
+                timer.innerHTML = timer.innerHTML;
+                clearTimeout(timerID);
+            }
+        }
+
+
+    </script>
+
+    @Scripts.Render("~/js/pay/payType")
+
+}
+

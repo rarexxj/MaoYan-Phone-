@@ -1,0 +1,136 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Core.SystemSettings.Models
+@using BntWeb.Logistics.Models
+@{
+    ViewBag.Title = LogisticsModule.DisplayName;
+    ViewBag.SubTitle = "配送区域";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    //var editMode = (bool)ViewBag.EditMode;
+    var isNew = (bool)ViewBag.IsNew;
+    if (isNew)
+    {
+        ViewBag.SubTitle = "新增配送区域";
+    }
+    else
+    {
+        ViewBag.SubTitle = "编辑配送区域";
+    }
+    var drovinceList = ViewBag.DrovinceList as List<District>;
+    var cityList= ViewBag.CityList as List<District>;
+    var areaList = ViewBag.AreaList as List<District>;
+    var feeList = ViewBag.FeeList as List<ShippingAreaFee>;
+}
+@model BntWeb.Logistics.Models.ShippingArea
+
+<form class="form-horizontal" role="form" method="POST" id="ShippingAreaForm" action="@Url.Action("EditOnPost", "ShippingArea", new { area = LogisticsModule.Area })">
+    <input type="hidden" id="Id" name="Id" value="@Model.Id"/>
+    <div class="form-group">
+        <div class="col-sm-9" id="AreaBox">
+            @if (feeList != null)
+            {
+                foreach (var feeInfo in feeList)
+                {
+                    <label><input name="AreaId" type="checkbox" class="ace" checked value="@feeInfo.AreaId"><span class="lbl"> @feeInfo.AreaName</span></label>
+                }
+            }
+        </div>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label no-padding-right" for="AreaId"> 配送区域 </label>
+        <div class="col-sm-9">
+            <span class="input-icon">
+                <select class="form-control" id="dllDrovince" >
+                    <option value="0" >请选择省</option>
+                    @{
+                        if (drovinceList != null)
+                        {
+                            foreach (var info in drovinceList)
+                            {
+                                <option value="@info.Id" @(info.Id==ViewBag.Drovince?"selected":"")>@info.ShortName</option>
+                            }
+                        }
+                    }
+                </select>
+            </span>
+            <span class="input-icon">
+                <select class="form-control" id="dllCity">
+                    <option value="0">请选择市</option>
+                    @{
+                        if (cityList != null)
+                        {
+                            foreach (var info in cityList)
+                            {
+                                <option value="@info.Id" @(info.Id==ViewBag.City ?"selected":"")>@info.ShortName</option>
+                            }
+                        }
+                    }
+                </select>
+            </span>
+            @*<span class="input-icon">
+                <select class="form-control" id="dllArea">
+                    <option value="0">请选择区</option>
+                    @{
+                        if (areaList != null)
+                        {
+                            foreach (var info in areaList)
+                            {
+                                <option value="@info.Id" @(info.Id == ViewBag.Area ? "selected" : "")>@info.ShortName</option>
+                            }
+                        }
+                    }
+                </select>
+            </span>*@
+            <a class="btn btn-sm btn-info" id="addArea" href="javascript:void();"><i class="icon-plus bigger-110"></i></a>
+        </div>
+        @*<input type="hidden" id="AreaId" name="AreaId" value="" area-name="" />*@
+    </div>
+    <div class="space-4"></div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label no-padding-right" for="Name"> 配送区域名字 </label>
+        <div class="col-sm-3">
+            <div class="clearfix">
+                <input type="text" id="Name" name="Name" maxlength="200"  class="col-xs-10 col-sm-5" value="@Model.Name"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label no-padding-right" for="Freight"> 费用（元） </label>
+        <div class="col-sm-3">
+            <div class="clearfix">
+                <input type="text" id="Freight" name="Freight" maxlength="200" class="col-xs-10 col-sm-5" value="@Model.Freight"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="space-4"></div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label no-padding-right" for="Sort"> 排序 </label>
+        <div class="col-sm-3">
+            <div class="clearfix">
+                <input type="text" id="Sort" name="Sort" maxlength="200" class="col-xs-10 col-sm-5" value="@Model.Sort"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-info" type="submit">
+                <i class="icon-ok bigger-110"></i>
+                保存
+            </button>
+        </div>
+    </div>
+
+</form>
+@section Scripts {
+    @Scripts.Render("~/js/admin/jquery-form")
+    <script type="text/javascript">
+        var url_loadPage = "@Url.Action("List", "ShippingArea", new {area = LogisticsModule.Area})";
+        var url_loadDistrict = "@Url.Action("LoadDistrictByParentId", "ShippingArea", new {area = LogisticsModule.Area})";
+    </script>
+    @Scripts.Render("~/js/admin/logistics/shippingarea/edit")
+}

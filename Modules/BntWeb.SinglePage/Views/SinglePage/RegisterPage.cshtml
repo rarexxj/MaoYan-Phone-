@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var modelPage = ViewBag.ModelItem as BntWeb.SinglePage.Models.SinglePage;
+}
+
+<style type="text/css">
+  .xi_f2 {
+    background: #F2F2F2;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.xi_sctive{
+	width: 1190px;
+	margin: auto;
+	color: #666666;
+	background: #FFFFFF;
+	min-height: 700px;
+}
+.xi_pact{
+	width: 1100px;
+	padding: 40px 40px 80px 40px;
+	margin: auto;
+	background: #FFFFFF;
+	font-size: 14px;
+}
+.xi_title{
+	 text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+}
+.xi_title:before,.xi_title:after{
+	content: '';
+	position: absolute;
+	top: 51%;
+	background: #E8E8E8;
+	width: 40%;
+	height: 1px;
+	
+}
+.xi_title:before{
+	left: 0;
+}
+.xi_title:after{
+	right: 0;
+}
+.xi_content{
+	width: 100%;
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+</style>
+
+
+<!--协议-->
+<div class="xi_f2">
+    <div class="xi_sctive">
+        <div class="xi_pact">
+            <p class="xi_title">猫眼用户服务使用协议</p>
+            <div class="xi_content">
+                @Html.Raw(modelPage?.Content)
+                <!--后端内容区域-->
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+
+            //导航点击
+            $('.index-headnavmainul .index-navli').hover(function () {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $(this).children('.index-navtwo').stop().slideToggle();
+            });
+
+            //
+            $('.order_nav li').on('click', function () {
+                var index = $(this).index();
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+                $('.companymain .mainall').hide();
+                $('.companymain .mainall').eq(index).show();
+            });
+
+
+        });
+    </script>
+
+}

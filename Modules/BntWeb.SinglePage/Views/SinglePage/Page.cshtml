@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var list = ViewBag.List as List<BntWeb.SinglePage.Models.SinglePage>;
+    var modelPage = ViewBag.ModelItem as BntWeb.SinglePage.Models.SinglePage;
+    var key = ViewBag.key;
+}
+@using System.Web.Optimization
+@using BntWeb.SinglePage.Models
+<style type="text/css">
+    .mainall {
+        display: none;
+    }
+
+    .mainallfir {
+        display: block;
+    }
+</style>
+
+<link href="/Resources/Css/main.css" rel="stylesheet" />
+<link href="/Resources/Css/order.css" rel="stylesheet" />
+<link href="/Resources/Css/personal.css" rel="stylesheet" />
+
+<div class="personal_box" style="padding-bottom: 60px;">
+
+    <div class="per_center">
+        <div class="per_title color_999 font_s14">
+            <a href="@Url.Action("Index","Home",new {area= "Home"})" class="color_999">首页</a>
+            >
+            <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key=key })" class="color_999">@modelPage.Title</a>
+        </div>
+        <div class="companybox clearfix">
+            <div class="order_right_title">
+                <ul class="order_nav clearfix myjf_nav">
+
+                    @if (list != null)
+                    {
+                        foreach (var item in list)
+                        {
+                            <li class='@(key == item.Key ? "active" : "")'>@item.SubTitle</li>
+                        }
+                    }
+
+
+                </ul>
+            </div>
+            <div class="companymain">
+                @if (list != null)
+                {
+                    foreach (var item in list)
+                    {
+                        <div class='@(key == item.Key ? "mainall mainallfir" : "mainall")'>@Html.Raw(item.Content)</div>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+
+            //导航点击
+            $('.index-headnavmainul .index-navli').hover(function () {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $(this).children('.index-navtwo').stop().slideToggle();
+            });
+
+            //
+            $('.order_nav li').on('click', function () {
+                var index = $(this).index();
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+                $('.companymain .mainall').hide();
+                $('.companymain .mainall').eq(index).show();
+            });
+
+
+        });
+    </script>
+
+}

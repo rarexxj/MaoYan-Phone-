@@ -1,0 +1,184 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Coupon.Models
+
+
+@{
+    ViewBag.Title = CouponModule.DisplayName;
+    ViewBag.SubTitle = "编辑优惠券";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var editMode = (bool)ViewBag.EditMode;
+    var isView = (bool)ViewBag.IsView;
+    if (isView)
+    {
+        ViewBag.SubTitle = "查看优惠券";
+    }
+    else
+    {
+        if (Model.Id != Guid.Empty)
+        {
+            ViewBag.SubTitle = "编辑优惠券";
+        }
+    }
+
+}
+@model BntWeb.Coupon.Models.Coupon
+@section Styles {
+    @Styles.Render("~/css/ztree")
+    @Styles.Render("~/css/admin/editable")
+    <style>
+        input[readonly] {
+            background: #fff !important;
+        }
+    </style>
+}
+<form class="form-horizontal" method="post" role="form" id="CouponForm" action="@Url.Action("EditOnPost", "Coupon", new {area = CouponModule.Area})">
+    <div class="col-sm-12 widget-container-span" style="padding: 0px;">
+        <div class="widget-box" style="margin: 0px;">
+            <div class="widget-body" style="border: 0px;">
+                <div class="widget-main padding-12 no-padding-left no-padding-right">
+                    <div class="tab-content padding-4">
+                        <div id="basic" class="tab-pane in active">
+                            <div class="slim-scroll">
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="CouponType"> 优惠券类型 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <select id="CouponType" name="CouponType" @(editMode ? "" : "disabled")>
+                                                <option value="0" @(Model.CouponType == CouponType.FullCut ? "selected=selected" : "")>满减</option>
+                                                <option value="1" @(Model.CouponType == CouponType.Minus ? "selected=selected" : "")>立减</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="Title">标题</label>
+                                    <input type="hidden" id="Id" name="Id" value="@Model.Id"/>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="Title" name="Title" placeholder="标题" class="col-xs-2" @(editMode ? "" : "readonly=true") value="@Model.Title"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="Describe"> 描述 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="Describe" name="Describe" placeholder="描述" class="col-xs-2" @(editMode ? "" : "readonly=true") value="@Model.Describe"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="Minimum"> 最低消费 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="Minimum" name="Minimum" placeholder="最低消费" class="col-xs-2" @(editMode ? "" : "readonly=true") value="@Model.Minimum"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="Money"> 所减金额 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="Money" name="Money" placeholder="所减金额" class="col-xs-2" @(editMode ? "" : "readonly=true") value="@Model.Money"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-4"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label no-padding-right" for="Term"> 期限/月 </label>
+                                    <div class="col-sm-9">
+                                        <div class="clearfix">
+                                            <input type="text" id="Term" name="Term" placeholder="期限/月" class="col-xs-2" @(editMode ? "" : "readonly=true") value="@Model.Term"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @{
+        if (!isView)
+        {
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-3 col-md-9" style="margin-top: 18px;">
+                    <button class="btn btn-info" type="submit">
+                        <i class="icon-ok bigger-110"></i>
+                        保存
+                    </button>
+                </div>
+            </div>
+        }
+    }
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/js/admin/editable")
+    @Scripts.Render("~/js/admin/jquery-form")
+    @Scripts.Render("~/js/kindeditor")
+    <script type="text/javascript">
+        var url_list = "@Url.Action("List", "Coupon", new {area = CouponModule.Area})";
+
+        jQuery(function ($) {
+
+            bntToolkit.initForm($("#CouponForm"), {
+                Title: {
+                    required: true
+                },
+                Money: {
+                    required: true
+                },
+                Code: {
+                    required: true
+                },
+                Describe: {
+                    required: true
+                },
+                CouponType: {
+                    required: true
+                },
+                Minimum: {
+                    required: true
+            }
+            }, null, success);
+
+        });
+        //当为立减是没有期限，为满减时有期限限制
+        jQuery(function ($) {
+            $("#CouponType").change(function () {
+             //满减
+                if ($('select[name="CouponType"]').val() === '0') {
+
+                    $('#Minimum').attr("disabled", false);
+                } else {
+                    //立减
+                    $('#Minimum').attr("disabled", true);
+                    $('#Minimum').val(0);
+                }
+           
+            });
+        });
+        // post-submit callback
+        function success(result, statusText, xhr, $form) {
+            if (!result.Success) {
+                bntToolkit.error(result.ErrorMessage);
+            } else {
+                location.href = "@Url.Action("List", "Coupon", new {area =CouponModule.Area })";
+
+            }
+        }
+    </script>
+
+}
+
+
+

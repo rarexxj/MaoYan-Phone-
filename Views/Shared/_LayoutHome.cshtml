@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+    <meta http-equiv="content-language" content="zh-CN">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="keywords" content>
+    <meta name="description" content>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http:/www.bocweb.cn">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>成都猫眼食品有限责任公司</title>
+        @Styles.Render("~/css/public")
+        @Styles.Render("~/css/main")
+    @RenderSection("Styles", required: false)
+    @Scripts.Render("~/js/homepage")
+</head>
+<body>
+    @{
+        Html.RenderAction("Head", "Home", new { area = "Home" });
+    }
+
+    <!-- PAGE CONTENT BEGINS -->@*首页或其他地方要加载的内容*@
+    @RenderBody()
+    <!-- PAGE CONTENT ENDS -->
+
+    @{ Html.RenderAction("Footer", "Home", new {area = "Home"});}
+    @{ Html.RenderAction("Float", "Home", new { area = "Home" });}
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
