@@ -29,14 +29,14 @@
 }
 
 .swiper-pagination-bullet {
-    background: url("../img/logo2.png") no-repeat center;
+    background: url("img/logo2.png") no-repeat center;
     width: 0.17rem;
     height: 0.17rem;
     background-size: cover;
 }
 
 .swiper-pagination-bullet-active {
-    background: url("../img/logo1.png") no-repeat center;
+    background: url("img/logo1.png") no-repeat center;
     width: 0.17rem;
     height: 0.17rem;
     background-size: cover;
@@ -66,7 +66,7 @@
 }
 
 .main .more {
-    background: url("../img/logo3.png") no-repeat right center;
+    background: url("img/logo3.png") no-repeat right center;
     background-size: 0.13rem 0.23rem;
     padding-right: 0.2rem;
     display: block;
@@ -159,7 +159,7 @@
 }
 
 .index-navbox .navlogo1 {
-    background: url("../img/logo11.png") no-repeat center;
+    background: url("img/logo11.png") no-repeat center;
     background-size: 0.52rem 0.52rem;
     display: block;
     width: 0.52rem;
@@ -168,7 +168,7 @@
 }
 
 .index-navbox .navlogo2 {
-    background: url("../img/logo12.png") no-repeat center;
+    background: url("img/logo12.png") no-repeat center;
     background-size: 0.52rem 0.52rem;
     display: block;
     width: 0.52rem;
@@ -177,7 +177,7 @@
 }
 
 .index-navbox .navlogo3 {
-    background: url("../img/logo13.png") no-repeat center;
+    background: url("img/logo13.png") no-repeat center;
     background-size: 0.52rem 0.52rem;
     display: block;
     width: 0.52rem;
@@ -186,7 +186,7 @@
 }
 
 .index-navbox .navlogo4 {
-    background: url("../img/logo14.png") no-repeat center;
+    background: url("img/logo14.png") no-repeat center;
     background-size: 0.52rem 0.52rem;
     display: block;
     width: 0.52rem;
@@ -195,22 +195,22 @@
 }
 
 .index-navbox .active .navlogo1 {
-    background: url("../img/logo15.png") no-repeat center;
+    background: url("img/logo15.png") no-repeat center;
     background-size: 0.52rem 0.52rem;
 }
 
 .index-navbox .active .navlogo2 {
-    background: url("../img/logo16.png") no-repeat center;
+    background: url("img/logo16.png") no-repeat center;
     background-size: 0.52rem 0.52rem;
 }
 
 .index-navbox .active .navlogo3 {
-    background: url("../img/logo17.png") no-repeat center;
+    background: url("img/logo17.png") no-repeat center;
     background-size: 0.52rem 0.52rem;
 }
 
 .index-navbox .active .navlogo4 {
-    background: url("../img/logo18.png") no-repeat center;
+    background: url("img/logo18.png") no-repeat center;
     background-size: 0.52rem 0.52rem;
 }
 
@@ -246,7 +246,7 @@
 }
 
 .cake .logo {
-    background: url("../img/logo4.png") no-repeat center;
+    background: url("img/logo4.png") no-repeat center;
     background-size: cover;
     margin: 0 auto;
     display: block;
@@ -256,7 +256,7 @@
 }
 
 .eat .logo {
-    background: url("../img/logo5.png") no-repeat center;
+    background: url("img/logo5.png") no-repeat center;
     background-size: cover;
     margin: 0 auto;
     display: block;
@@ -266,7 +266,7 @@
 }
 
 .flower .logo {
-    background: url("../img/logo6.png") no-repeat center;
+    background: url("img/logo6.png") no-repeat center;
     background-size: cover;
     margin: 0 auto;
     display: block;
@@ -292,7 +292,7 @@
 .logo9{
     width:0.82rem;
     height: 1.05rem;
-    background:url("../img/logo9.png") no-repeat center;
+    background:url("img/logo9.png") no-repeat center;
     background-size: cover;
     margin-bottom: 0.03rem;
     display: none;
@@ -300,7 +300,7 @@
 .logo10{
     width:0.82rem;
     height: 1.05rem;
-    background:url("../img/logo10.png") no-repeat center;
+    background:url("img/logo10.png") no-repeat center;
     background-size: cover;
 }
 .rightbar{
@@ -310,7 +310,7 @@
     z-index: 100;
 }
 .toleft{
-    background:url("../img/logo7.png") no-repeat center;
+    background:url("img/logo7.png") no-repeat center;
     background-size: cover;
     width:0.45rem;
     height:1.07rem;
@@ -338,7 +338,7 @@
     transition:1s
 }
 .toright{
-    background:url("../img/logo8.png") no-repeat center;
+    background:url("img/logo8.png") no-repeat center;
     background-size: cover;
     width:0.45rem;
     height:1.07rem;
