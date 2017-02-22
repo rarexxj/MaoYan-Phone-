@@ -42,7 +42,6 @@ $(function () {
 
 //移除LOADING
     $.RMLOAD = function () {
-
         (!$('.new-loading').length) || $('.new-loading').remove();
         (!$('.news-loading').length) || $('.news-loading').remove();
     }
@@ -149,7 +148,7 @@ $(function () {
         })
     }
 
-    $.nouser()
+    // $.nouser()
 
 
     //保留两位小数
@@ -160,7 +159,7 @@ $(function () {
     }
 })
 
-var html = '<script src="/Html/js/public/core-min.js"></script><script src="/Html/js/public/enc-base64-min.js"></script><script src="/Html/js/public/jquery.cookie.js"></script>'
+var html = '<script src="/Html/public/js/core-min.js"></script><script src="/Html/public/js/enc-base64-min.js"></script><script src="/Html/public/js/jquery.cookie.js"></script>'
 
 document.write(html)
 
