@@ -2,7 +2,7 @@
     background: #f3fbfd;
 }
 .swiper-pagination-bullet {
-    background: url("../img/logo25.png") no-repeat center;
+    background: url("img/logo25.png") no-repeat center;
     width: 0.17rem;
     height: 0.17rem;
     background-size: cover;
@@ -10,7 +10,7 @@
 }
 
 .swiper-pagination-bullet-active {
-    background: url("../img/logo24.png") no-repeat center;
+    background: url("img/logo24.png") no-repeat center;
     width: 0.17rem;
     height: 0.17rem;
     background-size: cover;
@@ -91,7 +91,7 @@
     line-height: 0.3rem;
     color: #666;
     padding-left: 0.43rem;
-    background: url("../img/logo26.png") no-repeat;
+    background: url("img/logo26.png") no-repeat;
     background-size: 0.3rem 0.3rem;
 }
 
@@ -112,7 +112,7 @@
     position: absolute;
     width: 0.18rem;
     height: 0.32rem;
-    background: url("../img/logo27.png") no-repeat;
+    background: url("img/logo27.png") no-repeat;
     background-size: cover;
     top: 0.3rem;
     right: 0.17rem;
@@ -185,7 +185,7 @@
 }
 
 .goshop #coll .tb {
-    background: url("../img/logo14.png") no-repeat;
+    background: url("img/logo14.png") no-repeat;
     background-size: cover;
 }
 
@@ -199,7 +199,7 @@
 }
 
 .goshop .goshopc .tb {
-    background: url("../img/logo13.png") no-repeat;
+    background: url("img/logo13.png") no-repeat;
     background-size: cover;
 }
 
@@ -361,12 +361,12 @@
 }
 
 .size-mask .size-box .getnum .jia {
-    background: url("../img/logo29.jpg") no-repeat;
+    background: url("img/logo29.jpg") no-repeat;
     background-size: cover;
 }
 
 .size-mask .size-box .getnum .jian {
-    background: url("../img/logo28.jpg") no-repeat;
+    background: url("img/logo28.jpg") no-repeat;
     background-size: cover;
     margin-right: 0.24rem;
 }
@@ -397,14 +397,14 @@
 .size-mask .size-box .close {
     width: 0.44rem;
     height: 0.44rem;
-    background: url("../img/logo32.png") no-repeat;
+    background: url("img/logo32.png") no-repeat;
     background-size: 0.44rem 0.44rem;
     position: absolute;
     top: 0.16rem;
     right: 0.16rem;
 }
 .choose-box .jjbox .quan{
-    background:url("../img/logo30.png") no-repeat center;
+    background:url("img/logo30.png") no-repeat center;
     width:0.35rem;
     height: 0.35rem;
     background-size: cover;
@@ -413,7 +413,7 @@
     margin-right: 0.36rem;
 }
 .choose-box .jjbox .quan.cur{
-    background:url("../img/logo31.png") no-repeat center;
+    background:url("img/logo31.png") no-repeat center;
     width:0.35rem;
     height: 0.35rem;
     background-size: cover;
@@ -424,7 +424,7 @@
     margin-bottom: 0.3rem;
 }
 .jjimg{
-    background:url("../img/img7.png") no-repeat center;
+    background:url("img/img7.png") no-repeat center;
     width:1.11rem;
     height:1.11rem;
     background-size: cover;
@@ -473,12 +473,12 @@
     height: 0.27rem;
     float: left;
     margin-right: 0.06rem;
-    background: url("../img/logo34.png") no-repeat;
+    background: url("img/logo34.png") no-repeat;
     background-size: cover;
 }
 
 .che-com li.cur {
-    background: url("../img/logo33.png") no-repeat;
+    background: url("img/logo33.png") no-repeat;
     background-size: cover;
 }
 
@@ -516,9 +516,30 @@
     position: absolute;
     width: 0.18rem;
     height: 0.08rem;
-    background: url("../img/logo35.png") no-repeat;
+    background: url("img/logo35.png") no-repeat;
     background-size: cover;
     position: absolute;
     top: -0.09rem;
     left: 0.35rem;
+}
+.pro-in-gocart {
+    width: 3.38rem;
+    height: 0.94rem;
+    line-height: 0.94rem;
+    border: 0.02rem solid #888;
+    box-sizing: border-box;
+    font-size: 0.3rem;
+    color: #1c1f23;
+    border-radius: 6px;
+}
+.pro-in-gobuy {
+    width: 3.38rem;
+    height: 0.94rem;
+    line-height: 0.94rem;
+    background-color: #c8994c;
+    box-sizing: border-box;
+    font-size: 0.3rem;
+    color: #1c1f23;
+    border-radius: 6px;
+    color: #fff;
 }

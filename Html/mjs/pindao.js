@@ -5,7 +5,12 @@ $(function () {
         data: {
             banner: [],
             proinfo: [],
-            hotinfo:[]
+            hotinfo: [],
+            prodata: {
+                type: 3,
+                pageNo: 1,
+                limit: 10
+            }
         },
         ready: function () {
             var _this = this;
@@ -15,6 +20,7 @@ $(function () {
             _this.$nextTick(function () {
                 _this.totop();
                 _this.others();
+                _this.updownload();
                 setTimeout(function () {
                     _this.swipe();
                 }, 100)
@@ -96,23 +102,45 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.proinfo = rs.data
-                        $.RMLOAD();
                     }
                 })
             },
-            hotajax:function () {
+            hotajax: function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Mall/Goods/Recommend',
                     type: 'get',
-                    data:{
-                        type:3,
-                        pageNo:1,
-                        limit:10
-                    }
+                    data: _this.prodata
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
-                        _this.hotinfo =_this.hotinfo.concat(rs.data.Goods)
+                        window.allpage = Math.ceil(_this.hotinfo.TotalCount / _this.prodata.limit)
+                        if (_this.prodata.pageNo == 1) {
+                            _this.hotinfo = rs.data.Goods
+                        } else {
+                            _this.hotinfo = _this.hotinfo.concat(rs.data.Goods)
+                        }
+                        $.RMLOAD();
+                    }
+                })
+            },
+            updownload: function () {
+                var _this = this;
+                var flag = true;
+                $(window).scroll(function () {
+                    var H = $('.scrolltop')[0].getBoundingClientRect().top;
+                    var h = $(window).height();
+                    if (H - h < 0 && flag == true) {
+                        flag = false;
+                        _this.prodata.pageNo++;
+                        if (_this.prodata.pageNo > allpage) {
+                            $.RMLOAD();
+                        } else {
+                            setTimeout(function () {
+                                flag = true;
+                            }, 500)
+                            _this.hotajax();
+                            $.ADDLOAD();
+                        }
                     }
                 })
             }

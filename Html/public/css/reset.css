@@ -705,21 +705,5 @@ i {
     zoom: 1;
 }
 
-/*oppo*/
-.oppo {
-    width: 4.36rem;
-    background: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    padding: 0.28rem 0.1rem;
-    position: fixed;
-    top: 50%;
-    margin-top: -0.5rem;
-    left: 50%;
-    margin-left: -2.18rem;
-    font-size: 0.3rem;
-    line-height: 0.44rem;
-    text-align: center;
-    border-radius: 0.08rem;
-    color: #fff;
-    z-index: 99;
-}
+
+
