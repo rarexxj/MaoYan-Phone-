@@ -24,8 +24,8 @@ $(function () {
 
     function ajaxyanz(data) {
         $.ajax({
-            url: '/Api/v1/Member/SendCode',
-            type: 'post',
+            url: '/Api/v1/Member/SendCodeWeixin',
+            type: 'POST',
             data: data
         }).done(function (rs) {
             if (rs.returnCode == '200') {
