@@ -16,11 +16,10 @@
     <link rel="stylesheet" href="/Html/public/css/swiper.min.css">
     <link rel="stylesheet" href="/Html/public/css/main.css">
     <link rel="stylesheet" href="/Html/css/productsinfo.css">
-    <script type="text/javascript" src="../../public/js/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="/Html/public/js/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="/Html/public/js/main.js"></script>
-    <script type="text/javascript" src="/Html/public/js/swiper.min.js"></script>
     <script type="text/javascript" src="/Html/public/js/vue.js"></script>
+    <script type="text/javascript" src="/Html/public/js/swiper.min.js"></script>
 
     <title>成都猫眼食品有限责任公司</title>
 </head>
@@ -29,12 +28,14 @@
     <div class="pro-info pb120">
         <div id="pro-info" v-cloak>
             <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" :style="{backgroundImage: 'url('+listimg.RelativePath+')'}"
-                         v-for="listimg in info.MainImage"></div>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" :style="{backgroundImage: 'url('+listimg.RelativePath+')'}"
+                             v-for="listimg in info.MainImage"></div>
+                    </div>
+                    <!-- 如果需要分页器 -->
+                    <div class="swiper-pagination"></div>
                 </div>
-                <!-- 如果需要分页器 -->
-                <div class="swiper-pagination"></div>
             </div>
             <div class="content">
                 <div class="name">{{info.Name}}</div>
@@ -123,23 +124,23 @@
                             v-for="list2 in info.AttributeValues[0].list">{{list2}}</li>
                     </ul>
                 </div>
-                <div class="tc other" v-if="info.AttributeValues[1]">
-                    <div class="tit" :data-id="info.AttributeValues[1].AttributeId">{{info.AttributeValues[1].AttributeName}}
-                    </div>
-                    <ul class="f-cb choose-box">
-                        <li class="choose" :data-px="$index" :data-id="info.AttributeValues[1].AttributeId"
-                            v-for="list2 in info.AttributeValues[1].list">{{list2}}</li>
-                    </ul>
-                </div>
-                <div class="tc other">
-                    <div class="tit">加价购
-                    </div>
-                    <div class="f-cb choose-box">
-                        <div class="jjbox clearfix"><span class="quan fl"></span><span class="fl">不加价</span></div>
-                        <div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>
-                        <div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>
-                    </div>
-                </div>
+                <!--<div class="tc other" v-if="info.AttributeValues[1]">-->
+                    <!--<div class="tit" :data-id="info.AttributeValues[1].AttributeId">{{info.AttributeValues[1].AttributeName}}-->
+                    <!--</div>-->
+                    <!--<ul class="f-cb choose-box">-->
+                        <!--<li class="choose" :data-px="$index" :data-id="info.AttributeValues[1].AttributeId"-->
+                            <!--v-for="list2 in info.AttributeValues[1].list">{{list2}}</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="tc other">-->
+                    <!--<div class="tit">加价购-->
+                    <!--</div>-->
+                    <!--<div class="f-cb choose-box">-->
+                        <!--<div class="jjbox clearfix"><span class="quan fl"></span><span class="fl">不加价</span></div>-->
+                        <!--<div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>-->
+                        <!--<div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
             <div class="getnum">
                 <div class="tit fl">数量</div>

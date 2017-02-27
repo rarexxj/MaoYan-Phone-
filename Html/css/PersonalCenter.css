@@ -1,0 +1,256 @@
+.per-cen .head a {
+    display: block;
+    background: #78a000;
+    height: 1.28rem;
+    padding: 0.26rem 0.15rem;
+    position: relative;
+}
+
+.per-cen .head a .img {
+    width: 1.2rem;
+    height: 1.2rem;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 0.04rem solid #fff;
+}
+
+.per-cen .head a .info {
+    padding-left: 0.31rem;
+    color: #fff;
+    line-height: 0.54rem;
+    padding-top: 0.13rem;
+}
+
+.per-cen .head a .name {
+    font-size: 0.36rem;
+}
+
+.per-cen .head a .ph {
+    font-size: 0.28rem;
+}
+
+.per-cen .head a .jt2 {
+    width: 0.19rem;
+    height: 0.32rem;
+    background: url("../img/img10.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 0.15rem;
+    top: 50%;
+    margin-top: -0.16rem;
+}
+
+.per-cen .money {
+    background: #fff;
+    line-height: 0.39rem;
+    text-align: center;
+}
+
+.per-cen .money .yuan {
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+}
+
+.per-cen .money a {
+    display: block;
+    color: #333;
+}
+
+.per-cen .money .left {
+    width: 3.19rem;
+    height: 1.29rem;
+    border-right: 0.01rem solid #e8e8e8;
+    border-bottom: 0.01rem solid #e8e8e8;
+    box-sizing: border-box;
+    padding-top: 0.3rem;
+    color: #333;
+}
+
+.per-cen .money .right {
+    width: 3.2rem;
+    height: 1.29rem;
+    border-bottom: 0.01rem solid #e8e8e8;
+    box-sizing: border-box;
+    padding-top: 0.3rem;
+    color: #333;
+}
+
+.per-cen .money .num {
+    font-size: 0.36rem;
+}
+
+.per-cen .money .p {
+    font-size: 0.24rem;
+}
+
+.per-cen .myorder {
+    margin-top: 0.2rem;
+    background: #fff;
+}
+
+.per-cen .myorder .list {
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+    width: 6.41rem;
+}
+
+.per-cen .myorder .list a {
+    display: block;
+    width: 1.6rem;
+    height: 1.28rem;
+    border-right: 1px solid #e8e8e8;
+    box-sizing: border-box;
+    padding-top: 0.82rem;
+    float: left;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+
+.per-cen .myorder .list .tt {
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+}
+
+.per-cen .myorder .list i {
+    width: 0.3rem;
+    height: 0.3rem;
+    text-align: center;
+    line-height: 0.3rem;
+    border-radius: 50%;
+    font-size: 0.2rem;
+    color: #fff;
+    background: #e84608;
+    position: absolute;
+    top: 0.19rem;
+    right: 0.36rem;
+    font-style: normal;
+}
+
+.per-cen .myorder .pay {
+    background: url("../img/img11.png") no-repeat center 0.3rem;
+    background-size: 0.44rem 0.33rem;
+}
+
+.per-cen .myorder .get {
+    background: url("../img/img12.png") no-repeat center 0.3rem;
+    background-size: 0.38rem 0.32rem;
+}
+
+.per-cen .myorder .evaluate {
+    background: url("../img/img13.png") no-repeat center 0.3rem;
+    background-size: 0.33rem 0.33rem;
+}
+
+.per-cen .myorder .service {
+    background: url("../img/img14.png") no-repeat center 0.3rem;
+    background-size: 0.33rem 0.32rem;
+}
+
+.per-cen .line a {
+    display: block;
+    padding: 0 0.49rem 0 0.15rem;
+    height: 0.93rem;
+    border-top: 1px solid #e8e8e8;
+    position: relative;
+    background: #fff;
+    z-index: 1;
+}
+
+.per-cen .line .tt {
+    float: left;
+    font-size: 0.3rem;
+    color: #333;
+    line-height: 0.93rem;
+}
+
+.per-cen .tc {
+    float: right;
+    font-size: 0.24rem;
+    color: #999;
+    line-height: 0.93rem;
+}
+
+.per-cen .partner {
+    margin-top: 0.2rem;
+    background: #fff;
+}
+
+.per-cen .partner ul {
+    width: 6.42rem;
+}
+
+.per-cen .partner li {
+    width: 2.12rem;
+    border-right: 1px solid #e8e8e8;
+    height: 1.3rem;
+    float: left;
+    text-align: center;
+    line-height: 0.36rem;
+}
+
+.per-cen .partner li a {
+    display: block;
+    height: 1.3rem;
+    width: 100%;
+    color: #333;
+    box-sizing: border-box;
+    padding-top: 0.33rem;
+}
+
+.per-cen .partner .num {
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+}
+
+.per-cen .partner .num span {
+    font-size: 0.36rem;
+    line-height: 0.36rem;
+}
+
+.per-cen .partner .p {
+    font-size: 0.24rem;
+}
+
+.per-cen .weixin {
+    margin-top: 0.2rem;
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+    padding: 0.16rem 0.15rem;
+    background: #fff;
+}
+
+.per-cen .weixin .logo {
+    width: 1.02rem;
+    height: 1.02rem;
+    background-size: cover;
+}
+
+.per-cen .weixin .info {
+    padding-left: 0.27rem;
+}
+
+.per-cen .weixin h2 {
+    font-size: 0.36rem;
+    line-height: 0.5rem;
+    padding-top: 0.03rem;
+    color: #333;
+}
+
+.per-cen .weixin .tc {
+    font-size: 0.24rem;
+    line-height: 0.36rem;
+    color: #999;
+}
+
+.per-cen .weixin .att {
+    width: 2.17rem;
+    height: 0.69rem;
+    background: #78a000;
+    font-size: 0.24rem;
+    line-height: 0.69rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.08rem;
+    margin-top: 0.16rem;
+}

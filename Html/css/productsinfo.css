@@ -336,7 +336,7 @@
 }
 
 .size-mask .size-box .tc li.choose-cur {
-    background: #78a000;
+    background: #cebd78;
     color: #fff;
 }
 
@@ -385,13 +385,12 @@
 }
 
 .size-mask .size-box .get-btn {
-    width: 100%;
-    height: 1rem;
     font-size: 0.36rem;
     color: #fff;
     text-align: center;
-    background: #dccc8d;
     line-height: 1rem;
+    padding: 0 0.25rem;
+    padding-bottom: 0.2rem;
 }
 
 .size-mask .size-box .close {

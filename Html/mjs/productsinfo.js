@@ -5,18 +5,18 @@ $(function () {
     new Vue({
         el: '#main',
         data: {
-            goodId: '5050c334-1bb8-4a9d-9f47-6ec2a96fd7e7',
+            goodId: id,
             info: [],
             imgs: '',
             lei: [],
             tipinfo: [],
-            evadata:{
-                goodsId:'5050c334-1bb8-4a9d-9f47-6ec2a96fd7e7',
-                limit:10,
-                pageNo:1
+            evadata: {
+                goodsId: id,
+                limit: 10,
+                pageNo: 1
             },
-            evainfo:[],
-            headinfo:[]
+            evainfo: [],
+            headinfo: []
         },
         ready: function () {
             var _this = this;
@@ -34,7 +34,6 @@ $(function () {
                 _this.evaajax();
                 _this.headimg();
                 _this.putshopcar();
-                _this.tipajax();
             })
         },
 
@@ -82,17 +81,15 @@ $(function () {
                 $('.size').on('click', function () {
                     $('.size-mask').show();
                 })
-                //选择
-                // $('.box').on('click', '.size-mask .tc li', function () {
-                //     $(this).addClass('cur').siblings().removeClass('cur');
-                // })
                 //关闭
-                $('.box').on('click', '.size-mask .close', function () {
+                $('#main').on('click', '.size-mask .close', function () {
                     $('.size-mask').hide();
                 })
 
 
-            },
+            }
+
+            ,
             Calculation: function () {
                 //加
                 $('#main').on('click', '.getnum .jia', function () {
@@ -118,7 +115,8 @@ $(function () {
                     }
                     $(this).parents('.numbox').find('.amount').val(num)
                 })
-            },
+            }
+            ,
             //切换
             tab: function () {
                 $('.information .btn').eq(0).on('click', function () {
@@ -148,7 +146,8 @@ $(function () {
                         }
                     }
                 })
-            },
+            }
+            ,
             //取消收藏
             ajaxcancel: function () {
                 $.ajax({
@@ -173,7 +172,8 @@ $(function () {
                         $('.goshop .coll').addClass('cur');
                     }
                 })
-            },
+            }
+            ,
             guigechioce: function () {
                 var _this = this;
                 window.proimg = _this.info.MainImage.MediumThumbnail;
@@ -227,11 +227,13 @@ $(function () {
                 _this.chooses();
 
 
-            },
+            }
+            ,
 
             chooses: function () {
                 var _this = this;
-                $('.box').on('click', '.choose-box>li', function () {
+                $('#main').on('click', '.choose-box>li', function () {
+
                     $('.getnum .amount').val(1)
                     $(this).addClass('choose-cur').siblings().removeClass('choose-cur')
                     _this.choose_zuhe();
@@ -239,7 +241,8 @@ $(function () {
                 $('.first .choose-box>li').on('click', function () {
                     _this.choose_gg()
                 })
-            },
+            }
+            ,
             choose_zuhe: function () {
                 var _this = this;
                 var zuhe = []
@@ -273,7 +276,8 @@ $(function () {
                     }
                 }
 
-            },
+            }
+            ,
             choose_gg: function () {
                 var _this = this;
                 var gg = [];
@@ -298,7 +302,8 @@ $(function () {
                         _this.chooses()
                     }
                 }
-            },
+            }
+            ,
             //加入购物车
             putshopcar: function () {
                 var _this = this;
@@ -338,12 +343,7 @@ $(function () {
                     }
                 });
                 $('.goshopc').on('click', function () {
-                    if (_this.info.Type == 2) {
-                        window.location.href = '/Html/shopcar1.html'
-                    }
-                    if (_this.info.Type == 1) {
-                        window.location.href = '/Html/shopcar2.html'
-                    }
+                    window.location.href = '/Html/shopcar.html'
                 })
             }
             ,
@@ -360,11 +360,13 @@ $(function () {
                 }).always(function () {
                     $('.addshopc,.pro-in-gocart').removeClass('on')
                 })
-            },
+            }
+            ,
             gotobuy: function () {
                 //立即购买
                 var _this = this;
                 $('#main').on('click', '.pro-in-gobuy', function () {
+                    console.log(1321)
                     if (!TOKEN) {
                         $.oppo('您还未登录', 1, function () {
                             if ($.is_weixin()) {
@@ -393,6 +395,7 @@ $(function () {
                 });
                 //购买
                 $('#main').on('click', '.gobuy', function () {
+                    console.log(2312321)
                     if (window.TOKEN) {
                         if (!$('.get-btn').attr('data-id')) {
                             $('.size-mask').show();
@@ -412,40 +415,30 @@ $(function () {
                     }
                 })
 
-            },
-            tipajax: function () {
+            }
+            ,
+            //评价
+            evaajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Page/06',
+                    url: '/Api/v1/Mall/GoodsEvaluates',
                     type: 'get',
-                    data:veadata
-                }).done(function (rs) {
-                    if (rs.returnCode == '200') {
-                        _this.tipinfo = rs.data;
-                    }
-                })
-            },
-            //评价
-            evaajax:function () {
-                var _this=this;
-                $.ajax({
-                    url:'/Api/v1/Mall/GoodsEvaluates',
-                    type:'get',
-                    data:_this.evadata
+                    data: _this.evadata
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.evainfo = rs.data;
                     }
                 })
-            },
+            }
+            ,
             //前9名头像
-            headimg:function () {
-                var _this=this;
+            headimg: function () {
+                var _this = this;
                 $.ajax({
-                    url:'/Api/v1/Mall/GoodsEvaluates/Top',
-                    type:'get',
-                    data:{
-                        goodsId:_this.goodId
+                    url: '/Api/v1/Mall/GoodsEvaluates/Top',
+                    type: 'get',
+                    data: {
+                        goodsId: _this.goodId
                     }
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -503,31 +496,6 @@ $(function () {
 //     }
 //
 //
-//     //加减
-//     Calculation();
-//     function Calculation() {
-//         //加
-//         $('.getnum .jia').on('click', function () {
-//             var max = parseInt($('.kc').html());
-//             var num = $(this).parents('.numbox').find('.amount').val();
-//             if (num >= max) {
-//                 num = max;
-//             } else {
-//                 num++;
-//             }
-//             $(this).parents('.numbox').find('.amount').val(num)
-//         })
-//         //减
-//         $('.getnum .jian').on('click', function () {
-//             var num = $(this).parents('.numbox').find('.amount').val();
-//             if (num <= 1) {
-//                 num = 1;
-//             } else {
-//                 num--;
-//             }
-//             $(this).parents('.numbox').find('.amount').val(num)
-//         })
-//     }
 //
 //
 //     //切换
@@ -597,7 +565,6 @@ $(function () {
 //     })
 //
 // })0
-
 
 
 // //用户评价

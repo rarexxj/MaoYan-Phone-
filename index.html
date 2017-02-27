@@ -38,7 +38,7 @@
                 <i class="navlogo navlogo3"></i>
                 <span class="index-navwz">购物车</span>
             </a>
-            <a href="../personalcenter/personalcenter.html">
+            <a href="/Html/personalcenter/personalcenter.html">
                 <i class="navlogo navlogo4"></i>
                 <span class="index-navwz">我的</span>
             </a>
@@ -68,13 +68,13 @@
         </div>
         <div class="mainbox">
             <div class="main" v-for="list in proinfo.Categories">
-                <a :href='"prolist.html?id="+list.Id' class="top clearfix">
+                <a :href='"/Html/html/fenlei/productslist.html?id="+list.Id' class="top clearfix">
                     <div class="title fl">{{list.Name}}</div>
                     <!--<div class="title fl">蛋糕<span>Cake</span></div>-->
                     <div class="fr more">更多</div>
                 </a>
                 <div class="products clearfix">
-                    <a :href='"prodetails.html?id="+pro.Id' class="probox" v-for="pro in list.Goods">
+                    <a :href='"/Html/html/fenlei/productsinfo.html?id="+pro.Id' class="probox" v-for="pro in list.Goods">
                         <div class="proimg" :style="{backgroundImage: '+pro.MainImage.RelativePath+')'}"></div>
                         <div class="wenzbox">
                             <span class="name">{{pro.Name}}</span>
