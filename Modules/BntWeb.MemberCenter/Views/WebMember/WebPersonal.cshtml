@@ -65,19 +65,43 @@
                 <span class="per_word2 fl">手机：</span>
                 <div class="userIphone fl">@ViewBag.PhoneNumber</div>
                 <div class="Iphone_xiugai fl">
-                    <a href="@Url.Action("ChangePhoneNumber","WebMember",new {area=MemberCenterModule.Area})">修改</a>
+                    <a href="@Url.Action("ChangePhoneNumber", "WebMember", new {area = MemberCenterModule.Area})">修改</a>
                 </div>
             </div>
-            <div class="tab tab_radio clearfix">
-                <span class="per_word2 fl">生日：</span>
-                <input type="radio" id="mans" class="fl" name="BirthType" value="0" @(Model.BirthType == BirthType.Calendar ? "checked=checked" : "") />
-                <label for="mans" class="fl">&nbsp;公历</label>
-                <input type="radio" id="womans" class="fl lunar" name="BirthType" value="1" @(Model.BirthType == BirthType.Lunar ? "checked=checked" : "") />
-                <label for="womans" class="fl">&nbsp;农历</label>
-                <input type="text" onFocus="WdatePicker()" class="fl Wdate shengri" name="Birthday" id="Birthday"
-                       placeholder="请选择生日" value="@Model.Birthday" />
+            @{
+                if (Model.Birthday.ToString("yyyy-MM-dd") == "1949-10-01")
+                {
+                    <div class="tab tab_radio clearfix">
+                        <span class="per_word2 fl">
+                            生日：
+                        </span>
 
-            </div>
+                        <input type="radio" id="mans" class="fl" name="BirthType" value="0" @(Model.BirthType == BirthType.Calendar ? "checked=checked" : "")/>
+                        <label for="mans" class="fl">&nbsp;公历</label>
+                        <input type="radio" id="womans" class="fl lunar" name="BirthType" value="1" @(Model.BirthType == BirthType.Lunar ? "checked=checked" : "")/>
+                        <label for="womans" class="fl">&nbsp;农历</label>
+                        <input type="text" onFocus="WdatePicker()" class="fl Wdate shengri" name="Birthday" id="Birthday"
+                               placeholder="请选择生日" value="@Model.Birthday"/>
+                        <b>&nbsp;&nbsp;&nbsp;生日一经注册无法修改</b>
+                    </div>
+                }
+                else
+                {
+                    <div class="tab tab_radio clearfix">
+                        <span class="per_word2 fl">
+                            生日：
+                        </span>
+
+                        <input type="radio" disabled id="mans" class="fl" name="BirthType" value="0" @(Model.BirthType == BirthType.Calendar ? "checked=checked" : "") />
+                        <label for="mans" class="fl">&nbsp;公历</label>
+                        <input type="radio"  disabled id="womans" class="fl lunar" name="BirthType" value="1" @(Model.BirthType == BirthType.Lunar ? "checked=checked" : "") />
+                        <label for="womans" class="fl">&nbsp;农历</label>
+                        <input type="text" disabled onFocus="WdatePicker()" class="fl Wdate shengri" name="Birthday" id="Birthday"
+                               placeholder="请选择生日" value="@Model.Birthday" />
+                    </div>
+                }
+            }
+       
             <div class="tab tab_radio">
                 <span class="per_word2 fl">口味偏好：</span>
                 <input type="radio" id="man1" class="fl" name="TastesType" id="" value="0" @(Model.TastesType == TastesType.Chocolate ? "checked=checked" : "") />

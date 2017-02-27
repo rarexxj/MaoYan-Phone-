@@ -51,7 +51,8 @@
 
 <form id="EvaluateForm" role="form" method="post" action="@Url.Action("WebSubmitEvaluate","WebEvaluate",new {area=OrderProcessModule.Area})">
 
-    <input type="hidden" id="Score" name="Score"/>
+    <input type="hidden" id="GoodTasteScore" name="GoodTasteScore"/>
+    <input type="hidden" id="FreshMaterialScore" name="FreshMaterialScore" />
     <input type="hidden" id="LogisticsScore" name="LogisticsScore"/>
     <input type="hidden" id="DesMatchScore" name="DesMatchScore"/>
     <input type="hidden" id="orderId" name="orderId"/>
@@ -94,7 +95,17 @@
             </p>
             <ul class="font_s14 xingxing">
                 <li class="clearfix">
-                    <span class="fl"><span class="color_red">*&nbsp;</span>综合评分 ：</span>
+                    <span class="fl"><span class="color_red">*&nbsp;</span>口感满意：</span>
+                    <div class="pinjia_box kougan fl clearfix">
+                        <span class="full_orange1 full_orange"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <span class="fl"><span class="color_red">*&nbsp;</span>材料新鲜：</span>
                     <div class="pinjia_box grade fl clearfix">
                         <span class="full_orange1 full_orange"></span>
                         <span class="full_orange1"></span>
@@ -104,7 +115,7 @@
                     </div>
                 </li>
                 <li class="clearfix">
-                    <span class="fl"><span class="color_red">*&nbsp;</span>描述相符 ：</span>
+                    <span class="fl"><span class="color_red">*&nbsp;</span>描述相符：</span>
                     <div class="pinjia_box describe fl clearfix">
                         <span class="full_orange1 full_orange"></span>
                         <span class="full_orange1"></span>
@@ -114,7 +125,7 @@
                     </div>
                 </li>
                 <li class="clearfix">
-                    <span class="fl"><span class="color_red">*&nbsp;</span>物流服务 ：</span>
+                    <span class="fl"><span class="color_red">*&nbsp;</span>物流服务：</span>
                     <div class="pinjia_box serve fl clearfix">
                         <span class="full_orange1 full_orange"></span>
                         <span class="full_orange1"></span>
@@ -130,21 +141,6 @@
             </div>
         
             <ul class="clearfix">
-
-                @*<li class="tuikli clearfix">
-                    <div class="fl color_999 tuikli-title color_333">评价图片：</div>
-
-                    <div class="upload_1">
-                        <ul class="upload clearfix">
-                            <li class="first_file  fl">
-                                <input class="files" name="file" multiple="multiple" type="file" id="doc" value="" />
-                            </li>
-                        </ul>
-                    </div>
-
-                    <span class="color_999 img_tips">每张图片大小不超过5M，最多3张，支持GIF、JPG、PNG、BMP格式</span>
-                </li>*@
-
                 <li class="clearfix">
                     <input type="hidden" id="RefundImageIds" name="RefundImageIds" />
 

@@ -60,7 +60,8 @@
         }).done(function (data) {
             if (data.Success) {
                 //登录成功后跳转到编辑个人信息页面
-                
+                editCookie("secondsremained4", 0, 0);
+               
                 location.href = url_Personal;
             }
             else {
@@ -133,7 +134,7 @@
     //开始倒计时
     function settime(obj) {
         countdown = getCookieValue("secondsremained4");
-        if (countdown === 0) {
+        if (countdown == 0) {
             obj.removeAttr("disabled");
             obj.val("获取验证码");
             return;
@@ -176,8 +177,8 @@
                         if (data.returnCode === "200") {
                             //发送短信成功后执行
                             //数组转成字符串
-                            var sms = data.data.smsvalue.join("");
-                            $("#smscode").val(sms);
+                            //var sms = data.data.smsvalue.join("");
+                            //$("#smscode").val(sms);
                         }else {
                             my_alert("未成功发送，请稍后再试");
                         }

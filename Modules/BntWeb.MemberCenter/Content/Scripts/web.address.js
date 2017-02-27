@@ -68,7 +68,7 @@
             if (data.returnCode === "200") {
                 $.each(data.data, function (index, value) {
 
-                    html += "<option id='" + value.Id + "' value='" + value.FullName + "'>" + value.FullName + "</option>";
+                    html += "<option value='" + value.Id + "'>" + value.FullName + "</option>";
                 });
             }
             else {
@@ -92,11 +92,11 @@
         }).done(function (data) {
             if (data.returnCode === "200") {
                 $.each(data.data, function (index, value) {
-                    if (value.FullName == province) {
+                    if (value.Id == province) {
                         pid = value.Id;
-                        html += "<option id='" + value.Id + "' value='" + value.FullName + "' selected='selected' >" + value.FullName + "</option>";
+                        html += "<option value='" + value.FullName + "' selected='selected' >" + value.FullName + "</option>";
                     } else {
-                        html += "<option id='" + value.Id + "' value='" + value.FullName + "'>" + value.FullName + "</option>";
+                        html += "<option  value='" + value.FullName + "'>" + value.FullName + "</option>";
                     }
                 });
             }
@@ -115,11 +115,11 @@
             }).done(function (data) {
                 if (data.returnCode === "200") {
                     $.each(data.data, function (index, value) {
-                        if (value.FullName == city) {
+                        if (value.Id == city) {
                             cid = value.Id;
-                            html1 += "<option id='" + value.Id + "' value='" + value.FullName + "' selected='selected' >" + value.FullName + "</option>";
+                            html1 += "<option value='" + value.FullName + "' selected='selected' >" + value.FullName + "</option>";
                         } else {
-                            html1 += "<option id='" + value.Id + "' value='" + value.FullName + "'>" + value.FullName + "</option>";
+                            html1 += "<option value='" + value.FullName + "'>" + value.FullName + "</option>";
                         }
 
                     });
@@ -142,11 +142,11 @@
                 }).done(function (data) {
                     if (data.returnCode === "200") {
                         $.each(data.data, function (index, value) {
-                            if (value.FullName == district) {
+                            if (value.Id == district) {
                                 did = value.Id;
-                                html2 += "<option id='" + value.Id + "' value='" + value.FullName + "' selected='selected' >" + value.FullName + "</option>";
+                                html2 += "<option  value='" + value.FullName + "' selected='selected' >" + value.FullName + "</option>";
                             } else {
-                                html2 += "<option id='" + value.Id + "' value='" + value.FullName + "'>" + value.FullName + "</option>";
+                                html2 += "<option  value='" + value.FullName + "'>" + value.FullName + "</option>";
                             }
                         });
                     } else {
@@ -156,20 +156,15 @@
                 });
             });
         });
-
-
-
-
-
-
-
     }
+
     //市的下拉
     $(".Province").change(function () {
 
         $("#City").empty();
-        $("#District").empty();
-        var provinceId = ($(this).find("option:checked").attr("id"));
+        $("#District").empty(); 
+        //var provinceId = ($(this).find("option:checked").attr("id"));
+        var provinceId = $("#Province option:selected").val();
         var html = "<option value=''>市</option>";
         $.ajax({
             type: "get",
@@ -179,7 +174,7 @@
         }).done(function (data) {
             if (data.returnCode === "200") {
                 $.each(data.data, function (index, value) {
-                    html += "<option id='" + value.Id + "' value='" + value.FullName + "'>" + value.FullName + "</option>";
+                    html += "<option  value='" + value.Id + "'>" + value.FullName + "</option>";
 
                 });
             } else {
@@ -197,7 +192,8 @@
         var html = "<option value=''>区/县</option>";
         //$("#City option").remove();
         $("#District option").remove();
-        var districtId = ($(this).find("option:checked").attr("id"));
+        //var districtId = ($(this).find("option:checked").attr("id"));
+        var districtId = $("#City option:selected").val();;
         $.ajax({
             type: "get",
             dataType: "json",
@@ -206,7 +202,7 @@
         }).done(function (data) {
             if (data.returnCode === "200") {
                 $.each(data.data, function (index, value) {
-                    html += "<option id='" + value.Id + "' value='" + value.FullName + "'>" + value.FullName + "</option>";
+                    html += "<option  value='" + value.Id + "'>" + value.FullName + "</option>";
                 });
             } else {
                 my_alert(result.ErroMessage);
@@ -354,6 +350,8 @@
             }
 
             $(div).remove();
+            var regionName = $("#Province option:selected").html() + "," + $("#City option:selected").text() + "," + $("#Province option:selected").html() + $("#District option:selected").html();
+            $("#RegionName").val(regionName);
             //这块应该已经提交信息,列表展示信息应该从后端获取
             //现在只是展示用,后端可删除
             if (type == "1") {

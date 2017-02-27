@@ -10,6 +10,7 @@
     //保存
     $('.sub_baocun').on('click', function () {
 
+
         var chkRadio = $('input:radio[name="a1"]:checked').val();
         $("#Sex").val(chkRadio);
         $.ajax({

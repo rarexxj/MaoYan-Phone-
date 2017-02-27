@@ -49,6 +49,9 @@
 			        } else if(data===3) {
                         return '<span class="label label-sm label-danger">积分换购</span>';
 			        }
+			        else if (data === 4) {
+			            return '<span class="label label-sm label-danger">鲜花专区</span>';
+			        }
 			    }
 			},
 		    {

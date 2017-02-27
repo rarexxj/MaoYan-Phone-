@@ -16,9 +16,10 @@
     });
 
     //五星评分
-    pinfen(".grade span");	//综合评分
+    pinfen(".grade span");	//材料新鲜
     pinfen(".describe span");	//描述相符
     pinfen(".serve  span");	//物流服务
+    pinfen(".kougan  span");	//口感
     function pinfen(element) {
         $(element).on("click", function () {
 
@@ -38,14 +39,14 @@
         });
     }
     //遍历综合评分是几个星   
-    //综合评分
+    //口感满意评分
     function getOne() {
         var score = 0;
-        $(".grade span").each(function () {
+        $(".kougan span").each(function () {
             if ($(this).hasClass("full_orange")) {
                 score = score + 1;
             }
-            $("#Score").val(score);
+            $("#GoodTasteScore").val(score);
         });
     }
     //描述相符
@@ -69,11 +70,24 @@
             $("#LogisticsScore").val(score);
         });
     }
+    //材料新鲜
+    function getFour() {
+        var score = 0;
+        $(".grade  span").each(function () {
+            if ($(this).hasClass("full_orange")) {
+                score = score + 1;
+            }
+            $("#FreshMaterialScore").val(score);
+        });
+    }
+
     //提交
     $(".tijiao").on('click', function() {
         getOne();
         getTwo();
         getThree();
+        getFour();
+
         $('.upload img').each(function () {
 
             fileObj = { id: $(this).data("id") }

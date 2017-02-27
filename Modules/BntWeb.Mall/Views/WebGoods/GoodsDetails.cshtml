@@ -136,10 +136,10 @@
         {
             foreach (var item in purchaseGoods)
             {
-                <div class="jiajiabox clearfix" data-flag="0" data-price="@item.ShopPrice" data-name="@item?.Name" data-id="@item?.Id">
+                <div class="jiajiabox clearfix" data-flag="0" data-price="@item.ShopPrice" data-name="@item.Name" data-id="@item.Id">
                     <span class="jiajiaquan fl"></span>
                     <div class="jiajiapro fl">
-                        <img src="@(item.MainImage?.SmallThumbnail)" width="60" height="60"/>
+                        <img src="@(item.PurImage?.MediumThumbnail)" width="60" height="60"/>
                     </div>
                     <div class="fl jiajiafont"><i>+@item.ShopPrice</i>@item.Name</div>
                 </div>
@@ -194,11 +194,11 @@
         <ul class="pingjia">
         <li class="pjtopbox">
             <div class="fl pjtop">
-                <span class="pjtoptitle">综合评分</span>
-                <span class="pjtopscore">@(evaluateList.Sum(a => a.Score) == 0 ? 0 : evaluateList.Sum(a => a.Score)/evaluateList.Count) </span>
+                <span class="pjtoptitle">口感满意</span>
+                <span class="pjtopscore">@(evaluateList.Sum(a => a.GoodTasteScore) == 0 ? 0 : evaluateList.Sum(a => a.GoodTasteScore)/evaluateList.Count) </span>
                 <div class="clearfix pjtopstar">
                     @{
-                        if (evaluateList.Sum(a => a.Score) == 0)
+                        if (evaluateList.Sum(a => a.GoodTasteScore) == 0)
                         {
                             <span class=""></span>
                             <span class=""></span>
@@ -209,7 +209,7 @@
                         }
                         else
                         {
-                            var i = evaluateList.Sum(a => a.Score);
+                            var i = evaluateList.Sum(a => a.GoodTasteScore);
                             var k = evaluateList.Count;
 
                             if (Math.Round(i/k*1.0, 0) == 1)
@@ -258,8 +258,72 @@
                 </div>
             </div>
             <div class="fl pjtop">
+                <span class="pjtoptitle">材料新鲜</span>
+                <span class="pjtopscore">@(evaluateList.Sum(a => a.FreshMaterialScore) == 0 ? 0 : evaluateList.Sum(a => a.FreshMaterialScore) / evaluateList.Count) </span>
+                <div class="clearfix pjtopstar">
+                    @{
+                        if (evaluateList.Sum(a => a.FreshMaterialScore) == 0)
+                        {
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+
+                        }
+                        else
+                        {
+                            var i = evaluateList.Sum(a => a.FreshMaterialScore);
+                            var k = evaluateList.Count;
+
+                            if (Math.Round(i / k * 1.0, 0) == 1)
+                            {
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i / k * 1.0, 0) == 2)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i / k * 1.0, 0) == 3)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i / k * 1.0, 0) == 4)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i / k * 1.0, 0) == 5)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                            }
+                        }
+                    }
+
+                </div>
+            </div>
+            <div class="fl pjtop">
                 <span class="pjtoptitle">描述相符</span>
-                <span class="pjtopscore">@(evaluateList.Sum(a => a.DesMatchScore) == 0 ? 0 : evaluateList.Sum(a => a.Score)/evaluateList.Count) </span>
+                <span class="pjtopscore">@(evaluateList.Sum(a => a.DesMatchScore) == 0 ? 0 : evaluateList.Sum(a => a.DesMatchScore) /evaluateList.Count) </span>
                 <div class="clearfix pjtopstar">
                     @{
                         if (evaluateList.Sum(a => a.DesMatchScore) == 0)
@@ -324,7 +388,7 @@
             </div>
             <div class="fl pjtop" style="margin-right: 0;">
                 <span class="pjtoptitle">物流服务</span>
-                <span class="pjtopscore">@(evaluateList.Sum(a => a.LogisticsScore) == 0 ? 0 : evaluateList.Sum(a => a.Score)/evaluateList.Count) </span>
+                <span class="pjtopscore">@(evaluateList.Sum(a => a.LogisticsScore) == 0 ? 0 : evaluateList.Sum(a => a.DesMatchScore) /evaluateList.Count) </span>
                 <div class="clearfix pjtopstar">
                     @{
                         if (evaluateList.Sum(a => a.LogisticsScore) == 0)
@@ -407,7 +471,7 @@
                             <div class="w884-r-star">
                                 <p class="nicheng">@item.MemberName</p>
                                 @{
-                                    var sum = (item.Score + item.DesMatchScore + item.LogisticsScore)/3;
+                                    var sum = (item.FreshMaterialScore + item.DesMatchScore + item.LogisticsScore+ item.GoodTasteScore) /4;
                                     var avg = Math.Round(sum*1.0, 0);
                                     if (avg == 1)
                                     {

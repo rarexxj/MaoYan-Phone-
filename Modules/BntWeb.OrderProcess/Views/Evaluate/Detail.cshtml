@@ -218,7 +218,11 @@
                                                 @evaluateInfo.OrderGoods.GoodsAttribute
                                             </td>
                                             <td class="left">
-                                                评分：@evaluateInfo.Evaluate.Score<br>
+                                                @{
+                                                    var sum = evaluateInfo.Evaluate.GoodTasteScore + evaluateInfo.Evaluate.FreshMaterialScore + evaluateInfo.Evaluate.DesMatchScore + evaluateInfo.Evaluate.LogisticsScore;
+                                                    var score = sum==0?0:sum/4;
+                                                }
+                                                评分：@score<br>
                                                 内容：@evaluateInfo.Evaluate.Content<br>
                                                 时间：@evaluateInfo.Evaluate.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
                                             </td>

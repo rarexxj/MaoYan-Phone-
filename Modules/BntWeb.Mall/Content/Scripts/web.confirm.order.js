@@ -250,10 +250,8 @@ $(function () {
     function chioceAddress1() {
         $('.add_address').on('click', '.add-chioce', function () {
             $(this).addClass('active');
-            $(this).attr('data-id', '1');
             $(this).siblings().removeClass('active');
-            $(this).siblings().attr('data-id', '0');
-            n = $(this).attr('data-id');
+          
             $("#d1").html("其他收货地址");
             $("#d2").html("收货人 :" + $(this).find("#a1").html());
             $("#d3").html("联系方式 : " + $(this).find("#a2").html());

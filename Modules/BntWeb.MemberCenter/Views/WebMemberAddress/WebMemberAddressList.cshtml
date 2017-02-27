@@ -67,7 +67,8 @@
 <form id="AddAddressForm" role="form" method="POST" action="@Url.Action("WebCreateAddress", "WebMemberAddress", new {area = MemberCenterModule.Area})">
 
     <input type="hidden" id="AddressId" name="AddressId" value=""/>
-    <input type="hidden" id="DefaultAddress" name="IsDefault" value="true" />
+    <input type="hidden" id="DefaultAddress" name="IsDefault" value="true"/>
+    <input type="hidden" id="RegionName"name="RegionName"/>
     <div class="add_address" style="display: none">
         
         <div class="zezao"></div>

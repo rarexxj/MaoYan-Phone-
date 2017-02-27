@@ -135,6 +135,11 @@ function sendCode(obj) {
 
 //发送短信验证码
 function SendCodes(e) {
+    if ($("#imgcode".val() != $("#sendimg").val())) {
+        my_alert("图形验证码输入不正确！");
+        return false;
+
+    }
     var _this = $(e.target);
     if (!_this.hasClass("disabled")) {
         var ophone = $("#RegisterForm input[name='PhoneNumber']");
