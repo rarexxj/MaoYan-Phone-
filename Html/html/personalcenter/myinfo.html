@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>成都猫眼食品有限责任公司</title>
+    <link rel="stylesheet" href="/Html/css/reset.css">
+    <link rel="stylesheet" href="/Html/css/swiper.min.css">
+    <link rel="stylesheet" href="/Html/css/main.css">
+    <link rel="stylesheet" href="/Html/css/myinfo.css">
+    <script src="/Html/js/public/jQuery.js"></script>
+    <script src="/Html/js/public/vue.js"></script>
+    <script src="/Html/js/public/main.js"></script>
+    <script src="/Html/js/public/swiper.min.js"></script>
+
+</head>
+<body style="background-color: #f0f0f0">
+<div class="myinfo" id="myinfo">
+    <div class="head f-cb">
+        <span>头像</span>
+        <div class="img fr"><img src="/Html/css/img/img8.jpg" width="100%" height="100%" alt=""></div>
+        <input type="file" class="file">
+        <div class="jt"></div>
+    </div>
+    <div class="line bb myname">
+        <a href="javascript:;" class="xingm">
+            <span>昵称</span>
+            <p class="name red"  v-if="!info.NickName">请输入</p>
+            <p class="name" v-if="info.NickName">{{info.NickName}}</p>
+            <div class="jt"></div>
+        </a>
+    </div>
+    <div class="line bb myname">
+        <a href="javascript:;" class="xingm">
+            <span>性别</span>
+            <p class="sex red"  v-if="!info.Sex">请输入</p>
+            <p class="sex" v-if="info.Sex">{{info.Sex}}</p>
+            <div class="jt"></div>
+        </a>
+    </div>
+    <div class="line bb myname">
+        <a href="javascript:;" class="xingm">
+            <span>生日</span>
+            <p class="birth red"  v-if="!info.birthday">请输入</p>
+            <p class="birth" v-if="info.birthday">{{info.birthday}}</p>
+            <div class="jt"></div>
+        </a>
+    </div>
+    <div class="line bb mt20 myph">
+        <a href="modifyphone.html">
+            <span>绑定手机</span>
+            <p class="telenum">{{info.PhoneNumber}}</p>
+            <div class="jt"></div>
+        </a>
+    </div>
+    <div class="line bb perid">
+        <a href="javascript:;" class="shenfz">
+            <span>修改密码</span>
+            <p class="cdcard"></p>
+            <div class="jt"></div>
+        </a>
+    </div>
+    <div class="line bb perid">
+        <a href="javascript:;" class="shenfz">
+            <span>管理收货地址</span>
+            <p class=""></p>
+            <div class="jt"></div>
+        </a>
+    </div>
+    <div class="line bb perid">
+        <a href="javascript:;" class="shenfz">
+            <span>口味偏好</span>
+            <p class=""></p>
+            <div class="jt"></div>
+        </a>
+    </div>
+    <div style="width: 100%;height: 1rem;"></div>
+    <div class="submit">退出当前账号</div>
+</div>
+
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="/Html/js/mjs/myinfo.js"></script>
+</body>
+
+</html>

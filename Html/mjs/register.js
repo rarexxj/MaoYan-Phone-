@@ -87,6 +87,6 @@ $(function () {
 
     //微信手机绑定
     $('.gowxb').on('click', function () {
-        window.location.href = "/Html/signup.html?openId=" + openid
+        window.location.href = "/Html/html/personalcenter/signup.html?openId=" + openid
     })
 })
