@@ -12,113 +12,92 @@
     <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http:/www.bocweb.cn">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <link rel="stylesheet" href="../../public/css/reset.css">
-    <link rel="stylesheet" href="../../public/css/swiper.min.css">
-    <link rel="stylesheet" href="../../css/pindao.css">
-    <script type="text/javascript" src="../../public/js/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="../../public/js/main.js"></script>
-    <script type="text/javascript" src="../../public/js/swiper.min.js"></script>
-    <script type="text/javascript" src="../../mjs/pindao.js"></script>
+    <link rel="stylesheet" href="/Html/public/css/reset.css">
+    <link rel="stylesheet" href="/Html/public/css/swiper.min.css">
+    <link rel="stylesheet" href="/Html/public/css/main.css">
+    <link rel="stylesheet" href="/Html/css/pindao.css">
+    <script type="text/javascript" src="/Html/public/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/Html/public/js/main.js"></script>
+    <script type="text/javascript" src="/Html/public/js/swiper.min.js"></script>
+    <script type="text/javascript" src="/Html/public/js/vue.js"></script>
     <title>成都猫眼食品有限责任公司</title>
 </head>
 <body>
-<div class="box">
-    <div class="index-navbox clearfix">
-        <a href="index.html" class="active">
-            <i class="navlogo navlogo1"></i>
-            <span class="index-navwz">首页</span>
-        </a>
-        <a href="Html/shopmall.html">
-            <i class="navlogo navlogo2"></i>
-            <span class="index-navwz">分类</span>
-        </a>
-        <a href="##">
-            <i class="navlogo navlogo3"></i>
-            <span class="index-navwz">购物车</span>
-        </a>
-        <a href="Html/my.html">
-            <i class="navlogo navlogo4"></i>
-            <span class="index-navwz">我的</span>
-        </a>
-    </div>
-    <div class="sidebarnav">
-        <div class="sidebar">
-            <div class="cake">
-                <span class="logo"></span>
-                <span class="cakewz">蛋糕</span>
-            </div>
-            <div class="eat">
-                <span class="logo"></span>
-                <span class="cakewz">小食</span>
-            </div>
-            <div class="flower">
-                <span class="logo"></span>
-                <span class="cakewz cakewz1">鲜花</span>
-            </div>
-        </div>
-        <div class="toleft"></div>
-    </div>
-    <div class="rightbar">
-        <div class="logo9 scroll"></div>
-        <div class="logo10"></div>
-    </div>
-</div>
-<div class="index-box" id="index">
-    <div class="swiper-container">
-        <div class="index-banner swiper-wrapper">
-            <a href="##" class="swiper-slide" style="background-image: url('../../img/img1.png')"></a>
-            <a href="##" class="swiper-slide" style="../../background-image: url('img/img1.png')"></a>
-        </div>
-        <!-- 如果需要分页器 -->
-        <div class="swiper-pagination"></div>
-    </div>
-    <div class="mainbox">
-        <div class="main">
-            <a href="javascript:;" class="top clearfix">
-                <div class="title fl">热卖蛋糕</div>
+<div id="main">
+    <div class="box">
+        <div class="index-navbox clearfix">
+            <a href="index.html" class="active">
+                <i class="navlogo navlogo1"></i>
+                <span class="index-navwz">首页</span>
             </a>
-            <div class="products clearfix">
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-            </div>
+            <a href="Html/shopmall.html">
+                <i class="navlogo navlogo2"></i>
+                <span class="index-navwz">分类</span>
+            </a>
+            <a href="##">
+                <i class="navlogo navlogo3"></i>
+                <span class="index-navwz">购物车</span>
+            </a>
+            <a href="Html/my.html">
+                <i class="navlogo navlogo4"></i>
+                <span class="index-navwz">我的</span>
+            </a>
         </div>
+        <div class="sidebarnav">
+            <div class="sidebar">
+                <div class="cake" v-for="sidenav in proinfo.OneLevelCategorys">
+                    <span class="logo" :style="{backgroundImage:'url('+sidenav.CategoryImage.RelativePath+')'}"></span>
+                    <span class="cakewz">{{sidenav.Name}}</span>
+                </div>
+            </div>
+            <div class="toleft"></div>
+        </div>
+        <div class="rightbar">
+            <div class="logo9 scroll"></div>
+            <div class="logo10"></div>
+        </div>
+    </div>
+    <div class="index-box" id="index">
+        <div class="swiper-container">
+            <div class="index-banner swiper-wrapper">
+                <a :href="banner.url" :class="['swiper-slide']" v-for="banner in banner"
+                   :style="{backgroundImage: 'url('+banner.CoverImage.RelativePath+')'}"></a>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="mainbox">
+            <div class="main">
+                <a href="javascript:;" class="top clearfix">
+                    <div class="title fl">热卖蛋糕</div>
+                </a>
+                <div class="products clearfix">
+                    <a href="##" class="probox" v-for="list in hotinfo">
+                        <div class="proimg" :style="{backgroundImage: 'url('+list.MainImage.RelativePath+')'}"></div>
+                        <div class="wenzbox">
+                            <span class="name">{{list.Name}}</span>
+                            <span class="price">￥{{list.ShopPrice}}</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="scrolltop"></div>
+            </div>
 
+        </div>
     </div>
 </div>
-<script>
-</script>
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script type="text/javascript" src="/Html/mjs/pindao.js"></script>
 </body>
 </html>

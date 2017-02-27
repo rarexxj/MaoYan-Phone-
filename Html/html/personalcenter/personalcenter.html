@@ -1,167 +1,185 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
-    <meta http-equiv="content-language" content="zh-CN">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="keywords" content>
-    <meta name="description" content>
-    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http:/www.bocweb.cn">
-    <meta name="renderer" content="webkit">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="content-language" content="zh-CN"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <link rel="stylesheet" href="../../public/css/reset.css">
-    <link rel="stylesheet" href="../../public/css/swiper.min.css">
-    <link rel="stylesheet" href="../../css/index.css">
-    <script type="text/javascript" src="../../public/js/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="../../public/js/main.js"></script>
-    <script type="text/javascript" src="../../public/js/swiper.min.js"></script>
-    <script type="text/javascript" src="../../mjs/index.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>成都猫眼食品有限责任公司</title>
+    <link rel="stylesheet" href="/Html/public/css/reset.css">
+    <link rel="stylesheet" href="/Html/public/css/main.css">
+    <link rel="stylesheet" href="/Html/css/PersonalCenter.css">
+    <script type="text/javascript" src="/Html/public/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/Html/public/js/main.js"></script>
+    <script type="text/javascript" src="/Html/public/js/vue.js"></script>
+
 </head>
 <body>
-<div class="box">
-    <div class="index-navbox clearfix">
-        <a href="index.html" class="active">
-            <i class="navlogo navlogo1"></i>
-            <span class="index-navwz">首页</span>
-        </a>
-        <a href="Html/shopmall.html">
-            <i class="navlogo navlogo2"></i>
-            <span class="index-navwz">分类</span>
-        </a>
-        <a href="##">
-            <i class="navlogo navlogo3"></i>
-            <span class="index-navwz">购物车</span>
-        </a>
-        <a href="Html/my.html">
-            <i class="navlogo navlogo4"></i>
-            <span class="index-navwz">我的</span>
+<div class="per-cen pb140" id="per-cen">
+    <div class="head">
+        <a href="/Html/Member/My.html">
+            <div class="img fl"><img src="/Html/img/img08.jpg" width="100%" height="100%" alt=""></div>
+            <div class="info fl">
+                <div class="name"></div>
+                <div class="ph"></div>
+            </div>
+            <span class="jt2"></span>
         </a>
     </div>
-    <div class="sidebarnav">
-        <div class="sidebar">
-            <div class="cake">
-                <span class="logo"></span>
-                <span class="cakewz">蛋糕</span>
-            </div>
-            <div class="eat">
-                <span class="logo"></span>
-                <span class="cakewz">小食</span>
-            </div>
-            <div class="flower">
-                <span class="logo"></span>
-                <span class="cakewz cakewz1">鲜花</span>
-            </div>
+    <div class="money f-cb">
+        <div class="left fl">
+            <a href="/Html/Wallet/Wallet.html">
+                <div class="num">{{Money}}</div>
+                <div class="p">我的钱包(元)</div>
+            </a>
         </div>
-        <div class="toleft"></div>
+        <div class="right fl">
+            <a href="/Html/Wallet/Integral.html">
+                <div class="num">{{Integral}}</div>
+                <div class="p">我的积分(分)</div>
+            </a>
+        </div>
     </div>
-    <div class="rightbar">
-        <div class="logo9 scroll"></div>
-        <div class="logo10"></div>
+    <div class="myorder">
+        <div class="line">
+            <a href="/Html/Order/MyOrder.html?orderType=0">
+                <div class="tt">我的订单</div>
+                <div class="tc">查看全部订单</div>
+                <span class="jt"></span>
+            </a>
+        </div>
+        <div class="list f-cb">
+            <a href="/Html/Order/MyOrder.html?orderType=1" class="pay">
+                <div class="tt">待付款</div>
+                <i v-if="PendingPayment != 0">{{PendingPayment}}</i>
+            </a>
+            <a href="/Html/Order/MyOrder.html?orderType=2" class="get">
+                <div class="tt">待收货</div>
+                <i v-if="WaitingForReceiving != 0">{{WaitingForReceiving}}</i>
+            </a>
+            <a href="/Html/Order/MyOrder.html?orderType=3" class="evaluate">
+                <div class="tt">待评价</div>
+                <i v-if="WaitingForEvaluate != 0">{{WaitingForEvaluate}}</i>
+            </a>
+            <a href="/Html/Order/MyOrder.html?orderType=4" class="service">
+                <div class="tt">售后</div>
+                <i v-if="HasRefund != 0">{{HasRefund}}</i>
+            </a>
+        </div>
+    </div>
+
+    <div class="line mt20">
+        <a href="/Html/Collection/Collection.html">
+            <div class="tt">我的收藏</div>
+            <span class="jt"></span>
+        </a>
+    </div>
+    <div class="line">
+        <a href="/Html/Collection/History.html">
+            <div class="tt">浏览历史</div>
+            <span class="jt"></span>
+        </a>
+    </div>
+    <div class="line">
+        <a href="/Html/hotsell/Myyouhq.html?type=1">
+            <div class="tt">我的优惠券</div>
+            <span class="jt"></span>
+        </a>
+    </div>
+    <div class="line">
+        <a href="/Html/hotsell/aboutme.html">
+            <div class="tt">关于我们</div>
+            <span class="jt"></span>
+        </a>
+    </div>
+    <div class="partner">
+        <div class="line bb">
+            <a href="/Html/Sale/Partner.html">
+                <div class="tt">我的合伙人</div>
+                <span class="jt"></span>
+            </a>
+        </div>
+        <div class="list f-cb">
+            <ul>
+                <li>
+                    <a href="##">
+                        <div class="num"><span>{{TodayIncome}}</span>元</div>
+                        <div class="p">今日收入</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        <div class="num"><span>{{TotalIncome}}</span>元</div>
+                        <div class="p">累计收入</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="##">
+                        <div class="num"><span>{{TeamCount}}</span>人</div>
+                        <div class="p">我的团队</div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="weixin f-cb">
+        <div class="logo fl" style="background-image: url('/Html/img/img15.png')"></div>
+        <div class="info fl">
+            <h2>敦奴服饰</h2>
+            <div class="tc">简约、高雅、时尚</div>
+        </div>
+        <div class="att fr">点击关注服务号</div>
+
     </div>
 </div>
-<div class="index-box" id="index">
-    <div class="swiper-container">
-        <div class="index-banner swiper-wrapper">
-            <a href="##" class="swiper-slide" style="background-image: url('../../img/img1.png')"></a>
-            <a href="##" class="swiper-slide" style="background-image: url('../../img/img1.png')"></a>
-        </div>
-        <!-- 如果需要分页器 -->
-        <div class="swiper-pagination"></div>
-    </div>
-    <div class="mainbox">
-        <div class="main">
-            <a href="##" class="top clearfix">
-                <div class="title fl">蛋糕<span>Cake</span></div>
-                <div class="fr more">更多</div>
-            </a>
-            <div class="products clearfix">
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="main">
-            <a href="##" class="top clearfix">
-                <div class="title fl">蛋糕<span>Cake</span></div>
-                <div class="fr more">更多</div>
-            </a>
-            <div class="products clearfix">
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-                <a href="##" class="probox">
-                    <div class="proimg" style="background-image: url('../../img/img2.png')"></div>
-                    <div class="wenzbox">
-                        <span class="name">木瓜拿破仑</span>
-                        <span class="price">￥245</span>
-                    </div>
-                </a>
-            </div>
+<div class="subnav">
+    <a href="/Index.html" class="sy">
+        <span class="tb"></span>
+        <span class="tt">首页</span>
+    </a>
+    <a href="/Html/hotsell/shangpfl.html" class="fl">
+        <span class="tb"></span>
+        <span class="tt">分类</span>
+    </a>
+    <a href="/Html/ShopCar/ShopCar.html" class="sc">
+        <span class="tb"></span>
+        <span class="tt">购物车</span>
+    </a>
+    <a href="/Html/Member/PersonalCenter.html" class="wd cur">
+        <span class="tb"></span>
+        <span class="tt">我的</span>
+    </a>
+</div>
+<div class="mask">
+    <div class="box">
+        <div class="ewm" style="background-image: url('../img/img27.jpg')"></div>
+        <div class="p">
+            长按图片 <br> 扫描二维码关注公众号
         </div>
     </div>
 </div>
-<script>
-</script>
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="/Html/mjs/PersonalCenter.js"></script>
 </body>
 </html>

@@ -12,36 +12,39 @@
     <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http:/www.bocweb.cn">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <link rel="stylesheet" href="../../public/css/reset.css">
-    <link rel="stylesheet" href="../../public/css/swiper.min.css">
-    <link rel="stylesheet" href="../../css/productsinfo.css">
-    <script type="text/javascript" src="../../public/js/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="../../public/js/main.js"></script>
-    <script type="text/javascript" src="../../public/js/swiper.min.js"></script>
-    <script type="text/javascript" src="../../mjs/productsinfo.js"></script>
+    <link rel="stylesheet" href="/Html/public/css/reset.css">
+    <link rel="stylesheet" href="/Html/public/css/swiper.min.css">
+    <link rel="stylesheet" href="/Html/public/css/main.css">
+    <link rel="stylesheet" href="/Html/css/productsinfo.css">
+    <script type="text/javascript" src="/Html/public/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/Html/public/js/main.js"></script>
+    <script type="text/javascript" src="/Html/public/js/vue.js"></script>
+    <script type="text/javascript" src="/Html/public/js/swiper.min.js"></script>
+
     <title>成都猫眼食品有限责任公司</title>
 </head>
 <body>
-<div class="infoBox">
+<div class="infoBox" id="main">
     <div class="pro-info pb120">
         <div id="pro-info" v-cloak>
             <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <a href="##" class="swiper-slide" style="background-image: url('../../img/img6.png')"></a>
-                    <a href="##" class="swiper-slide" style="background-image: url('../../img/img6.png')"></a>
-                    <a href="##" class="swiper-slide" style="background-image: url('../../img/img6.png')"></a>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" :style="{backgroundImage: 'url('+listimg.RelativePath+')'}"
+                             v-for="listimg in info.MainImage"></div>
+                    </div>
+                    <!-- 如果需要分页器 -->
+                    <div class="swiper-pagination"></div>
                 </div>
-                <!-- 如果需要分页器 -->
-                <div class="swiper-pagination"></div>
             </div>
             <div class="content">
-                <div class="name">草莓蕾蒂 Lady Strawberry</div>
+                <div class="name">{{info.Name}}</div>
                 <div class="price">
-                    <span class="nowp">¥<span class="int">129.00</span></span>
-                    <span class="old">价格 <span class="oldp">¥<i>288.00</i></span></span>
+                    <span class="nowp">¥<span class="int">{{info.Price.toFixed(2)}}</span></span>
+                    <span class="old">价格 <span class="oldp">¥<i>{{info.OriginalPrice.toFixed(2)}}</i></span></span>
                     <span class="collect fr">加入收藏</span>
                 </div>
-                <div class="freight clearfix"><span class="yunf fl">运费：¥0.00</span><span class="buynum fr">1924人已付款</span></div>
+                <div class="freight clearfix"><span class="yunf fl">运费：¥0.00</span><span class="buynum fr">{{info.SalesVolume}}人已付款</span></div>
             </div>
             <div class="tips">
                 <span style="margin-right: 0.82rem;margin-left: 0.32rem;">正品保障</span>
@@ -68,40 +71,31 @@
             </div>
             <div class="info">
                 <div class="infoajax">
-                    <img src="../../img/img6.png" alt="" width="100%">
+                    {{{info.Description}}}
                 </div>
                 <div class="evaluateajax">
                     <div class="memlist f-cb" id="head">
                         <ul>
-                            <li style="background-image:url('../../img/img1.png')"></li>
-                            <li style="background-image:url('../../img/img1.png')"></li>
-                            <li style="background-image:url('../../img/img1.png')"></li>
-                            <li style="background-image:url('../../img/img1.png')"></li>
-                            <li style="background-image:url('../../img/img1.png')"></li>
-                            <li style="background-image:url('../../img/img1.png')"></li>
-                            <li style="background-image:url('../../img/img1.png')"></li>
-                            <li style="background-image:url('../../img/img1.png')"></li>
-                            <li style="background-image:url('../../img/img1.png')"></li>
-                            <li style="background-image:url('../../img/img8.png')"></li>
+                            <li v-for="headlist in headinfo | limitBy 9" :style="{backgroundImage:'url('+headlist.Avatar.SmallThumbnail+')'}"></li>
+
+                            <li style="background-image:url('/Html/css/img/img11.png')" v-if="headinfo.length>9"></li>
                         </ul>
                     </div>
                     <div class="che-com" id="che_com">
-                        <div class="content">
+                        <div class="content" v-for="list in evainfo">
                             <div class="top f-cb">
-                                <div class="name fl">追**度</div>
+                                <div class="name fl" v-if="list.IsAnonymity">匿名</div>
+                                <div class="name fl" v-else="">{{list.MemberName}}</div>
                                 <ul>
-                                    <li class="cur"></li>
-                                    <li class=""></li>
-                                    <li class=""></li>
-                                    <li class=""></li>
-                                    <li class=""></li>
+                                    <li v-for="xing in 5" :class="[$index<list.Score?'cur':'']"></li>
+
                                 </ul>
-                                <div class="time fr">2016-07-13</div>
+                                <div class="time fr">{{list.newtime}}</div>
                             </div>
-                            <div class="words">礼拜六下单，礼拜一送货，性价比非常高，第一次网络购买大件商品，非常满意</div>
-                            <div class="reply">
-                                商家回复：谢谢！欢迎下次再来嘿嘿嘿！
-                                <div class="time">2016-07-13</div>
+                            <div class="words">{{list.Content}}</div>
+                            <div class="reply" v-if="list.ReplyContent">
+                                {{list.ReplyContent}}
+                                <div class="time">{{list.newrtime}}</div>
                                 <i></i>
                             </div>
                         </div>
@@ -115,32 +109,38 @@
     <div class="size-mask" id="size-mask">
         <div class="size-box">
             <div class="size-info f-cb">
-                <div class="img fl" style="background-image: url('../../img/img6.png')"></div>
+                <div class="img fl" :style="{backgroundImage: 'url('+imgs+')'}"></div>
                 <div class="info fl">
-                    <p class="price">¥129.00</p>
-                    <p>库存 <span class="kc">12321</span>件</p>
+                    <p class="price">¥{{info.Price.toFixed(2)}}</p>
+                    <p>库存 <span class="kc">{{info.Stock}}</span>件</p>
                     <!--<p>选择<span>{{list1.AttributeName}} </span></p>-->
                 </div>
             </div>
             <div class="tcbox">
-                <div class="tc first">
-                    <div class="tit">规格
-                    </div>
+                <div class="tc first" >
+                    <div class="tit" :data-id="info.AttributeValues[0].AttributeId">{{info.AttributeValues[0].AttributeName}}</div>
                     <ul class="f-cb choose-box">
-                        <li class="choose">1.0磅 约12x12(cm)</li>
-                        <li class="choose">1.0磅 约12x12(cm)</li>
-                        <li class="choose">1.0磅 约12x12(cm)</li>
+                        <li class="choose" :data-px="$index" :data-id="info.AttributeValues[0].AttributeId"
+                            v-for="list2 in info.AttributeValues[0].list">{{list2}}</li>
                     </ul>
                 </div>
-                <div class="tc other">
-                    <div class="tit">加价购
-                    </div>
-                    <div class="f-cb choose-box">
-                        <div class="jjbox clearfix"><span class="quan fl"></span><span class="fl">不加价</span></div>
-                        <div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>
-                        <div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>
-                    </div>
-                </div>
+                <!--<div class="tc other" v-if="info.AttributeValues[1]">-->
+                    <!--<div class="tit" :data-id="info.AttributeValues[1].AttributeId">{{info.AttributeValues[1].AttributeName}}-->
+                    <!--</div>-->
+                    <!--<ul class="f-cb choose-box">-->
+                        <!--<li class="choose" :data-px="$index" :data-id="info.AttributeValues[1].AttributeId"-->
+                            <!--v-for="list2 in info.AttributeValues[1].list">{{list2}}</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <!--<div class="tc other">-->
+                    <!--<div class="tit">加价购-->
+                    <!--</div>-->
+                    <!--<div class="f-cb choose-box">-->
+                        <!--<div class="jjbox clearfix"><span class="quan fl"></span><span class="fl">不加价</span></div>-->
+                        <!--<div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>-->
+                        <!--<div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
             <div class="getnum">
                 <div class="tit fl">数量</div>
@@ -151,15 +151,26 @@
                 </div>
             </div>
             <div class="get-btn f-cb">
-                <div class="pro-in-gobuy">确定</div>
-                <!--<div class="pro-in-gocart fl">加入购物车</div>-->
-                <!--<div class="pro-in-gobuy fr">立即购买</div>-->
+                <!--<div class="pro-in-gobuy">确定</div>-->
+                <div class="pro-in-gocart fl">加入购物车</div>
+                <div class="pro-in-gobuy fr">立即购买</div>
             </div>
             <div class="close"></div>
         </div>
     </div>
 </div>
-<script>
-</script>
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script type="text/javascript" src="/Html/mjs/productsinfo.js"></script>
 </body>
 </html>

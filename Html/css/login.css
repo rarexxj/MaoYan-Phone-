@@ -1,0 +1,86 @@
+.loginbox {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f8f8f8;
+}
+
+.loginlogo {
+    background: url("img/img12.png") no-repeat center;
+    width: 2.6rem;
+    height: 2.6rem;
+    background-size: cover;
+    position: absolute;
+    top: 1.2rem;
+    left: 50%;
+    margin-left: -1.3rem;
+}
+
+.mainbox {
+    width: 7.5rem;
+    background-color: #fff;
+    position: absolute;
+    top: 4.2rem;
+}
+
+.login-btn {
+    height:1.1rem;
+    width: 6.8rem;
+    top: 6.94rem;
+    left: 50%;
+    margin-left: -3.4rem;
+    line-height: 1.1rem;
+    color: #fff;
+    background-color: #dccc8d;
+    font-size: 0.36rem;
+    position: absolute;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.tipsbox {
+    padding-top: 8.25rem;
+    width: 6.8rem;
+    margin: 0 auto;
+}
+
+.zhuc {
+    color: #a9a9a9;
+    font-size: 0.26rem;
+    line-height: 1;
+}
+
+.forgetpas {
+    color: #a9a9a9;
+    font-size: 0.26rem;
+    line-height: 1;
+}
+
+.mainwz {
+    font-size: 0.36rem;
+    color: #333;
+    margin-left: 0.35rem;
+    width:1.74rem;
+}
+
+.maininput {
+    width: 3.9rem;
+    padding-left: 0.22rem;
+    padding-top: 0.34rem;
+    font-size: 0.36rem;
+    color: #999;
+    border: 0;
+    background: none;
+    display: block;
+    border-radius: 0;
+}
+.main1{
+    border-top: 0.01rem solid #e8e8e8;
+    border-bottom: 0.01rem solid #e8e8e8;
+    line-height: 1.16rem;
+}
+.main2{
+    border-bottom: 0.01rem solid #e8e8e8;
+    line-height: 1.16rem;
+
+}
