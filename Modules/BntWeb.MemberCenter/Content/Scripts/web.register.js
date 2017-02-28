@@ -1,5 +1,5 @@
-﻿$(document).ready(function() {
-
+﻿var flag = 0;
+$(document).ready(function () {
     //图形验证码
     SetCaptcha();
     $("#sendimg").on("click", function() {
@@ -19,6 +19,7 @@
             my_alert("手机号格式错误");
             return false;
         }
+    
         if (!mima(".password")) {
             my_alert("请输入6位数字或字母以上组合密码");
             return false;
@@ -60,17 +61,36 @@
 
    
 
-    $("#sendbtn").on("click", function() {
-        SendCodes(this);
-    });
+    $("#sendbtn").on("click", function () {
 
+        var verifyKey = $("input[name='ImageVerifyKey']").val();
+        var verifyCode = $("input[name='ImageVerifyCode']").val();
+
+        $.ajax({
+            type: 'POST',
+            url: url_imageVerify,
+            data: { imageVerifyKey: verifyKey, imageVerifyCode: verifyCode }
+        }).done(function (data) {
+            if (data.Data == 1) {
+                flag = 1;
+                SendCodes(this);
+                chufa();
+            }
+            else {
+                my_alert("图形验证码输入不正确！");
+                return false;
+            }
+        });
+      
+    });
+60
     $(".code-btn").on("click", function() {
         if (!iphone(".userIphone")) {
 
             my_alert("手机号码格式错误");
             return false;
         }
-        chufa(); //倒计时
+        //chufa(); //倒计时
 
     });
 });
@@ -124,22 +144,22 @@ function getCookieValue(name) {
 }
 
 //发送验证码
-function sendCode(obj) {
-
-    //doPostBack(a_url);//发送请求
-    addCookie('secondsremained5', 60, 60); //添加cookie记录,有效时间60s
-    settime(obj); //开始倒计时
-
+function sendCode(obj) { 
+   if (flag == 1) {
+       //doPostBack(a_url);//发送请求
+       addCookie('secondsremained5', 60, 60); //添加cookie记录,有效时间60s
+       settime(obj); //开始倒计时
+   } else {
+       return false;
+   }
 }
+
+
 
 
 //发送短信验证码
 function SendCodes(e) {
-    if ($("#imgcode".val() != $("#sendimg").val())) {
-        my_alert("图形验证码输入不正确！");
-        return false;
-
-    }
+  
     var _this = $(e.target);
     if (!_this.hasClass("disabled")) {
         var ophone = $("#RegisterForm input[name='PhoneNumber']");
@@ -177,10 +197,10 @@ function SendCodes(e) {
 };
 //开始倒计时
 function settime(obj) {
+   
     countdown = getCookieValue("secondsremained5");
     if (countdown == 0) {
         obj.removeAttr("disabled");
-
         obj.val("获取验证码");
         return;
     } else {
@@ -190,7 +210,7 @@ function settime(obj) {
         editCookie("secondsremained5", countdown, countdown + 1);
     }
     setTimeout(function() {
-        settime(obj)
+        settime(obj);
     }, 1000); //每1000毫秒执行一次
 }
 function SetCaptcha() {

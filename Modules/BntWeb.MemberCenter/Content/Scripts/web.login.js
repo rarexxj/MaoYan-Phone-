@@ -50,8 +50,6 @@
             my_alert("动态密码不能为空");
             return false;
         }
-
-        
         $.ajax({
             url: url_LoginWithSms,
             cache: false,
@@ -179,6 +177,7 @@
                             //数组转成字符串
                             //var sms = data.data.smsvalue.join("");
                             //$("#smscode").val(sms);
+                            my_alert("成功发送");
                         }else {
                             my_alert("未成功发送，请稍后再试");
                         }

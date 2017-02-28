@@ -70,9 +70,9 @@
         $.ajax({
             type: 'POST',
             url: url_imageVerify,
-            data: { imageVerifyCode: verifyKey, imageVerifyKey: verifyCode }
+            data: { imageVerifyKey: verifyKey, imageVerifyCode: verifyCode }
         }).done(function (data) {
-            if (data) {
+            if (data.Data==1) {
                 $(".passwordOne").hide(); //表示display:none; 
                 $(".passwordTwo").show(); //表示display:block; 
 

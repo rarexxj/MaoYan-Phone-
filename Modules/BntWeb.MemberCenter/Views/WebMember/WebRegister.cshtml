@@ -32,15 +32,15 @@
                     </div>
                     <div class="reg_list clearfix">
                         <div class="btn btn_y fl"></div>
-                        <input type="text" class="pic_yan with_140 fl" name="ImageVerifyCode" id="imgcode" placeholder="右侧图形验证码"/>
+                        <input type="text" class="pic_yan with_140 fl" name="ImageVerifyCode" id="ImageVerifyCode" placeholder="右侧图形验证码"/>
                         <div class="yanzhang_pic with_98 fl">
                             <img id="sendimg" src="" onclick="SetCaptcha();">
-                            <input type="hidden" name="ImageVerifyKey"/>
+                            <input type="hidden" name="ImageVerifyKey" id="ImageVerifyKey" />
                         </div>
                     </div>
                     <div class="reg_list clearfix">
                         <div class="btn btn_y1 fl"></div>
-                        <input type="text" class="yan with_140 fl" name="SmsVerifyCode" placeholder="请输入验证码"/>
+                        <input type="text" class="yan with_140 fl" name="SmsVerifyCode" id="SmsVerifyCode" placeholder="请输入验证码"/>
                         <input type="button" class="code-btn reg_yan" id="sendbtn" value="获取验证码"/>
                     </div>
 
@@ -80,7 +80,8 @@
 @section Scripts{
 @Scripts.Render("~/js/web/register")
 <script type="text/javascript">
-
+    //图形验证码验证
+    var url_imageVerify = "@Url.Action("ImageVerify", "WebMember", new { area = MemberCenterModule.Area })";
     var url_personal='@Url.Action("WebPersonal", "WebMember", new { area = MemberCenterModule.Area })';
 </script>
    
