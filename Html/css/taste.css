@@ -1,0 +1,27 @@
+.taste .line{
+    height:1.3rem;
+    line-height:1.3rem;
+    border-bottom: 0.01rem solid #e8e8e8;
+    padding:0 0.45rem;
+}
+.line .name{
+    font-size: 0.37rem;
+    color: #333;
+}
+.line .logo{
+    background: url("img/logo39.png") no-repeat center;
+    width:0.44rem;
+    height: 0.44rem;
+    background-size: cover;
+}
+.submit {
+    width: 6.8rem;
+    height: 1.18rem;
+    border-radius: 8px;
+    background-color: #dccc8d;
+    font-size: 0.36rem;
+    color: #fff;
+    text-align: center;
+    line-height: 1.18rem;
+    margin:0 auto;
+}

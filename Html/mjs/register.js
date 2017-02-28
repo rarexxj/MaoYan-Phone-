@@ -21,7 +21,6 @@ $(function () {
         })
     }
 
-
     function ajaxyanz(data) {
         $.ajax({
             url: '/Api/v1/Member/SendCodeWeixin',

@@ -1,0 +1,45 @@
+.sexbox {
+    /*margin-top: 0.2rem;*/
+    border-top: 0.01rem solid #e8e8e8;
+}
+
+.line {
+    padding: 0 0.15rem;
+    background: #fff;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    border-bottom: 0.01rem solid #e8e8e8;
+}
+
+.sex.sexman {
+    margin-right: 1rem;
+}
+
+.sex {
+    padding-left: 0.7rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url(img/logo26.png) no-repeat left center;
+    background-size: 0.4rem 0.4rem;
+    height: 0.88rem;
+    font-size: 0.3rem;
+}
+
+.sex.active {
+    background: url(img/logo27.png) no-repeat left center;
+    background-size: 0.4rem 0.4rem;
+}
+
+.submit {
+    width: 7rem;
+    height: 0.86rem;
+    border-radius: 8px;
+    background-color: #c79852;
+    position: fixed;
+    bottom: 0.36rem;
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+    line-height: 0.86rem;
+    left: 0.24rem;
+}
