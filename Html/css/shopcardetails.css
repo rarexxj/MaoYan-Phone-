@@ -1,0 +1,68 @@
+.shopcar.detailed {
+    margin-top: 0.16rem;
+}
+
+.shopcar.detailed .info {
+    width: 4.9rem;
+}
+
+.shopcar.detailed .img {
+    width: 1.86rem;
+    height: 1.86rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.shopcar.detailed .bot .num {
+    font-size: 0.26rem;
+    line-height: 0.3rem;
+    color: #666666;
+}
+
+.shopcar .box {
+    padding: 0.28rem;
+    height: 1.86rem;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+    position: relative;
+}
+
+
+.shopcar .tt {
+    font-size: 0.3rem;
+    line-height: 0.36rem;
+    color: #1b1b20;
+    height: 0.72rem;
+    overflow: hidden;
+}
+
+.shopcar .tt a {
+    color: #333;
+}
+
+.shopcar .tc {
+    font-size: 0.26rem;
+    line-height: 0.24rem;
+    color: #666;
+    margin-top: 0.17rem;
+}
+
+.shopcar .tc .int span {
+    margin-right: 0.08rem;
+}
+
+.shopcar .bot {
+    margin-top: 0.29rem;
+}
+
+.shopcar .price {
+    font-size: 0.32rem;
+    line-height: 0.3rem;
+    font-family: 'Arial';
+    color: #c8994c;
+}
+
+.shopcar .price .amo {
+    font-size: 0.32rem;
+}

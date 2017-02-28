@@ -53,8 +53,6 @@ $(function () {
             } else if ($('#pw').val() == "") {
                 $.oppo("请输入密码", 1);
                 return false;
-            } else if ($('#pw').val() != $('#pw2').val()) {
-                $.oppo('您输入的密码不同，请重新输入', 1)
             } else {
                 $(this).addClass('gray');
                 var data2 = {
@@ -62,7 +60,7 @@ $(function () {
                     Password: $('#pw').val(),
                     SmsVerifyCode: $('#yzm').val(),
                     InvitationCode: $('#inv').val(),
-                    ChannelId: '',
+                    // ChannelId: '',
                     openId: openid
                 }
                 ajaxzhc(data2)
@@ -78,7 +76,7 @@ $(function () {
         }).done(function (rs) {
             if (rs.returnCode == '200') {
                 $.oppo('注册成功', 1, function () {
-                    window.location.href = "/Html/my.html";
+                    window.location.href = "/Html/html/personalcenter.html";
                 })
             }
         })

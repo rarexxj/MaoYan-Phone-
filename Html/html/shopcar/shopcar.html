@@ -21,25 +21,23 @@
     <script type="text/javascript" src="/Html/public/js/main.js"></script>
     <script type="text/javascript" src="/Html/public/js/vue.js"></script>
 </head>
-<body>
+<body style="background-color: #f3fbfd">
 <div class="shopcar pb100" id="shopcar">
-    <div class="box" v-for="list in Carts" :data-gid="list.GoodsId" :data-id="list.Id">
+    <div class="box" v-for="list in info.Carts" :data-gid="list.GoodsId" :data-id="list.Id">
         <div class="ccheck" v-if="list.Status == 1"></div>
         <div class="invalid" v-if="list.Status == 0"></div>
         <div class="img fl" :style="{backgroundImage: 'url('+list.GoodsImage.MediumThumbnail+')'}"><a
                 :href="'/Html/Products/Info.html?id='+list.GoodsId"></a></div>
-        <div class="info fr">
-            <div class="tt"><a :href="'/Html/Products/Info.html?id='+list.GoodsId">{{list.GoodsName}}</a></div>
-            <div class="tc f-cb">
-                <div class="int fl"><span v-for="sx in list.shuxi">{{sx}}</span></div>
-                <div class="num fr">x<span>{{list.Quantity}}</span></div>
-            </div>
+        <a :href="'/Html/Products/Info.html?id='+list.GoodsId" class="info fr">
+            <div class="tt">{{list.GoodsName}}</div>
+            <div class="int"><span v-for="sx in list.shuxi">{{sx}}</span></div>
             <div class="bot f-cb" :data-quantity="list.Quantity" :data-stock="list.Stock">
-                <div class="price fl">¥ <span class="amo" :data-unit="list.Price" :data-price="list.allprice"><span
-                        class="int">{{list.prices1}}</span>.<span class="dec">{{list.prices2}}</span></span></div>
-                <div class="edit fr">编辑</div>
+                <div class="price fl">¥ <span class="amo" :data-unit="list.Price" :data-price="list.allprice">{{list.Price.toFixed(2)}}</span></div>
+
             </div>
-        </div>
+            <div class="num">x<span>{{list.Quantity}}</span></div>
+        </a>
+        <div class="edit">编辑</div>
         <div class="editbox">
             <div class="numbox f-cb" :data-max="list.Stock">
                 <div class="jian fl"></div>
@@ -61,36 +59,35 @@
         </div>
         <div class="balance fr">结算(<span>0</span>)</div>
         <div class="total fr">
-            <p>合计：<i>￥</i><span class="amo"><span class="int">0</span>.<span class="dec">00</span></span></p>
-            <p>不含运费</p>
+            <p>合计：<i>￥</i><span class="amo">0.00</span></p>
         </div>
     </div>
 </div>
 <div class="search-box">
     <div class="nothing">
         <div class="tbs"
-             style="background: url('/Html/img/noshopcar.png') no-repeat center center;background-size: contain"></div>
+             style="background: url('/Html/css/img/noshopcar.png') no-repeat center center;background-size: contain"></div>
         <p>您的购物车暂无商品</p>
-        <a href="/Index.html" class="NoBnt">随便逛逛</a>
-        <div class="subnav">
-            <a href="/Index.html" class="sy">
-                <span class="tb"></span>
-                <span class="tt">首页</span>
-            </a>
-            <a href="/Html/hotsell/shangpfl.html" class="fl">
-                <span class="tb"></span>
-                <span class="tt">分类</span>
-            </a>
+        <a href="/index.html" class="NoBnt">随便逛逛</a>
+        <!--<div class="subnav">-->
+            <!--<a href="/Index.html" class="sy">-->
+                <!--<span class="tb"></span>-->
+                <!--<span class="tt">首页</span>-->
+            <!--</a>-->
+            <!--<a href="/Html/hotsell/shangpfl.html" class="fl">-->
+                <!--<span class="tb"></span>-->
+                <!--<span class="tt">分类</span>-->
+            <!--</a>-->
 
-            <a href="/Html/ShopCar/ShopCar.html" class="sc cur">
-                <span class="tb"></span>
-                <span class="tt">购物车</span>
-            </a>
-            <a href="/Html/Member/PersonalCenter.html" class="wd">
-                <span class="tb"></span>
-                <span class="tt">我的</span>
-            </a>
-        </div>
+            <!--<a href="/Html/ShopCar/ShopCar.html" class="sc cur">-->
+                <!--<span class="tb"></span>-->
+                <!--<span class="tt">购物车</span>-->
+            <!--</a>-->
+            <!--<a href="/Html/Member/PersonalCenter.html" class="wd">-->
+                <!--<span class="tb"></span>-->
+                <!--<span class="tt">我的</span>-->
+            <!--</a>-->
+        <!--</div>-->
     </div>
 </div>
 <div class="new-loading">
@@ -105,6 +102,6 @@
         <li></li>
     </ul>
 </div>
-<script src="/Html/mjs/ShopCar.js"></script>
+<script src="/Html/mjs/shopcar.js"></script>
 </body>
 </html>

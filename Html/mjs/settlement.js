@@ -5,7 +5,6 @@ $(function () {
     var gid = $.getUrlParam('gid'); //单品id和数量
     var addid = $.getUrlParam('addid');
     var type = $.getUrlParam('type');           //	1投资品2消费品
-    var mode = $.getUrlParam('mode');          //0自提1邮寄
     if (gid) {
         var gid2 = gid.split('|')[0]; //单品id
     }
@@ -36,8 +35,7 @@ $(function () {
         data: {
             info: [],
             data1: ids,
-            type: type,
-            mode: mode
+            type: type
         },
         ready: function () {
             var _this = this;
@@ -64,30 +62,29 @@ $(function () {
                 })
             },
             link: function () {
-
                 //选择地址
                 if (id) {
                     $('#main').on('click', '.choadd .a', function () {
 
-                        window.location.href = "/Html/chooseaddress.html?id=" + id + '&type=' + type + '&mode=' + mode
+                        window.location.href = "/Html/html/shopcar/chooseaddress.html?id=" + id
                     })
                     $('#main').on('click', '.addadd .a', function () {
-                        window.location.href = "/Html/chooseaddaddress.html?id=" + id + '&type=' + type + '&mode=' + mode
+                        window.location.href = "/Html/html/shopcar/chooseaddaddress.html?id=" + id
                     })
                 } else {
 
                     $('#main').on('click', '.choadd .a', function () {
-                        window.location.href = "/Html/chooseaddress.html?gid=" + gid + '&type=' + type + '&mode=' + mode
+                        window.location.href = "/Html/html/shopcar/chooseaddress.html?gid=" + gid
                     })
                     $('#main').on('click', '.addadd .a', function () {
-                        window.location.href = "/Html/chooseaddaddress.html?gid=" + gid + '&type=' + type + '&mode=' + mode
+                        window.location.href = "/Html/html/shopcar/chooseaddaddress.html?gid=" + gid
                     })
                 }
 
 
                 //进入商品明细
                 $('#main').on('click', '.godeta', function () {
-                    window.location.href = "/Html/shopcardetails.html?id=" + id
+                    window.location.href = "/Html/html/shopcar/shopcardetails.html?id=" + id
                 })
             },
             //价格计算
