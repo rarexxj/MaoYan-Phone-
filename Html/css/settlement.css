@@ -136,6 +136,7 @@
     border-bottom: 1px solid #e8e8e8;
     background: #fff;
     overflow: hidden;
+    position: relative;
 }
 
 .confirm-order .line .tt {
@@ -304,4 +305,168 @@
     display: block;
     border-radius: 6px;
     margin:0 auto;
+}
+.confirm-youhjt {
+    position: absolute;
+    right: 0.16rem;
+    top: 0.26rem;
+    background: url(img/logo38.png) no-repeat;
+    background-size: 100%;
+    height: 0.32rem;
+    width: 0.18rem;
+}
+.weui_cell_ft {
+    text-align: right;
+    color: #888;
+    font-size: 0;
+    margin-top: 0.23rem;
+}
+.weui_switch {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 0.91rem;
+    height: 0.4rem;
+    border: 1px solid #dfdfdf;
+    outline: 0;
+    border-radius: 0.18rem;
+    box-sizing: border-box;
+    background: #dfdfdf;
+    -webkit-tap-highlight-color: transparent;
+}
+.weui_switch:checked {
+    border-color: #04be02;
+    background-color: #04be02;
+}
+
+.weui_switch:checked:after {
+    -webkit-transform: translateX(0.5rem);
+    transform: translateX(0.5rem);
+}
+.weui_switch:after {
+    width: 0.38rem;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.weui_switch:after, .weui_switch:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0.36rem;
+    border-radius: 0.18rem;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
+}
+
+
+/*优惠券*/
+
+.youhq {
+    background: url(img/youhq-img1.png);
+    width: 7.2rem;
+    height: 2.06rem;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 0.2rem;
+    background-position: center;
+}
+
+.youhq img {
+    width: 0.93rem;
+    height: 2.06rem;
+    float: right;
+}
+
+.youhq-box {
+    padding-top: 0.29rem;
+    padding-left: 0.14rem;
+}
+
+.youhq-mainl1 {
+}
+
+.youhq-mainl .youhq-mainl1 span {
+    font-size: 0.6rem;
+    color: #d1a162;
+    line-height: 1;
+}
+
+.youhq-mainl .youhq-mainl1 a {
+    font-size: 0.24rem;
+    color: #d1a162;
+    display: block;
+    margin-left: 0.1rem;
+}
+
+.youhq-mainr .youhq-mainr1 {
+    font-size: 0.36rem;
+    color: #322d2f;
+}
+
+.youhq-mainr .youhq-mainr2 {
+    font-size: 0.24rem;
+    color: #999;
+    line-height: 0.3rem;
+}
+
+.youhq-mainr .youhq-mainr3 {
+    color: #e31f2c;
+    font-size: 0.18rem;
+}
+
+.youhq-mainl {
+    position: absolute;
+    left: 0.3rem;
+    top: 0.7rem;
+}
+
+.youhq-mainr {
+    position: absolute;
+    left: 2.8rem;
+    top: 0.4rem;
+}
+.yhq-btn {
+    width: 100%;
+    height: 1.1rem;
+    background: #b98358;
+    font-size: 0.4rem;
+    text-align: center;
+    line-height: 1.1rem;
+    color: #fff;
+    border-radius: 3px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.time-btn {
+    width: 100%;
+    height: 1.1rem;
+    background: #b98358;
+    font-size: 0.4rem;
+    text-align: center;
+    line-height: 1.1rem;
+    color: #fff;
+    border-radius: 3px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.youhq.active {
+    border: 1px solid #e84608;
+
+}
+
+.date {
+    width: 7.5rem;
+    height: 0.88rem;
+    border: 0;
+    font-size: 0.3rem;
+}
+.timebox {
+    margin-top: 0.2rem;
+    border-top: 0.01rem solid #e8e8e8;
+    display: none;
 }

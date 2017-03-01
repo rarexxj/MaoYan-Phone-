@@ -4,7 +4,6 @@ $(function () {
     var id = $.getUrlParam('id');   //购物车id
     var gid = $.getUrlParam('gid'); //单品id和数量
     var addid = $.getUrlParam('addid');
-    var type = $.getUrlParam('type');           //	1投资品2消费品
     if (gid) {
         var gid2 = gid.split('|')[0]; //单品id
     }
@@ -34,15 +33,17 @@ $(function () {
         el: '#main',
         data: {
             info: [],
-            data1: ids,
-            type: type
+            data1: ids
         },
         ready: function () {
             var _this = this;
             _this.ajax();
             _this.$nextTick(function () {
                 _this.link();
+                _this.js();
+                _this.getCoupon();
                 _this.prosubmit();
+                _this.getsettime();
                 // $.RMLOAD();
             })
         },
@@ -57,6 +58,8 @@ $(function () {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;
                         _this.price();
+                        //计算总价
+                        rs.data.allprice = parseFloat(rs.data.GoodsAmount + rs.data.ShippingFee)
                         $.RMLOAD();
                     }
                 })
@@ -107,6 +110,12 @@ $(function () {
                             pro.Quantity = _this.info.Goods.List[i].Quantity;
                             prodata.push(pro)
                         }
+                        var num = 0
+                        if ($('.weui_switch').is(':checked')) {
+                            num = $('.weui_switch').attr('data-int')
+                        } else {
+                            num = 0
+                        }
                         var message = {
                             Consignee: _this.info.Addresses.Contacts,
                             Province: _this.info.Addresses.Province,
@@ -118,8 +127,9 @@ $(function () {
                             Tel: _this.info.Addresses.Phone,
                             Memo: $('.bz').val(),
                             Goods: prodata,
-                            Type: type,
-                            PickUp: mode
+                            Integral: num,
+                            LimitGoodsId: prodata[0].Id,
+                            CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null
                         }
                         console.log(message)
                         _this.inputajax(message);
@@ -133,16 +143,79 @@ $(function () {
                     type: 'post'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
-                        if (mode == 1) {
-                            window.location.replace("/Html/pay.html?id=" + rs.data.Id + '&time=' + rs.data.CreateTime + '&type=' + type)
+
+                        if ($('.car-list .amo').attr('data-price') == 0) {
+                            window.location.replace("/Html/Member/PersonalCenter.html")
                         } else {
-
+                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime)
                         }
-
                     }
                 })
-            }
+            },
+            js: function () {
+                var _this=this;
+                var n = $('.weui_switch').attr('data-money')
+                if ($('.weui_switch').is(':checked')) {
+                    $('.weui_switch').attr('data-price', n)
+                } else {
+                    $('.weui_switch').attr('data-price', 0)
+                }
+                _this.getLastPrice();
+            },
+            getCoupon: function () {
+                var _this=this;
+                $('#yhq').on('click', function () {
+                    $('.confirm-order').hide();
+                    $('.youhq-box').show();
+                })
+                $('.yhq-btn').on('click', function () {
+                    $('.confirm-order').show();
+                    $('.youhq-box').hide();
+                })
+                $('.youhq-box .yhq-btn').on('click', function () {  //确认选择优惠券
+                    $('.confirm-order').show();
+                    $('.xjj-yhq-box').hide();
+                    if ($('.youhq-box .youhq.active').length == 0) {
+                        $('#yhq').attr('data-price', 0)
+                    } else {
+                        var price = $('.youhq-box .youhq.active').attr('data-price');
+                        $('#yhq').attr('data-price', price)
+                    }
+                    _this.getLastPrice()
+                })
 
+                $('.youhq-box').on('click', '.youhq', function () {
+                    if ($(this).hasClass('active')) {
+                        $(this).removeClass('active');
+                    } else {
+                        $(this).addClass('active').siblings().removeClass('active');
+                    }
+                })
+            },
+            getLastPrice: function () {
+                var money = parseFloat($('.car-list .amo').attr('data-price2') - $('.weui_switch').attr('data-price') - $('#yhq').attr('data-price'));
+                if (money < 0) {
+                    money = 0
+                }
+                console.log(money)
+                money = parseFloat(Number(money) + Number($('.postage').attr('data-postage'))).toFixed(2);
+                $('.car-list .amo').attr('data-price', money);
+                var price = $('.car-list').find('.amo').attr('data-price');
+                $('.car-list').find('.amo').html(price)
+            },
+            getsettime:function () {
+                $('.settime').on('click', function () {
+                    $('.confirm-order').hide();
+                    $('.timebox').show();
+                })
+                $('.time-btn').on('click', function () {
+                    $('.confirm-order').show();
+                    $('.timebox').hide();
+                })
+            }
         }
     })
 })
+
+
+

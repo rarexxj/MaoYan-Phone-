@@ -74,27 +74,65 @@
             <div class="tt fl">商品金额</div>
             <div class="price fr">¥<span class="amo">{{info.GoodsAmount.toFixed(2)}}</span></div>
         </div>
-        <div class="line dingj" v-if="mode==0">
-            <div class="tt fl">定金</div>
-            <div class="price fr">¥<span class="amo">{{info.GoodsDeposit.toFixed(2)}}</span></div>
+        <div class="line postage" :data-postage="info.ShippingFee">
+            <div class="tt fl">邮费</div>
+            <div class="price fr" :data-price="ShippingFee">¥<span class="amo">{{info.ShippingFee.toFixed(2)}}</span></div>
         </div>
-        <div class="line moreneed" v-if="mode==0">
-            <div class="tt fl ">还需缴纳</div>
-            <div class="price fr">¥<span class="amo need">132</span></div>
+        <div class="line jifen" style="margin-top: 0.2rem">
+            <!--<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>-->
+            <div class="tt fl">有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元
+            </div>
+
+            <div class="weui_cell_ft fr">
+                <input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"
+                       :data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">
+            </div>
+        </div>
+        <div class="line confirm-youh" style="margin-top: 0.2rem" id="yhq" data-price="0" :data-price2="GoodsAmount">
+            <div class="tt w146">使用优惠券</div>
+            <div class="confirm-youhjt"></div>
         </div>
         <div class="line">
             <div class="tt w145">订单说明：</div>
             <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）">
         </div>
+        <div class="line settime">
+            <div class="tt fl">配送时间</div>
+            <div class="confirm-youhjt"></div>
+        </div>
     </div>
     <div class="car-list">
         <div class="hj">
-            合计：<span class="price">¥ <span class="amo">{{info.GoodsAmount.toFixed(2)}}</span></span>
+            合计：<span class="price">¥ <span class="amo" :data-price1="info.allprice" :data-price2="info.GoodsAmount">{{info.GoodsAmount.toFixed(2)}}</span></span>
         </div>
         <div class="balance">确认订单</div>
     </div>
 </div>
+<div class="timebox">
+    <input type="date" class="date" value="">
+    <div class="yhq-btn-box">
+        <div class="time-btn">确定</div>
+    </div>
+</div>
+<div class="youhq-box" style="display: none" id="youhq-box">
+    <div class="youhq" v-for="cop in List" :data-price="cop.Price" :data-id="cop.CouponId">
 
+        <div class="lingqu lingqu2"></div>
+        <div class="youhq-mainl">
+            <div class="youhq-mainl1"><span>￥{{cop.Price}}</span>
+
+
+            </div>
+        </div>
+        <div class="youhq-mainr">
+            <div class="youhq-mainr1"><span>{{cop.CouponName}}</span></div>
+            <div class="youhq-mainr2">有效期：<span>{{cop.endt}}</span></div>
+        </div>
+    </div>
+    <div class="yhq-btn-box">
+        <div class="yhq-btn">确定</div>
+    </div>
+</div>
 <div class="new-loading">
     <ul class="small-loading">
         <li></li>
