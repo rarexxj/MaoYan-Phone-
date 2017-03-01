@@ -149,9 +149,9 @@ $(function () {
                     if (rs.returnCode == '200') {
                         $.oppo('保存成功', 1);
                         if (id) {
-                            window.location.href = "/Html/settlement.html?id=" + id + '&addid=' + rs.data.Id + '&type=' + type+ '&mode=' + mode
+                            window.location.href = "/Html/html/shopcar/settlement.html?id=" + id + '&addid=' + rs.data.Id
                         } else {
-                            window.location.href = "/Html/settlement.html?gid=" + gid + '&addid=' + rs.data.Id + '&type=' + type+ '&mode=' + mode
+                            window.location.href = "/Html/html/shopcar/settlement.html?gid=" + gid + '&addid=' + rs.data.Id
                         }
                     }
                 })

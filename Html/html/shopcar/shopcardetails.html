@@ -13,7 +13,7 @@
     <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>鼎盛ABC</title>
+    <title>成都猫眼食品有限责任公司</title>
     <link rel="stylesheet" href="/Html/public/css/reset.css">
     <link rel="stylesheet" href="/Html/public/css/main.css">
     <link rel="stylesheet" href="/Html/css/shopcardetails.css">
@@ -22,40 +22,44 @@
     <script src="/Html/public/js/main.js"></script>
 
 </head>
-<body style="">
+<body style="background: #f3fbfd;">
 <div class="confirm-order" id="main">
     <div class="shopcar detailed" v-for="list in info.Goods.List">
-        <a :href="'/Html/prodetails.html?id='+list.GoodsId" >
+        <a :href="'/Html/html/fenlei/productsinfo.html?id='+list.GoodsId">
             <div class="box clearfix">
                 <div class="img fl"
                      :style="{backgroundImage: 'url('+list.GoodsImage.MediumThumbnail+')'}"></div>
                 <div class="info fr">
                     <div class="tt">{{list.GoodsName}}</div>
                     <div class="tc f-cb">
-                        <div class="int fl"><span>重量：{{list.Weight}}</span></div>
+                        <div class="int fl"><span>{{list.GoodsAttribute}}</span></div>
                     </div>
                     <div class="bot f-cb">
-                        <div class="price fl">¥ <span class="amo">{{list.Price}}</span></div>
-                        <div class="num fr">x <span>{{list.Quantity}}</span></div>
+                        <div class="price fl">¥ <span class="amo">{{list.Price.toFixed(2)}}</span></div>
                     </div>
+                    <div class="num">x <span>{{list.Quantity}}</span></div>
                 </div>
             </div>
         </a>
     </div>
+    <div class="jiajg" style="margin-top: 0.2rem;">
+        <div class="jiajname">自选商品</div>
+
+    </div>
 </div>
-    <!--<div class="new-loading">-->
-    <!--<ul class="small-loading">-->
-    <!--<li></li>-->
-    <!--<li></li>-->
-    <!--<li></li>-->
-    <!--<li></li>-->
-    <!--<li></li>-->
-    <!--<li></li>-->
-    <!--<li></li>-->
-    <!--<li></li>-->
-    <!--</ul>-->
-    <!--</div>-->
-    <script src="/Html/mjs/shopcardetails.js"></script>
+<!--<div class="new-loading">-->
+<!--<ul class="small-loading">-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--<li></li>-->
+<!--</ul>-->
+<!--</div>-->
+<script src="/Html/mjs/shopcardetails.js"></script>
 </body>
 
 </html>

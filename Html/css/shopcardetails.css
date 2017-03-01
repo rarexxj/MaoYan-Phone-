@@ -1,14 +1,14 @@
 .shopcar.detailed {
-    margin-top: 0.16rem;
+    /*margin-top: 0.16rem;*/
 }
 
 .shopcar.detailed .info {
-    width: 4.9rem;
+    width: 4.4rem;
 }
 
 .shopcar.detailed .img {
-    width: 1.86rem;
-    height: 1.86rem;
+    width: 1.94rem;
+    height: 1.94rem;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,7 +21,7 @@
 }
 
 .shopcar .box {
-    padding: 0.28rem;
+    padding: 0.37rem;
     height: 1.86rem;
     border-bottom: 1px solid #e8e8e8;
     background: #fff;
@@ -30,11 +30,14 @@
 
 
 .shopcar .tt {
-    font-size: 0.3rem;
-    line-height: 0.36rem;
-    color: #1b1b20;
-    height: 0.72rem;
+    font-size: 0.32rem;
+    /* line-height: 0.36rem; */
+    color: #3d3d45;
+    height: 0.62rem;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
 }
 
 .shopcar .tt a {
@@ -45,7 +48,6 @@
     font-size: 0.26rem;
     line-height: 0.24rem;
     color: #666;
-    margin-top: 0.17rem;
 }
 
 .shopcar .tc .int span {
@@ -53,7 +55,7 @@
 }
 
 .shopcar .bot {
-    margin-top: 0.29rem;
+    margin-top: 0.16rem;
 }
 
 .shopcar .price {
@@ -65,4 +67,20 @@
 
 .shopcar .price .amo {
     font-size: 0.32rem;
+}
+
+.num{
+    font-size: 0.32rem;
+    color: #333333;
+    line-height: 1;
+    margin-top: 0.12rem;
+}
+.jiajname{
+    font-size: 0.32rem;
+    line-height: 0.92rem;
+    color: #666;
+    padding-left: 0.37rem;
+    background: #fff;
+    border-top: 0.01rem solid #e8e8e8;
+    border-bottom: 0.01rem solid #e8e8e8;
 }
