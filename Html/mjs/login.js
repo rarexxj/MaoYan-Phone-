@@ -37,7 +37,7 @@ $(function () {
                     localStorage['qy_head'] = rs.data.Id + '|' + rs.data.Avatar.SmallThumbnail;
                 }
                 $.oppo('登录成功', 1, function () {
-                    window.location.href = "../index.html"
+                    window.location.href = "/index.html"
                 })
             }
         })

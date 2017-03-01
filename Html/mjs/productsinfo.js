@@ -20,18 +20,17 @@ $(function () {
         },
         ready: function () {
             var _this = this;
-
             _this.ajax();
             _this.$nextTick(function () {
                 setTimeout(function () {
                     _this.swipe();
-                    _this.gotobuy();
-                }, 100);
+                }, 400);
                 _this.guige();
                 _this.Calculation();
                 _this.tab();
                 _this.collect();
                 _this.evaajax();
+                _this.gotobuy();
                 _this.headimg();
                 _this.putshopcar();
             })
@@ -53,16 +52,13 @@ $(function () {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;
                         _this.guigechioce();
-                        if (_this.info.HasCollect) {
-                            $('.coll').addClass('cur');
-                        }
-                        $.RMLOAD();
+                        $.RMLOAD()
                     }
                 });
             },
             //banner滚动
             swipe: function () {
-                new Swiper('.swiper-container', {
+                var mySwiper =new Swiper('.swiper-container', {
                     direction: 'horizontal',
                     loop: true,
                     paginationClickable: true,
@@ -85,11 +81,7 @@ $(function () {
                 $('#main').on('click', '.size-mask .close', function () {
                     $('.size-mask').hide();
                 })
-
-
-            }
-
-            ,
+            },
             Calculation: function () {
                 //加
                 $('#main').on('click', '.getnum .jia', function () {
@@ -115,8 +107,7 @@ $(function () {
                     }
                     $(this).parents('.numbox').find('.amount').val(num)
                 })
-            }
-            ,
+            },
             //切换
             tab: function () {
                 $('.information .btn').eq(0).on('click', function () {
@@ -129,25 +120,24 @@ $(function () {
                     $('.infoajax').hide();
                     $('.evaluateajax').show();
                 })
-            }
-            ,
+            },
             //点击收藏
             collect: function () {
                 var _this = this;
-                $('.goshop .coll').on('click', function () {
+                $('#main .collect').on('click', function () {
                     if (!window.TOKEN) {
                         $.oppo('您还未登陆', 1);
                     } else {
                         $.checkuser();
-                        if ($(this).hasClass('cur')) {
-                            _this.ajaxcancel()
-                        } else {
-                            _this.ajaxadd();
-                        }
+                        _this.ajaxadd();
+                        // if ($(this).hasClass('cur')) {
+                        //     _this.ajaxcancel()
+                        // } else {
+                        //     _this.ajaxadd();
+                        // }
                     }
                 })
-            }
-            ,
+            },
             //取消收藏
             ajaxcancel: function () {
                 $.ajax({
@@ -159,8 +149,7 @@ $(function () {
                         $('.goshop .coll').removeClass('cur');
                     }
                 })
-            }
-            ,
+            },
             //添加收藏
             ajaxadd: function () {
                 $.ajax({
@@ -172,8 +161,7 @@ $(function () {
                         $('.goshop .coll').addClass('cur');
                     }
                 })
-            }
-            ,
+            },
             guigechioce: function () {
                 var _this = this;
                 window.proimg = _this.info.MainImage.MediumThumbnail;
@@ -227,13 +215,10 @@ $(function () {
                 _this.chooses();
 
 
-            }
-            ,
-
+            },
             chooses: function () {
                 var _this = this;
                 $('#main').on('click', '.choose-box>li', function () {
-
                     $('.getnum .amount').val(1)
                     $(this).addClass('choose-cur').siblings().removeClass('choose-cur')
                     _this.choose_zuhe();
@@ -241,43 +226,36 @@ $(function () {
                 $('.first .choose-box>li').on('click', function () {
                     _this.choose_gg()
                 })
-            }
-            ,
+            },
             choose_zuhe: function () {
                 var _this = this;
                 var zuhe = []
                 $('.choose-cur').each(function (index) {
                     var px = $(this).attr('data-px'),
                         id = $(this).attr('data-id'),
-                        vals = $(this).text()
+                        vals = $.trim($(this).text())
                     zuhe.push(vals)
                 })
+                console.log(zuhe)
                 for (var i in _this.info.SingleGoogsList) {
                     var datas = _this.info.SingleGoogsList[i]
                     var addj = JSON.stringify(datas.zuhe.name.sort());
                     var bddj = JSON.stringify(zuhe.sort());
-
                     if (addj == bddj) {
                         // console.log(zuhe.sort())
-                        console.log(addj)
-                        console.log(bddj)
                         _this.info.Price = datas.Price
                         _this.info.Stock = datas.Stock
                         if (datas.Image) {
                             _this.imgs = datas.Image.MediumThumbnail;
-
                             console.log(_this.info)
                         } else {
-                            console.log(3123)
                             _this.imgs = proimg
                         }
-
                         $('.get-btn').attr('data-id', datas.SingleGoodsId)
                     }
                 }
 
-            }
-            ,
+            },
             choose_gg: function () {
                 var _this = this;
                 var gg = [];
@@ -302,8 +280,7 @@ $(function () {
                         _this.chooses()
                     }
                 }
-            }
-            ,
+            },
             //加入购物车
             putshopcar: function () {
                 var _this = this;
@@ -316,7 +293,7 @@ $(function () {
                             if ($.is_weixin()) {
                                 window.location.href = '/WeiXin/Login';
                             } else {
-                                window.location.href = '/Html/login.html';
+                                window.location.href = '/Html/html/personalcenter/login.html';
                             }
                         })
                     } else {
@@ -345,8 +322,7 @@ $(function () {
                 $('.goshopc').on('click', function () {
                     window.location.href = '/Html/shopcar.html'
                 })
-            }
-            ,
+            },
             addshopcar: function (listdata) {
                 $.ajax({
                     url: '/Api/v1/Mall/Cart',
@@ -360,8 +336,7 @@ $(function () {
                 }).always(function () {
                     $('.addshopc,.pro-in-gocart').removeClass('on')
                 })
-            }
-            ,
+            },
             gotobuy: function () {
                 //立即购买
                 var _this = this;
@@ -415,8 +390,7 @@ $(function () {
                     }
                 })
 
-            }
-            ,
+            },
             //评价
             evaajax: function () {
                 var _this = this;
@@ -429,8 +403,7 @@ $(function () {
                         _this.evainfo = rs.data;
                     }
                 })
-            }
-            ,
+            },
             //前9名头像
             headimg: function () {
                 var _this = this;

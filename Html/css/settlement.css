@@ -4,7 +4,7 @@
 }
 .confirm-order .addadd {
     height: 1.88rem;
-    background: url("img/img34.jpg");
+    background: url("img/img36.jpg");
     background-size: cover;
     position: relative;
 }
@@ -19,7 +19,7 @@
     line-height: 0.36rem;
     color: #a5a5a5;
     padding-left: 0.52rem;
-    background: url("img/img35.png") no-repeat;
+    background: url("img/img37.png") no-repeat;
     background-size: 0.36rem 0.36rem;
     position: absolute;
     top: 0.64rem;
@@ -125,7 +125,7 @@
     line-height: 0.32rem;
     color: #666;
     padding-right: 0.33rem;
-    background: url("img/logo18.png") no-repeat right center;
+    background: url("img/logo45.png") no-repeat right center;
     background-size: 0.18rem 0.32rem;
     margin-top: 0.85rem;
 }
