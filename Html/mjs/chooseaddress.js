@@ -35,16 +35,16 @@ $(function () {
                 $('#address').on('click', '.addlist a', function () {
                     var addid = $(this).parents('.addlist').attr('data-addid');
                     if (id) {
-                        window.location.href = '/Html/settlement.html?id=' + id + '&addid=' + addid + "&type=" + type + '&mode=' + mode
+                        window.location.href = '/Html/html/shopcar/settlement.html?id=' + id + '&addid=' + addid
                     } else {
-                        window.location.href = '/Html/settlement.html?gid=' + gid + '&addid=' + addid + "&type=" + type + '&mode=' + mode
+                        window.location.href = '/Html/html/shopcar/settlement.html?gid=' + gid + '&addid=' + addid
                     }
                 });
                 $('.submit').on('click', function () {
                     if (id) {
-                        window.location.href = '/Html/chooseaddaddress.html?id=' + id + "&type=" + type + '&mode=' + mode
+                        window.location.href = '/Html/html/shopcar/chooseaddaddress.html?id=' + id
                     } else {
-                        window.location.href = '/Html/chooseaddaddress.html?gid=' + gid + "&type=" + type + '&mode=' + mode
+                        window.location.href = '/Html/html/shopcar/chooseaddaddress.html?gid=' + gid
                     }
                 })
             }
