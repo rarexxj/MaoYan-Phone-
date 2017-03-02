@@ -34,7 +34,6 @@ $(function () {
                         } else {
                             _this.info = _this.info.concat(rs.data.Goods);
                         }
-                        console.log(_this.info.length)
                         $.RMLOAD();
                     }
                 })

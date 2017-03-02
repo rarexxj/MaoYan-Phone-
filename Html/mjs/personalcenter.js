@@ -51,34 +51,4 @@ $(function () {
             }
         }
     })
-    //
-    // function view(rs) {
-    //     if (!rs.Money || rs.Money == 'null') {
-    //         rs.Money = 0
-    //     }
-    //     if (!rs.Integral || rs.Integral == 'null') {
-    //         rs.Integral = 0
-    //     }
-    //     localStorage['qy_MemberType'] = rs.MemberType;
-    //     new Vue({
-    //         el: '#per-cen',
-    //         data: rs,
-    //         ready: function () {
-    //             $.RMLOAD();
-    //             js();
-    //         }
-    //     })
-    // }
-    //
-    // // function base64_encode(){
-    // //     var str=CryptoJS.enc.Utf8.parse($("#source").val());
-    // //     var base64=CryptoJS.enc.Base64.stringify(str);
-    // //     $("#result").val(base64);
-    // // }
-    // function base64_decode(str) {
-    //     var words = CryptoJS.enc.Base64.parse(str);
-    //     words = words.toString(CryptoJS.enc.Utf8);
-    //     return words
-    // }
-
 })

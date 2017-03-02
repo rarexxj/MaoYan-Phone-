@@ -5,34 +5,50 @@ $(function () {
         el: '#main',
         data: {
             info: [],
-            ajaxdata:{
-                pageNo: '1',
-                limit: '10'
-            }
+            ajaxdata: {
+                pageNo: 1,
+                limit: 5,
+                walletType: 2
+            },
+            bdinfo:[]
         },
         ready: function () {
             var _this = this;
             _this.infoajax();
             _this.$nextTick(function () {
-                _this.deletejilu();
+                _this.bill();
+                _this.updownload();
             })
         },
         methods: {
             infoajax: function () {
+                //积分渲染
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Browse',
+                    url: "/Api/v1/Wallet/Integral",
+                    type: 'get'
+                }).done(function (rs) {
+                    if (rs.returnCode = '200') {
+                        _this.info = rs.data;
+                        $.RMLOAD();
+                    }
+                })
+            },
+            bill: function () {
+                var _this=this;
+                //资金变动记录渲染
+                $.ajax({
+                    url: '/Api/v1/WalletBill',
                     type: 'get',
                     data: _this.ajaxdata
                 }).done(function (rs) {
-                    if (rs.returnCode = '200') {
-                        window.allpage = Math.ceil(rs.data.TotalCount / _this.ajaxdata.limit)
+                    if (rs.returnCode == '200') {
                         if (_this.ajaxdata.pageNo == 1) {
-                            _this.info = rs.data.Goods;
+                            _this.bdinfo = rs.data.Bills;
                         } else {
-                            _this.info = _this.info.concat(rs.data.Goods);
+                            _this.bdinfo = _this.bdinfo.concat(rs.data.Bills);
                         }
-                        $.RMLOAD();
+                        window.allpage = Math.ceil(rs.data.TotalCount / _this.ajaxdata.limit);
                     }
                 })
             },
@@ -51,28 +67,9 @@ $(function () {
                             setTimeout(function () {
                                 flag = true;
                             }, 500)
-                            _this.infoajax();
+                            _this.bill();
                             $.ADDLOAD();
                         }
-                    }
-                })
-            },
-            deletejilu: function () {
-                //删除浏览记录
-                var _this = this;
-                $('#main').on('click','.history .delete', function () {
-                    _this.deleteajax();
-                })
-            },
-            deleteajax: function () {
-                $.ajax({
-                    url: "/Api/v1/Mall/Browse",
-                    type: 'delete'
-                }).done(function (rs) {
-                    if (rs.returnCode = '200') {
-                        $.oppo('成功清理浏览记录', 1, function () {
-                            window.location.href = "/Html/html/personalcenter/personalcenter.html"
-                        })
                     }
                 })
             }

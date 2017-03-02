@@ -30,6 +30,7 @@ $(function () {
                 _this.tab();
                 _this.collect();
                 _this.evaajax();
+                _this.liuljl();
                 _this.gotobuy();
                 _this.headimg();
                 _this.putshopcar();
@@ -416,6 +417,17 @@ $(function () {
                         _this.headinfo = rs.data;
                     }
                 })
+            },
+            liuljl:function () {
+                var _this = this;
+                $.ajax({
+                    url: '/Api/v1/Mall/Browse/'+id,
+                    type: 'POST'
+                }).done(function (rs) {
+                    if (rs.returnCode == '200') {
+                    }
+                })
+
             }
         }
     })
