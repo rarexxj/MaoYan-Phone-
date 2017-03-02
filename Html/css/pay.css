@@ -1,0 +1,125 @@
+.shoppay .deadline {
+    width: 100%;
+    height: 0.67rem;
+    background: #ffffcc;
+    border-top: 1px solid #dedfe0;
+    border-bottom: 1px solid #dedfe0;
+    text-align: center;
+    line-height: 0.67rem;
+    font-size: 0.24rem;
+    color: #666;
+}
+.shoppay .deadline span {
+    color: #78a000;
+}
+.shoppay .line {
+    padding: 0 0.15rem;
+    height: 0.86rem;
+    background: #fff;
+    line-height: 0.86rem;
+    border-top: 1px solid #e8e8e8;
+}
+.shoppay .line .tt {
+    font-size: 0.3rem;
+    color: #333;
+}
+.shoppay .line .num {
+    font-size: 0.24rem;
+    color: #999999;
+}
+.shoppay .line .price {
+    font-family: 'Arial';
+    color: #e84608;
+    font-size: 0.24rem;
+}
+.shoppay .payline {
+    padding: 0.18rem 0.15rem;
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+    background-size: 0.4rem 0.4rem;
+    position: relative;
+}
+.shoppay .money .tb {
+    background: url(../img/img39.png) no-repeat;
+    background-size: cover;
+}
+.shoppay .payline .tb {
+    width: 0.56rem;
+    height: 0.56rem;
+    margin-right: 0.2rem;
+}
+.shoppay .payline .tt {
+    font-size: 0.3rem;
+    line-height: 0.56rem;
+}
+.shoppay .payline .tt span {
+    display: block;
+    font-size: 0.24rem;
+    line-height: 0.3rem;
+    color: #999999;
+    padding-bottom: 0.05rem;
+}
+.shoppay .payline .btn {
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url(../img/img30.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 0.17rem;
+    top: 0.21rem;
+}
+.shoppay .line {
+    padding: 0 0.15rem;
+    height: 0.86rem;
+    background: #fff;
+    line-height: 0.86rem;
+    border-top: 1px solid #e8e8e8;
+}
+.shoppay .line .paymore {
+    color: #999999;
+}
+.shoppay .line .price {
+    font-family: 'Arial';
+    color: #e84608;
+    font-size: 0.24rem;
+}
+.shoppay .weixin .tb {
+    background: url(img/img40.png) no-repeat;
+    background-size: cover;
+}
+.shoppay .payline.cur .btn {
+    background: url(img/img31.png) no-repeat;
+    background-size: cover;
+}
+.shoppay .payline .btn {
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url(img/img30.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 0.17rem;
+    top: 0.21rem;
+}
+.shoppay .alipay .tb {
+    background: url(img/img41.png) no-repeat;
+    background-size: cover;
+}
+.shoppay .payline .tb {
+    width: 0.56rem;
+    height: 0.56rem;
+    margin-right: 0.2rem;
+}
+
+.bot-btn {
+    width: 100%;
+    height: 1rem;
+    font-size: 0.36rem;
+    line-height: 1rem;
+    text-align: center;
+    color: #fff;
+    background: #78a000;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border: 0;
+}
