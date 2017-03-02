@@ -320,7 +320,7 @@ $(function () {
                     }
                 });
                 $('.goshopc').on('click', function () {
-                    window.location.href = '/Html/shopcar.html'
+                    // window.location.href = '/Html/shopcar.html'
                 })
             },
             addshopcar: function (listdata) {
@@ -341,13 +341,12 @@ $(function () {
                 //立即购买
                 var _this = this;
                 $('#main').on('click', '.pro-in-gobuy', function () {
-                    console.log(1321)
                     if (!TOKEN) {
                         $.oppo('您还未登录', 1, function () {
                             if ($.is_weixin()) {
                                 window.location.href = '/WeiXin/Login';
                             } else {
-                                window.location.href = '/Html/login.html';
+                                window.location.href = '/Html/html/personalcenter/login.html';
                             }
                         })
                     } else {
@@ -361,7 +360,7 @@ $(function () {
                                 if ($('.kc').html() == 0) {
                                     $.oppo('库存不足', 1)
                                 } else {
-                                    window.location.href = "/Html/getmethod.html?gid=" + $('.get-btn').attr('data-id') + "|" + $('.getnum .amount').val() + '&type=' + _this.info.Type
+                                    window.location.href = "/Html/html/shopcar/settlement.html?gid=" + $('.get-btn').attr('data-id') + "|" + $('.getnum .amount').val()
                                 }
 
                             }
@@ -370,7 +369,6 @@ $(function () {
                 });
                 //购买
                 $('#main').on('click', '.gobuy', function () {
-                    console.log(2312321)
                     if (window.TOKEN) {
                         if (!$('.get-btn').attr('data-id')) {
                             $('.size-mask').show();
@@ -378,14 +376,14 @@ $(function () {
                             if ($('.kc').html() == 0) {
                                 $.oppo('库存不足', 1)
                             } else {
-                                window.location.href = "/Html/getmethod.html?gid=" + $('.get-btn').attr('data-id') + "|" + $('.getnum .amount').val() + '&type=' + _this.info.Type
+                                window.location.href = "/Html/html/shopcar/settlement.html?gid=" + $('.get-btn').attr('data-id') + "|" + $('.getnum .amount').val()
                             }
 
                         }
                     } else {
                         $.oppo('请先登录', 1)
                         setTimeout(function () {
-                            window.location.href = '/Html/login.html'
+                            window.location.href = '/Html/html/personalcenter/login.html'
                         }, 1000)
                     }
                 })

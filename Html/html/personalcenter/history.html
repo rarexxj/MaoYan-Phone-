@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="zh-CN" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>敦奴</title>
+    <script src="/Html/js/jQuery.js"></script>
+    <script src="/Html/js/vue.js"></script>
+    <script src="/Html/js/main.js"></script>
+    <link rel="stylesheet" href="/Html/css/reset.css">
+    <link rel="stylesheet" href="/Html/css/style.css">
+    <link rel="stylesheet" href="/Html/css/add.css">
+</head>
+<body>
+    <div class="history" id="history">
+        <div class="delete">清除浏览历史</div>
+        <div class="box f-cb">
+            <div class="time">
+
+            </div>
+            <div class="content">
+                <ul>
+                    <li v-for="list in Goods">
+                        <a :href="'/Html/Products/Info.html?id='+list.Id">
+                            <div class="img" :style="{backgroundImage: 'url('+list.MainImage.MediumThumbnail+')'}"></div>
+                            <div class="tt">{{list.Name}}</div>
+                            <div class="price">¥{{list.prices1}}.{{list.prices2}}</div>
+                            <span class="timen">{{list.time}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="search-box">
+        <div class="nothing">
+            <div class="tbs" style="background: url('/Html/img/nohis.png') no-repeat center center;background-size: contain"></div>
+            <p>无浏览记录，赶紧去逛逛吧</p>
+            <a href="/Index.html" class="NoBnt">随便逛逛</a>
+        </div>
+    </div>
+    <script src="/Html/mjs/History.js"></script>
+</body>
+</html>
