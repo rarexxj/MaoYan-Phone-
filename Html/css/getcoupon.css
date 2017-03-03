@@ -1,0 +1,103 @@
+
+.x-choose-title{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1.1rem;
+	border-bottom: 1px solid #e8e8e8;
+	background: #fff;
+}
+.x-choose-title ul{
+	float: left;
+	width: 100%;
+}
+.x-choose-title li{
+	float: left;
+	width: 50%;
+}
+.x-choose-title li a{
+	display: block;
+	text-align: center;
+	padding: 0 0.25rem;
+	line-height: 1.1rem;
+	font-size: 0.34rem;
+	color: #333333;
+	position: relative;
+}
+.x-choose-title li a i{
+	position: absolute;
+	left: 0.25rem;
+	right: 0.25rem;
+	bottom: -0.02rem;
+	background: #c0a85f;
+	height: 0.05rem;
+	border-radius: 0.01rem;
+	display: none;
+}
+.x-choose-title li.cur a i{
+	display: block;
+}
+.x-coupon{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	overflow: auto;
+	background: #fff;
+}
+.x-coupon .list{
+	padding: 0.3rem 0.75rem 0.5rem;
+}
+.x-coupon .list li{
+	margin-bottom: 0.4rem;
+	border: 1px solid #c0a85f;
+	text-align: center;
+	padding: 0.18rem;
+	background-color: #e7e7e7;
+}
+.x-coupon .list li .box{
+	background-image: url(img/x_img1.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	display: block;
+	padding: 0.35rem 0 0.2rem;
+}
+.x-coupon .list li h4{
+	font-weight: bold;
+	font-size: 0.6rem;
+	color: #ffffff;
+	line-height: 0.7rem;
+	margin-bottom: 16px;
+}
+.x-coupon .list li p{
+	line-height: 0.54rem;
+	font-size: 0.3rem;
+	color: #ffffff;
+}
+.x-coupon .list li h5{
+	font-size: 0.28rem;
+	padding-bottom: 0.17rem;
+	font-weight: bold;
+	color: #fff;
+	line-height: 0.54rem;
+}
+
+.lqbtn{
+	width: 7.02rem;
+	height: 0.86rem;
+	text-align: center;
+	line-height: 0.86rem;
+	font-size: 0.3rem;
+	color: #fff;
+	background-color: #c8994c;
+	display: block;
+	border-radius: 6px;
+	margin: 0 auto;
+}
+.lqbox{
+	position: absolute;
+	bottom:0.2rem;
+	width:7.5rem;
+}

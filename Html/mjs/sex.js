@@ -1,24 +1,25 @@
 $(function () {
-    // $.ADDLOAD()
-    var qy_user1 = JSON.parse(localStorage.qy_user)
+    $.ADDLOAD()
     $.checkuser();
-    var num = $.get_user('Sex');
-    if (num == 1) {
-        $('.sexman').addClass('active')
-    }
-    if (num == 2) {
-        $('.sexwoman').addClass('active')
-    }
     new Vue({
         el: '#main',
         data: {
-            info: []
+            choose : '',
+            info: [],
+            sex: [
+                {
+                    name: '男',
+                    active:1
+                },
+                {
+                    name: '女',
+                    active:2
+                }
+            ]
         },
         ready: function () {
             var _this = this;
             _this.$nextTick(function () {
-                _this.chioce();
-                _this.submit();
                 $.RMLOAD();
             })
         },
@@ -26,50 +27,24 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Member/' + $.get_user('Id'),
+                    url: '/Api/v1/Member/' + $.get_user('Id')+'/Update',
                     type: 'put',
                     data: {
                         NickName: '',
                         Birthday: '',
-                        Sex: num,
-                        IDCard: ''
+                        Sex: _this.choose,
+                        TastesType:''
                     }
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         $.oppo('修改成功', 1, function () {
-                            var qy_sex = rs.data.Sex;
-                            qy_user1.Sex = qy_sex;
-                            qy_user = JSON.stringify(qy_user1);
-                            localStorage.setItem('qy_user', qy_user);
-                            window.location.replace("/Html/myinfo.html");
+                            window.location.replace("/Html/html/personalcenter/myinfo.html");
                         });
-                        _this.info = rs.data
-                    }
-                }).always(function () {
-                    $('.submit').removeClass('gray')
-                })
-            },
-            submit: function () {
-                var _this = this;
-                $('.submit').on('click', function () {
-                    if ($(this).hasClass('gray')) {
-                        return false;
-                    } else {
-                        $(this).addClass('gray')
-                        _this.infoajax();
                     }
                 })
             },
-            chioce: function () {
-                $('.sex').on('click', function () {
-                    $(this).addClass('active').siblings().removeClass('active');
-                    if ($('.sexman').hasClass('active')) {
-                        num = 1;
-                    }
-                    if ($('.sexwoman').hasClass('active')) {
-                        num = 2;
-                    }
-                })
+            chooseAction:function(id){
+                this.choose = id;
             }
         }
     })

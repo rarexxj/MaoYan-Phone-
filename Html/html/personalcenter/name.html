@@ -16,23 +16,27 @@
     <title>成都猫眼食品有限责任公司</title>
     <link rel="stylesheet" href="/Html/public/css/reset.css">
     <link rel="stylesheet" href="/Html/public/css/main.css">
-    <link rel="stylesheet" href="/Html/css/sex.css">
+    <link rel="stylesheet" href="/Html/css/name.css">
     <script src="/Html/public/js/jQuery.js"></script>
     <script src="/Html/public/js/vue.js"></script>
     <script src="/Html/public/js/main.js"></script>
-
 </head>
 <body style="background-color: #f3fbfd">
-<div class="sexbox" id="main">
-    <div class="line f-cb">
-        <!--<select name="" id="" class="csex">-->
-        <!--<option value="1">男</option>-->
-        <!--<option value="2">女</option>-->
-        <!--</select>-->
-        <div :class="['sexman','fl','sex',choose==list.active?'active':'']" v-for="list in sex" @click="chooseAction(list.active)">{{list.name}}</div>
-        <!--<div class="sexwoman fl sex">女</div>-->
+<div class="myinfo" id="main"   v-cloak="">
+    <div class="line">
+        <input type="text" id="newphone" class="text" placeholder="请输入您的昵称" maxlength="8">
     </div>
-    <div class="submit" @click="infoajax()">提交</div>
+    <div class="submit">保存</div>
+    <!--<div class="success">-->
+        <!--<div class="box">-->
+            <!--<div class="tb successico"></div>-->
+            <!--<div class="p">更改手机后，下次登录可使用新手机号登录。当前手机号<i></i></div>-->
+            <!--<div class="clearfix btnbox">-->
+                <!--<a href="##" class="golog fl color999">算了，不用了</a>-->
+                <!--<a href="##" class="golog fr colorzhus">绑定手机</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
 
 <div class="new-loading">
@@ -47,7 +51,7 @@
 <li></li>
 </ul>
 </div>
-<script src="/Html/mjs/sex.js"></script>
+<script src="/Html/mjs/name.js"></script>
 </body>
 
 </html>

@@ -14,26 +14,24 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>成都猫眼食品有限责任公司</title>
-    <link rel="stylesheet" href="/Html/css/reset.css">
-    <link rel="stylesheet" href="/Html/css/swiper.min.css">
-    <link rel="stylesheet" href="/Html/css/main.css">
+    <link rel="stylesheet" href="/Html/public/css/reset.css">
+    <link rel="stylesheet" href="/Html/public/css/main.css">
     <link rel="stylesheet" href="/Html/css/myinfo.css">
-    <script src="/Html/js/public/jQuery.js"></script>
-    <script src="/Html/js/public/vue.js"></script>
-    <script src="/Html/js/public/main.js"></script>
-    <script src="/Html/js/public/swiper.min.js"></script>
+    <script src="/Html/public/js/jQuery.js"></script>
+    <script src="/Html/public/js/vue.js"></script>
+    <script src="/Html/public/js/main.js"></script>
 
 </head>
-<body style="background-color: #f0f0f0">
+<body style="background-color: #f3fbfd">
 <div class="myinfo" id="myinfo">
     <div class="head f-cb">
         <span>头像</span>
-        <div class="img fr"><img src="/Html/css/img/img8.jpg" width="100%" height="100%" alt=""></div>
+        <div class="img fr"><img v-if="info.Avatar" :src="info.Avatar.RelativePath" width="100%" height="100%" alt=""><img v-else="" src="/Html/css/img/img08.png" width="100%" height="100%" alt=""></div>
         <input type="file" class="file">
         <div class="jt"></div>
     </div>
     <div class="line bb myname">
-        <a href="javascript:;" class="xingm">
+        <a href="name.html" class="nicheng">
             <span>昵称</span>
             <p class="name red"  v-if="!info.NickName">请输入</p>
             <p class="name" v-if="info.NickName">{{info.NickName}}</p>
@@ -41,23 +39,24 @@
         </a>
     </div>
     <div class="line bb myname">
-        <a href="javascript:;" class="xingm">
+        <a href="sex.html" class="xingb">
             <span>性别</span>
             <p class="sex red"  v-if="!info.Sex">请输入</p>
-            <p class="sex" v-if="info.Sex">{{info.Sex}}</p>
+            <p class="sex" v-if="info.Sex==1">男</p>
+            <p class="sex" v-if="info.Sex==2">女</p>
             <div class="jt"></div>
         </a>
     </div>
     <div class="line bb myname">
-        <a href="javascript:;" class="xingm">
+        <a href="birthday.html" class="xingm">
             <span>生日</span>
-            <p class="birth red"  v-if="!info.birthday">请输入</p>
-            <p class="birth" v-if="info.birthday">{{info.birthday}}</p>
+            <p :class="birth red"  v-if="!btn">请输入</p>
+            <p :class="birth" v-else="">{{info.Birthday.split(' ')[0]}}</p>
             <div class="jt"></div>
         </a>
     </div>
-    <div class="line bb mt20 myph">
-        <a href="modifyphone.html">
+    <div class="line bb mt20 myph" style="margin-top: 0.2rem;">
+        <a href="blindphone.html">
             <span>绑定手机</span>
             <p class="telenum">{{info.PhoneNumber}}</p>
             <div class="jt"></div>
@@ -70,7 +69,7 @@
             <div class="jt"></div>
         </a>
     </div>
-    <div class="line bb perid">
+    <div class="line bb perid" style="margin-top: 0.2rem;">
         <a href="javascript:;" class="shenfz">
             <span>管理收货地址</span>
             <p class=""></p>
@@ -100,7 +99,7 @@
         <li></li>
     </ul>
 </div>
-<script src="/Html/js/mjs/myinfo.js"></script>
+<script src="/Html/mjs/myinfo.js"></script>
 </body>
 
 </html>
