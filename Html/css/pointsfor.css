@@ -1,0 +1,82 @@
+body{
+	background: #f3fbfd;
+}
+.now-point{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	background: #fff;
+	border-bottom: 1px solid #dddddd;
+	height: 1.1rem;
+	line-height: 1.1rem;
+	font-size: 0.3rem;
+	color: #3d3d45;
+	padding: 0 0.35rem;
+}
+.now-point span{
+	color: #c0a85f;
+}
+.point-list{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 1.12rem;
+	bottom: 0;
+}
+.point-list .list{
+	padding: 0.12rem;
+}
+.point-list ul{
+	float: left;
+	width: 100%;
+}
+.point-list li{
+	float: left;
+	width: 49%;
+	margin-right: 2%;
+	margin-bottom: 0.1rem;
+}
+.point-list li:nth-child(2n){
+	margin-right: 0;
+}
+.point-list li .box{
+	border: 1px solid #dddddd;
+	background: #fff;
+}
+.point-list li .text{
+	position: relative;
+	padding: 0.24rem 0.22rem 0;
+	height: 1.44rem;
+}
+.point-list li .text h4{
+	font-size: 0.28rem;
+	color: #3d3d45;
+	line-height: 0.38rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	font-weight: normal;
+	margin-bottom: 0.07rem;
+}
+.point-list li .text p{
+	font-size: 0.28rem;
+	color: #cebd70;
+	font-weight: bold;
+	line-height: 0.4rem;
+}
+.point-list li .text .btn{
+	position: absolute;
+	right: 0.23rem;
+	bottom: 0.2rem;
+	width: 1.3rem;
+	height: 0.64rem;
+	line-height: 0.64rem;
+	text-align: center;
+	background: #dccc8d;
+	font-size: 0.3rem;
+	color: #fff;
+	border-radius: 0.1rem;
+}
+
+

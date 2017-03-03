@@ -1,0 +1,85 @@
+.wallet .intinfo {
+    padding: 0.66rem 0.27rem 0.4rem 0.27rem;
+    background: #d4c280;
+    color: #fff;
+}
+.wallet .intinfo .tt {
+    font-size: 0.3rem;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+}
+.wallet .intinfo .num {
+    font-size: 0.3rem;
+    line-height: 0.3rem;
+    margin-top: 0.27rem;
+    margin-bottom: 0.27rem;
+}
+.wallet .intinfo .num span {
+    font-family: 'Arial';
+    font-size: 1.8rem;
+    line-height: 1;
+    display: block;
+    text-align: center;
+}
+.wallet .intinfo .intro {
+    font-size: 0.28rem;
+    line-height: 0.29rem;
+    color: #fff;
+    padding-left: 0.43rem;
+    background: url(img/img28.png) no-repeat;
+    background-size: 0.29rem 0.29rem;
+    position: absolute;
+    top: 0.38rem;
+    right: 0.15rem;
+}
+.wallet .title {
+    line-height: 0.85rem;
+    font-size: 0.24rem;
+    color: #333;
+    padding-left: 0.15rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+.wallet .list li {
+    padding: 0.42rem 0.32rem;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    position: relative;
+}
+.wallet .list .tt {
+    line-height: 0.52rem;
+    font-size: 0.3rem;
+    color: #3d3d45;
+}
+.wallet .list .ti {
+    font-size: 0.28rem;
+    color: #aaaaaa;
+    line-height: 0.45rem;
+}
+.wallet .list .num {
+    font-size: 0.3rem;
+    line-height: 0.3rem;
+    position: absolute;
+    right: 0.15rem;
+    top: 50%;
+    margin-top: -0.15rem;
+}
+
+.wallet .list .num.jia{
+    color: #6aa71b;
+}
+.wallet .list .num.jian{
+    color: #e80000;
+}
+.jifbtn{
+    font-size: 0.36rem;
+    padding:0.27rem 0.57rem;
+    display: inline-block;
+    border:0.03rem solid #fff;
+    border-radius: 8px;
+    color: #fff;
+    line-height: 1;
+}
+.duihbox{
+    text-align: center;
+}

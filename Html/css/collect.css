@@ -1,0 +1,90 @@
+.collection .box {
+    border-bottom: 1px solid #e8e8e8;
+}
+.collection .box .a {
+    display: block;
+    background: #fff;
+    padding: 0.3rem;
+}
+.collection .img {
+    width: 1.94rem;
+    height: 1.94rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.collection .info {
+    width: 4.5rem;
+    height: 1.94rem;
+    position: relative;
+}
+.collection .tt {
+    font-size: 0.3rem;
+    line-height: 0.36rem;
+    color: #333;
+    height: 0.76rem;
+    overflow: hidden;
+}
+.collection .zt {
+    width: 0.52rem;
+    height: 0.37rem;
+    margin-top: 0.12rem;
+}
+.collection .bot {
+    margin-top: 0.2rem;
+}
+.collection .price {
+    font-family: 'Arial';
+    color: #c0a85f;
+    font-size: 0.32rem;
+    line-height: 0.24rem;
+}
+.collection .delete {
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+    color: #999999;
+    position: absolute;
+    right:0;
+    bottom: 0.1rem;
+}
+.search-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    background: #f3fbfd;
+}
+.search-box .nothing .tbs {
+    width: 1.51rem;
+    height: 1.5rem;
+    margin: 2.54rem auto 0;
+}
+
+.search-box .nothing p {
+    font-size: 0.3rem;
+    color: #666666;
+    line-height: 0.3rem;
+    text-align: center;
+    margin-top: 0.69rem;
+}
+.NoBnt {
+    width: 2.93rem;
+    height: 0.86rem;
+    display: block;
+    text-align: center;
+    font-size: 0.36rem;
+    line-height: 0.86rem;
+    color: #dbcb8c;
+    border: 1px solid #dbcb8c;
+    margin: 0.47rem auto;
+    border-radius: 0.08rem;
+}
+.shixiao{
+    background: url("img/logo42.png") no-repeat center;
+    width:0.57rem;
+    height: 0.34rem;
+    background-size: cover;
+    margin-top: 0.3rem;
+}

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>成都猫眼食品有限责任公司</title>
+    <script type="text/javascript" src="/Html/public/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/Html/public/js/main.js"></script>
+    <script type="text/javascript" src="/Html/public/js/vue.js"></script>
+    <link rel="stylesheet" href="/Html/public/css/reset.css">
+    <link rel="stylesheet" href="/Html/public/css/main.css">
+    <link rel="stylesheet" href="/Html/css/history.css">
+</head>
+<body style="background-color: #f3fbfd">
+<div class="main" id="main">
+    <div class="history" id="history">
+        <div class="delete">清除浏览历史</div>
+        <div class="box f-cb">
+            <div class="time">
+            </div>
+            <div class="content">
+                <ul class="clearfix">
+                    <li v-for="list in info">
+                        <a :href="'/Html/Products/Info.html?id='+list.Id">
+                            <div class="img"
+                                 :style="{backgroundImage: 'url('+list.MainImage.MediumThumbnail+')'}"></div>
+                            <div class="tt">{{list.Name}}</div>
+                            <div class="price">¥{{list.ShopPrice.toFixed(2)}}</div>
+                            <span class="timen">{{list.time}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="scrolltop"></div>
+    </div>
+    <div class="search-box" v-if="info.length==0">
+        <div class="nothing">
+            <div class="tbs"
+                 style="background: url('/Html/css/img/nohis.png') no-repeat center center;background-size: contain"></div>
+            <p>无浏览记录，赶紧去逛逛吧</p>
+            <a href="/Index.html" class="NoBnt">随便逛逛</a>
+        </div>
+    </div>
+</div>
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<script src="/Html/mjs/history.js"></script>
+</body>
+</html>
