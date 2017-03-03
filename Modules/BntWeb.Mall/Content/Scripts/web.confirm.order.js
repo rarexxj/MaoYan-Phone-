@@ -446,7 +446,7 @@ $(function () {
             //购物车
             if ($("#Mycarts").val() !== "") {
                 var numcart = $(this).find('.but-num').val();
-                var cart = { id: $(this).data("id"), quantity: numcart };
+                var cart = { id: $(this).data("id"), goodid: $(this).data("goodid"), quantity: numcart };
                 cartArr.push(cart);
                 $("#NowBuyGoods").val(JSON.stringify(cartArr));
             }

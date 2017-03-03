@@ -143,7 +143,7 @@
             {
                 foreach (var item in myCarts)
                 {
-                    <li class="allchioceli clearfix" data-id="@item.SingleGoodsId">
+                    <li class="allchioceli clearfix" data-id="@item.SingleGoodsId" data-goodid="@item.GoodsId">
                         <div class="width240 nocenter neir clearfix">
                             <div class="kong"></div>
                             <img src="@(item.GoodsImage?.MediumThumbnail)" alt="">
