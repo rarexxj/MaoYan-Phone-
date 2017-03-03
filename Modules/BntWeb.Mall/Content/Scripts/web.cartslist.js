@@ -141,13 +141,13 @@
     $('.danjia-xx').each(function() {
         $(this).html(Number($(this).html()).toFixed(2));
     });
-    //自选商品点击
-    $("#optmodel").on('click', function() {
-        $(this)
+    ////自选商品点击
+    //$("#optmodel").on('click', function() {
+    //    $(this)
         
 
 
-    });
+    //});
     //计算总价格
     function allprice() {
         var sumPrice = 0;
@@ -193,14 +193,16 @@
                      optIds= JSON.stringify(optGoodArr);
                 }
                 if ($(this).data('optids') === "") {
-                    //商品
-                    var num = $(this).parent().parent().find('.but-num').val();
-                    //json对象
-                    var goodsObj = { id: $(this).data("cartids"), quantity: num };
-                    //放到数组里
-                    goodArr.push(goodsObj);
-                    //序列化 后台用string 接受 再序列化成List
-                    myCartsId = JSON.stringify(goodArr);
+                    if ($(this).is(":checked")) {
+                        //商品
+                        var num = $(this).parent().parent().find('.but-num').val();
+                        //json对象
+                        var goodsObj = { id: $(this).data("cartids"), quantity: num };
+                        //放到数组里
+                        goodArr.push(goodsObj);
+                        //序列化 后台用string 接受 再序列化成List
+                        myCartsId = JSON.stringify(goodArr);
+                    }
                 }
             });
             window.location.href = url_confirmOrder + "?myCartsId=" + myCartsId + "&optIds="+optIds;
