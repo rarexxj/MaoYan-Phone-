@@ -22,12 +22,15 @@
     <script src="/Html/public/js/main.js"></script>
 </head>
 <body style="">
-<div class="taste" id="main">
-    <div class="line clearfix">
-        <span class="name fl">敲击颗粒</span>
-        <span class="logo fr"></span>
+<div id="main">
+    <div class="choose-taste">
+        <div class="list">
+            <ul>
+                <li :class="choose == li.id ? 'cur':''" v-for="li in chooseList" @click="chooseAction(li.id)"><p>{{li.name}}</p><i></i></li>
+            </ul>
+        </div>
+        <a href="javascript:;" title="" class="submit">保存</a>
     </div>
-    <div class="submit">提交</div>
 </div>
 
 <!--<div class="new-loading">-->

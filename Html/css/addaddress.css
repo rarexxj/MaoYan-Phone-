@@ -12,8 +12,8 @@
 .addaddress .line {
     padding: 0 0.15rem;
     background: #fff;
-    height: 0.88rem;
-    line-height: 0.88rem;
+    height: 1.02rem;
+    line-height: 1.02rem;
     border-bottom: 0.01rem solid #e8e8e8;
 }
 
@@ -129,17 +129,17 @@
 /*}*/
 
 .submit{
-    width: 6.1rem;
+    width: 6.8rem;
     display: block;
-    height: 0.88rem;
-    background: #c8994c;
+    height: 1.2rem;
+    background: #dccc8d;
     font-size: 0.36rem;
     color: #fff;
     margin: 0.77rem auto 0;
     border: 0;
-    border-radius: 0.07rem;
+    border-radius: 7px;
     text-align: center;
-    line-height: 0.88rem;
+    line-height: 1.2rem;
 }
 
 .gray {

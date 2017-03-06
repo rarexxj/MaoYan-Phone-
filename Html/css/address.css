@@ -1,14 +1,38 @@
 .address .addlist {
     background: #fff;
+    padding-top: 0.24rem;
+    padding-bottom: 0.12rem;
     margin-bottom: 16px;
     border-bottom: 0.01rem solid #e8e8e8;
     border-top: 0.01rem solid #e8e8e8;
+    position: relative;
 }
-
+.logo{
+    background:url("img/logo55.png") no-repeat center;
+    width:0.35rem;
+    height: 0.49rem;
+    background-size: cover;
+    position: absolute;
+    left:0.28rem;
+    top:50%;
+    margin-top:-0.245rem;
+}
+.moren{
+    font-size: 0.28rem;
+    background: #aaaaaa;
+    display: inline-block;
+    color: #fff;
+    line-height: 1;
+    padding:0.1rem 0.14rem;
+    border-radius: 4px;
+    position: absolute;
+    right:0.25rem;
+    top:0.3rem;
+}
 .address .addlist a {
     display: block;
     height: 1.6rem;
-    padding: 0 0.15rem;
+    padding: 0 0.15rem 0 0.95rem;
 }
 
 .address .addlist.first {
@@ -16,40 +40,40 @@
 }
 
 .address .name {
-    min-width: 2.78rem;
-    font-size: 0.26rem;
-    color: #444444;
+    min-width: 1.4rem;
+    font-size: 0.36rem;
+    color: #333;
     line-height: 0.7rem;
 }
 
 .address .ph {
-    font-size: 0.24rem;
+    font-size: 0.34rem;
     line-height: 0.7rem;
-    color: #666666;
+    color: #333;
 }
 
 .address .add {
-    font-size: 0.24rem;
+    font-size: 0.28rem;
     line-height: 0.34rem;
-    color: #666666;
+    color: #8a8a8a;
 }
 
 .address .submit {
-    width: 6.1rem;
+    width: 6.8rem;
     display: block;
-    height: 0.88rem;
-    background: #c8994c;
+    height:1.2rem;
+    background: #dccc8d;
     font-size: 0.36rem;
     color: #fff;
     margin: 0.77rem auto 0;
     border: 0;
-    border-radius: 0.07rem;
+    border-radius: 8px;
     text-align: center;
-    line-height: 0.88rem;
+    line-height: 1.2rem;
 }
 
 .address .addlist.first {
-    background: #b98358;
+    background: #dccc8d;
 }
 
 .address .addlist.first .name, .address .addlist.first .ph, .address .addlist.first .add {

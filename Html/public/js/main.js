@@ -134,6 +134,7 @@ $(function () {
     $.nouser = function () {
         $(document).ajaxSuccess(function (a, xhr, settings) {
             if (xhr.responseJSON) {
+                console.log(12321312)
                 var res = xhr.responseJSON
                 if (res.returnCode == 401) {
                     $.clear_user()
@@ -148,7 +149,7 @@ $(function () {
         })
     }
 
-    $.nouser()
+    $.nouser();
 
 
     //保留两位小数

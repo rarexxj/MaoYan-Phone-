@@ -3,9 +3,7 @@ $(function () {
     var id = $.getUrlParam('id');
     var gid = $.getUrlParam('gid');
     var type = $.getUrlParam('type');
-    console.log(type)
     $.ADDLOAD();
-
     new Vue({
         el: '#address',
         data: {

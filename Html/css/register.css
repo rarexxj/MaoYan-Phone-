@@ -11,7 +11,7 @@
 .login .regmainbox span {
     float: left;
     width: 1.7rem;
-    font-size: 0.36rem;
+    font-size: 0.34rem;
     color: #333;
 }
 .login .yaoqing{
@@ -27,7 +27,7 @@
 .login .text {
     width:3.2rem;
     height: 1.12rem;
-    font-size: 0.36rem;
+    font-size: 0.32rem;
     color: #999;
     border: 0;
     background: none;
@@ -82,7 +82,21 @@
     height: 0.66rem;
     background: #fff;
     color: #d3c382;
-    font-size: 0.32rem;
+    font-size: 0.3rem;
+    border-radius: 0.08rem;
+    line-height: 0.6rem;
+    text-align: center;
+    margin-top: 0.24rem;
+    box-sizing: border-box;
+    border:0.01rem solid #d3c382;
+}
+.reg .yzm .get2 {
+    float: right;
+    width: 1.9rem;
+    height: 0.66rem;
+    background: #fff;
+    color: #d3c382;
+    font-size: 0.3rem;
     border-radius: 0.08rem;
     line-height: 0.6rem;
     text-align: center;

@@ -47,7 +47,7 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         $.oppo('成功设为默认地址', 1, function () {
-                            window.location.replace("/Html/my.html")
+                            window.location.replace("/Html/html/personalcenter/myinfo.html")
                         })
                     }
                 })
@@ -74,7 +74,7 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         $.oppo('成功删除地址', 1, function () {
-                            window.location.replace("/Html/my.html")
+                            window.location.replace("/Html/html/personalcenter/myinfo.html")
                         })
                     }
                 })
