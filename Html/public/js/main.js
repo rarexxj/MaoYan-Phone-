@@ -83,7 +83,7 @@ $(function () {
             window.location.replace('/WeiXin/Login' + (from ? ('?backUrl=' + from) : ''));
         } else {
             //填写路径
-            window.location.replace('/Html/login.html' + (from ? ('?from=' + window.base64encode(from)) : ''))
+            window.location.replace('/Html/html/personalcenter/login.html' + (from ? ('?from=' + window.base64encode(from)) : ''))
         }
 
     }
@@ -148,7 +148,7 @@ $(function () {
         })
     }
 
-    // $.nouser()
+    $.nouser()
 
 
     //保留两位小数

@@ -26,8 +26,8 @@
 <body style="background-color: #f3fbfd">
 <div class="per-cen pb140" id="percen">
     <div class="head">
-        <a href="/Html/Member/My.html">
-            <div class="img fl"><img src="/Html/img/img08.jpg" width="100%" height="100%" alt=""></div>
+        <a href="/Html/html/personalcenter/myinfo.html">
+            <div class="img fl"><img v-if="info.Avatar" :src="info.Avatar.RelativePath" width="100%" height="100%" alt=""><img v-else="" src="/Html/css/img/img08.png" width="100%" height="100%" alt=""></div>
             <div class="info fl">
                 <div class="name">{{info.NickName}}</div>
                 <div class="ph">{{info.PhoneNumber}}</div>
@@ -37,7 +37,7 @@
     </div>
     <div class="money f-cb">
         <div class="left fl">
-            <a href="/Html/Wallet/Wallet.html">
+            <a href="/Html/html/personalcenter/mycoupon.html">
                 <div class="num">{{state.Coupon}}<i>张</i></div>
                 <div class="p">我的优惠券</div>
             </a>
@@ -100,7 +100,7 @@
     </div>
 </div>
 <div class="index-navbox clearfix">
-    <a href="/index.html" class="active">
+    <a href="/index.html">
         <i class="navlogo navlogo1"></i>
         <span class="index-navwz">首页</span>
     </a>
@@ -112,7 +112,7 @@
         <i class="navlogo navlogo3"></i>
         <span class="index-navwz">购物车</span>
     </a>
-    <a href="/Html/html/personalcenter/personalcenter.html">
+    <a href="/Html/html/personalcenter/personalcenter.html"  class="active">
         <i class="navlogo navlogo4"></i>
         <span class="index-navwz">我的</span>
     </a>

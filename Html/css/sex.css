@@ -19,14 +19,14 @@
     padding-left: 0.7rem;
     width: 0.4rem;
     height: 0.4rem;
-    background: url(img/logo26.png) no-repeat left center;
+    background: url(img/logo53.png) no-repeat left center;
     background-size: 0.4rem 0.4rem;
     height: 0.88rem;
     font-size: 0.3rem;
 }
 
 .sex.active {
-    background: url(img/logo27.png) no-repeat left center;
+    background: url(img/logo54.png) no-repeat left center;
     background-size: 0.4rem 0.4rem;
 }
 
@@ -34,7 +34,7 @@
     width: 7rem;
     height: 0.86rem;
     border-radius: 8px;
-    background-color: #c79852;
+    background-color: #dccc8d;
     position: fixed;
     bottom: 0.36rem;
     font-size: 0.3rem;

@@ -66,10 +66,10 @@
 
 .myinfo .line p {
     font-size: 0.28rem;
-    color: #1c1f23;
+    color: #999999;
     line-height: 0.99rem;
     position: absolute;
-    left:1.88rem;
+    right:0.6rem;
     top:0rem;
 }
 
@@ -92,7 +92,4 @@
     color: #999999;
     text-align: left;
     padding:0 0.26rem;
-}
-.myinfo .line p.red{
-    color: #de2738;
 }

@@ -18,7 +18,7 @@ $(function () {
 
     function ajaxyanz(data) {
         $.ajax({
-            url: '/Api/v1/Member/SendCode',
+            url: '/Api/v1/Member/SendCodeWeixin',
             type: 'post',
             data: data
         }).done(function (rs) {

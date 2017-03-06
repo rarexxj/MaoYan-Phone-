@@ -4,7 +4,7 @@
 
 .history .delete {
     position: absolute;
-    font-size: 0.24rem;
+    font-size: 0.3rem;
     line-height: 0.24rem;
     color: #999999;
     right: 0.15rem;
@@ -30,38 +30,35 @@
 }
 
 .history .content ul {
-    width: 7.5rem;
+    width: 7.26rem;
 }
 
 .history .content li {
     float: left;
-    width: 3.56rem;
+    width: 3.53rem;
     margin-right: 0.11rem;
     margin-bottom: 0.11rem;
     border: 0.01rem solid #dddddd;
-    box-sizing: border-box;
     padding-bottom: 0.2rem;
     background: #fff;
+    padding-top: 0.5rem;
+    position: relative;
 }
 
 .history .content li:nth-child(2n) {
     margin-right: 0;
 }
-
-.history .content a {
-}
-
 .history .content a {
     display: block;
-    position: relative;
 }
 
 .history .content .img {
-    width: 3.54rem;
+    width: 3.53rem;
     height: 3.55rem;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border-bottom:0.01rem solid #ddd;
 }
 
 .history .content .tt {

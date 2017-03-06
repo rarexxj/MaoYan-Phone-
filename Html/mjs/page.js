@@ -14,6 +14,7 @@ $(function () {
         },
         methods: {
             infoajax: function () {
+                var _this=this;
                 $.ajax({
                     url: "/Api/v1/Page/" + key,
                     type: "get",

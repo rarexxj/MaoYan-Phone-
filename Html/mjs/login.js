@@ -33,9 +33,9 @@ $(function () {
                 $.put_user(rs.data);
                 localStorage.setItem('qy_loginToken', $.get_user('PhoneNumber') + ':' + $.get_user('DynamicToken'));
 
-                if (rs.data.Avatar != null) {
-                    localStorage['qy_head'] = rs.data.Id + '|' + rs.data.Avatar.SmallThumbnail;
-                }
+                // if (rs.data.Avatar != null) {
+                //     localStorage['qy_head'] = rs.data.Id + '|' + rs.data.Avatar.SmallThumbnail;
+                // }
                 $.oppo('登录成功', 1, function () {
                     window.location.href = "/index.html"
                 })
