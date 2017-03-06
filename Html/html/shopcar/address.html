@@ -13,29 +13,30 @@
     <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>鼎盛ABC</title>
-    <link rel="stylesheet" href="/Html/css/reset.css">
-    <link rel="stylesheet" href="/Html/css/swiper.min.css">
-    <link rel="stylesheet" href="/Html/css/main.css">
+    <title>成都猫眼食品有限责任公司</title>
+
+    <link rel="stylesheet" href="/Html/public/css/reset.css">
+    <link rel="stylesheet" href="/Html/public/css/main.css">
     <link rel="stylesheet" href="/Html/css/address.css">
-    <script src="/Html/js/public/jQuery.js"></script>
-    <script src="/Html/js/public/vue.js"></script>
-    <script src="/Html/js/public/main.js"></script>
-    <script src="/Html/js/public/swiper.min.js"></script>
+
+    <script src="/Html/public/js/jQuery.js"></script>
+    <script src="/Html/public/js/vue.js"></script>
+    <script src="/Html/public/js/main.js"></script>
 </head>
-<body style="background-color: #f0f0f0">
+<body style="background-color: #f3fbfd">
 <div class="address" id="address" v-cloak="">
-    <div :class="['addlist', add.IsDefault ? 'first':'']" v-for="add in info.Addresses" :data-addid="add.Id">
-        <a :href="'/Html/addressinfo.html?id='+add.Id">
+    <div :class="['addlist']" v-for="add in info.Addresses" :data-addid="add.Id">
+        <a :href="'/Html/html/shopcar/addressinfo.html?id='+add.Id">
+            <span class="logo"></span>
             <div class="minfo f-cb">
-                <div class="name fl">收货人：{{add.Contacts}}</div>
+                <div class="name fl">{{add.Contacts}}</div>
                 <div class="ph fl">{{add.Phone}}</div>
             </div>
-            <div class="add" v-if="add.IsDefault">[默认]收货地址：{{add.RegionName}}{{add.Address}}</div>
-            <div class="add" v-else="">收货地址：{{add.RegionName}}{{add.Address}}</div>
+            <div class="moren" v-if="add.IsDefault">默认</div>
+            <div class="add">收货地址：{{add.RegionName}}{{add.Address}}</div>
         </a>
     </div>
-    <a href="/Html/addaddress.html" class="submit">添加新地址</a>
+    <a href="/Html/html/shopcar/addaddress.html" class="submit">添加新地址</a>
 </div>
 
 <div class="new-loading">
@@ -50,7 +51,7 @@
 <li></li>
 </ul>
 </div>
-<script src="/Html/js/mjs/address.js"></script>
+<script src="/Html/mjs/address.js"></script>
 </body>
 
 </html>

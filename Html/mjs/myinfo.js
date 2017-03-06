@@ -27,6 +27,8 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;
+
+                        //生日只能点击一次
                         if (rs.data.Birthday.toString().indexOf('1949') > -1) {
                             _this.btn = false;
                         }else{
@@ -91,7 +93,7 @@ $(function () {
                     if (rs.returnCode == '200') {
                         localStorage.removeItem('qy_user');
                         localStorage.removeItem('qy_loginToken');
-                        window.location.href = "/Html/login.html"
+                        window.location.href = "/Html/html/personalcenter/login.html"
                     }
                 })
             },

@@ -1,27 +1,50 @@
-.taste .line{
-    height:1.3rem;
-    line-height:1.3rem;
-    border-bottom: 0.01rem solid #e8e8e8;
-    padding:0 0.45rem;
+body{
+    background: #f3fbfd;
 }
-.line .name{
-    font-size: 0.37rem;
-    color: #333;
+.choose-taste{
+
 }
-.line .logo{
-    background: url("img/logo39.png") no-repeat center;
-    width:0.44rem;
+.choose-taste .list{
+    background: #fff;
+}
+.choose-taste .list li{
+    padding: 0.43rem 0.45rem;
+    border-bottom: 1px solid #e8e8e8;
+    line-height: 0.44rem;
+    font-size: 0.34rem;
+    color: #333333;
+    position: relative;
+}
+.choose-taste .list li p{
+    padding-right: 0.75rem;
+}
+.choose-taste .list li i{
+    position: absolute;
+    right: 0.55rem;
+    top: 50%;
+    width: 0.44rem;
     height: 0.44rem;
-    background-size: cover;
+    margin-top: -0.22rem;
+    background-image: url(img/x_img2.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: none;
 }
-.submit {
-    width: 6.8rem;
-    height: 1.18rem;
-    border-radius: 8px;
+.choose-taste .list li.cur i{
+    display: block;
+}
+.choose-taste .submit{
+    display: block;
+    margin: 0.4rem 0.35rem;
     background-color: #dccc8d;
-    font-size: 0.36rem;
-    color: #fff;
-    text-align: center;
+    border-radius: 0.08rem;
+    height: 1.18rem;
     line-height: 1.18rem;
-    margin:0 auto;
+    text-align: center;
+    font-size: 0.34rem;
+    color: #fff;
 }
+
+
+
