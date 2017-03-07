@@ -20,7 +20,6 @@
     <script type="text/javascript" src="/Html/public/js/swiper.min.js"></script>
     <script type="text/javascript" src="/Html/public/js/main.js"></script>
     <script type="text/javascript" src="/Html/public/js/vue.js"></script>
-
     <title>成都猫眼食品有限责任公司</title>
 </head>
 <body>
@@ -136,15 +135,15 @@
                         </li>
                     </ul>
                 </div>
-                <!--<div class="tc other">-->
-                <!--<div class="tit">加价购-->
-                <!--</div>-->
-                <!--<div class="f-cb choose-box">-->
-                <!--<div class="jjbox clearfix"><span class="quan fl"></span><span class="fl">不加价</span></div>-->
-                <!--<div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>-->
-                <!--<div class="jjbox clearfix"><span class="quan quan2 fl"></span><span class="jjimg fl"></span><span class="fl jjwz"><i>+38</i>元获得抹茶味生巧</span></div>-->
-                <!--</div>-->
-                <!--</div>-->
+                <div class="tc other" v-if="info.PurchaseGood">
+                    <div class="tit">加价购</div>
+                    <div class="f-cb choose-box">
+                        <div class="jjbox clearfix"><span class="quan fl"></span><span class="fl bujiaj">不加价</span></div>
+                        <div class="jjbox clearfix" v-for="list in info.PurchaseGood"><span class="quan quan2 fl"></span><span
+                                class="jjimg fl" :style="{backgroundImage:'url('+list.PurImage.RelativePath+')'}"></span><span class="fl jjwz"><i>+{{list.ShopPrice}}</i>元获得{{list.Name}}</span></div>
+
+                    </div>
+                </div>
             </div>
             <div class="getnum">
                 <div class="tit fl">数量</div>

@@ -51,26 +51,26 @@
     </div>
     <div class="myorder">
         <div class="line">
-            <a href="/Html/Order/MyOrder.html?orderType=0">
+            <a href="/Html/html/personalcenter/myorder.html?orderType=0">
                 <div class="tt">我的订单</div>
                 <div class="tc">所有订单</div>
                 <span class="jt"></span>
             </a>
         </div>
         <div class="list f-cb">
-            <a href="/Html/Order/MyOrder.html?orderType=1" class="pay">
+            <a href="/Html/html/personalcenter/myorder.html?orderType=1" class="pay">
                 <div class="tt">待付款</div>
                 <i v-if="state.PendingPayment != 0">{{state.PendingPayment}}</i>
             </a>
-            <a href="/Html/Order/MyOrder.html?orderType=2" class="get">
+            <a href="/Html/html/personalcenter/myorder.html?orderType=2" class="get">
                 <div class="tt">待收货</div>
                 <i v-if="state.WaitingForReceiving != 0">{{state.WaitingForReceiving}}</i>
             </a>
-            <a href="/Html/Order/MyOrder.html?orderType=3" class="evaluate">
+            <a href="/Html/html/personalcenter/myorder.html?orderType=3" class="evaluate">
                 <div class="tt">待评价</div>
                 <i v-if="state.WaitingForEvaluate != 0">{{state.WaitingForEvaluate}}</i>
             </a>
-            <a href="/Html/Order/MyOrder.html?orderType=4" class="service">
+            <a href="/Html/html/personalcenter/myorder.html?orderType=4" class="service">
                 <div class="tt">售后</div>
                 <i v-if="state.HasRefund != 0">{{state.HasRefund}}</i>
             </a>

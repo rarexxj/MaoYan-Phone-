@@ -2,6 +2,7 @@
  * Created by admin on 2016/9/9.
  */
 $(function () {
+    $.checkuser();
     $.ADDLOAD();
     var Id = $.getUrlParam('id');
     var OrderNo = $.getUrlParam('OrderNo');

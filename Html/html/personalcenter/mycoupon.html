@@ -22,15 +22,20 @@
 </head>
 <body style="background-color: #fff">
 <div id="main">
+    <div class="x-choose-title">
+        <ul>
+            <li :class="choose == li.id ? 'cur':''" v-for="li in chooseList" @click="chooseAction(li.id)"><a href="javascript:;" title="">{{li.name}}<i></i></a></li>
+        </ul>
+    </div>
     <div class="x-coupon">
         <div class="list">
             <ul>
-                <li>
+                <li v-for="lists in info" :data-id="lists.Code" :data-type="lists.CouponType">
                     <a href="javascript:;" title="" class="box">
-                        <h4>满199减50</h4>
-                        <h5>仅蛋糕通用</h5>
+                        <h4>{{lists.Title}}</h4>
+                        <h5>{{lists.Describe}}</h5>
                         <p>有效期</p>
-                        <p>2016-07-29 至 2016-08-01</p>
+                        <p>{{lists.ValidTime}}</p>
                     </a>
                 </li>
             </ul>

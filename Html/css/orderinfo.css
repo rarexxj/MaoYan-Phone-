@@ -1,0 +1,459 @@
+.order-info .status {
+    padding: 0.24rem 0.3rem 0.27rem;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 0.2rem;
+}
+
+.order-info .status .color {
+    color: #c0a85f;
+}
+
+.order-info .status p {
+    font-size: 0.32rem;
+    line-height: 0.48rem;
+    color: #3d3d45;
+}
+
+.order-info .status .time {
+    color: #c0a85f;
+}
+
+.zhus{
+    color: #c0a85f;
+}
+.order-info .status .btns {
+    margin-top: 0.44rem;
+}
+
+.order-info .status .btns .btn {
+    width: 2.93rem;
+    height: 0.86rem;
+    line-height: 0.86rem;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #3d3d45;
+    border-radius: 0.08rem;
+    display: block;
+    background-color: #eaeaea;
+}
+
+.order-info .status .btns .btn.cur {
+    background-color: #dccc8d;
+    color: #fff;
+}
+
+.order-info .status .btns .bigbtn {
+    height: 1.14rem;
+    color: #3d3d45;
+    background-color: #eaeaea;
+    text-align: center;
+    font-size: 0.36rem;
+    border-radius: 6px;
+    line-height:1.14rem;
+    display: block;
+}
+
+.order-info .choadd {
+    /*height: 1.62rem;*/
+    background: #fff;
+    position: relative;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0.2rem 0.32rem 0.4rem 0.94rem;
+    background: #fff url("img/logo55.png") no-repeat 0.35rem 0.49rem;
+    background-size: 0.34rem 0.51rem;
+}
+
+.order-info .choadd a {
+    display: block;
+    height: 100%;
+}
+
+.order-info .choadd .name {
+    min-width: 2rem;
+    line-height: 0.69rem;
+    color: #333333;
+    font-size: 0.34rem;
+}
+
+.order-info .choadd .tel {
+    line-height: 0.69rem;
+    color: #333;
+    font-size: 0.34rem;
+}
+
+.order-info .choadd .add {
+    font-size: 0.28rem;
+    line-height: 0.35rem;
+    color: #8a8a8a;
+}
+
+.order-info .pro-style {
+    background: #fff;
+    margin-top: 0.2rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+.order-info .line {
+    height: 0.86rem;
+    padding: 0 0.3rem;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    overflow: hidden;
+}
+
+.order-info .line .tt {
+    float: left;
+    line-height: 0.86rem;
+    font-size: 0.3rem;
+    color: #333;
+}
+
+.order-info .line .price {
+    font-size: 0.3rem;
+    line-height: 0.86rem;
+    color: #c0a85f;
+    font-family: 'Arial';
+    float: right;
+}
+
+.order-info .line .price .dec {
+    font-size: 0.24rem;
+}
+
+.order-info .money {
+    margin-top: 0.2rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+.order-info .line.money .price {
+    font-size: 0.36rem;
+}
+
+.order-info .line.money .price .dec {
+    font-size: 0.3rem;
+}
+
+.order-info .paymoney {
+    padding: 0.16rem 0.15rem;
+    background: #fff;
+    text-align: right;
+}
+
+.order-info .paymoney .sum {
+    font-size: 0.32rem;
+    color: #3d3d45;
+    line-height: 0.62rem;
+}
+
+.order-info .paymoney .sum span {
+    font-size: 0.32rem;
+    color: #c3ab66;
+}
+
+.order-info .paymoney .time {
+    font-size: 0.26rem;
+    line-height: 0.5rem;
+    color: #999999;
+}
+
+.order-info .logi {
+    background: #fff;
+}
+
+.order-info .logi a {
+    display: block;
+    padding: 0.22rem 1rem 0.22rem 0.74rem;
+    background: url("../img/img46.png") no-repeat 0.14rem center;
+    background-size: 0.45rem 0.33rem;
+    position: relative;
+}
+
+.order-info .logi .now {
+    font-size: 0.24rem;
+    line-height: 0.56rem;
+    color: #78a000;
+}
+
+.order-info .logi .time {
+    font-size: 0.24rem;
+    font-family: 'Arial';
+    color: #999999;
+    line-height: 0.41rem;
+}
+
+.order-info .logi i {
+    position: absolute;
+    width: 0.18rem;
+    height: 0.32rem;
+    background: url("../img/img38.png") no-repeat;
+    background-size: cover;
+    top: 0.56rem;
+    right: 0.17rem;
+}
+
+.order-info .logi .click {
+    display: block;
+    line-height: 0.97rem;
+    font-size: 0.3rem;
+    color: #78a000;
+}
+.pro-style {
+    border-bottom: 1px solid #e8e8e8;
+    display: block;
+    padding: 0.28rem 0.3rem;
+}
+
+.pro-style .img {
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 0.01rem solid #e8e8e8;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 0.26rem;
+}
+.pro-style .info {
+    width: 3rem;
+}
+
+.pro-style .name {
+    font-size: 0.3rem;
+    line-height: 0.36rem;
+    color: #333;
+    height: 0.72rem;
+    overflow: hidden;
+}
+.pro-style .shux {
+    font-size: 0.26rem;
+    line-height: 0.36rem;
+    color: #999;
+    height: 0.72rem;
+    overflow: hidden;
+}
+.pro-style .color {
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+    color: #999999;
+    margin-top: 0.25rem;
+    width: 3rem;
+}
+
+.pro-style .color span {
+    margin-right: 0.08rem;
+}
+
+.pro-style .num {
+    width: 1.45rem;
+    text-align: right;
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+}
+
+.pro-style .num .price {
+    color: #333;
+    margin-top: 0.1rem;
+    color: #c0a85f;
+    font-size: 0.3rem;
+}
+
+.pro-style .num .number {
+    margin-top: 0.42rem;
+    color: #333333;
+    font-size: 0.3rem;
+}
+
+.pro-style .back {
+    display: block;
+    border: 1px solid #999999;
+    color: #999999;
+    font-size: 0.24rem;
+    text-align: center;
+    line-height: 0.51rem;
+    padding: 0 0.14rem;
+    border-radius: 0.08rem;
+    height: 0.51rem;
+    margin-top: 0.15rem;
+}
+
+.search-box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #f7f7f7;
+    display: none;
+    z-index: 999;
+}
+
+.search-box .content {
+    height: 0.78rem;
+    background: #fff;
+    padding: 0.12rem 0.15rem 0;
+    position: relative;
+    z-index: 998;
+}
+
+.search-box .search {
+    width: 5.3rem;
+    height: 0.65rem;
+    background: url("../img/img44.png") no-repeat left bottom;
+    background-size: 100% 0.1rem;
+    position: relative;
+}
+
+.search-box .delete {
+    width: 0.3rem;
+    height: 0.3rem;
+    background: url("../img/search_del.png") no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 0.17rem;
+    right: 0.17rem;
+    display: none;
+}
+
+.search-box .close {
+    width: 0.6rem;
+    height: 0.65rem;
+    border: 0;
+    background: url("../img/back.png") no-repeat center center;
+    background-size: 0.28rem 0.3rem;
+    text-indent: -9999px;
+    display: block;
+}
+
+.search-box .text {
+    width: 4.7rem;
+    height: 0.65rem;
+    font-size: 0.28rem;
+    line-height: 0.65rem;
+    color: #999;
+    border: 0;
+    background: none;
+    display: block;
+    float: left;
+}
+
+.search-box .btn {
+    width: 0.8rem;
+    height: 0.65rem;
+    color: #78a000;
+    text-align: center;
+    font-size: 0.3rem;
+    line-height: 0.65rem;
+    display: block;
+}
+
+.search-box .con p {
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+    color: #999999;
+    padding: 0.3rem 0 0.3rem 0.12rem;
+}
+
+.search-box .con li {
+    float: left;
+    font-size: 0.24rem;
+    color: #666;
+    line-height: 0.69rem;
+    padding: 0 0.19rem;
+    margin-right: 0.27rem;
+    background: #eaeaea;
+    margin-bottom: 0.25rem;
+    border-radius: 0.07rem;
+}
+
+.search-box .con ul {
+    padding-left: 0.15rem;
+}
+
+.search-box .con li.cur {
+    background: #78a000;
+    color: #fff;
+}
+
+.search-box .nothing {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 4;
+    background: #f7f7f7;
+    display: none;
+}
+
+.search-box .nothing .tbs {
+    width: 1.51rem;
+    height: 1.5rem;
+    margin: 2.54rem auto 0;
+    background: url("../img/img61.png") no-repeat;
+    background-size: cover;
+}
+
+.search-box .nothing p {
+    font-size: 0.3rem;
+    color: #666666;
+    line-height: 0.3rem;
+    text-align: center;
+    margin-top: 0.69rem;
+}
+
+.pop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 98;
+    display: none;
+}
+
+.pop .box {
+    background: #fff;
+    border-radius: 5px;
+    padding: 0 0.1rem;
+    width: 4.4rem;
+    position: fixed;
+    left: 0.9rem;
+    top: 50%;
+    margin-top: -1rem;
+    text-align: center;
+    z-index: 90;
+}
+
+.pop .tit {
+    font-size: 0.36rem;
+    color: #353535;
+    padding: 0.1rem 0;
+}
+
+.pop .btnb {
+    overflow: hidden;
+    padding-top: 0.15rem;
+    padding-bottom: 0.1rem;
+    border-bottom: 0;
+}
+
+.pop .btnb p {
+    display: block;
+    width: 50%;
+    font-size: 0.3rem;
+    color: #808080;
+    float: left;
+    text-align: center;
+}
+
+.pop .btnb a {
+    display: block;
+    color: #27a1e5;
+    font-size: 0.3rem;
+}
+
+.pop .btnb a.no {
+    border-right: 1px solid #c9c9c9;
+}

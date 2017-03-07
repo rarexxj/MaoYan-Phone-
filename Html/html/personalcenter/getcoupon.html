@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <link rel="stylesheet" href="/Html/public/css/reset.css">
     <link rel="stylesheet" href="/Html/public/css/main.css">
-    <link rel="stylesheet" href="/Html/css/mycoupon.css">
+    <link rel="stylesheet" href="/Html/css/getcoupon.css">
     <script type="text/javascript" src="/Html/public/js/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="/Html/public/js/main.js"></script>
     <script type="text/javascript" src="/Html/public/js/vue.js"></script>
@@ -25,19 +25,20 @@
     <div class="x-coupon">
         <div class="list">
             <ul>
-                <li>
+                <li v-for="lists in info" :data-id="lists.Code" :data-type="lists.CouponType">
                     <a href="javascript:;" title="" class="box">
-                        <h4>满199减50</h4>
-                        <h5>仅蛋糕通用</h5>
+                        <h4>{{lists.Title}}</h4>
+                        <h5>{{lists.Describe}}</h5>
                         <p>有效期</p>
-                        <p>2016-07-29 至 2016-08-01</p>
+                        <p>{{lists.ValidTime}}</p>
                     </a>
+                    <div class="lingqu">领取</div>
                 </li>
             </ul>
         </div>
     </div>
 
 </div>
-<script type="text/javascript" src="/Html/mjs/mycoupon.js"></script>
+<script type="text/javascript" src="/Html/mjs/getcoupon.js"></script>
 </body>
 </html>
