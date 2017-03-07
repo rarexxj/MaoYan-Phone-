@@ -22,7 +22,8 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Member/GetMemberInfo',
-                    type: 'get'
+                    type: 'get',
+                    dataType: "json"
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data
@@ -33,7 +34,8 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Member/CenterInfo',
-                    type: 'get'
+                    type: 'get',
+                    dataType: "json"
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.state = rs.data;

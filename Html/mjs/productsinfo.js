@@ -33,6 +33,7 @@ $(function () {
                 _this.liuljl();
                 _this.gotobuy();
                 _this.headimg();
+                _this.jjgou();
                 _this.putshopcar();
             })
         },
@@ -59,7 +60,7 @@ $(function () {
             },
             //banner滚动
             swipe: function () {
-                var mySwiper =new Swiper('.swiper-container', {
+                var mySwiper = new Swiper('.swiper-container', {
                     direction: 'horizontal',
                     loop: true,
                     paginationClickable: true,
@@ -418,16 +419,23 @@ $(function () {
                     }
                 })
             },
-            liuljl:function () {
+            liuljl: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Browse/'+id,
+                    url: '/Api/v1/Mall/Browse/' + id,
                     type: 'POST'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                     }
                 })
 
+            },
+            //加价购
+            jjgou: function () {
+                $('.infoBox').on('click', '.jjbox', function () {
+                    $('.quan').removeClass('cur');
+                    $(this).children('.quan').addClass('cur');
+                })
             }
         }
     })
@@ -469,14 +477,7 @@ $(function () {
 //
 //     }
 //
-//     //加价购
-//     jjgou()
-//     function jjgou() {
-//         $('.infoBox').on('click', '.jjbox', function () {
-//             $('.quan').removeClass('cur');
-//             $(this).children('.quan').addClass('cur');
-//         })
-//     }
+//
 //
 //
 //

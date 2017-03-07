@@ -42,7 +42,7 @@
 	position: absolute;
 	left: 0;
 	right: 0;
-	top:0;
+	top:1.1rem;
 	overflow: auto;
 	background: #fff;
 }
@@ -91,7 +91,7 @@
 	line-height: 0.86rem;
 	font-size: 0.3rem;
 	color: #fff;
-	background-color: #c8994c;
+	background-color: #dccc8d;
 	display: block;
 	border-radius: 6px;
 	margin: 0 auto;
@@ -100,4 +100,14 @@
 	position: absolute;
 	bottom:0.2rem;
 	width:7.5rem;
+}
+.lingqu{
+	width:100%;
+	height:1rem;
+	text-align: center;
+	line-height: 1rem;
+	background-color: #dccc8d;
+	color: #fff;
+	border-top: 0.01rem solid #eee;
+	font-size: 0.34rem;
 }

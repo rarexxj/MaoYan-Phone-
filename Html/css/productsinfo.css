@@ -189,6 +189,10 @@
     background-size: cover;
 }
 
+.bujiaj{
+    font-size: 0.32rem;
+    color: #666;
+}
 
 .goshop .goshopc {
     float: left;
@@ -408,7 +412,7 @@
     height: 0.35rem;
     background-size: cover;
     display: inline-block;
-    margin-top: 0.1rem;
+    margin-top: 0.16rem;
     margin-right: 0.36rem;
 }
 .choose-box .jjbox .quan.cur{
@@ -420,7 +424,7 @@
 
 }
 .jjbox{
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
 }
 .jjimg{
     background:url("img/img7.png") no-repeat center;

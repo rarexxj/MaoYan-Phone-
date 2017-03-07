@@ -1,9 +1,9 @@
 $(function () {
+    $.ADDLOAD();
     $.checkuser();
     var id = $.getUrlParam('id');
     var gid = $.getUrlParam('gid');
     var type = $.getUrlParam('type');
-    $.ADDLOAD();
     new Vue({
         el: '#address',
         data: {
@@ -14,7 +14,7 @@ $(function () {
             _this.infoajax();
             _this.$nextTick(function () {
                 _this.link();
-                $.RMLOAD()
+
             })
         },
         methods: {
@@ -26,6 +26,7 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;
+                        $.RMLOAD()
                     }
                 })
             },
