@@ -24,6 +24,7 @@ $(function(){
 			chooseAction:function(id){
 				var _this=this;
 				_this.choose = id;
+				_this.infoajax();
 			},
 			infoajax:function () {
 				var _this=this;
@@ -32,11 +33,11 @@ $(function(){
 					type: 'get',
 					dataType:'json',
 					data:{
-						isAvailable:0
+						isAvailable:_this.choose
 					}
 				}).done(function (rs) {
 					if (rs.returnCode == 200) {
-						_this.info=rs.data;
+						_this.info=rs.data.Coupons;
 					}
 				})
 

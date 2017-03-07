@@ -33,7 +33,8 @@ $(function () {
         el: '#main',
         data: {
             info: [],
-            data1: ids
+            data1: ids,
+            yhqinfo:[]
         },
         ready: function () {
             var _this = this;
@@ -43,6 +44,7 @@ $(function () {
                 _this.js();
                 _this.getCoupon();
                 _this.prosubmit();
+                _this.youhq();
                 _this.getsettime();
                 // $.RMLOAD();
             })
@@ -174,7 +176,6 @@ $(function () {
                 })
                 $('.youhq-box .yhq-btn').on('click', function () {  //确认选择优惠券
                     $('.confirm-order').show();
-                    $('.xjj-yhq-box').hide();
                     if ($('.youhq-box .youhq.active').length == 0) {
                         $('#yhq').attr('data-price', 0)
                     } else {
@@ -212,6 +213,22 @@ $(function () {
                     $('.confirm-order').show();
                     $('.timebox').hide();
                 })
+            },
+            youhq:function () {
+                var _this=this;
+                $.ajax({
+                    url: '/Api/v1/Coupon',
+                    type: 'get',
+                    dataType:'json',
+                    data:{
+                        isAvailable:0
+                    }
+                }).done(function (rs) {
+                    if (rs.returnCode == 200) {
+                        _this.yhqinfo=rs.data.Coupons;
+                    }
+                })
+
             }
         }
     })

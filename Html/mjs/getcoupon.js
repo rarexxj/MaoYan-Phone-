@@ -30,7 +30,7 @@ $(function(){
 					var code=$(this).parents().attr('data-id');
 					var type=$(this).parents().attr('data-type');
 					$.ajax({
-						url:'/Api/v1/ReceiveCoupon/id',
+						url:'/Api/v1/ReceiveCoupon/'+id,
 						type:'post',
 						dataType:'json',
 						data:{

@@ -364,70 +364,68 @@
 
 /*优惠券*/
 
-.youhq {
-    background: url(img/youhq-img1.png);
-    width: 7.2rem;
-    height: 2.06rem;
-    background-size: cover;
-    position: relative;
-    margin-bottom: 0.2rem;
-    background-position: center;
-}
+/*.youhq {*/
+    /*background: url(img/youhq-img1.png);*/
+    /*width: 7.2rem;*/
+    /*height: 2.06rem;*/
+    /*background-size: cover;*/
+    /*position: relative;*/
+    /*margin-bottom: 0.2rem;*/
+    /*background-position: center;*/
+/*}*/
 
-.youhq img {
-    width: 0.93rem;
-    height: 2.06rem;
-    float: right;
-}
+/*.youhq img {*/
+    /*width: 0.93rem;*/
+    /*height: 2.06rem;*/
+    /*float: right;*/
+/*}*/
 
-.youhq-box {
-    padding-top: 0.29rem;
-    padding-left: 0.14rem;
-}
+/*.youhq-box {*/
+/*}*/
 
-.youhq-mainl1 {
-}
+/*.youhq-mainl1 {*/
+/*}*/
 
-.youhq-mainl .youhq-mainl1 span {
-    font-size: 0.6rem;
-    color: #d1a162;
-    line-height: 1;
-}
+/*.youhq-mainl .youhq-mainl1 span {*/
+    /*font-size: 0.6rem;*/
+    /*color: #d1a162;*/
+    /*line-height: 1;*/
+/*}*/
 
-.youhq-mainl .youhq-mainl1 a {
-    font-size: 0.24rem;
-    color: #d1a162;
-    display: block;
-    margin-left: 0.1rem;
-}
+/*.youhq-mainl .youhq-mainl1 a {*/
+    /*font-size: 0.24rem;*/
+    /*color: #d1a162;*/
+    /*display: block;*/
+    /*margin-left: 0.1rem;*/
+/*}*/
 
-.youhq-mainr .youhq-mainr1 {
-    font-size: 0.36rem;
-    color: #322d2f;
-}
+/*.youhq-mainr .youhq-mainr1 {*/
+    /*font-size: 0.36rem;*/
+    /*color: #322d2f;*/
+/*}*/
 
-.youhq-mainr .youhq-mainr2 {
-    font-size: 0.24rem;
-    color: #999;
-    line-height: 0.3rem;
-}
+/*.youhq-mainr .youhq-mainr2 {*/
+    /*font-size: 0.24rem;*/
+    /*color: #999;*/
+    /*line-height: 0.3rem;*/
+/*}*/
 
-.youhq-mainr .youhq-mainr3 {
-    color: #e31f2c;
-    font-size: 0.18rem;
-}
+/*.youhq-mainr .youhq-mainr3 {*/
+    /*color: #e31f2c;*/
+    /*font-size: 0.18rem;*/
+/*}*/
 
-.youhq-mainl {
-    position: absolute;
-    left: 0.3rem;
-    top: 0.7rem;
-}
+/*.youhq-mainl {*/
+    /*position: absolute;*/
+    /*left: 0.3rem;*/
+    /*top: 0.7rem;*/
+/*}*/
 
-.youhq-mainr {
-    position: absolute;
-    left: 2.8rem;
-    top: 0.4rem;
-}
+/*.youhq-mainr {*/
+    /*position: absolute;*/
+    /*left: 2.8rem;*/
+    /*top: 0.4rem;*/
+/*}*/
 .yhq-btn {
     width: 7.02rem;
     height: 0.86rem;
@@ -436,9 +434,9 @@
     text-align: center;
     line-height: 0.86rem;
     color: #fff;
-    border-radius: 3px;
+    border-radius: 6px;
     position: fixed;
-    bottom: 0.2rem;
+    bottom: 0.3rem;
     left:50%;
     margin-left: -3.51rem;
 }
@@ -471,4 +469,120 @@
     margin-top: 0.2rem;
     border-top: 0.01rem solid #e8e8e8;
     display: none;
+}
+
+.x-choose-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1.1rem;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+}
+.x-choose-title ul{
+    float: left;
+    width: 100%;
+}
+.x-choose-title li{
+    float: left;
+    width: 50%;
+}
+.x-choose-title li a{
+    display: block;
+    text-align: center;
+    padding: 0 0.25rem;
+    line-height: 1.1rem;
+    font-size: 0.34rem;
+    color: #333333;
+    position: relative;
+}
+.x-choose-title li a i{
+    position: absolute;
+    left: 0.25rem;
+    right: 0.25rem;
+    bottom: -0.02rem;
+    background: #c0a85f;
+    height: 0.05rem;
+    border-radius: 0.01rem;
+    display: none;
+}
+.x-choose-title li.cur a i{
+    display: block;
+}
+.x-coupon{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    overflow: auto;
+    background: #f3fbfd;
+}
+.x-coupon .list{
+    padding: 0.3rem 0.75rem 0.5rem;
+}
+.x-coupon .list li{
+    margin-bottom: 0.4rem;
+    border: 1px solid #c0a85f;
+    text-align: center;
+    padding: 0.18rem;
+    background-color: #e7e7e7;
+}
+.x-coupon .list li.active{
+    border: 1px solid red;
+}
+.x-coupon .list li .box{
+    background-image: url(img/x_img1.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    display: block;
+    padding: 0.35rem 0 0.2rem;
+}
+.x-coupon .list li h4{
+    font-weight: bold;
+    font-size: 0.6rem;
+    color: #ffffff;
+    line-height: 0.7rem;
+    margin-bottom: 16px;
+}
+.x-coupon .list li p{
+    line-height: 0.54rem;
+    font-size: 0.3rem;
+    color: #ffffff;
+}
+.x-coupon .list li h5{
+    font-size: 0.28rem;
+    padding-bottom: 0.17rem;
+    font-weight: bold;
+    color: #fff;
+    line-height: 0.54rem;
+}
+
+.lqbtn{
+    width: 7.02rem;
+    height: 0.86rem;
+    text-align: center;
+    line-height: 0.86rem;
+    font-size: 0.3rem;
+    color: #fff;
+    background-color: #dccc8d;
+    display: block;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+.lqbox{
+    position: absolute;
+    bottom:0.2rem;
+    width:7.5rem;
+}
+.lingqu{
+    width:100%;
+    height:1rem;
+    text-align: center;
+    line-height: 1rem;
+    background-color: #dccc8d;
+    color: #fff;
+    border-top: 0.01rem solid #eee;
+    font-size: 0.34rem;
 }
