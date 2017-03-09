@@ -278,8 +278,8 @@
     width:7.5rem;
     height:2.1rem;
     background-color: #fff;
-    position: absolute;
-    bottom:0;
+    /*position: absolute;*/
+    /*bottom:0;*/
 }
 .hj{
     font-size: 0.3rem;
@@ -586,3 +586,18 @@
     border-top: 0.01rem solid #eee;
     font-size: 0.34rem;
 }
+.jjg{
+    background: #fff;
+    color: #333;
+    font-size: 0.3rem;
+    margin-bottom: 0.2rem;
+    padding-left: 0.2rem;
+    line-height: 1rem;
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+}
+/*.srollbox{*/
+    /*width:100%;*/
+    /*height:100%;*/
+    /*overflow: auto;*/
+/*}*/

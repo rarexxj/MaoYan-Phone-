@@ -61,6 +61,24 @@
                     </div>
                 </div>
             </div>
+            <div class="shopcar detailed" v-if="info.PurchaseGood">
+                <div class="jjg">加价购：</div>
+                <div class="box clearfix">
+                    <div class="img fl"
+                         :style="{backgroundImage: 'url('+info.PurchaseGood.PurMainImage.MediumThumbnail+')'}"></div>
+                    <div class="info fr">
+                        <div class="tt">{{info.PurchaseGood.PurName}}</div>
+                        <!--<div class="tc f-cb">-->
+                            <!--<div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>-->
+                        <!--</div>-->
+                        <div class="bot f-cb">
+                            <div class="price fl">¥ <span class="amo">{{info.PurchaseGood.PurPrice.toFixed(2)}}</span>
+                            </div>
+                            <div class="num fr">x <span>{{info.PurchaseGood.PurQuanlity}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="pro-list" v-if="info.Goods.List.length > 1">
                 <!--<a href="/Html/ShopCar/ProductsDetailed.html">-->
                 <div class="godeta clearfix">
@@ -82,17 +100,17 @@
                 <div class="price fr" :data-price="ShippingFee">¥<span
                         class="amo">{{info.ShippingFee.toFixed(2)}}</span></div>
             </div>
-            <div class="line jifen" style="margin-top: 0.2rem">
-                <!--<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>-->
-                <div class="tt fl">
-                    有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元
-                </div>
+            <!--<div class="line jifen" style="margin-top: 0.2rem">-->
+                <!--&lt;!&ndash;<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>&ndash;&gt;-->
+                <!--<div class="tt fl">-->
+                    <!--有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元-->
+                <!--</div>-->
 
-                <div class="weui_cell_ft fr">
-                    <input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"
-                           :data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">
-                </div>
-            </div>
+                <!--<div class="weui_cell_ft fr">-->
+                    <!--<input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"-->
+                           <!--:data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="line confirm-youh" style="margin-top: 0.2rem" id="yhq" data-price="0"
                  :data-price2="GoodsAmount">
                 <div class="tt w146">使用优惠券</div>

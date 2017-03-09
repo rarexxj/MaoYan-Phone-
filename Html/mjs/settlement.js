@@ -4,6 +4,7 @@ $(function () {
     var id = $.getUrlParam('id');   //购物车id
     var gid = $.getUrlParam('gid'); //单品id和数量
     var addid = $.getUrlParam('addid');
+    var jjid=$.getUrlParam('jjid');
     if (gid) {
         var gid2 = gid.split('|')[0]; //单品id
     }
@@ -27,7 +28,12 @@ $(function () {
     if (addid) {
         ids.AddressId = addid
     }
-    ids.OrderType = '1';
+    console.log(jjid)
+    if(jjid!=0){
+        ids.PurchaseId=jjid
+    }else{
+        jjid=''
+    }
     console.log(ids);
     new Vue({
         el: '#main',
@@ -124,14 +130,13 @@ $(function () {
                             City: _this.info.Addresses.City,
                             District: _this.info.Addresses.District,
                             Street: _this.info.Addresses.Street,
-                            RegionName: _this.info.Addresses.RegionName,
                             Address: _this.info.Addresses.Address,
                             Tel: _this.info.Addresses.Phone,
                             Memo: $('.bz').val(),
                             Goods: prodata,
-                            Integral: num,
-                            LimitGoodsId: prodata[0].Id,
-                            CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null
+                            CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null,
+                            GoodId:jjid,
+                            BestTime:$('.date').val()
                         }
                         console.log(message)
                         _this.inputajax(message);
@@ -145,7 +150,6 @@ $(function () {
                     type: 'post'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
-
                         if ($('.car-list .amo').attr('data-price') == 0) {
                             window.location.replace("/Html/Member/PersonalCenter.html")
                         } else {
@@ -194,7 +198,8 @@ $(function () {
                 })
             },
             getLastPrice: function () {
-                var money = parseFloat($('.car-list .amo').attr('data-price2') - $('.weui_switch').attr('data-price') - $('#yhq').attr('data-price'));
+                // var money = parseFloat($('.car-list .amo').attr('data-price2') - $('.weui_switch').attr('data-price') - $('#yhq').attr('data-price'));
+                var money = parseFloat($('.car-list .amo').attr('data-price2') - $('#yhq').attr('data-price'));
                 if (money < 0) {
                     money = 0
                 }
