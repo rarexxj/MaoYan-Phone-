@@ -76,14 +76,12 @@ $(function () {
                 //选择地址
                 if (id) {
                     $('#main').on('click', '.choadd .a', function () {
-
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?id=" + id
                     })
                     $('#main').on('click', '.addadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddaddress.html?id=" + id
                     })
                 } else {
-
                     $('#main').on('click', '.choadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?gid=" + gid
                     })
@@ -100,7 +98,6 @@ $(function () {
             },
             //价格计算
             price: function () {
-                console.log(1213)
                 var _this = this;
                 $('.need').html((_this.info.GoodsAmount) - (_this.info.GoodsDeposit));
             },
@@ -203,7 +200,6 @@ $(function () {
                 if (money < 0) {
                     money = 0
                 }
-                console.log(money)
                 money = parseFloat(Number(money) + Number($('.postage').attr('data-postage'))).toFixed(2);
                 $('.car-list .amo').attr('data-price', money);
                 var price = $('.car-list').find('.amo').attr('data-price');

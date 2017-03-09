@@ -23,14 +23,15 @@
 </head>
 <body style="background-color: #f0f0f0">
 <div class="address" id="address" v-cloak="">
-    <div :class="['addlist', add.IsDefault ? 'first':'']" v-for="add in info.Addresses" :data-addid="add.Id">
+    <div :class="['addlist']" v-for="add in info.Addresses" :data-addid="add.Id">
         <a href="javascript:;">
+            <span class="logo"></span>
             <div class="minfo f-cb">
-                <div class="name fl">收货人：{{add.Contacts}}</div>
+                <div class="name fl">{{add.Contacts}}</div>
                 <div class="ph fl">{{add.Phone}}</div>
             </div>
-            <div class="add" v-if="add.IsDefault">[默认]收货地址：{{add.RegionName}}{{add.Address}}</div>
-            <div class="add" v-else="">收货地址：{{add.RegionName}}{{add.Address}}</div>
+            <div class="moren" v-if="add.IsDefault">默认</div>
+            <div class="add">收货地址：{{add.RegionName}}{{add.Address}}</div>
         </a>
     </div>
     <div class="submit">添加新地址</div>

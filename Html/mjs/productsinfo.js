@@ -374,7 +374,7 @@ $(function () {
                 //购买
                 $('#main').on('click', '.gobuy', function () {
                     if (window.TOKEN) {
-                        if (!$('.get-btn').attr('data-id')) {
+                        if (!($('.get-btn').attr('data-id')&&$('.jiajg').attr('data-jjid'))) {
                             $('.size-mask').show();
                         } else {
                             if ($('.kc').html() == 0) {

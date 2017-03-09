@@ -21,33 +21,27 @@
     <link rel="stylesheet" href="/Html/public/css/main.css">
     <link rel="stylesheet" href="/Html/css/pay.css">
 </head>
-<body>
+<body style="background-color: #f3fbfd">
 <div class="shoppay" id="pay_mon">
-    <form action="/Payment/Process/WeiXin/" id="formid" method="post">
         <!--<div class="deadline">剩余付款时间： <span class="min">59</span>分<span class="sec">59</span>秒 </div>-->
         <div class="deadline">剩余付款时间： <span class="min">59</span>分<span class="sec">59</span>秒</div>
         <div class="line" style="margin-top: 0.2rem">
             <div class="tt fl">订单编号</div>
-            <div class="num fr orderno"></div>
+            <div class="num fr orderno">{{OrderNo}}</div>
         </div>
         <div class="line bb">
             <div class="tt fl">实付金额</div>
-            <div class="price fr npri"><span class="amo">¥ <span class="int">129</span>.<span
-                    class="dec">00</span></span></div>
+            <div class="price fr npri"><span class="amo">¥<i>{{money}}</i></span></div>
         </div>
-        <div class="line" style="margin-top: 0.2rem">
-            <div class="tt fl">我的余额</div>
-        </div>
-        <div class="payline f-cb money pay-mon">
-            <div class="tb fl"></div>
-            <div class="tt fl">余额支付 <span>可用余额：￥{{prices1}}.{{prices2}}</span></div>
-            <div class="btn"></div>
+        <div class="line bb">
+            <div class="tt fl">优惠券</div>
+            <div class="price fr npri"><span class="amo">¥<i>{{money}}</i></span></div>
         </div>
         <div class="line" style="margin-top: 0.2rem">
             <div class="tt fl">选择支付方式</div>
             <div class="paymore fr">
                 还需支付:
-                <span class="price mpri">¥ <span class="amo"><span class="int"></span>.<span class="dec"></span></span></span>
+                <span class="price mpri">¥</span>
             </div>
         </div>
         <div class="payline f-cb weixin pay-btn cur">
@@ -55,16 +49,25 @@
             <div class="tt fl">微信钱包</div>
             <div class="btn"></div>
         </div>
-        <input type="hidden" name="orderId" value="1" id="orderid">
-        <input type="hidden" name="paymentCode" value="weixin" id="paymentCode">
-        <input type="hidden" name="useBalance" value="0" id="usebalance">
+        <!--<input type="hidden" name="orderId" value="1" id="orderid">-->
+        <!--<input type="hidden" name="paymentCode" value="weixin" id="paymentCode">-->
+        <!--<input type="hidden" name="useBalance" value="0" id="usebalance">-->
         <div class="payline f-cb alipay pay-btn">
             <div class="tb fl"></div>
             <div class="tt fl">支付宝</div>
             <div class="btn"></div>
         </div>
+        <div class="payline f-cb yinlian pay-btn">
+            <div class="tb fl"></div>
+            <div class="tt fl">中国银联</div>
+            <div class="btn"></div>
+        </div>
+        <div class="payline f-cb huodao pay-btn">
+            <div class="tb fl"></div>
+            <div class="tt fl">货到付款</div>
+            <div class="btn"></div>
+        </div>
         <input id="subimitButton" type="submit" class="bot-btn" value="立即支付">
-    </form>
 </div>
 <div class="mask">
     <div class="paybox">

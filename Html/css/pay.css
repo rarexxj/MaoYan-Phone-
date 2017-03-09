@@ -10,7 +10,7 @@
     color: #666;
 }
 .shoppay .deadline span {
-    color: #78a000;
+    color: #d60000;
 }
 .shoppay .line {
     padding: 0 0.15rem;
@@ -24,7 +24,7 @@
     color: #333;
 }
 .shoppay .line .num {
-    font-size: 0.24rem;
+    font-size: 0.28rem;
     color: #999999;
 }
 .shoppay .line .price {
@@ -70,9 +70,9 @@
 }
 .shoppay .line {
     padding: 0 0.15rem;
-    height: 0.86rem;
+    height: 0.92rem;
     background: #fff;
-    line-height: 0.86rem;
+    line-height: 0.92rem;
     border-top: 1px solid #e8e8e8;
 }
 .shoppay .line .paymore {
@@ -80,8 +80,8 @@
 }
 .shoppay .line .price {
     font-family: 'Arial';
-    color: #e84608;
-    font-size: 0.24rem;
+    color: #c0a85f;
+    font-size: 0.3rem;
 }
 .shoppay .weixin .tb {
     background: url(img/img40.png) no-repeat;
@@ -107,19 +107,118 @@
 .shoppay .payline .tb {
     width: 0.56rem;
     height: 0.56rem;
-    margin-right: 0.2rem;
+    margin-right: 0.3rem;
+    margin-left: 0.2rem;
 }
 
+.shoppay .yinlian .tb {
+    background: url(img/logo56.png) no-repeat;
+    background-size: cover;
+    margin-left: 0.1rem;
+}
+.shoppay .huodao .tb {
+    background: url(img/logo57.png) no-repeat;
+    background-size: cover;
+}
+
+.shoppay .payline.yinlian .tb {
+    width: 0.76rem;
+    height: 0.48rem;
+    margin-right: 0.2rem;
+}
+.shoppay .payline.huodao .tb {
+    width: 0.56rem;
+    height: 0.49rem;
+    margin-right: 0.3rem;
+}
 .bot-btn {
     width: 100%;
-    height: 1rem;
-    font-size: 0.36rem;
-    line-height: 1rem;
+    height: 1.3rem;
+    font-size: 0.34rem;
+    line-height: 1.3rem;
     text-align: center;
     color: #fff;
-    background: #78a000;
+    background: #dccc8d;
     position: fixed;
     left: 0;
     bottom: 0;
     border: 0;
+}
+
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    z-index: 30;
+}
+
+.mask .box {
+    margin-top: 2.36rem;
+    position: relative;
+}
+
+.mask .ewm {
+    width: 2.53rem;
+    height: 2.53rem;
+    background: #fff;
+    padding: 0.2rem;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mask .p {
+    font-size: 0.36rem;
+    line-height: 0.48rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 0.44rem;
+}
+
+.mask .num {
+    font-size: 0.48rem;
+    line-height: 0.48rem;
+    text-align: center;
+    margin-top: 0.22rem;
+    color: #fff;
+    display: block;
+}
+
+.mask .copy {
+    width: 1.95rem;
+    height: 0.61rem;
+    border-radius: 0.08rem;
+    margin: 0.3rem auto 0;
+    background: #fff;
+    line-height: 0.61rem;
+    text-align: center;
+    color: #78a000;
+    font-size: 0.3rem;
+    display: block;
+    border: 0;
+}
+
+.mask .paybox {
+    width: 4.4rem;
+    margin: 0.3rem auto 0;
+}
+
+.mask .paybox .img {
+    width: 2.56rem;
+    height: 2.21rem;
+    margin-left: 1.84rem;
+    background: url("../img/img42.png") no-repeat;
+    background-size: cover;
+}
+
+.mask .paybox .tips {
+    font-size: 0.36rem;
+    line-height: 0.48rem;
+    color: #fff;
+    margin-top: 0.45rem;
 }
