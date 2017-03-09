@@ -22,115 +22,123 @@
     <script src="/Html/public/js/main.js"></script>
 
 </head>
-<body style="">
-<div class="confirm-order" id="main">
-    <div class="srollbox">
-        <div class="choadd"  v-if="info.Addresses">
-            <!--<a :href="'/Html/ShopCar/ChooseAddress.html?id='+backid">-->
-            <div class="a">
-                <div class="name fl">收货人：{{info.Addresses.Contacts}}</div>
-                <span class="tel fl">{{info.Addresses.Phone}}</span>
-                <div class="clear"></div>
-                <div class="add">收货地址：{{info.Addresses.RegionName}}{{info.Addresses.Address}}</div>
-                <i></i>
+<body style="background-color: #f3fbfd">
+<div id="main">
+    <div class="confirm-order">
+        <div class="srollbox">
+            <div class="choadd" v-if="info.Addresses">
+                <!--<a :href="'/Html/ShopCar/ChooseAddress.html?id='+backid">-->
+                <div class="a">
+                    <div class="name fl">收货人：{{info.Addresses.Contacts}}</div>
+                    <span class="tel fl">{{info.Addresses.Phone}}</span>
+                    <div class="clear"></div>
+                    <div class="add">收货地址：{{info.Addresses.RegionName}}{{info.Addresses.Address}}</div>
+                    <i></i>
+                </div>
+                <!--</a>-->
             </div>
-            <!--</a>-->
-        </div>
-        <div class="addadd" v-else="">
-            <!--<a :href="'/Html/ShopCar/ChooseAddAddress.html?id='+backid">-->
-            <div class="a">
-                <span class="tt">请添加收货地址</span>
+            <div class="addadd" v-else="">
+                <!--<a :href="'/Html/ShopCar/ChooseAddAddress.html?id='+backid">-->
+                <div class="a">
+                    <span class="tt">请添加收货地址</span>
+                </div>
+                <!--</a>-->
             </div>
-            <!--</a>-->
-        </div>
-        <div class="shopcar detailed" v-if="info.Goods.List.length == 1">
-            <div class="box clearfix">
-                <div class="img fl" :style="{backgroundImage: 'url('+info.Goods.List[0].GoodsImage.MediumThumbnail+')'}"></div>
-                <div class="info fr">
-                    <div class="tt">{{info.Goods.List[0].GoodsName}}</div>
-                    <div class="tc f-cb">
-                        <div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>
-                    </div>
-                    <div class="bot f-cb">
-                        <div class="price fl">¥ <span class="amo">{{info.Goods.List[0].Price.toFixed(2)}}</span></div>
-                        <div class="num fr">x <span>{{info.Goods.List[0].Quantity}}</span></div>
+            <div class="shopcar detailed" v-if="info.Goods.List.length == 1">
+                <div class="box clearfix">
+                    <div class="img fl"
+                         :style="{backgroundImage: 'url('+info.Goods.List[0].GoodsImage.MediumThumbnail+')'}"></div>
+                    <div class="info fr">
+                        <div class="tt">{{info.Goods.List[0].GoodsName}}</div>
+                        <div class="tc f-cb">
+                            <div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>
+                        </div>
+                        <div class="bot f-cb">
+                            <div class="price fl">¥ <span class="amo">{{info.Goods.List[0].Price.toFixed(2)}}</span>
+                            </div>
+                            <div class="num fr">x <span>{{info.Goods.List[0].Quantity}}</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="pro-list" v-if="info.Goods.List.length > 1">
+                <!--<a href="/Html/ShopCar/ProductsDetailed.html">-->
+                <div class="godeta clearfix">
+                    <ul class="">
+                        <li v-for="list in info.Goods.List">
+                            <div class="img" :style="{backgroundImage:'url('+list.GoodsImage.RelativePath+')'}"></div>
+                            <div class="num">x <span>{{list.Quantity}}</span></div>
+                        </li>
+                    </ul>
+                    <div class="allnum fr">共{{info.Goods.TotalQuantity}}件</div>
+                </div>
+            </div>
+            <div class="line pro-money">
+                <div class="tt fl">商品金额</div>
+                <div class="price fr">¥<span class="amo">{{info.GoodsAmount.toFixed(2)}}</span></div>
+            </div>
+            <div class="line postage" :data-postage="info.ShippingFee">
+                <div class="tt fl">邮费</div>
+                <div class="price fr" :data-price="ShippingFee">¥<span
+                        class="amo">{{info.ShippingFee.toFixed(2)}}</span></div>
+            </div>
+            <div class="line jifen" style="margin-top: 0.2rem">
+                <!--<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>-->
+                <div class="tt fl">
+                    有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元
+                </div>
+
+                <div class="weui_cell_ft fr">
+                    <input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"
+                           :data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">
+                </div>
+            </div>
+            <div class="line confirm-youh" style="margin-top: 0.2rem" id="yhq" data-price="0"
+                 :data-price2="GoodsAmount">
+                <div class="tt w146">使用优惠券</div>
+                <div class="confirm-youhjt"></div>
+            </div>
+            <div class="line">
+                <div class="tt w145">订单说明：</div>
+                <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）">
+            </div>
+            <div class="line settime">
+                <div class="tt fl">配送时间</div>
+                <div class="confirm-youhjt"></div>
+            </div>
         </div>
-        <div class="pro-list" v-if="info.Goods.List.length > 1">
-            <!--<a href="/Html/ShopCar/ProductsDetailed.html">-->
-            <div class="godeta clearfix">
-                <ul class="">
-                    <li v-for="list in info.Goods.List">
-                        <div class="img" :style="{backgroundImage:'url('+list.GoodsImage.RelativePath+')'}"></div>
-                        <div class="num">x <span>{{list.Quantity}}</span></div>
+        <div class="car-list">
+            <div class="hj">
+                合计：<span class="price">¥ <span class="amo" :data-price1="info.allprice" :data-price2="info.GoodsAmount">{{info.GoodsAmount.toFixed(2)}}</span></span>
+            </div>
+            <div class="balance">确认订单</div>
+        </div>
+    </div>
+    <div class="timebox">
+        <input type="date" class="date" value="">
+        <div class="yhq-btn-box">
+            <div class="time-btn">确定</div>
+        </div>
+    </div>
+    <div class="youhq-box" style="display: none" id="youhq-box">
+
+        <div class="x-coupon ">
+            <div class="list">
+                <ul>
+                    <li v-for="lists in yhqinfo" :data-price="lists.Money" :data-id="lists.CodeNo" class="youhq">
+                        <a href="javascript:;" title="" class="box">
+                            <h4>{{lists.Title}}</h4>
+                            <h5>{{lists.Describe}}</h5>
+                            <p>有效期</p>
+                            <p>{{lists.ValidTime}}</p>
+                        </a>
                     </li>
                 </ul>
-                <div class="allnum fr">共{{info.Goods.TotalQuantity}}件</div>
             </div>
         </div>
-        <div class="line pro-money">
-            <div class="tt fl">商品金额</div>
-            <div class="price fr">¥<span class="amo">{{info.GoodsAmount.toFixed(2)}}</span></div>
+        <div class="yhq-btn-box">
+            <div class="yhq-btn">确定</div>
         </div>
-        <div class="line postage" :data-postage="info.ShippingFee">
-            <div class="tt fl">邮费</div>
-            <div class="price fr" :data-price="ShippingFee">¥<span class="amo">{{info.ShippingFee.toFixed(2)}}</span></div>
-        </div>
-        <div class="line jifen" style="margin-top: 0.2rem">
-            <!--<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>-->
-            <div class="tt fl">有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元
-            </div>
-
-            <div class="weui_cell_ft fr">
-                <input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"
-                       :data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">
-            </div>
-        </div>
-        <div class="line confirm-youh" style="margin-top: 0.2rem" id="yhq" data-price="0" :data-price2="GoodsAmount">
-            <div class="tt w146">使用优惠券</div>
-            <div class="confirm-youhjt"></div>
-        </div>
-        <div class="line">
-            <div class="tt w145">订单说明：</div>
-            <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）">
-        </div>
-        <div class="line settime">
-            <div class="tt fl">配送时间</div>
-            <div class="confirm-youhjt"></div>
-        </div>
-    </div>
-    <div class="car-list">
-        <div class="hj">
-            合计：<span class="price">¥ <span class="amo" :data-price1="info.allprice" :data-price2="info.GoodsAmount">{{info.GoodsAmount.toFixed(2)}}</span></span>
-        </div>
-        <div class="balance">确认订单</div>
-    </div>
-</div>
-<div class="timebox">
-    <input type="date" class="date" value="">
-    <div class="yhq-btn-box">
-        <div class="time-btn">确定</div>
-    </div>
-</div>
-<div class="youhq-box" style="display: none" id="youhq-box">
-    <div class="youhq" v-for="cop in List" :data-price="cop.Price" :data-id="cop.CouponId">
-
-        <div class="lingqu lingqu2"></div>
-        <div class="youhq-mainl">
-            <div class="youhq-mainl1"><span>￥{{cop.Price}}</span>
-
-
-            </div>
-        </div>
-        <div class="youhq-mainr">
-            <div class="youhq-mainr1"><span>{{cop.CouponName}}</span></div>
-            <div class="youhq-mainr2">有效期：<span>{{cop.endt}}</span></div>
-        </div>
-    </div>
-    <div class="yhq-btn-box">
-        <div class="yhq-btn">确定</div>
     </div>
 </div>
 <div class="new-loading">
