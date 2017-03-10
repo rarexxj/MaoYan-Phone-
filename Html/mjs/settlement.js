@@ -150,7 +150,7 @@ $(function () {
                         if ($('.car-list .amo').attr('data-price') == 0) {
                             window.location.replace("/Html/Member/PersonalCenter.html")
                         } else {
-                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime)
+                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime+'&yhq='+$('.youhq.active').attr('data-price'))
                         }
                     }
                 })

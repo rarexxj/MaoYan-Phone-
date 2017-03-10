@@ -13,6 +13,7 @@
     font-size: 0.32rem;
     line-height: 0.48rem;
     color: #3d3d45;
+    margin-bottom: 0.1rem;
 }
 
 .order-info .status .time {
@@ -27,13 +28,13 @@
 }
 
 .order-info .status .btns .btn {
-    width: 2.93rem;
+    width: 3.15rem;
     height: 0.86rem;
     line-height: 0.86rem;
     text-align: center;
-    font-size: 0.36rem;
+    font-size: 0.34rem;
     color: #3d3d45;
-    border-radius: 0.08rem;
+    border-radius: 4px;
     display: block;
     background-color: #eaeaea;
 }
@@ -456,4 +457,10 @@
 
 .pop .btnb a.no {
     border-right: 1px solid #c9c9c9;
+}
+.dccc8d{
+    color: #dccc8d;
+}
+.deadline .min,.deadline .sec{
+    color: #dccc8d;
 }

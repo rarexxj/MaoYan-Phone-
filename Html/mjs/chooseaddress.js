@@ -16,7 +16,7 @@ $(function () {
             _this.infoajax();
             _this.$nextTick(function () {
                 _this.link();
-                $.RMLOAD()
+
             })
         },
         methods: {
@@ -28,6 +28,7 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;
+                        $.RMLOAD()
                     }
                 })
             },
@@ -50,20 +51,4 @@ $(function () {
             }
         }
     })
-
-
-    function view(rs) {
-        //得到返回id
-        rs.backid = id
-        new Vue({
-            el: '#address',
-            data: rs,
-            ready: function () {
-                $.RMLOAD()
-
-            }
-        })
-    }
-
-
 })

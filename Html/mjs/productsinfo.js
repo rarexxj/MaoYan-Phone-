@@ -358,7 +358,7 @@ $(function () {
                             if (!$('.get-btn').attr('data-id')) {
                                 $.oppo('请选择规格', 1);
                                 // $('.size-mask').show();
-                            } else if(!$('.jiajg').attr('data-jjid')){
+                            } else if($('.jiajg').length>0&&(!$('.jiajg').attr('data-jjid'))){
                                 $.oppo('请选择加价购', 1);
                             }else {
                                 if ($('.kc').html() == 0) {

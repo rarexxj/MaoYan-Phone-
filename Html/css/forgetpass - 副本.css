@@ -1,0 +1,64 @@
+.comment .box {
+    margin-bottom: 0.2rem;
+}
+
+.comment .pro-style {
+    background: #fff;
+}
+
+.comment .line {
+    padding: 0 0.15rem;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+    overflow: hidden;
+}
+
+.comment .line .tt {
+    float: left;
+    font-size: 0.3rem;
+    color: #333;
+    line-height: 0.88rem;
+    width: 1.59rem;
+}
+
+.comment .line ul {
+    float: left;
+    margin-top: 0.28rem;
+}
+
+.comment .line li {
+    width: 0.36rem;
+    height: 0.34rem;
+    float: left;
+    margin-right: 0.06rem;
+    background: url("../img/img48.png") no-repeat;
+    background-size: cover;
+}
+
+.comment .line li.cur {
+    background: url("../img/img47.png") no-repeat;
+    background-size: cover;
+}
+
+.comment .line .textarea {
+    margin-top: 0.25rem;
+    width: 4.4rem;
+    font-size: 0.26rem;
+    line-height: 0.3rem;
+    color: #999999;
+    height: 1.55rem;
+    background: none;
+    border: 0;
+    float: right;
+}
+
+.comment .line .cal {
+    font-size: 0.26rem;
+    line-height: 0.34rem;
+    color: #999999;
+    padding-bottom: 0.08rem;
+}
+
+.comment .submit {
+    width: 6.1rem;
+}

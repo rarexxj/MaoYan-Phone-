@@ -1,10 +1,12 @@
 $(function () {
     $.ADDLOAD()
-    var OrderNo=$.getUrlParam('OrderNo');
+    var OrderNo = $.getUrlParam('OrderNo');
     var Id = $.getUrlParam('id'); //订单id
     var money = $.getUrlParam('money');
-    money=Number(money).toFixed(2);
+    money = Number(money).toFixed(2);
     var time = $.getUrlParam('time');
+    var yhq = $.getUrlParam('yhq');
+    yhq = Number(yhq).toFixed(2);
     if (time) {
         time = time.toString().replace(/-/g, "/");
     }
@@ -16,14 +18,12 @@ $(function () {
         el: '#pay_mon',
         data: {
             info: [],
-            OrderNo:OrderNo,
-            money:money,
+            OrderNo: OrderNo,
+            money: money,
             needmore: ' ',
-            data:{
-                paymentCode:'alipay',
-                orderId:Id,
-                useBalance:0
-            }
+            paymentCode: '',
+            yhq: yhq,
+            haix: (money - yhq).toFixed(2)
         },
         ready: function () {
             var _this = this;
@@ -31,9 +31,7 @@ $(function () {
             _this.$nextTick(function () {
                 _this.countDown(time, '.deadline');
                 _this.choosePay();
-                setTimeout(function () {
-                    _this.paymode();
-                }, 100)
+                _this.paymode();
                 $.RMLOAD();
             })
         },
@@ -41,15 +39,13 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Payment/'+_this.data.paymentCode+'/SignInfo/'+_this.data.orderId,
+                    url: '/Api/v1/Payment/' + _this.paymentCode + '/SignInfo/' + Id,
                     type: 'post',
-                    dataType:'json',
-                    data:_this.data
+                    dataType: 'json'
+                    // data:_this.data
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;
-                        _this.needmore = (Number(rs.data.GoodsAmount) - Number(rs.data.Deposit));
-                        console.log(Number(rs.data.GoodsAmount))
                         $.RMLOAD();
                     }
                 })
@@ -58,7 +54,7 @@ $(function () {
                 var btn = true;
                 var minute_elem = $(id).find('.min');
                 var second_elem = $(id).find('.sec');
-                var end_time = new Date(time).getTime() + 30 * 60 * 1000, //月份是实际月份-1
+                var end_time = new Date(time).getTime() + 60 * 60 * 1000, //月份是实际月份-1
                     sys_second = (end_time - new Date().getTime()) / 1000;
                 if (btn) {
                     var minute = Math.floor((sys_second / 60) % 60);
@@ -75,52 +71,44 @@ $(function () {
                             $(minute_elem).html(minute < 10 ? "0" + minute : minute); //计算分钟
                             $(second_elem).html(second < 10 ? "0" + second : second); //计算秒杀
                         } else {
-                            window.location.replace("/Html/my.html")
+                            window.location.replace("/Html/html/personalcenter/personalcenter.html")
                             clearInterval(index);
                             return; //停止下面代码执行
                         }
                     }, 1000)
                 }
             },
-            // moreprice: function () {
-            //     var needmore = $('.shifu').html() - $('.dingj').html()
-            //     $('.haixu').html(Number(needmore).toFixed(2))
-            // },
             choosePay: function () {
                 $('.pay-btn').on('click', function () {
                     $(this).addClass('cur').siblings('.pay-btn').removeClass('cur')
+                })
+
+                $('.main').on('click', '.mask', function () {
+                    $(this).fadeOut()
                 })
             },
             paymode: function () {
                 var _this = this;
                 $(".shoppay").on("click", '#subimitButton', function () {
-                    if ($('.weixin').hasClass('cur')) {
-                        var submitForm = $("#formid");
-                        if (type == 2) {
-                            $('#paytype').attr('value', 1)
+                    if ($.is_weixin()) {
+                        //如果是选择的支付宝，显示遮罩
+                        if ($('.alipay').hasClass('cur')) {
+                            $('.mask').fadeIn();
+                            return false;
                         }
-                        if (type == 1) {
-                            if (fkzt == 2) {
-                                $('#paytype').attr('value', 1)
-                            } else {
-                                $('#paytype').attr('value', 0)
-                            }
+                        return true;
+                    } else {
+                        //判断支付类型
+                        if ($('.alipay').hasClass('cur')) {
+                            _this.paymentCode = 'alipay';
+                            _this.infoajax();
+                        } else if ($('.weixin').hasClass('cur')) {
+                            _this.paymentCode = 'weixin';
+                            _this.infoajax();
+                        }else if($('.huodao').hasClass('cur')){
+                            window.location.replace("/Html/html/personalcenter/personalcenter.html")
                         }
-                        if ($.is_weixin()) {
-                            //如果是选择的银行卡，显示遮罩
-                            submitForm.attr("action", "/Payment/Process/WeiXin/")
-                            return true;
-                        } else {
-                            //判断支付类型
-                            submitForm.attr("action", "/Payment/H5/Pay");
-                            return true;
-                        }
-                        return false;
-                    }
-                    if ($('.bankpay').hasClass('cur')) {
-                        $('#subimitButton').attr('type', 'button')
-                        window.location.href = '/Html/voucher.html?orderid=' + Id + '&type=' + type + '&fkzt=' + fkzt + '&OrderNo=' + _this.info.OrderNo
-
+                        return true;
                     }
                 });
             }

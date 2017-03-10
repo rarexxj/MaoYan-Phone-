@@ -19,7 +19,6 @@ $(function () {
             _this.hotajax();
             _this.$nextTick(function () {
                 _this.totop();
-                _this.others();
                 _this.updownload();
                 setTimeout(function () {
                     _this.swipe();
@@ -90,6 +89,8 @@ $(function () {
 
                 var _height = $('.sidebarnav').height();
                 var _height2 = $('.rightbar').height();
+                console.log(_height);
+                console.log(_height2);
                 $('.sidebarnav').css('margin-top', -_height / 2)
                 $('.rightbar').css('margin-top', -_height2 / 2)
             },
@@ -101,7 +102,10 @@ $(function () {
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
-                        _this.proinfo = rs.data
+                        _this.proinfo = rs.data;
+                        _this.$nextTick(function () {
+                            _this.others();
+                        })
                     }
                 })
             },

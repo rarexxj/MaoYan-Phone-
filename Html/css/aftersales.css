@@ -1,0 +1,23 @@
+.aftersales a {
+    display: block;
+    width: 3.89rem;
+    height: 3.89rem;
+}
+
+.aftersales .back {
+    background: url("../img/img50.png");
+    background-size: cover;
+    margin: 1.09rem auto 0;
+    display: block;
+    width: 3.89rem;
+    height: 3.89rem;
+}
+
+.aftersales .backand {
+    background: url("../img/img51.png");
+    background-size: cover;
+    margin: 1.18rem auto 0;
+    display: block;
+    width: 3.89rem;
+    height: 3.89rem;
+}
