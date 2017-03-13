@@ -113,8 +113,9 @@
         <div class="num fr">
             <div class="price">¥ {{list.Price.toFixed(2)}}</div>
             <div class="number">x {{list.Quantity}}</div>
-            <a :href="'/Html/html/personalcenter/apply.html?oid='+Id+'&gid='+list.SingleGoodsId+'&RefundType=0'+'&mp='+list.MaxRefundAmount" class="back" v-if="info.OrderStatus==1 && info.PayStatus==2 && info.RefundStatus==0">退款</a>
-            <a :href="'/Html/html/personalcenter/tuiktype.html?oid='+Id+'&gid='+list.SingleGoodsId+'&mp='+list.MaxRefundAmount" class="back" v-if="info.OrderStatus==2 && info.PayStatus==2 && info.ShippingStatus==1 && info.RefundStatus==0">退款</a>
+            <!--<a :href="'/Html/html/personalcenter/apply.html?oid='+Id+'&gid='+list.SingleGoodsId+'&RefundType=0'+'&mp='+list.MaxRefundAmount" class="back" v-if="info.OrderStatus==1 && info.PayStatus==2 && info.RefundStatus==0">退款</a>-->
+            <!--<a :href="'/Html/html/personalcenter/tuiktype.html?oid='+Id+'&gid='+list.SingleGoodsId+'&mp='+list.MaxRefundAmount" class="back" v-if="info.OrderStatus==2 && info.PayStatus==2 && info.ShippingStatus==1 && info.RefundStatus==0">退款</a>-->
+            <a :href="'/Html/html/personalcenter/tuiktype.html?oid='+Id+'&gid='+list.SingleGoodsId+'&mp='+list.MaxRefundAmount" class="back" v-if="(info.OrderStatus==2||1) && info.PayStatus==2 && info.RefundStatus==0">退款详情</a>
         </div>
         <!--<div class="color fl"><span v-for="sx in list.shuxin">{{sx}}</span></div>-->
     </div>
@@ -136,7 +137,7 @@
     </div>
     <div class="line orderin-yhq" >
         <div class="tt">配送时间</div>
-        <div class="price ">¥ <span class="amo">{{info.ShippingTime}}</span></div>
+        <div class="price "><span class="amo">{{info.BestTime}}</span></div>
     </div>
     <div class="paymoney">
         <p class="sum" >待付金额：<span>¥{{info.PayFee.toFixed(2)}}</span></p>

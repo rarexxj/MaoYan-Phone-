@@ -104,10 +104,13 @@ $(function () {
             //提交订单
             prosubmit: function () {
                 var _this = this;
+                console.log($('#peistime').val())
                 $('.balance').on('click', function () {
                     if ($('.addadd').length) {
-                        $.oppo('请选择收货地址', 1)
-                    } else {
+                        $.oppo('请选择收货地址', 1);
+                    } else if(!$('#peistime').val()){
+                        $.oppo('请选择配送时间', 1);
+                    }else {
                         var prodata = []
                         for (var i = 0; i < _this.info.Goods.List.length; i++) {
                             var pro = {}
@@ -133,7 +136,7 @@ $(function () {
                             Goods: prodata,
                             CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null,
                             GoodId:jjid,
-                            BestTime:$('.date').val()
+                            BestTime:$('.peit').val()
                         }
                         console.log(message)
                         _this.inputajax(message);
@@ -150,7 +153,7 @@ $(function () {
                         if ($('.car-list .amo').attr('data-price') == 0) {
                             window.location.replace("/Html/Member/PersonalCenter.html")
                         } else {
-                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime+'&yhq='+$('.youhq.active').attr('data-price'))
+                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime+'&yhq='+$('#yhq').attr('data-price'))
                         }
                     }
                 })
@@ -206,14 +209,36 @@ $(function () {
                 $('.car-list').find('.amo').html(price)
             },
             getsettime:function () {
-                $('.settime').on('click', function () {
-                    $('.confirm-order').hide();
-                    $('.timebox').show();
-                })
-                $('.time-btn').on('click', function () {
-                    $('.confirm-order').show();
-                    $('.timebox').hide();
-                })
+                // $('.settime').on('click', function () {
+                //     $('.confirm-order').hide();
+                //     $('.timebox').show();
+                // })
+                // $('.time-btn').on('click', function () {
+                //     $('.confirm-order').show();
+                //     $('.timebox').hide();
+                // })
+
+                var currYear = (new Date()).getFullYear();
+                var opt={};
+                opt.date = {preset : 'date'};
+                opt.datetime = {preset : 'datetime'};
+                opt.time = {preset : 'time'};
+                opt.default = {
+                    theme: 'android-ics light', //皮肤样式
+                    display: 'modal', //显示方式
+                    mode: 'scroller', //日期选择模式
+                    dateFormat: 'yyyy-mm-dd',
+                    lang: 'zh',
+                    showNow: true,
+                    nowText: "今天",
+                    // startYear: currYear, //开始年份
+                    endYear: currYear + 10, //结束年份
+                    minDate: new Date(),
+                    stepMinute:15
+                };
+                var optDateTime = $.extend(opt['datetime'], opt['default']);
+                $("#peistime").mobiscroll(optDateTime).datetime(optDateTime);
+
             },
             youhq:function () {
                 var _this=this;

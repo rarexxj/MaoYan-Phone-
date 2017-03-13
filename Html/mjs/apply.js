@@ -11,7 +11,7 @@ $(function () {
         $('.type').html('仅退款')
     }else if(RefundType==1){
         $('.type').html('退货并退款')
-    }else if(RefundType==1){
+    }else if(RefundType==2){
         $('.type').html('换货')
     }
     //默认退款价格
@@ -59,7 +59,7 @@ $(function () {
         }).done(function (rs) {
             if (rs.returnCode == '200'){
                 $.oppo('提交成功',1,function () {
-                    window.location.replace("/Html/html/AfterSales/Info.html?oid="+oid+"&gid="+gid)
+                    window.location.replace("/Html/html/personalcenter/orderinfo.html?oid="+oid+"&gid="+gid)
 
                 })
             }

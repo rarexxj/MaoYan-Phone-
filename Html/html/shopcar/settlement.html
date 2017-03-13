@@ -17,9 +17,19 @@
     <link rel="stylesheet" href="/Html/public/css/reset.css">
     <link rel="stylesheet" href="/Html/public/css/main.css">
     <link rel="stylesheet" href="/Html/css/settlement.css">
+
+    <link href="/Html/public/css/mobiscroll/mobiscroll_002.css" rel="stylesheet" type="text/css">
+    <link href="/Html/public/css/mobiscroll/mobiscroll.css" rel="stylesheet" type="text/css">
+    <link href="/Html/public/css/mobiscroll/mobiscroll_003.css" rel="stylesheet" type="text/css">
     <script src="/Html/public/js/jQuery.js"></script>
     <script src="/Html/public/js/vue.js"></script>
     <script src="/Html/public/js/main.js"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll_002.js" type="text/javascript"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll_004.js" type="text/javascript"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll.js" type="text/javascript"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll_003.js" type="text/javascript"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll_005.js" type="text/javascript"></script>
+
 
 </head>
 <body style="background-color: #f3fbfd">
@@ -117,12 +127,14 @@
                 <div class="confirm-youhjt"></div>
             </div>
             <div class="line">
-                <div class="tt w145">订单说明：</div>
-                <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）">
+                <label for="shuoming" class="tt w145">订单说明：</label>
+                <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）" name="shuoming" id="shuoming">
             </div>
             <div class="line settime">
-                <div class="tt fl">配送时间</div>
-                <div class="confirm-youhjt"></div>
+                <label for="peistime" class="tt w145">配送时间：</label>
+                <input value="" class="text fr peit" readonly="readonly" name="peistime" id="peistime" type="text">
+                <!--<div class="tt fl"></div>-->
+                <!--<div class="confirm-youhjt"></div>-->
             </div>
         </div>
         <div class="car-list">
@@ -132,12 +144,12 @@
             <div class="balance">确认订单</div>
         </div>
     </div>
-    <div class="timebox">
-        <input type="date" class="date" value="">
-        <div class="yhq-btn-box">
-            <div class="time-btn">确定</div>
-        </div>
-    </div>
+    <!--<div class="timebox">-->
+        <!--<input type="date" class="date" value="">-->
+        <!--<div class="yhq-btn-box">-->
+            <!--<div class="time-btn">确定</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <div class="youhq-box" style="display: none" id="youhq-box">
 
         <div class="x-coupon ">

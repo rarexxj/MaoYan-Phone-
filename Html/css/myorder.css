@@ -3,7 +3,7 @@
 }
 
 .ordernav {
-    width: 110%;
+    width: 100%;
     height: 0.9rem;
     border-bottom: 1px solid #cccccc;
     background: #fff;
@@ -13,7 +13,7 @@
 
 .ordernav a {
     float: left;
-    width: 1.6rem;
+    width:25%;
     text-align: center;
     height: 0.99rem;
     font-size: 0.3rem;
