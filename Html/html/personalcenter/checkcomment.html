@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-language" content="zh-CN" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>成都猫眼食品有限责任公司</title>
+    <script src="/Html/public/js/jQuery.js"></script>
+    <script src="/Html/public/js/vue.js"></script>
+    <script src="/Html/public/js/main.js"></script>
+    <link rel="stylesheet" href="/Html/public/css/reset.css">
+    <link rel="stylesheet" href="/Html/public/css/main.css">
+    <link rel="stylesheet" href="/Html/css/checkcomment.css">
+</head>
+<body>
+    <div class="che-com" id="che_com">
+        <div class="box" v-for="list in data" :data-id="list.GoodsId">
+            <div class="pro-style">
+                <div class="img fl" :style="{backgroundImage: 'url('+list.MainImage.SmallThumbnail+')'}"></div>
+                <div class="info fl">
+                    <div class="name">{{list.GoodsName.substring(0,18)}}<span v-if="list.GoodsName.length >18">...</span></div>
+                </div>
+                <div class="num fr">
+                    <div class="price">¥ {{list.prices1}}.{{list.prices2}}</div>
+                    <div class="number">x {{list.Quantity}}</div>
+                </div>
+                <div class="color fl"><span v-for="sx in list.shuxi">{{sx}} </span></div>
+            </div>
+            <div class="content">
+                <div class="top f-cb">
+                    <div class="name fl" v-if="list.IsAnonymity">匿名</div>
+                    <div class="name fl" v-else="">{{list.MemberName}}</div>
+                    <ul>
+                        <li v-for="xing in 5" :class="[$index<list.Score?'cur':'']"></li>
+
+                    </ul>
+                    <div class="time fr">{{list.newtime}}</div>
+                </div>
+                <div class="words">{{list.Content}}</div>
+                <div class="reply" v-if="list.ReplyContent">
+                    {{list.ReplyContent}}
+                    <div class="time">{{list.newrtime}}</div>
+                    <i></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-loading">
+        <ul class="small-loading">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="/Html/mjs/checkcomment.js"></script>
+</body>
+</html>

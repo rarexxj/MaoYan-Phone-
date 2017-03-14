@@ -39,11 +39,11 @@
             <div class="box normal" v-for="list in info.Orders" :data-orderId="list.Id">
                 <div class="top">
                     <div class="shop fl">{{list.CreateTime}}</div>
-                    <div class="st fr" v-if="list.OrderStatus == 0">待付款</div>
-                    <div class="st fr" v-if="list.OrderStatus == 1">待发货</div>
-                    <div class="st fr" v-if="list.OrderStatus == 2">待收货</div>
-                    <div class="st fr" v-if="list.OrderStatus == 3">交易完成</div>
-                    <div class="st fr" v-if="list.OrderStatus == 4">交易关闭</div>
+                    <div class="st fr" v-if="list.OrderStatus == 0&&list.RefundStatus==0">待付款</div>
+                    <div class="st fr" v-if="list.OrderStatus == 1&&list.RefundStatus==0">待发货</div>
+                    <div class="st fr" v-if="list.OrderStatus == 2&&list.RefundStatus==0">待收货</div>
+                    <div class="st fr" v-if="list.OrderStatus == 3&&list.RefundStatus==0">交易完成</div>
+                    <div class="st fr" v-if="list.OrderStatus == 4&&list.RefundStatus==0">交易关闭</div>
                     <div class="st fr" v-if="list.RefundStatus==1">退款中</div>
                     <div class="st fr" v-if="list.RefundStatus==2">退款成功</div>
                 </div>
@@ -54,8 +54,9 @@
                         <div class="clearfix">
                             <div class="name fl">{{listchild.GoodsName}}</div>
                             <div class="price fr">¥ <span>{{listchild.Price.toFixed(2)}}</span>
-
                             </div>
+
+
                             <div class=" clearfix zhongl">
                                 <div class="fl">
                                     <span class="zl"><i>{{listchild.GoodsAttribute}}</i></span>
@@ -63,6 +64,7 @@
                                 </div>
                                 <span class="number fr">x {{listchild.Quantity}}</span>
                             </div>
+
                         </div>
 
                     </div>
@@ -75,6 +77,7 @@
                     </div>
 
                     <div class="btns f-cb fr">
+                        <div class="back" v-if="list.RefundStatus==1||list.RefundStatus==2">退款详情</div>
                         <a :href="'/Html/html/shopcar/pay.html?id='+list.Id+'&OrderNo='+list.OrderNo+'&money='+list.PayFee+'&time='+list.CreateTime+'&yhq='+list.CouponMoney"
                            class="btn cur fukuan"
                            v-if="list.PayStatus==0&&list.OrderStatus==0">立即付款</a>
@@ -84,15 +87,15 @@
                         <div class="btn remind-btn"
                              v-if="list.OrderStatus==1&&list.ShippingStatus==0&&list.RefundStatus==0">提醒发货
                         </div>
-                        <a href="/Html/html/personalcenter/comment.html" class="btn cur"
-                           v-if="list.EvaluateStatus==0 && list.OrderStatus==3 &&list.RefundStatus==0">评价</a>
-                        <a href="" class="btn cur"
+                        <a :href="'/Html/html/personalcenter/comment.html?id='+list.Id" class="btn cur" v-if="list.EvaluateStatus==0 && list.OrderStatus==3 &&list.RefundStatus==0">评价</a>
+                        <a :href="'/Html/html/personalcenter/checkcomment.html?id='+list.Id" class="btn cur"
                            v-if="(list.EvaluateStatus==1||list.EvaluateStatus==2) && list.OrderStatus==3">查看评价</a>
-                        <a :href="'http://m.kuaidi100.com/index_all.html?type='+list.ShippingCode+'&postid='+list.ShippingNo+'&callbackurl='+URL+'/Html/costorder.html?orderType=0'"
+                        <a :href="'http://m.kuaidi100.com/index_all.html?type='+list.ShippingCode+'&postid='+list.ShippingNo+'&callbackurl='+URL+'/Html/html/personalcenter/myorder.html?orderType=0'"
                            class="btn"
                            v-if="list.ShippingStatus==1">
                             查看物流
                         </a>
+
                         <div class="btn canclebtn" v-if="list.PayStatus==0&&list.OrderStatus==0">取消订单</div>
                     </div>
                 </div>

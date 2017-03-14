@@ -22,65 +22,42 @@
     <title>成都猫眼食品有限责任公司</title>
 </head>
 <body>
-<div id="main">
+<div id="main" v-cloak="">
     <div class="now-point">
         <p class="fl">当前积分</p>
-        <p class="fr"><span>120分</span></p>
+        <p class="fr"><span>{{info.CurrentIntegral.Available}}分</span></p>
     </div>
     <div class="point-list">
         <div class="list f-cb">
             <ul>
-                <li>
+                <li v-for="list in info.ConfirmExchangeGoods">
                     <div class="box">
                         <div class="img">
-                            <img src="/Html/css/img/x_img7.jpg" width="100%" alt="">
+                            <img :src="list.GoodsImage.RelativePath" width="100%" alt="">
                         </div>
                         <div class="text">
-                            <h4>漂亮的蓝色蜡烛组合</h4>
-                            <p>245分</p>
+                            <h4>{{list.Name}}</h4>
+                            <p>{{list.ExchangeIntegral}}分</p>
                             <a href="javascript:;" title="" class="btn">兑换</a>
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="box">
-                        <div class="img">
-                            <img src="/Html/css/img/x_img7.jpg" width="100%" alt="">
-                        </div>
-                        <div class="text">
-                            <h4>漂亮的蓝色蜡烛组合</h4>
-                            <p>245分</p>
-                            <a href="javascript:;" title="" class="btn">兑换</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="box">
-                        <div class="img">
-                            <img src="/Html/css/img/x_img7.jpg" width="100%" alt="">
-                        </div>
-                        <div class="text">
-                            <h4>漂亮的蓝色蜡烛组合</h4>
-                            <p>245分</p>
-                            <a href="javascript:;" title="" class="btn">兑换</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="box">
-                        <div class="img">
-                            <img src="/Html/css/img/x_img7.jpg" width="100%" alt="">
-                        </div>
-                        <div class="text">
-                            <h4>漂亮的蓝色蜡烛组合</h4>
-                            <p>245分</p>
-                            <a href="javascript:;" title="" class="btn">兑换</a>
-                        </div>
-                    </div>
-                </li>
+
             </ul>
         </div>
     </div>
+</div>
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </div>
 <script type="text/javascript" src="/Html/mjs/pointsfor.js"></script>
 </body>

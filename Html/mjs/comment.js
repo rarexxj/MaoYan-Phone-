@@ -1,5 +1,5 @@
 $(function () {
-    $.ADDLOAD();
+    // $.ADDLOAD();
     $.checkuser();
     var id  = $.getUrlParam('id');
     ajaxinfo();
@@ -15,15 +15,18 @@ $(function () {
                 data2={
                     // orderId:id,
                     SingleGoodsId:$(this).attr('data-id'),
-                    Score:$(this).find('.pf li.cur').length,
+                    Score:$(this).find('.kg li.cur').length,
+                    LogisticsScore:(this).find('.kg li.cur').length,
+                    DescriptionScore:$(this).find('.kg li.cur').length,
+                    DescriptionScore:$(this).find('.kg li.cur').length,
                     Content:$(this).find('.textarea').val(),
-                    IsAnonymity:$(this).find('.weui_switch').is(':checked')
+                    IsAnonymity:$(this).find('.weui_switch').is(':checked'),
+                    FilesId:''
                 }
                 data1.push(data2)
             }
         })
         if(data1.length){
-
             ajax(data1);
         }
         //alert(1)
@@ -34,7 +37,7 @@ $(function () {
         console.log(data1)
         var datas={
             // 'orderId':id,
-            'evaluates':data1
+            'Evaluates':data1
         }
         $.ajax({
             url:'/Api/v1/Order/'+id+'/Evaluate',
@@ -74,13 +77,13 @@ $(function () {
     }
     function fen() {
         //评分
-        $('.line li').on('click',function () {
+        $('.starbox li').on('click',function () {
             var n = $(this).index()+1;
             for (var i=0;i<n;i++){
-                $(this).parents('.line').find('li').eq(i).addClass('cur');
+                $(this).parents('.starbox').find('li').eq(i).addClass('cur');
             }
             for (var j=n;j<$('.line li').length;j++){
-                $(this).parents('.line').find('li').eq(j).removeClass('cur');
+                $(this).parents('.starbox').find('li').eq(j).removeClass('cur');
             }
         })
         $('.textarea').on('keyup',function () {

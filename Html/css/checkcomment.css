@@ -1,0 +1,75 @@
+.che-com .pro-style {
+    background: #fff;
+}
+
+.che-com .content {
+    padding: 0.35rem 0.15rem;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.che-com .name {
+    font-size: 0.3rem;
+    color: #333;
+    line-height: 0.34rem;
+    margin-right: 0.18rem;
+}
+
+.che-com ul {
+    float: left;
+}
+
+.che-com li {
+    width: 0.36rem;
+    height: 0.34rem;
+    float: left;
+    margin-right: 0.06rem;
+    background: url("../img/img48.png") no-repeat;
+    background-size: cover;
+}
+
+.che-com li.cur {
+    background: url("../img/img47.png") no-repeat;
+    background-size: cover;
+}
+
+.che-com .time {
+    font-size: 0.24rem;
+    color: #999999;
+    line-height: 0.34rem;
+}
+
+.che-com .words {
+    font-size: 0.26rem;
+    line-height: 0.44rem;
+    color: #666666;
+    margin-top: 0.2rem;
+}
+
+.che-com .reply {
+    font-size: 0.26rem;
+    line-height: 0.3rem;
+    color: #666666;
+    padding: 0.23rem 0.28rem;
+    background: #f0f0f0;
+    margin-top: 0.21rem;
+    position: relative;
+}
+
+.che-com .reply .time {
+    font-size: 0.24rem;
+    line-height: 0.29rem;
+    margin-top: 0.19rem;
+    color: #999;
+}
+
+.che-com .reply i {
+    position: absolute;
+    width: 0.14rem;
+    height: 0.07rem;
+    background: url("img/img49.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: -0.07rem;
+    left: 0.35rem;
+}

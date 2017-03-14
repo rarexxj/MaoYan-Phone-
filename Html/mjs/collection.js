@@ -24,6 +24,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Mall/Collect',
+                    dataType:'json',
                     type: 'get',
                     data: _this.ajaxdata
                 }).done(function (rs) {
@@ -71,6 +72,7 @@ $(function () {
             ajaxcancel: function (id) {
                 $.ajax({
                     url: '/Api/v1/Mall/Collect/' + id,
+                    dataType:'json',
                     type: 'DELETE'
                 }).done(function (rs) {
                     if (rs.returnCode = '200') {
