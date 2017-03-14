@@ -45,7 +45,7 @@
 </div>
 <div class="main-box" id="main">
     <div class="kindbox">
-        <a href="##" class="proint" v-for="kind in info.GoodsCategorys" :style="{backgroundImage:'url('+kind.CategoryImage.RelativePath+')'}"></a>
+        <a :href='"/Html/html/fenlei/productslist.html?id="+kind.Id' class="proint" v-for="kind in info.GoodsCategorys" :style="{backgroundImage:'url('+kind.CategoryImage.RelativePath+')'}"></a>
     </div>
 </div>
 <div class="new-loading">

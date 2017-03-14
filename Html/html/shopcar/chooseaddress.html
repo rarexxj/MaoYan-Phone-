@@ -13,7 +13,7 @@
     <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>鼎盛ABC</title>
+    <title>成都猫眼食品有限责任公司</title>
     <link rel="stylesheet" href="/Html/public/css/reset.css">
     <link rel="stylesheet" href="/Html/public/css/main.css">
     <link rel="stylesheet" href="/Html/css/address.css">
@@ -23,14 +23,15 @@
 </head>
 <body style="background-color: #f0f0f0">
 <div class="address" id="address" v-cloak="">
-    <div :class="['addlist', add.IsDefault ? 'first':'']" v-for="add in info.Addresses" :data-addid="add.Id">
+    <div :class="['addlist']" v-for="add in info.Addresses" :data-addid="add.Id">
         <a href="javascript:;">
+            <span class="logo"></span>
             <div class="minfo f-cb">
-                <div class="name fl">收货人：{{add.Contacts}}</div>
+                <div class="name fl">{{add.Contacts}}</div>
                 <div class="ph fl">{{add.Phone}}</div>
             </div>
-            <div class="add" v-if="add.IsDefault">[默认]收货地址：{{add.RegionName}}{{add.Address}}</div>
-            <div class="add" v-else="">收货地址：{{add.RegionName}}{{add.Address}}</div>
+            <div class="moren" v-if="add.IsDefault">默认</div>
+            <div class="add">收货地址：{{add.RegionName}}{{add.Address}}</div>
         </a>
     </div>
     <div class="submit">添加新地址</div>

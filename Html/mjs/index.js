@@ -15,7 +15,7 @@ $(function () {
                 _this.others();
                 setTimeout(function () {
                     _this.swipe();
-                }, 100)
+                }, 300)
 
             })
         },
@@ -99,6 +99,9 @@ $(function () {
                     $(this).removeClass('toright');
                 })
 
+
+            },
+            poheight:function () {
                 var _height = $('.sidebarnav').height();
                 var _height2 = $('.rightbar').height();
                 $('.sidebarnav').css('margin-top', -_height / 2)
@@ -112,7 +115,10 @@ $(function () {
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
-                        _this.proinfo = rs.data
+                        _this.proinfo = rs.data;
+                        _this.$nextTick(function(){
+                            _this.poheight();
+                        })
                         $.RMLOAD();
                     }
                 })

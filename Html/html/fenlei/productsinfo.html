@@ -135,11 +135,11 @@
                         </li>
                     </ul>
                 </div>
-                <div class="tc other" v-if="info.PurchaseGood">
+                <div class="tc other jiajg" v-if="info.PurchaseGood.length">
                     <div class="tit">加价购</div>
                     <div class="f-cb choose-box">
-                        <div class="jjbox clearfix"><span class="quan fl"></span><span class="fl bujiaj">不加价</span></div>
-                        <div class="jjbox clearfix" v-for="list in info.PurchaseGood"><span class="quan quan2 fl"></span><span
+                        <div class="jjbox clearfix" data-jjid="0"><span class="quan fl"></span><span class="fl bujiaj">不加价</span></div>
+                        <div class="jjbox clearfix" v-for="list in info.PurchaseGood" :data-jjid="list.Id"><span class="quan quan2 fl"></span><span
                                 class="jjimg fl" :style="{backgroundImage:'url('+list.PurImage.RelativePath+')'}"></span><span class="fl jjwz"><i>+{{list.ShopPrice}}</i>元获得{{list.Name}}</span></div>
 
                     </div>

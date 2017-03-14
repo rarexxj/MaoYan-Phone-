@@ -16,7 +16,7 @@ $(function () {
                 _this.shixiao();
                 _this.tijiao();
                 _this.bianj();
-                $.RMLOAD()
+
             })
         },
         methods: {
@@ -52,7 +52,8 @@ $(function () {
                         //         console.log(rs.data)
                         //     }
                         // }
-                        _this.info = rs.data
+                        _this.info = rs.data;
+                        $.RMLOAD()
                     }
                 })
             },

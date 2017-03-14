@@ -13,12 +13,25 @@ $(function () {
         ready: function () {
             var _this = this;
             _this.province(); //省
+            _this.shengs();
             _this.$nextTick(function () {
                 _this.submit();
                 $.RMLOAD();
             })
         },
         methods: {
+            shengs:function () {
+                //获得省
+                var _this = this;
+                $.ajax({
+                    url: '/Api/v1/Settings/District/0/Child',
+                    type: 'get'
+                }).done(function (rs) {
+                    if (rs.returnCode == '200') {
+                    }
+                })
+
+            },
             province: function () {
                 //获得省
                 var _this = this;

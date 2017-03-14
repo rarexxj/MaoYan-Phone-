@@ -23,15 +23,16 @@
 
 </head>
 <body style="background-color: #f3fbfd">
-<div class="order-info" id="main">
+<div class="order-info" id="main" v-cloak="">
     <!--待付款-->
     <div class="status" v-if="info.OrderStatus == 0&&info.RefundStatus==0">
         <p>订单编号：{{info.OrderNo}}</p>
-        <p>订单状态：<span class="e84608">等待买家付款</span></p>
-        <p>还剩下 <span class="time paytime">00:<span class="mins":data-min="paymin">{{info.paymin}}</span>:<span class="sec" :data-sec="paysec">{{info.paysec}}</span></span> 支付（若未支付订单将取消）</p>
+        <p>订单状态：<span class="dccc8d">等待买家付款</span></p>
+        <p class="deadline">还剩下<span class="min">59</span>分<span class="sec">59</span>秒 支付（若未支付订单将取消）</p>
         <div class="btns f-cb">
             <div class="btn fl can-btns">取消订单</div>
-            <a :href="'/Html/ShopCar/Pay.html?id='+Id+'&OrderNo='+OrderNo+'&money='+PayFee+'&time='+CreateTime" class="btn fr cur">立即付款</a>
+            <a :href="'/Html/html/shopcar/pay.html?id='+info.Id+'&OrderNo='+info.OrderNo+'&money='+info.PayFee+'&time='+info.CreateTime+'&yhq='+info.CouponMoney" class="btn fr cur">立即付款</a>
+
         </div>
     </div>
 
@@ -55,7 +56,7 @@
     </div>
     <!--未评价-->
     <div class="status" v-if="info.EvaluateStatus==0&&info.OrderStatus==3&&info.RefundStatus==0">
-        <p>订单编号：{{OrderNo}}</p>
+        <p>订单编号：{{info.OrderNo}}</p>
         <p>订单状态：<span class="e84608">交易完成</span></p>
         <div class="btns f-cb">
             <div class="btn fl del-btns">删除订单</div>
@@ -101,7 +102,7 @@
         <div class="name fl">{{info.Consignee}}</div>
         <span class="tel fl">{{info.Tel}}</span>
         <div class="clear"></div>
-        <div class="add">{{info.RegionName}}{{Address}}</div>
+        <div class="add">{{info.RegionName}}{{info.Address}}</div>
     </div>
     <div class="pro-style clearfix" v-for="list in info.OrderGoods" :data-gid="list.GoodsId">
         <div class="img fl" :style="{backgroundImage: 'url('+list.GoodsImage.SmallThumbnail+')'}"></div>
@@ -112,11 +113,10 @@
         <div class="num fr">
             <div class="price">¥ {{list.Price.toFixed(2)}}</div>
             <div class="number">x {{list.Quantity}}</div>
-            <a :href="'/Html/AfterSales/Apply.html?oid='+Id+'&gid='+list.SingleGoodsId+'&RefundType=0'+'&mp='+list.MaxRefundAmount" class="back" v-if="OrderStatus==1 && PayStatus==2 && list.RefundStatus==0">退款</a>
-            <a :href="'/Html/AfterSales/AfterSales.html?oid='+Id+'&gid='+list.SingleGoodsId+'&mp='+list.MaxRefundAmount" class="back" v-if="OrderStatus==2 && PayStatus==2 && ShippingStatus==1 && list.RefundStatus==0">退款</a>
         </div>
         <!--<div class="color fl"><span v-for="sx in list.shuxin">{{sx}}</span></div>-->
     </div>
+    <a href="javascript:;" class="back" v-if="(info.OrderStatus==2||1) && info.PayStatus==2 && info.RefundStatus==0">退款详情</a>
     <div class="line money">
         <div class="tt">商品金额</div>
         <div class="price">¥ <span class="amo">{{info.GoodsAmount.toFixed(2)}}</span></div>
@@ -125,17 +125,17 @@
         <div class="tt">邮费</div>
         <div class="price">¥ <span class="amo">{{info.ShippingFee.toFixed(2)}}</span></div>
     </div>
-    <div class="line orderin-jif">
-        <div class="tt">积分抵扣</div>
-        <div class="price ">¥ <span class="amo">{{info.IntegralMoney.toFixed(2)}}</span></div>
-    </div>
+    <!--<div class="line orderin-jif">-->
+        <!--<div class="tt">积分抵扣</div>-->
+        <!--<div class="price ">¥ <span class="amo">{{info.IntegralMoney.toFixed(2)}}</span></div>-->
+    <!--</div>-->
     <div class="line orderin-yhq" >
         <div class="tt">优惠券</div>
-        <div class="price ">¥ <span class="amo">{{}}</span></div>
+        <div class="price ">¥ <span class="amo">{{info.CouponMoney.toFixed(2)}}</span></div>
     </div>
     <div class="line orderin-yhq" >
         <div class="tt">配送时间</div>
-        <div class="price ">¥ <span class="amo">{{info.ShippingTime}}</span></div>
+        <div class="price "><span class="amo">{{info.BestTime}}</span></div>
     </div>
     <div class="paymoney">
         <p class="sum" >待付金额：<span>¥{{info.PayFee.toFixed(2)}}</span></p>

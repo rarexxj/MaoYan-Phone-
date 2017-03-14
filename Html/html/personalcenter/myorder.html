@@ -75,7 +75,7 @@
                     </div>
 
                     <div class="btns f-cb fr">
-                        <a :href="'/Html/html/shopcar/pay.html?id='+list.Id+'&time='+list.CreateTime+'&type='+2"
+                        <a :href="'/Html/html/shopcar/pay.html?id='+list.Id+'&OrderNo='+list.OrderNo+'&money='+list.PayFee+'&time='+list.CreateTime+'&yhq='+list.CouponMoney"
                            class="btn cur fukuan"
                            v-if="list.PayStatus==0&&list.OrderStatus==0">立即付款</a>
                         <div class="btn cur confirm-btns" v-if="list.OrderStatus==2&&list.RefundStatus==0">确认收货

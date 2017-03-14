@@ -4,6 +4,7 @@ $(function () {
     var id = $.getUrlParam('id');   //购物车id
     var gid = $.getUrlParam('gid'); //单品id和数量
     var addid = $.getUrlParam('addid');
+    var jjid=$.getUrlParam('jjid');
     if (gid) {
         var gid2 = gid.split('|')[0]; //单品id
     }
@@ -27,7 +28,12 @@ $(function () {
     if (addid) {
         ids.AddressId = addid
     }
-    ids.OrderType = '1';
+    console.log(jjid)
+    if(jjid!=0){
+        ids.PurchaseId=jjid
+    }else{
+        jjid=''
+    }
     console.log(ids);
     new Vue({
         el: '#main',
@@ -70,14 +76,12 @@ $(function () {
                 //选择地址
                 if (id) {
                     $('#main').on('click', '.choadd .a', function () {
-
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?id=" + id
                     })
                     $('#main').on('click', '.addadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddaddress.html?id=" + id
                     })
                 } else {
-
                     $('#main').on('click', '.choadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?gid=" + gid
                     })
@@ -94,17 +98,19 @@ $(function () {
             },
             //价格计算
             price: function () {
-                console.log(1213)
                 var _this = this;
                 $('.need').html((_this.info.GoodsAmount) - (_this.info.GoodsDeposit));
             },
             //提交订单
             prosubmit: function () {
                 var _this = this;
+                console.log($('#peistime').val())
                 $('.balance').on('click', function () {
                     if ($('.addadd').length) {
-                        $.oppo('请选择收货地址', 1)
-                    } else {
+                        $.oppo('请选择收货地址', 1);
+                    } else if(!$('#peistime').val()){
+                        $.oppo('请选择配送时间', 1);
+                    }else {
                         var prodata = []
                         for (var i = 0; i < _this.info.Goods.List.length; i++) {
                             var pro = {}
@@ -124,14 +130,13 @@ $(function () {
                             City: _this.info.Addresses.City,
                             District: _this.info.Addresses.District,
                             Street: _this.info.Addresses.Street,
-                            RegionName: _this.info.Addresses.RegionName,
                             Address: _this.info.Addresses.Address,
                             Tel: _this.info.Addresses.Phone,
                             Memo: $('.bz').val(),
                             Goods: prodata,
-                            Integral: num,
-                            LimitGoodsId: prodata[0].Id,
-                            CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null
+                            CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null,
+                            GoodId:jjid,
+                            BestTime:$('.peit').val()
                         }
                         console.log(message)
                         _this.inputajax(message);
@@ -145,11 +150,10 @@ $(function () {
                     type: 'post'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
-
                         if ($('.car-list .amo').attr('data-price') == 0) {
                             window.location.replace("/Html/Member/PersonalCenter.html")
                         } else {
-                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime)
+                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime+'&yhq='+$('#yhq').attr('data-price'))
                         }
                     }
                 })
@@ -194,25 +198,47 @@ $(function () {
                 })
             },
             getLastPrice: function () {
-                var money = parseFloat($('.car-list .amo').attr('data-price2') - $('.weui_switch').attr('data-price') - $('#yhq').attr('data-price'));
+                // var money = parseFloat($('.car-list .amo').attr('data-price2') - $('.weui_switch').attr('data-price') - $('#yhq').attr('data-price'));
+                var money = parseFloat($('.car-list .amo').attr('data-price2') - $('#yhq').attr('data-price'));
                 if (money < 0) {
                     money = 0
                 }
-                console.log(money)
                 money = parseFloat(Number(money) + Number($('.postage').attr('data-postage'))).toFixed(2);
                 $('.car-list .amo').attr('data-price', money);
                 var price = $('.car-list').find('.amo').attr('data-price');
                 $('.car-list').find('.amo').html(price)
             },
             getsettime:function () {
-                $('.settime').on('click', function () {
-                    $('.confirm-order').hide();
-                    $('.timebox').show();
-                })
-                $('.time-btn').on('click', function () {
-                    $('.confirm-order').show();
-                    $('.timebox').hide();
-                })
+                // $('.settime').on('click', function () {
+                //     $('.confirm-order').hide();
+                //     $('.timebox').show();
+                // })
+                // $('.time-btn').on('click', function () {
+                //     $('.confirm-order').show();
+                //     $('.timebox').hide();
+                // })
+
+                var currYear = (new Date()).getFullYear();
+                var opt={};
+                opt.date = {preset : 'date'};
+                opt.datetime = {preset : 'datetime'};
+                opt.time = {preset : 'time'};
+                opt.default = {
+                    theme: 'android-ics light', //皮肤样式
+                    display: 'modal', //显示方式
+                    mode: 'scroller', //日期选择模式
+                    dateFormat: 'yyyy-mm-dd',
+                    lang: 'zh',
+                    showNow: true,
+                    nowText: "今天",
+                    // startYear: currYear, //开始年份
+                    endYear: currYear + 10, //结束年份
+                    minDate: new Date(),
+                    stepMinute:15
+                };
+                var optDateTime = $.extend(opt['datetime'], opt['default']);
+                $("#peistime").mobiscroll(optDateTime).datetime(optDateTime);
+
             },
             youhq:function () {
                 var _this=this;

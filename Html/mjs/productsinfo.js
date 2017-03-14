@@ -358,11 +358,13 @@ $(function () {
                             if (!$('.get-btn').attr('data-id')) {
                                 $.oppo('请选择规格', 1);
                                 // $('.size-mask').show();
-                            } else {
+                            } else if($('.jiajg').length>0&&(!$('.jiajg').attr('data-jjid'))){
+                                $.oppo('请选择加价购', 1);
+                            }else {
                                 if ($('.kc').html() == 0) {
                                     $.oppo('库存不足', 1)
                                 } else {
-                                    window.location.href = "/Html/html/shopcar/settlement.html?gid=" + $('.get-btn').attr('data-id') + "|" + $('.getnum .amount').val()
+                                    window.location.href = "/Html/html/shopcar/settlement.html?gid=" + $('.get-btn').attr('data-id') + "|" + $('.getnum .amount').val()+"&jjid="+$('.jiajg').attr('data-jjid')
                                 }
 
                             }
@@ -372,13 +374,13 @@ $(function () {
                 //购买
                 $('#main').on('click', '.gobuy', function () {
                     if (window.TOKEN) {
-                        if (!$('.get-btn').attr('data-id')) {
+                        if (!($('.get-btn').attr('data-id')&&$('.jiajg').attr('data-jjid'))) {
                             $('.size-mask').show();
                         } else {
                             if ($('.kc').html() == 0) {
                                 $.oppo('库存不足', 1)
                             } else {
-                                window.location.href = "/Html/html/shopcar/settlement.html?gid=" + $('.get-btn').attr('data-id') + "|" + $('.getnum .amount').val()
+                                window.location.href = "/Html/html/shopcar/settlement.html?gid=" + $('.get-btn').attr('data-id') + "|" + $('.getnum .amount').val()+"&jjid="+$('.jiajg').attr('data-jjid')
                             }
 
                         }
@@ -435,6 +437,9 @@ $(function () {
                 $('.infoBox').on('click', '.jjbox', function () {
                     $('.quan').removeClass('cur');
                     $(this).children('.quan').addClass('cur');
+                    var id=$(this).attr('data-jjid');
+                    console.log(id)
+                    $('.jiajg').attr('data-jjid',id)
                 })
             }
         }

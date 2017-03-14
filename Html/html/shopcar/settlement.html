@@ -17,9 +17,19 @@
     <link rel="stylesheet" href="/Html/public/css/reset.css">
     <link rel="stylesheet" href="/Html/public/css/main.css">
     <link rel="stylesheet" href="/Html/css/settlement.css">
+
+    <link href="/Html/public/css/mobiscroll/mobiscroll_002.css" rel="stylesheet" type="text/css">
+    <link href="/Html/public/css/mobiscroll/mobiscroll.css" rel="stylesheet" type="text/css">
+    <link href="/Html/public/css/mobiscroll/mobiscroll_003.css" rel="stylesheet" type="text/css">
     <script src="/Html/public/js/jQuery.js"></script>
     <script src="/Html/public/js/vue.js"></script>
     <script src="/Html/public/js/main.js"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll_002.js" type="text/javascript"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll_004.js" type="text/javascript"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll.js" type="text/javascript"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll_003.js" type="text/javascript"></script>
+    <script src="/Html/public/js/mobiscroll/mobiscroll_005.js" type="text/javascript"></script>
+
 
 </head>
 <body style="background-color: #f3fbfd">
@@ -61,6 +71,24 @@
                     </div>
                 </div>
             </div>
+            <div class="shopcar detailed" v-if="info.PurchaseGood.PurId">
+                <div class="jjg">加价购：</div>
+                <div class="box clearfix">
+                    <div class="img fl"
+                         :style="{backgroundImage: 'url('+info.PurchaseGood.PurMainImage.MediumThumbnail+')'}"></div>
+                    <div class="info fr">
+                        <div class="tt">{{info.PurchaseGood.PurName}}</div>
+                        <!--<div class="tc f-cb">-->
+                            <!--<div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>-->
+                        <!--</div>-->
+                        <div class="bot f-cb">
+                            <div class="price fl">¥ <span class="amo">{{info.PurchaseGood.PurPrice.toFixed(2)}}</span>
+                            </div>
+                            <div class="num fr">x <span>{{info.PurchaseGood.PurQuanlity}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="pro-list" v-if="info.Goods.List.length > 1">
                 <!--<a href="/Html/ShopCar/ProductsDetailed.html">-->
                 <div class="godeta clearfix">
@@ -82,29 +110,31 @@
                 <div class="price fr" :data-price="ShippingFee">¥<span
                         class="amo">{{info.ShippingFee.toFixed(2)}}</span></div>
             </div>
-            <div class="line jifen" style="margin-top: 0.2rem">
-                <!--<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>-->
-                <div class="tt fl">
-                    有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元
-                </div>
+            <!--<div class="line jifen" style="margin-top: 0.2rem">-->
+                <!--&lt;!&ndash;<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>&ndash;&gt;-->
+                <!--<div class="tt fl">-->
+                    <!--有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元-->
+                <!--</div>-->
 
-                <div class="weui_cell_ft fr">
-                    <input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"
-                           :data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">
-                </div>
-            </div>
+                <!--<div class="weui_cell_ft fr">-->
+                    <!--<input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"-->
+                           <!--:data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="line confirm-youh" style="margin-top: 0.2rem" id="yhq" data-price="0"
                  :data-price2="GoodsAmount">
                 <div class="tt w146">使用优惠券</div>
                 <div class="confirm-youhjt"></div>
             </div>
             <div class="line">
-                <div class="tt w145">订单说明：</div>
-                <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）">
+                <label for="shuoming" class="tt w145">订单说明：</label>
+                <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）" name="shuoming" id="shuoming">
             </div>
             <div class="line settime">
-                <div class="tt fl">配送时间</div>
-                <div class="confirm-youhjt"></div>
+                <label for="peistime" class="tt w145">配送时间：</label>
+                <input value="" class="text fr peit" readonly="readonly" name="peistime" id="peistime" type="text">
+                <!--<div class="tt fl"></div>-->
+                <!--<div class="confirm-youhjt"></div>-->
             </div>
         </div>
         <div class="car-list">
@@ -114,12 +144,12 @@
             <div class="balance">确认订单</div>
         </div>
     </div>
-    <div class="timebox">
-        <input type="date" class="date" value="">
-        <div class="yhq-btn-box">
-            <div class="time-btn">确定</div>
-        </div>
-    </div>
+    <!--<div class="timebox">-->
+        <!--<input type="date" class="date" value="">-->
+        <!--<div class="yhq-btn-box">-->
+            <!--<div class="time-btn">确定</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <div class="youhq-box" style="display: none" id="youhq-box">
 
         <div class="x-coupon ">
