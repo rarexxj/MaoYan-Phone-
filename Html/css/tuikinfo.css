@@ -1,5 +1,5 @@
 .order-info .status {
-    padding: 0.24rem 0.15rem 0.27rem;
+    padding: 0.24rem 0.33rem 0.27rem;
     background: #fff;
     border-bottom: 1px solid #e8e8e8;
     margin-bottom: 0.2rem;
@@ -8,9 +8,11 @@
 .order-info .status .color {
     color: #78a000;
 }
-
+.c0a85f{
+    color: #c0a85f;
+}
 .order-info .status p {
-    font-size: 0.26rem;
+    font-size: 0.3rem;
     line-height: 0.48rem;
     color: #333;
 }
@@ -26,30 +28,33 @@
 .order-info .status .btns .btn {
     width: 2.93rem;
     height: 0.86rem;
-    border: 1px solid #999999;
+    border: 1px solid #eaeaea;
+    background-color: #eaeaea;
     line-height: 0.86rem;
     text-align: center;
     font-size: 0.36rem;
-    color: #999;
+    color: #3d3d45;
     border-radius: 0.08rem;
     display: block;
 }
 
 .order-info .status .btns .btn.cur {
-    border-color: #78a000;
-    color: #78a000;
+    border-color: #dccc8d;
+    background-color: #dccc8d;
+    color: #fff;
 }
 
 .order-info .status .btns .bigbtn {
     width: 6.08rem;
     height: 0.86rem;
-    border: 1px solid #78a000;
-    color: #78a000;
+    border: 1px solid #dccc8d;
+    color: #dccc8d;
     text-align: center;
     font-size: 0.36rem;
     border-radius: 0.08rem;
     line-height: 0.86rem;
     display: block;
+    color: #fff;
 }
 .order-info .choadd {
     height: 1.62rem;
@@ -58,7 +63,7 @@
     border-top: 1px solid #e8e8e8;
     border-bottom: 1px solid #e8e8e8;
     padding: 0 0.32rem 0 0.73rem;
-    background: #fff url("../img/img37.png") no-repeat 0.15rem 0.37rem;
+    background: #fff url("img/img37.png") no-repeat 0.15rem 0.37rem;
     background-size: 0.34rem 0.51rem;
 }
 
@@ -130,4 +135,205 @@
 
 .order-info .line.money .price .dec {
     font-size: 0.3rem;
+}
+.as-info .refund {
+    margin-top: 0.2rem;
+    position: relative;
+}
+
+.as-info .linem {
+    padding: 0 0.15rem;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    overflow: hidden;
+    line-height: 0.86rem;
+}
+
+.as-info .linem .tt {
+    width: 1.65rem;
+    float: left;
+    font-size: 0.3rem;
+    color: #333;
+}
+
+.as-info .linem .price {
+    font-family: 'Arial';
+    font-size: 0.36rem;
+    color: #dccc8d;
+    float: right;
+}
+
+.as-info .linem .reason {
+    float: left;
+    width: 4.45rem;
+    font-size: 0.26rem;
+    line-height: 0.36rem;
+    color: #999;
+    margin-top: 0.26rem;
+    padding-bottom: 0.4rem;
+}
+
+.as-info .getsuccess {
+    font-size: 0.3rem;
+    line-height: 0.48rem;
+    color: #333;
+    margin-top: 0.26rem;
+}
+
+.as-info .seal {
+    position: absolute;
+    width: 1.62rem;
+    height: 0.76rem;
+    right: 0.15rem;
+    top: 0.21rem;
+}
+
+.as-info .seal.succeed {
+    background: url("img/img53.png") no-repeat;
+    background-size: cover;
+}
+
+.as-info .seal.faid {
+    background: url("img/img54.png") no-repeat;
+    background-size: cover;
+}
+
+.as-info .seal.pass {
+    background: url("img/img55.png") no-repeat;
+    background-size: cover;
+}
+
+.as-info .tips {
+    font-size: 0.26rem;
+    line-height: 0.48rem;
+    color: #666666;
+    margin-top: 0.3rem;
+}
+
+.pop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 98;
+    display: none;
+}
+
+.pop .box {
+    background: #fff;
+    border-radius: 5px;
+    padding: 0 0.1rem;
+    width: 4.4rem;
+    position: fixed;
+    left:50%;
+    margin-left: -2.2rem;
+    top: 50%;
+    margin-top: -1rem;
+    text-align: center;
+    z-index: 90;
+}
+
+.pop .tit {
+    font-size: 0.36rem;
+    color: #353535;
+    padding: 0.1rem 0;
+}
+
+.pop .btnb {
+    overflow: hidden;
+    padding-top: 0.15rem;
+    padding-bottom: 0.1rem;
+    border-bottom: 0;
+}
+
+.pop .btnb p {
+    display: block;
+    width: 50%;
+    font-size: 0.3rem;
+    color: #808080;
+    float: left;
+    text-align: center;
+}
+
+.pop .btnb a {
+    display: block;
+    color: #27a1e5;
+    font-size: 0.3rem;
+}
+
+.pop .btnb a.no {
+    border-right: 1px solid #c9c9c9;
+}
+
+.pro-style {
+    border-bottom: 1px solid #e8e8e8;
+    display: block;
+    height: 1.3rem;
+    padding: 0.28rem 0.15rem;
+}
+
+.pro-style .img {
+    width: 1.33rem;
+    height: 1.33rem;
+    border: 0.01rem solid #e8e8e8;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 0.26rem;
+}
+
+.pro-style .info {
+    width: 3rem;
+}
+
+.pro-style .name {
+    font-size: 0.3rem;
+    line-height: 0.36rem;
+    color: #333;
+    height: 0.72rem;
+    overflow: hidden;
+}
+
+.pro-style .color {
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+    color: #999999;
+    margin-top: 0.25rem;
+    width: 3rem;
+}
+
+.pro-style .color span {
+    margin-right: 0.08rem;
+}
+
+.pro-style .num {
+    width: 1.45rem;
+    text-align: right;
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+}
+
+.pro-style .num .price {
+    color: #333;
+    margin-top: 0.1rem;
+}
+
+.pro-style .num .number {
+    margin-top: 0.18rem;
+    color: #666;
+}
+
+.pro-style .back {
+    display: block;
+    border: 1px solid #999999;
+    color: #999999;
+    font-size: 0.24rem;
+    text-align: center;
+    line-height: 0.51rem;
+    padding: 0 0.14rem;
+    border-radius: 0.08rem;
+    height: 0.51rem;
+    margin-top: 0.15rem;
 }

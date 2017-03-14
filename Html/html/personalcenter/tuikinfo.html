@@ -16,8 +16,6 @@
     <title>成都猫眼食品有限责任公司</title>
     <link rel="stylesheet" href="/Html/public/css/reset.css">
     <link rel="stylesheet" href="/Html/public/css/main.css">
-    <link rel="stylesheet" href="/Html/public/css/reset.css">
-    <link rel="stylesheet" href="/Html/public/css/main.css">
     <link rel="stylesheet" href="/Html/css/tuikinfo.css">
     <script src="/Html/public/js/jQuery.js"></script>
     <script src="/Html/public/js/vue.js"></script>
@@ -30,9 +28,9 @@
         <!--审核中-->
         <div class="status" v-if="Datail.RefundStatus==0">
             <p>订单编号：{{Datail.RefundNo}}</p>
-            <p>订单状态：<span class="e84608">卖家审核中</span></p>
+            <p>订单状态：<span class="c0a85f">卖家审核中</span></p>
             <div class="btns f-cb">
-                <a :href="'/Html/AfterSales/ChangeApply.html?aid='+Datail.Id+'&RefundType='+Datail.RefundType+'&money='+Datail.RefundAmount+'&oid='+Datail.OrderId+'&gid='+Datail.SingleGoodsId" class="btn fl">修改申请</a>
+                <a :href="'/Html/html/personalcenter/changeapply.html?aid='+Datail.Id+'&RefundType='+Datail.RefundType+'&money='+Datail.RefundAmount+'&oid='+Datail.OrderId+'&gid='+Datail.SingleGoodsId" class="btn fl">修改申请</a>
                 <div class="btn fr cur can-btns">撤销申请</div>
             </div>
         </div>
@@ -77,21 +75,21 @@
         <p>物流单号：{{Datail.ShippingNo}}</p>
         <p>退货说明：{{Datail.ShippingMemo}}</p>
     </div>
-    <div class="pro-style">
-        <div class="img fl" :style="{backgroundImage: 'url('+Goods.MainImage.SmallThumbnail+')'}"></div>
+    <div class="pro-style" v-for="list in Goods">
+        <div class="img fl" :style="{backgroundImage: 'url('+list.MainImage.SmallThumbnail+')'}"></div>
         <div class="info fl">
-            <div class="name">{{Goods.GoodsName}}</div>
-            <div class="color"><span v-for="sx in Goods.shuxi">{{sx}}</span></div>
+            <div class="name">{{list.GoodsName}}</div>
+            <div class="color"><span>{{list.GoodsAttribute}}</span></div>
         </div>
         <div class="num fr">
-            <div class="price">¥ {{Goods.prices1}}.{{Goods.prices2}}</div>
-            <div class="number">x {{Goods.Quantity}}</div>
+            <div class="price">¥ {{list.Price.toFixed(2)}}</div>
+            <div class="number">x {{list.Quantity}}</div>
         </div>
     </div>
     <div class="refund">
         <div class="linem f-cb">
             <div class="tt">退款金额</div>
-            <div class="price">¥{{Datail.prices1}}.{{Datail.prices2}}</div>
+            <div class="price">¥{{Datail.RefundAmount.toFixed(2)}}</div>
         </div>
         <div class="linem f-cb">
             <div class="tt">退款原因</div>

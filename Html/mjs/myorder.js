@@ -150,12 +150,10 @@ $(function () {
                     window.location.href = "/Html/html/personalcenter/orderinfo.html?id=" + id;
                 })
                 $('.my-order').on('click', '.normal .back', function (event) {
-
                     event.stopPropagation();
                     var id = $(this).parents('.box').attr('data-orderId');
-                    var gid = $(this).parents('.pro-style').attr('data-orderId');
                     console.log(id)
-                    // window.location.href = "/Html/html/personalcenter/tuikinfo.html?oid=" + id + "&gid=" + gid;
+                    window.location.href ="/Html/html/personalcenter/tuikinfo.html?oid=" + id;
                 })
 
             }
