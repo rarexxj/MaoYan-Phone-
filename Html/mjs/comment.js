@@ -1,11 +1,11 @@
 $(function () {
     $.ADDLOAD();
+    $.checkuser();
     var id  = $.getUrlParam('id');
     ajaxinfo();
     $('.submit').on('click',function () {
         var data1=[]
         $('.box').each(function () {
-
             var data2={}
             if ($(this).find('.pf li.cur').length == '0'){
                 $.oppo('请评分',1);
@@ -63,25 +63,6 @@ $(function () {
     }
     function view(rs) {
         //转换价格
-        for( i in rs.OrderGoods){
-            if(rs.OrderGoods[i].Price.toString().indexOf('.')>-1){
-                if(rs.OrderGoods[i].Price.toString().split('.')[1].length == 1){
-                    rs.OrderGoods[i].prices2=rs.OrderGoods[i].Price.toString().split('.')[1]+'0'
-                }else {
-                    rs.OrderGoods[i].prices2 = rs.OrderGoods[i].Price.toString().split('.')[1];
-                }
-                rs.OrderGoods[i].prices1=rs.OrderGoods[i].Price.toString().split('.')[0];
-
-            }else{
-                rs.OrderGoods[i].prices1=rs.OrderGoods[i].Price;
-                rs.OrderGoods[i].prices2='00';
-            }
-            rs.OrderGoods[i].shuxi=[]
-            for(j in rs.OrderGoods[i].GoodsAttribute.split(',')){
-
-                rs.OrderGoods[i].shuxi[j] = rs.OrderGoods[i].GoodsAttribute.split(',')[j]
-            }
-        }
         new Vue({
             el:'#comment',
             data:rs,
