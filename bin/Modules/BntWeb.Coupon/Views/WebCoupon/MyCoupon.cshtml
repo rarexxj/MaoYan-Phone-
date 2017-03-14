@@ -1,0 +1,95 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Coupon.Models;
+@using BntWeb.Coupon.ViewModels
+@{
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+
+    var myCoupon = ViewBag.Myoupon as List<MyCoupsModel>;
+}
+@section Styles{
+        @Styles.Render("~/css/mycoupon");
+}
+<div class="per_nav_right fr font_s14 color_666">
+    <div class="nav_rights" style="border: 1px solid #e8e8e8;">
+        <div class="order_right_title">
+            <ul class="order_nav clearfix myjf_nav">
+                <li data-status="Unused">可使用</li>
+                <li  data-status="Used">已使用</li>
+                <li  data-status="Expired">已失效</li>
+            </ul>
+        </div>
+                    <div class="myyouhq-box">
+                        <div class="myyouhq-xd">
+                            <ul class="order_feilei clearfix myyouhqul">
+                                @{
+                                    if (myCoupon != null)
+                                    {
+                                        foreach (var item in myCoupon)
+                                        {
+                                            <li>
+                                                <div class="mycouponl fl" style="background-image: url('Resources/img1/img36.png')">
+                                                    @{if (item.CouponType == CouponType.FullCut)
+                                                        {
+                                                            <span class="mycouponl-price">满 @item.Minimum 减 @item.Money</span>
+                                                        }
+                                                        if (item.CouponType == CouponType.Minus)
+                                                        {
+                                                            <span class="mycouponl-price">立减 @item.Money</span>
+                                                        }
+                                                        <span class="mycouponl-type">@item.Title</span>
+                                                        <span class="mycouponl-date">有效期：@item.BeginTime.ToString("yyyy-MM-dd") 至 @(item.EndTime?.ToString("yyyy-MM-dd"))</span>
+                                                    }
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+               
+       
+    </div>
+    @Html.Action("PagePartial", "Home", new { area = "Home", url = ViewBag.Url, totalPage = ViewBag.TotalPage, currentPage = ViewBag.CurrentPage })
+</div>
+
+@section Scripts{
+    @*分页的js*@
+    @Scripts.Render("~/js/page")
+    @*本身Js*@
+    @Scripts.Render("~/js/coupon/mycoupon")
+   
+     <script type="text/javascript">
+        
+        //我的优惠券列表
+        var url_mycoupon = "@Url.Action("Mycoupon", "WebCoupon", new { area= CouponModule.Area})"
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

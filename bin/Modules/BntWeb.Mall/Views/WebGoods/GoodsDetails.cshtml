@@ -1,0 +1,694 @@
+﻿@using System.Web.Optimization
+@using BntWeb.FileSystems.Media
+@using BntWeb.Mall.ApiModels
+@using BntWeb.Mall.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var brandImages = ViewBag.BrandImages as List<SimplifiedStorageFile>;
+    var purchaseGoods = ViewBag.PurchaseGoods as List<Goods>;
+    var hotgoods = ViewBag.HotGoods as List<Goods>;
+    var evaluateList = ViewBag.EvaluateList as List<GoodsEvaluateModel>;
+    var mainImages = ViewBag.MainImages as List<SimplifiedStorageFile>;
+}
+
+@section Styles{
+
+}
+@model Goods
+<div class="main" style="padding-bottom: 90px;">
+<div class="bread">
+    <a class="bread-a home" href="@Url.Action("Index", "Home", new {area = "Home"})">首页</a>>
+    <a class="bread-a" href=""> @ViewBag.CategoryName</a>>
+    <a class="bread-a" href="">@Model.Name</a>
+
+</div>
+<div class="cheap-info-box1 clear">
+<input type="hidden" id="GoodId" value="@Model.Id"/>
+<div class="cheap-info-box1-l">
+    <div style="" class="cheap-info-img">
+        <div class="ol-box">
+            <span class="prev"></span>
+            <div class="img-show clearfix">
+                <ul>
+                    @{
+
+                        if (mainImages != null && mainImages.Count > 0)
+                        {
+                            foreach (var item in mainImages)
+                            {
+                                <li data-id="1">
+                                    <img data-img="@item.MediumThumbnail" data-big="@item.RelativePath"
+                                         src="@item.SmallThumbnail" alt="">
+                                </li>
+                            }
+                        }
+
+                    }
+                </ul>
+            </div>
+            <span class="next"></span>
+            <div class="img-show-box jqzoom img-big">
+                <img id="probig" jqimg="" src="@(Model.MainImage?.MediumThumbnail)" width="430" height="430" alt="">
+            </div>
+        </div>
+    </div>
+    <div style="" class="cheap-info-doll">
+        <div class="cheap-info-tit">@Model.Name</div>
+        <div class="cheap-info-code">商品编码： @Model.GoodsNo</div>
+        <div class="cheap-info-info">
+            @Model.Abstract
+        </div>
+        <div style="" class="cheap-info-boxinfo">
+            <div>
+                <div class="pricebox" style="margin-top: 12px;">现价：<span class="nowprice">￥@Model.ShopPrice</span></div>
+                <div class="pricebox">原价：<span class="beforeprice">￥@Model.OriginalPrice</span></div>
+            </div>
+
+        </div>
+        <div class="cheap-js-doll cheap-js-doll1">
+            <div class="cheap-js-doll-l">
+                <p style="color: #999;">运费</p>
+            </div>
+            <div class="cheap-js-doll-r">
+
+                <p style="line-height: 50px; color: #333;">快递：<span>@(Model.FreeShipping ? "包邮" : "不包邮")</span></p>
+
+            </div>
+        </div>
+        <div class="cheap-js-doll cheap-js-doll1">
+            <div class="cheap-js-doll-l">
+                <p style="color: #999;">分类</p>
+            </div>
+            <div class="cheap-js-doll-r" style="width: 450px;">
+                <ul class="classificationul clearfix">
+                    @{
+                        if (Model.SingleGoods != null)
+                        {
+                            foreach (var item in Model.SingleGoods.OrderBy(s=>s.Sort))
+                            {
+                                if (item.Attributes.Count != 0)
+                                {
+                                        <li class="attri" data-unit="@item.Unit" data-stock="@item.Stock" data-nowprice="@item.Price" data-singleid="@item.Id" data-attribute="@item.Attributes[0].AttributeValue">
+
+                                            @item.Attributes[0].AttributeValue
+                                            <span class="fenlchioce"></span>
+
+                                        </li>
+                                    
+                                }
+
+                            }
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+        <div class="cheap-js-doll">
+            <div class="cheap-js-doll-l">
+                <p style="margin-top: 30px; color: #999;">数量</p>
+            </div>
+            <div class="cheap-js-doll-r">
+                <div class="cheap-num">
+                    <div style="margin-left: 0px;" class="num-box">
+                        <span class="but-cut">-</span>
+                        <input class="but-num" value="1" type="text">
+                        <span class="but-add">+</span>
+                    </div>
+                    <p style="line-height: 65px; color: #999;">库存还剩 <span id="inv-num">@Model.Stock</span><span id="unitId"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="end-submit">
+            <span class="g-car"><a class="jjg" href="#">立即购买</a></span>
+            <span class="g-submit"><a class="jjh" target="_top" href="javascript:;">加入购物车</a></span>
+        </div>
+
+    </div>
+</div>
+<div class="cheap-info-box1-r  cheap-js-box1-r1">
+    <h2>加价购</h2>
+
+
+    @{
+        if (purchaseGoods != null)
+        {
+            foreach (var item in purchaseGoods)
+            {
+                <div class="jiajiabox clearfix" data-flag="0" data-price="@item.ShopPrice" data-name="@item.Name" data-id="@item.Id">
+                    <span class="jiajiaquan fl"></span>
+                    <div class="jiajiapro fl">
+                        <img src="@(item.PurImage?.MediumThumbnail)" width="60" height="60"/>
+                    </div>
+                    <div class="fl jiajiafont"><i>+@item.ShopPrice</i>@item.Name</div>
+                </div>
+
+            }
+        }
+    }
+
+
+    <div class="shanglogobox clearfix">
+        <a href="##">
+            @{
+                if (brandImages != null)
+                {
+                    foreach (var item in brandImages)
+                    {
+                        <div class="shanglogo" style="background-image: url(@item.MediumThumbnail);"></div>
+                    }
+                }
+            }
+
+        </a>
+
+    </div>
+</div>
+<div class="shangp-fenx">
+    <a href="javascript:;" class="fx">分享</a>
+    <a href="javascript:;" class="sc" data-goodsid="@ViewBag.goodsId">收藏商品(<span>@ViewBag.collectNums</span>人气)</a>
+</div>
+<div class="cheap-info-down">
+
+<div class="cheap-info-down-l">
+<div class="hd">
+    <ul>
+        <li class="cheap-load1 cur">商品详情</li>
+        <li class="cheap-load2">累计评价(<font style="color: #dccc8d">@(evaluateList == null ? 0 : evaluateList.Count)</font>)</li>
+    </ul>
+</div>
+<div class="bd">
+<ul>
+    <li>
+        <div class="shangpxq">
+            @*富文本编辑匡显示方式要加（Html.Raw）*@
+            @Html.Raw(Model.Description)
+        </div>
+    </li>
+</ul>
+<!--评价-->
+@{
+    if (evaluateList != null)
+    {
+        <ul class="pingjia">
+        <li class="pjtopbox">
+            <div class="fl pjtop">
+                <span class="pjtoptitle">口感满意</span>
+                <span class="pjtopscore">@(evaluateList.Sum(a => a.GoodTasteScore) == 0 ? 0 : evaluateList.Sum(a => a.GoodTasteScore)/evaluateList.Count) </span>
+                <div class="clearfix pjtopstar">
+                    @{
+                        if (evaluateList.Sum(a => a.GoodTasteScore) == 0)
+                        {
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+
+                        }
+                        else
+                        {
+                            var i = evaluateList.Sum(a => a.GoodTasteScore);
+                            var k = evaluateList.Count;
+
+                            if (Math.Round(i/k*1.0, 0) == 1)
+                            {
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 2)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 3)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 4)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 5)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                            }
+                        }
+                    }
+
+                </div>
+            </div>
+            <div class="fl pjtop">
+                <span class="pjtoptitle">材料新鲜</span>
+                <span class="pjtopscore">@(evaluateList.Sum(a => a.FreshMaterialScore) == 0 ? 0 : evaluateList.Sum(a => a.FreshMaterialScore) / evaluateList.Count) </span>
+                <div class="clearfix pjtopstar">
+                    @{
+                        if (evaluateList.Sum(a => a.FreshMaterialScore) == 0)
+                        {
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+
+                        }
+                        else
+                        {
+                            var i = evaluateList.Sum(a => a.FreshMaterialScore);
+                            var k = evaluateList.Count;
+
+                            if (Math.Round(i / k * 1.0, 0) == 1)
+                            {
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i / k * 1.0, 0) == 2)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i / k * 1.0, 0) == 3)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i / k * 1.0, 0) == 4)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i / k * 1.0, 0) == 5)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                            }
+                        }
+                    }
+
+                </div>
+            </div>
+            <div class="fl pjtop">
+                <span class="pjtoptitle">描述相符</span>
+                <span class="pjtopscore">@(evaluateList.Sum(a => a.DesMatchScore) == 0 ? 0 : evaluateList.Sum(a => a.DesMatchScore) /evaluateList.Count) </span>
+                <div class="clearfix pjtopstar">
+                    @{
+                        if (evaluateList.Sum(a => a.DesMatchScore) == 0)
+                        {
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+
+                        }
+                        else
+                        {
+                            var i = evaluateList.Sum(a => a.DesMatchScore);
+                            var k = evaluateList.Count;
+
+                            if (Math.Round(i/k*1.0, 0) == 1)
+                            {
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 2)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 3)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 4)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 5)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                            }
+                        }
+                    }
+
+
+                </div>
+            </div>
+            <div class="fl pjtop" style="margin-right: 0;">
+                <span class="pjtoptitle">物流服务</span>
+                <span class="pjtopscore">@(evaluateList.Sum(a => a.LogisticsScore) == 0 ? 0 : evaluateList.Sum(a => a.DesMatchScore) /evaluateList.Count) </span>
+                <div class="clearfix pjtopstar">
+                    @{
+                        if (evaluateList.Sum(a => a.LogisticsScore) == 0)
+                        {
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+                            <span class=""></span>
+
+                        }
+                        else
+                        {
+                            var i = evaluateList.Sum(a => a.LogisticsScore);
+                            var k = evaluateList.Count;
+
+                            if (Math.Round(i/k*1.0, 0) == 1)
+                            {
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 2)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 3)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 4)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class=""></span>
+                            }
+                            if (Math.Round(i/k*1.0, 0) == 5)
+                            {
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                                <span class="cur"></span>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </li>
+        <li class="pjnav clearfix">
+            <div class="font fl active">全部评价</div>
+            <div class="font fl">
+
+            </div>
+        </li>
+        @{
+            foreach (var item in evaluateList)
+            {
+                <li class="pjmain" style="background: #fff;">
+                    <div class="w884">
+                        <div class="w884-l">
+                            <div class="w884-l-headimg">
+                                <img src="@(item.Avatar?.MediumThumbnail)" alt="">
+                            </div>
+
+                        </div>
+                        <div class="w884-r">
+                            <div class="w884-r-star">
+                                <p class="nicheng">@item.MemberName</p>
+                                @{
+                                    var sum = (item.FreshMaterialScore + item.DesMatchScore + item.LogisticsScore+ item.GoodTasteScore) /4;
+                                    var avg = Math.Round(sum*1.0, 0);
+                                    if (avg == 1)
+                                    {
+                                        <span class="cur"></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    }
+                                    if (avg == 2)
+                                    {
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span></span>
+                                        <span></span>
+                                    }
+                                    if (avg == 3)
+                                    {
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span></span>
+                                        <span></span>
+                                    }
+                                    if (avg == 4)
+                                    {
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span></span>
+                                    }
+
+                                    if (avg == 5)
+                                    {
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                        <span class="cur"></span>
+                                    }
+
+                                }
+
+                                <div class="w884-r-time">@item.EvaluateTime.ToString("yyyy-MM-dd")</div>
+                            </div>
+                            <div class="w884-r-wirte">@item.Content</div>
+                            <div class="sjhuifu">
+                                <div class="sjhuif-img clearfix">
+                                    @{
+                                        if (item.Files != null)
+                                        {
+                                            foreach (var items in item.Files)
+                                            {
+                                                <img src="@items?.MediumThumbnail" alt="">
+                                            }
+                                        }
+                                    }
+
+
+                                </div>
+                                <div class="w884-r-rt sjhuifu-font">
+                                    <span>
+                                                                    <font style="color: #444444; display: block;">官方回复：</font>
+                                                                  @item.ReplyContent
+                                                                </span>
+                                    <span class="sjhuifu-bgjt"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @Html.Action("PagePartial", "Home", new {area = "Home", url = ViewBag.Url, totalPage = ViewBag.TotalPage, currentPage = ViewBag.CurrentPage})
+                </li>
+            }
+        }
+
+        </ul>
+    }
+}
+
+</div>
+</div>
+
+
+<div class="cheap-rrr">
+    <div style="margin-top: 10px; border: 1px solid #cdcdcd;">
+        <div class="cheap-rrr-tit">
+            <img src="/Resources/img1/logo29.png" alt="">
+            <h2>热门推荐</h2>
+        </div>
+        <div class="cheap-rrr-pro">
+            <ul class="clear">
+                @{
+                    if (hotgoods != null)
+                    {
+                        foreach (var item in hotgoods)
+                        {
+
+                            <li>
+                                <a href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = item.Id})" class="img-a">
+                                    <img src="@(item.MainImage?.MediumThumbnail)"/>
+                                    <div class="napolun-intro">
+                                        <span class="napolun-introname">@item.Name</span>
+                                        <span class="napolun-introprice">￥@item.ShopPrice</span>
+                                    </div>
+                                </a>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+<div class="yiny"></div>
+<div class="s-alert-sccess s-collect-alert">
+    <span class="close"></span>
+    <span class="sign"></span>
+    <h3>收藏成功！</h3>
+    <p>
+        您可以<a href="@Url.Action("WebCollectionList", "WebBrowse", new {area = MallModule.Area})">查看我的收藏</a>
+    </p>
+</div>
+<div class="cc-box">
+    <span class="close"></span>
+    <span class="sign2"></span>
+    <h3>您已经收藏过啦</h3>
+</div>
+<div class="s-alert-sccess s-car-alert">
+    <span class="close"></span>
+    <span class="sign"></span>
+    <h3>成功加入购物车！</h3>
+    <p>
+        您可以<a href="@Url.Action("WebCartsList", "WebCarts", new {area = MallModule.Area})">去购物车结算</a>
+    </p>
+</div>
+
+<div class="yiny2"></div>
+</div>
+</div>
+
+
+@section Scripts{
+    @*商品详情Js*@
+    @Scripts.Render("~/js/goodDetails")
+    @Scripts.Render("~/js/good/details")
+    <script type="text/javascript">
+        var url_addMycart = "@Url.Action("WebAddCart", "WebCarts", new {area = MallModule.Area})";
+        var url_buyNow = "@Url.Action("ConfirmOrderList", "WebSubmitOrder", new {area = MallModule.Area})";
+    </script>
+    <script type="text/javascript">
+        $(function () {
+
+            // 收藏
+            $(".sc").click(function () {
+                var obj = $(this);
+                var goodsid = obj.data("goodsid");
+                $.ajax({
+                    url: "/WebCollectionAdd",
+                    type: "post",
+                    data: { goodsid: goodsid, d: Date.now() },
+                    success: function (data) {
+                        if (data.code == "200") {
+                            obj.find("span").html(Number(obj.find("span").html()) + 1);
+                            $(".s-alert-sccess.s-collect-alert").show();
+                            $('.shangp-fenx a.sc').addClass('shoucang');
+                            $(".yiny").show();
+                        } else {
+                            $(".yiny").show();
+                            $(".cc-box").show();
+                        }
+
+                    },
+                    error: function () { }
+                });
+            });
+        });
+
+        $(".s-alert-sccess.s-collect-alert .close").click(function () {
+            $(".s-alert-sccess.s-collect-alert").hide();
+            $(".yiny").hide();
+        });
+        $(".cc-box .close").click(function () {
+            $('.cc-box').hide();
+            $(".yiny").hide();
+        });
+
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

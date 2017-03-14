@@ -1,0 +1,142 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Advertisement.Models
+@using BntWeb.Carousel.ApiModel
+@using BntWeb.Carousel.Models
+@using BntWeb.Mall.ApiModels
+@{
+
+    Layout = null;
+ 
+}
+
+<body>
+    <div class="footer">
+        <div class="width1190">
+            <ul class="footer-topbox clearfix">
+                <li class="">
+                    <div class="footer-logo1 fl"></div>
+                    <div class="fl footer-font">
+                        <span class="footer-font1">零库存新鲜烘焙</span>
+                    
+                    </div>
+
+                </li>
+                <li class="">
+                    <div class="footer-logo2 fl"></div>
+                    <div class="fl">
+                        <span class="footer-font1">5小时配送上门</span>
+                     
+                    </div>
+                </li>
+                <li class="">
+                    <div class="footer-logo3 fl"></div>
+                    <div class="fl">
+                        <span class="footer-font1">进口食材极致口感</span>
+                   
+                    </div>
+                </li>
+                <li class=" footer-topboxlast">
+                    <div class="footer-logo4 fl"></div>
+                    <div class="fl">
+                        <span class="footer-font1">大成都范围内免费配送</span>
+                     
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-midbox">
+            <div class="footer-midmain width1190 clearfix">
+                <div class="footer-dinggoubox fl">
+                    <div class="clearfix">
+                        <div class="footer-logo5 fl"></div>
+                        <div class="footer-tele fl">
+                            <span class="footer-telefont1">提前5小时订购</span>
+                            <span class="footer-telefont2">大成都范围内免费配送</span>
+                        </div>
+                        <span class="footer-telephone">4006-234-005</span>
+                    </div>
+                    <div class="footer-zhizhaobox">
+                        <span class="footer-zhizhao">全年无休8:30-22:00</span>
+                        <span class="footer-zhizhao">营业执照注册号：9151010469091620XE</span>
+                        <span class="footer-zhizhao">增值电信业务经营许可证：浙B2-20110000</span>
+                        <span class="footer-zhizhao">浙公网安备 33010600000000号</span>
+                        <span class="footer-zhizhao">Copyright ©2016 成都市猫眼食品有限责任公司</span>
+                    </div>
+                </div>
+                <div class="footer-bottomnav fl">
+                    <dl class="fl">
+                        <dt>品牌故事</dt>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="01" })">
+                            <dd>公司简介</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="02" })">
+                            <dd>公司风采</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="03" })">
+                            <dd>5客大事件</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="04" })">
+                            <dd>联系我们</dd>
+                        </a>
+                    </dl>
+                    <dl class="fl">
+                        <dt>帮助中心</dt>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="11" })">
+                            <dd>配送服务</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="12" })">
+                            <dd>购物指南</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="13" })">
+                            <dd>会员权益</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="14" })">
+                            <dd>订单支付</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="15" })">
+                            <dd>投诉与建议</dd>
+                        </a>
+                    </dl>
+                    <dl class="fl">
+                        <dt>售后服务</dt>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="21" })">
+                            <dd>售后咨询</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="22" })">
+                            <dd>退货政策</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="23" })">
+                            <dd>退货办理</dd>
+                        </a>
+                    </dl>
+                    <dl class="fl">
+                        <dt>关于我们</dt>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="31" })">
+                            <dd>公司介绍</dd>
+                        </a>
+                        <a href="@Url.Action("Page", "SinglePage",new {area= "SinglePage",key="32" })">
+                            <dd>招聘信息</dd>
+                        </a>
+                     
+                    </dl>
+                </div>
+                <div class="footer-erweima fr">
+                    <div class="erweimabox fl">
+                        <img class="erweimaimg" src="/Resources/img/weibo.png" alt="" />
+                        <span class="erweimabox-font">新浪微博</span>
+                    </div>
+                    <div class="erweimabox fl">
+                        <img class="erweimaimg" src="/Resources/img/weixin.jpg" alt="" />
+                        <span class="erweimabox-font">微信平台</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottombox">
+            <div class="footer-bottombox clearfix width1190">
+                <dl class="fl">
+                </dl>
+                <div class="fr jianshe"></div>
+            </div>
+        </div>
+    </div>

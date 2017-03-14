@@ -1,0 +1,101 @@
+﻿@using System.Web.Optimization
+@using Autofac
+@using BntWeb.Environment
+@using BntWeb.Mall.ViewModels
+@using BntWeb.Security
+@using BntWeb.Security.Identity
+@{
+    ViewBag.SubTitle = "浏览历史";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+
+    var list = ViewBag.List as List<BrowseViewModel>;
+}
+@section Styles{
+    @Styles.Render("~/css/browsing")
+    <style>
+        .footer {
+            margin-top:30px;
+        }
+
+    </style>
+}
+<div class="per_nav_right fr font_s14 color_666" style="margin-bottom: 30px;">
+    <div class="nav_rights jfdhright">
+        <div class="order_right_title color_444">
+            <div class="myjf-title">浏览历史</div>
+            <div class="order_sou clearfix jifencurrentbox">
+                <div class="llls">
+                    <a class="fl xxllls" data-memberid="@ViewBag.memberid" href="javascript:;">清空浏览历史</a>
+                </div>
+            </div>
+        </div>
+        <div class="jfdhbox browsingbox">
+            <div class="jfdhbox-ds" style="overflow: visible">
+
+                @{
+                    if (list != null)
+                    {
+                        var listDay = new List<BrowseViewModel>();
+                        foreach (var item in list.Where(item => listDay.All(x => x.BrowseTime.ToString("yyyy-MM-dd") != item.BrowseTime.ToString("yyyy-MM-dd"))))
+                        {
+                            listDay.Add(item);
+                        }
+
+
+                        foreach (var item in listDay)
+                        {
+                            <dl class="jfdhboxul clearfix mycollectul">
+                                <dt>@item.BrowseTime.ToString("yyyy-MM-dd")</dt>
+                                @foreach (var item1 in list.FindAll(me => me.BrowseTime.ToString("yyyy-MM-dd") == item.BrowseTime.ToString("yyyy-MM-dd")))
+                                {
+                                    <dd class="mycollectli">
+                                        <a class="jfdhimgbox" target="_blank" href="@Url.Action("GoodsDetails", "WebGoods", new {area = MallModule.Area, goodId = item1.Id})">
+                                            <img src="@item1.MinePicture"
+                                                 alt="">
+                                            <div class="jfdh-main clearfix mycollect">
+                                                <p class="myct-mainp">@item1.Name</p>
+                                                <span class="myct-mainprice">￥@item1.ShopPrice</span>
+                                            </div>
+                                        </a>
+                                    </dd>
+                                }
+                            </dl>
+
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pags">
+    @Html.Action("PagePartial", "Home", new {area = "Home", url = ViewBag.Url, totalPage = ViewBag.TotalPage, currentPage = ViewBag.CurrentPage})
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            //导航点击
+            $('.index-headnavmainul .index-navli').hover(function () {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                $(this).children('.index-navtwo').stop().slideToggle();
+            });
+
+            $(".xxllls").bind("click", function () {
+                $.ajax({
+                    url: "/WebBrowseClear",
+                    type: "post",
+                    data: { memberid: $(this).data("memberid"), d: Date.now() },
+                    success: function (data) {
+                        location.href = "/WebBrowseList";
+                    },
+                    error: function () { }
+                });
+            });
+        });
+
+
+    </script>
+}

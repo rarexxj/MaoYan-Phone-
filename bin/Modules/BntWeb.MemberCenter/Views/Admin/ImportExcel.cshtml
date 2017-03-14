@@ -1,0 +1,52 @@
+﻿@using System.Web.Optimization
+@using BntWeb.FileSystems.Media
+    ﻿@using System.Web.Optimization
+    @{
+        ViewBag.Title = MemberCenterModule.DisplayName;
+        ViewBag.SubTitle = "导入会员Execl文件";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+        var editMode = (bool)ViewBag.EditMode;
+    }
+    <form class="form-horizontal" role="form" method="POST" id="ExeclToMemberForm" action="@Url.Action("ExeclToMemberOnPost", "Admin", new {area = MemberCenterModule.Area})">
+        <div class="space-4"></div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label no-padding-right"><a href="@Url.Action("DownloadTemplate", "Admin", new {area = MemberCenterModule.Area})">
+    下载模版
+</a></label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label no-padding-right">上传文件</label>
+            <div class="col-sm-8 image">
+                <div class="col-sm-5">
+                    @Html.Action("UploadPartial", "File", new {area = "SystemSettings", controlId = "ImportExcel", isPublic = true, defaultValue = "", moduleKey = MemberCenterModule.Key, acceptedFiles = ".xls,.xlsx", sourceType = "ExeclToMember", maxFiles = 1})
+                </div>
+            </div>
+        </div>
+        <div class="clearfix form-actions">
+            <div class="col-md-offset-3 col-md-9">
+                <button class="btn btn-info" type="submit">
+                    <i class="icon-ok bigger-110"></i>
+                    确定
+                </button>
+            </div>
+        </div>
+    </form>
+    @section Scripts {
+        @Scripts.Render("~/js/admin/jquery-form")
+        <script type="text/javascript">
+            jQuery(function ($) {
+                bntToolkit.initForm($("#ExeclToMemberForm"), {}, null, success);
+            });
+            function success(result, statusText, xhr, $form) {
+                if (!result.Success) {
+                    bntToolkit.error(result.ErrorMessage);
+                } else {
+                    location.href = "@Url.Action("List", "Admin", new {area = MemberCenterModule.Area})";
+                }
+            }
+
+            var url_downloadexceltemplate = "@Url.Action("DownloadTemplate", "Admin", new {area = MemberCenterModule.Area })";
+            $(".downloadexceltemplate").attr("href", url_downloadexceltemplate + "");
+        </script>
+    }

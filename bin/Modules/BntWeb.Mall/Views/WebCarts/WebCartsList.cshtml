@@ -1,0 +1,158 @@
+﻿@using System.Web.Optimization
+@using BntWeb.Mall.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var myCarts = ViewBag.MyCarts as List<Cart>;
+    var optionalGoods = ViewBag.OptionalGoods as List<Goods>;
+}
+
+@section Styles{
+    
+}
+
+
+
+<div class="main" style="padding-bottom: 90px;">
+    <div class="bread">
+        <a class="bread-a home" href="@Url.Action("Index", "Home", new {area = "Home"})">首页</a>>
+        <a class="bread-a" href="shopCar.html">购物车</a>
+    </div>
+    <div class="shopcarbox width1190">
+        <div class="allchioce bixuanpro">
+            <ol class="clearfix">
+                <li class="width240 nocenter clearfix"><input type="checkbox" class="selectall">全选</li>
+                <li class="width200">商品信息</li>
+                <li class="width208">规格</li>
+                <li class="width154">单价</li>
+                <li class="width145">数量</li>
+                <li class="width154">小计</li>
+                <li class="width80">操作</li>
+            </ol>
+            <ul>
+                @{
+                    if (myCarts != null)
+                    {
+                        foreach (var item in myCarts)
+                        {
+                            <li class="allchioceli clearfix">
+                                <div class="width240 nocenter neir clearfix">
+                                    @{
+                                        if (item.Status == CartStatus.Invalid)
+                                        {  
+                                             <div class="shixbox"><span></span></div>
+                                            
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" class="checkdp" data-cartids="@item.Id" data-optids="">
+                                        }
+                                    }
+
+                                    <img src="@(item.MainImage?.MediumThumbnail)" >
+                                </div>
+                             
+                                <div class="width200 neir xinxi">@item.GoodsName</div>
+                                <div class="width208 neir guig">
+                                  @item.GoodsAttribute
+                                </div>
+                                <div class="width154 neir linehight126 danjia" style="color: #666;">
+                                    ¥<span style="color: #666;"
+                                           class="danjia-xx">@item.Price</span>
+                                </div>
+                                <div class="width145 neir numout">
+                                    <div class="cheap-num">
+                                        <div style="margin-top: 36px; margin-left: 38px;" class="num-box">
+                                            <span class="but-cut fl">-</span>
+                                            <input class="but-num width40" value="@item.Quantity" type="text" disabled>
+                                            <span class="but-add  fl">+</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="width154 neir linehight126 peice-danjian" style="color: #c0a85f;">
+                                    ¥<span class="peice-danjianxx">@item.TotalMoney</span>
+                                </div>
+                                <div class="width80 neir linehight126 shanchu" data-cartid="@item.Id">删除</div>
+                            </li>
+
+                        }
+                    }
+                }
+             
+            </ul>
+        </div>
+
+        <div class="allchioce zixuanpro">
+            <p>自选产品</p>
+            <ul class="">
+                @{
+                    if (optionalGoods != null)
+                    {
+                        foreach (var item in optionalGoods)
+                        {
+                            <li class="allchioceli clearfix" id="optmodel">
+                                <div class="width240 nocenter neir clearfix">
+                                    <input type="checkbox" class="checkdp" data-optids="@item.Id" data-cartids="" data-number="">
+                                    <img src="@(item.MainImage?.MediumThumbnail)">
+                                </div>
+                                <div class="width200 neir xinxi">@item.Name</div>
+                                <div class="width208 neir guig">
+                                    <input type="text" class="number" placeholder="输入你想要的数字">
+                                </div>
+                                <div class="width154 neir linehight126 danjia" style="color: #666;">
+                                    ¥<span style="color: #666;"
+                                           class="danjia-xx">@item.ShopPrice</span>
+                                </div>
+                                <div class="width145 neir numout">
+                                    <div class="cheap-num">
+                                        <div style="margin-top: 36px; margin-left: 38px;" class="num-box">
+                                            <span class="but-cut fl">-</span>
+                                            <input class="but-num width40" value="1" type="text" disabled>
+                                            <span class="but-add  fl">+</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="width154 neir linehight126 peice-danjian" style="color: #c0a85f;">
+                                    ¥<span class="peice-danjianxx">@item.ShopPrice</span>
+                                </div>
+                                @*<div class="width80 neir linehight126 shanchu" data-cartid="@item.Id">删除</div>*@
+                            </li>
+                        }
+                    }
+                }
+            
+
+
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div class="shopCar-pricebox width1190">
+    <div class="fl shopCar-priceboxl">
+        <input type="checkbox" class="shopCar-allchionce selectall1">全选
+        <span class="shopCar-shixiao fr">清除失效</span>
+        <span class="shopC-shanc fr">删除</span>
+    </div>
+    <div class="fr shopCar-priceboxr">
+        <div class="clearfix">
+            <div class="zongji fl">商品总计：<span class="shopCar-price">0</span></div>
+            <button class="fr jiesuan">去结算</button>
+        </div>
+        <a class="fr qushop" href="@Url.Action("Index","Home",new {area="Home"})" style="display: block"><span>继续购物>></span></a>
+    </div>
+</div>
+@section Scripts{
+    @Scripts.Render("~/js/cartList")
+    <script type="text/javascript">
+        //我的购物车列表
+        var url_myCarts = "@Url.Action("WebCartsList", "WebCarts", new { area=MallModule.Area})";
+        //删除购物车
+        var url_delCart = "@Url.Action("DeleteCart", "WebCarts", new { area=MallModule.Area})";
+        //清空失效商品
+        var url_clearCart = "@Url.Action("WebClearCart", "WebCarts", new { area=MallModule.Area})";
+        //确认订单
+        var url_confirmOrder="@Url.Action("ConfirmOrderList", "WebSubmitOrder", new {area=MallModule.Area})";
+    </script>
+}

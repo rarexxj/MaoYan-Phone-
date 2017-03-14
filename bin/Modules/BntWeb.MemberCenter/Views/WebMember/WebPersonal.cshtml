@@ -1,0 +1,203 @@
+﻿@using System.Web.Optimization
+@using BntWeb.FileSystems.Media
+@using BntWeb.MemberBase.Models
+@{
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+    ViewBag.SubTitle = "个人中心";
+    var avatarFile = ViewBag.WebAvatarFile as StorageFile ??new StorageFile();
+}
+@section Styles{
+    @Styles.Render("~/css/web/personal")
+
+}
+
+<div class="per_nav_right fr font_s14 color_666">
+    <div class="per_right_title color_444">
+        <h3 class="font_s18">编辑个人信息</h3>
+    </div>
+    <input type="hidden" id="memberId" value="@ViewBag.MemberId "/>
+    <div class="per_right_bottom">
+        <form role="form" method="POST" id="PersonalForm" action="@Url.Action("UpdatePersonal", "WebMember", new {area = MemberCenterModule.Area})">
+            <div class="per_user">
+                <input id="AvatarId" type="hidden" value="" name="AvatarId" />
+                <span class="per_word1">当前头像：</span>
+                @{
+                    if (avatarFile != null)
+                    {
+                        <span class="per_img"><img id="preview" src="@avatarFile.MediumThumbnail" height="128" width="128" /></span>
+                    }
+                    else
+                    {
+                        <span class="per_img"><img id="preview" src="" height="128" width="128" /></span>
+                    }
+                }
+
+                <div class="infile_upload">
+                    <span>上传图片</span>
+                    <input class="upload_file" type="file" id="uploadify" name="uploadify" />
+                </div>
+            </div>
+            <div class="tab">
+                <span class="per_word2">用户名：</span>
+                <input type="text" class="usernicheng" name="NickName" id="NickName" placeholder="用户名/昵称" value="@Model.NickName" />
+            </div>
+            <div class="tab tab_b">
+                <span class="per_word2">真实姓名：</span>
+                <input type="text" class="userName" name="RealName" id="RealName" placeholder="真实姓名" value="@Model.RealName" />
+            </div>
+            <div class="tab tab_radio tab_b">
+                <span class="per_word2 fl">性别：</span>
+                <input type="radio" id="man" class="fl" name="a1" value="1" @(Model.Sex == SexType.Male ? "checked=checked" : "") />
+                <label for="man" class="fl">&nbsp;&nbsp;男</label>
+                <input type="radio" id="woman"  class="fl woman" name="a1" value="2" @(Model.Sex == SexType.Female ? "checked=checked" : "") />
+                <label for="woman" class="fl">&nbsp;&nbsp;女</label>
+                <input type="hidden" id="Sex" name="Sex"/>
+            </div>
+            <div class="tab">
+                <span class="per_word2">QQ：</span>
+                <input type="text" class="qq" name="Qq" id="Qq" value="@Model.Qq" placeholder="Qq号" />
+            </div>
+            <div class="tab">
+                <span class="per_word2">微信：</span>
+                <input type="text" class="weixin" name="Weixin" id="Weixin" placeholder="微信" value="@Model.Weixin" />
+            </div>
+            <div class="tab tab_iphone clearfix">
+                <span class="per_word2 fl">手机：</span>
+                <div class="userIphone fl">@ViewBag.PhoneNumber</div>
+                <div class="Iphone_xiugai fl">
+                    <a href="@Url.Action("ChangePhoneNumber", "WebMember", new {area = MemberCenterModule.Area})">修改</a>
+                </div>
+            </div>
+            @{
+                if (Model.Birthday.ToString("yyyy-MM-dd") == "1949-10-01")
+                {
+                    <div class="tab tab_radio clearfix">
+                        <span class="per_word2 fl">
+                            生日：
+                        </span>
+
+                        <input type="radio" id="mans" class="fl" name="BirthType" value="0" @(Model.BirthType == BirthType.Calendar ? "checked=checked" : "")/>
+                        <label for="mans" class="fl">&nbsp;公历</label>
+                        <input type="radio" id="womans" class="fl lunar" name="BirthType" value="1" @(Model.BirthType == BirthType.Lunar ? "checked=checked" : "")/>
+                        <label for="womans" class="fl">&nbsp;农历</label>
+                        <input type="text" onFocus="WdatePicker()" class="fl Wdate shengri" name="Birthday" id="Birthday"
+                               placeholder="请选择生日" value="@Model.Birthday"/>
+                        <b>&nbsp;&nbsp;&nbsp;生日一经注册无法修改</b>
+                    </div>
+                }
+                else
+                {
+                    <div class="tab tab_radio clearfix">
+                        <span class="per_word2 fl">
+                            生日：
+                        </span>
+
+                        <input type="radio" disabled id="mans" class="fl" name="BirthType" value="0" @(Model.BirthType == BirthType.Calendar ? "checked=checked" : "") />
+                        <label for="mans" class="fl">&nbsp;公历</label>
+                        <input type="radio"  disabled id="womans" class="fl lunar" name="BirthType" value="1" @(Model.BirthType == BirthType.Lunar ? "checked=checked" : "") />
+                        <label for="womans" class="fl">&nbsp;农历</label>
+                        <input type="text" disabled onFocus="WdatePicker()" class="fl Wdate shengri" name="Birthday" id="Birthday"
+                               placeholder="请选择生日" value="@Model.Birthday" />
+                    </div>
+                }
+            }
+       
+            <div class="tab tab_radio">
+                <span class="per_word2 fl">口味偏好：</span>
+                <input type="radio" id="man1" class="fl" name="TastesType" id="" value="0" @(Model.TastesType == TastesType.Chocolate ? "checked=checked" : "") />
+                <label for="man1" class="fl">&nbsp;巧克力蛋糕</label>
+                <input type="radio" id="woman1" class="fl woman" name="TastesType" value="1" @(Model.TastesType == TastesType.Cream ? "checked=checked" : "") />
+                <label for="woman1" class="fl">&nbsp;奶油蛋糕</label>
+
+                <input type="radio" id="man2" class="fl woman" name="TastesType" value="2" @(Model.TastesType == TastesType.Fruit ? "checked=checked" : "") />
+                <label for="man2" class="fl">&nbsp;水果蛋糕</label>
+                <input type="radio" id="woman2" class="fl woman" name="TastesType" value="3" @(Model.TastesType == TastesType.Cake ? "checked=checked" : "") />
+                <label for="woman2" class="fl">&nbsp;蛋糕</label>
+            </div>
+
+            <div class="sub clearfix">
+                <div class="sub_xiugai bg_gay fl">
+                    <a href="@Url.Action("PasswordChange","WebMember",new {area=MemberCenterModule.Area})">修改密码</a>
+                </div>
+                <div class="sub_baocun bg_orange fr">保存</div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+
+@Scripts.Render("~/js/web/wdatePicker")
+@Scripts.Render("~/js/web/uploadify")
+@Scripts.Render("~/js/web/newuploadify")
+@Scripts.Render("~/js/web/personal")
+
+    <script type="text/javascript">
+        var url_personal = "@Url.Action("WebPersonal", "WebMember", new {area = MemberCenterModule.Area})";
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point(116.404, 39.915);
+        map.centerAndZoom(point, 15);
+        var menu = new BMap.ContextMenu();
+        var txtMenuItem = [
+            {
+                text: '放大',
+                callback: function () { map.zoomIn() }
+            },
+            {
+                text: '缩小',
+                callback: function () { map.zoomOut() }
+            }
+        ];
+        for (var i = 0; i < txtMenuItem.length; i++) {
+            menu.addItem(new BMap.MenuItem(txtMenuItem[i].text, txtMenuItem[i].callback, 100));
+        }
+        map.addContextMenu(menu);
+     </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

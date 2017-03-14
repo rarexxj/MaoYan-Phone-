@@ -1,0 +1,227 @@
+﻿@using System.Web.Optimization
+@using BntWeb.OrderProcess.Models
+@using BntWeb.OrderProcess.ViewModels
+@using BntWeb.Utility.Extensions
+
+
+@{
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+    var list = ViewBag.MyOrders as List<Order>;
+    var OrderState = ViewBag.OrderState as StateOrderCount ?? new StateOrderCount();
+}
+
+@section Styles{
+    @Styles.Render("~/css/web/orderlist")
+}
+<div class="per_nav_right fr font_s14 color_666">
+    <div class="nav_rights">
+
+        <div class="order_right_title color_444">
+            <ul class="order_nav clearfix">
+                <li data-status="0" class="@(ViewBag.Status == -1?"active":"")">所有订单(@OrderState.TotalCount)</li>
+                <li data-status="1" class="@(ViewBag.Status == 0?"active":"")">待付款(@OrderState.PendingPaymentCount)</li>
+                <li data-status="2" class="@(ViewBag.Status == 2?"active":"")">待收货(@OrderState.WaitingForReceivingCount)</li>
+                <li data-status="3" class="@(ViewBag.Status == 3?"active":"")">待评价(@OrderState.WaitingEvaluateCount)</li>
+                <li data-status="4" class="@(ViewBag.Status == 4?"active":"") color_orange">售后订单(@OrderState.RefundCount)</li>
+            </ul>
+            <div class="order_sou clearfix">
+                <input type="text" name="search" class="fl" id="search" placeholder="输入订单号搜索" value="" />
+             
+                 <div class="order_seach fl"></div>
+            </div>
+
+        </div>
+        <ul class="order_list_name clearfix">
+            <li class="order_one">商品</li>
+            <li class="order_two">单价</li>
+            <li class="order_three">数量</li>
+            <li class="order_four">实付款</li>
+            <li class="order_five">订单状态</li>
+            <li class="order_six">操作</li>
+        </ul>
+        <!--商品列表-->
+        <ul class="order_feilei">
+            @{
+                if (list != null)
+                {
+                    foreach (var item in list)
+                    {
+                        <li>
+                            <div class="order_data bg_pink clearfix">
+                                <span class="fl">@(item.CreateTime.ToString("yyyy-MM-dd"))</span>
+                                <span class="fr">订单号：@item.OrderNo</span>
+                            </div>
+                            <div class="order_xinxi clearfix" style="height: auto; padding-left: 0;">
+
+
+                                <div class="fl" style="border-right: 1px solid #E8E8E8;">
+                                    @{
+                                        if (item.OrderGoods != null)
+                                        {
+                                            foreach (var items in item.OrderGoods)
+                                            {
+                                                <div class="clearfix or_list" style="padding-left: 20px;">
+                                                    <div class="order_img fl"
+                                                         style="background: url(@(items.GoodsImage?.MediumThumbnail)) no-repeat center; background-size: cover;"></div>
+                                                    <div class="order_jieshao fl">
+                                                        <p class="order_name color_000">@items.GoodsName</p>
+                                                        <p class="order_height color_999">@items.GoodsAttribute</p>
+                                                    </div>
+                                                    <div class="order_price color_000 fl">@items.Price</div>
+                                                    <div class="order_num color_000 fl">@items.Quantity</div>
+                                                    <div class="order_price_tol color_orange fl">￥@(items.Price*items.Quantity)</div>
+                                                </div>
+                                            }
+                                        }
+                                    }
+
+
+
+                                </div>
+
+                                <div class="daifu fl" style="border-right: 1px solid #E8E8E8; padding: 0 20px;">
+                                    <div class="order_statues color_666" style="margin-left: 0;">
+                                        <p>@(item.OrderStatus.Description())</p>
+                                        <p class="order_info" data-url="@Url.Action("OrderDetails", "WebOrder", new {area = OrderProcessModule.Area, orderId = item.Id})" data-id="@item.Id">订单详情</p>
+                                    </div>
+                                </div>
+
+                                <!--订单操作-->
+                                <div class="order_caozuo font_s14 fr" style="">
+
+                                    <!--状态-->
+                                    @{
+
+                                        if (item.RefundStatus == OrderRefundStatus.NoRefund)
+                                        {
+                                            
+                                            if (item.OrderStatus == OrderStatus.PendingPayment)
+                                            {
+                                                <div class="statues1">
+                                                    <a class="pay border_r4 bg_orange" href="@Url.Action("PayType", "WebOrder", new {area = OrderProcessModule.Area, orderId = item.Id})">付款</a>
+                                                    <div class="order_word" data-url="@Url.Action("WebCancelOrder", "WebOrder", new {area = OrderProcessModule.Area, orderId = item.Id})" data-id="@item.Id">取消订单</div>
+                                                </div>
+                                            }
+                                            if (item.ShippingStatus == ShippingStatus.Shipped && item.OrderStatus == OrderStatus.WaitingForReceiving)
+                                            {
+                                                var time = Convert.ToDateTime(item.ShippingTime).AddDays(10);
+                                                <input type="hidden" id="endtime" value="@time" />
+                                                <input type="hidden" id="starttime" value="@DateTime.Now" />
+                                                <div class="statues2 clearfix">
+                                                    <div class="pay border_r4 bg_orange" id="Delivery" data-url="@Url.Action("WebCompleteOrder", "WebOrder", new {area=OrderProcessModule.Area,orderId=item.Id})" data-id="@item.Id">确认收货</div>
+                                                    <div class="order_time color_666 fr" style="padding-left: 18px;">
+                                                        还剩：<span class="color_orange" id="timer"></span>
+                                                    </div>
+                                                </div>
+                                            }
+
+                                            if (item.EvaluateStatus== EvaluateStatus.NotEvaluated &&item.OrderStatus==OrderStatus.Completed)
+                                            {
+
+                                                <div class="statues3">
+                                                    <a class="pay border_r4 bg_orange" href="@Url.Action("WebEvaluateList","WebEvaluate",new {area=OrderProcessModule.Area,orderId=item.Id})">评价</a>
+                                                </div>
+                                            }
+
+                                            if (item.EvaluateStatus == EvaluateStatus.Evaluated)
+                                            {
+
+                                                <div class="statues4">
+                                                    <a class="pin border_r4" href="@Url.Action("LookEvaluate","WebEvaluate",new {area=OrderProcessModule.Area,orderId=item.Id})">查看评价</a>
+
+                                                </div>
+                                            }
+
+                                            if (item.EvaluateStatus == EvaluateStatus.Evaluated)
+                                            {
+                                                <div class="statues5">
+                                                    <a class="pin border_r4" href="@Url.Action("Delete","WebEvaluate",new {area=OrderProcessModule.Area,orderId=item.Id})">删除评价</a>
+
+                                                </div>
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            <div class="statues5">
+                                                <span class="pin border_r4">退款中</span>
+                                            </div>
+                                        }
+                                    }
+                                   
+                                     </div>
+
+                                
+                             
+                            </div>
+                        </li>
+                                            }
+                                        }
+            }
+      
+
+        </ul>
+
+    </div>
+    @Html.Action("PagePartial", "Home", new { area = "Home", url = ViewBag.Url, totalPage = ViewBag.TotalPage, currentPage = ViewBag.CurrentPage })
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/js/orderlist")
+
+    <script type="text/javascript">
+        var url_myorder = "@Url.Action("WebOrderList", "WebOrder", new {area = OrderProcessModule.Area})";
+        //倒计时
+        var time_now_server, time_now_client, time_end, time_server_client, timerID;
+            time_end = new Date($("#endtime").val()); //结束的时间
+            time_end = time_end.getTime();
+
+            time_now_server = new Date($("#starttime").val()); //开始的时间
+            time_now_server = time_now_server.getTime();
+
+            time_now_client = new Date();
+            time_now_client = time_now_client.getTime();
+
+            time_server_client = time_now_server - time_now_client;
+
+            setTimeout("show_time()", 1000);
+
+            function show_time() {
+                var timer = document.getElementById("timer");
+                if (!timer) {
+                    return;
+                }
+                timer.innerHTML = time_server_client;
+
+                var time_now, time_distance, str_time;
+                var int_day, int_hour, int_minute, int_second;
+                var time_now = new Date();
+                time_now = time_now.getTime() + time_server_client;
+                time_distance = time_end - time_now;
+                if (time_distance > 0) {
+                    int_day = Math.floor(time_distance / 86400000);
+                    time_distance -= int_day * 86400000;
+                    int_hour = Math.floor(time_distance / 3600000);;
+                    time_distance -= int_hour * 3600000;
+                    int_minute = Math.floor(time_distance / 60000);
+                    time_distance -= int_minute * 60000;
+                    int_second = Math.floor(time_distance / 1000);
+
+                    if (int_hour < 10)
+                        int_hour = "0" + int_hour;
+                    if (int_minute < 10)
+                        int_minute = "0" + int_minute;
+                    if (int_second < 10)
+                        int_second = "0" + int_second;
+                    str_time = int_day + "天" + int_hour + "小时" + int_minute + "分钟" + int_second + "秒";
+                    timer.innerHTML = str_time;
+                    setTimeout("show_time()", 1000);
+                } else {
+                    timer.innerHTML = timer.innerHTML;
+                    clearTimeout(timerID);
+                }
+            }
+       
+
+    </script>
+}

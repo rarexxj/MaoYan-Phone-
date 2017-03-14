@@ -1,0 +1,171 @@
+﻿@using System.Web.Optimization
+
+@{
+    ViewBag.SubTitle = "订单评价";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+
+}
+@model BntWeb.OrderProcess.Models.Order
+@section Styles{
+    @*两者引用是一样的*@
+    @Styles.Render("~/css/refund/allrefund")
+}
+<style>
+    #doc-queue {
+        display: none;
+    }
+
+    .upload_1 {
+        width: 316px;
+        overflow: hidden;
+    }
+
+    .upload {
+        margin-left: 15px;
+        width: 418px;
+    }
+    .img_tips {
+        display: inline-block;
+        width:400px;
+    }
+    .pinjia {
+        height: auto;
+      
+        padding-bottom:64px;
+        
+    }
+    .first_file img {
+        width:100%;
+        height:100%;
+    }
+    .pic_datails {
+        border-radius:50%;
+        -webkit-border-radius:50%;
+        background-color:#fff!important;
+    }
+    #doc, #doc-button, #SWFUpload_0 {
+        width: 82px !important;
+        height: 82px !important;
+    }
+</style>
+
+<form id="EvaluateForm" role="form" method="post" action="@Url.Action("WebSubmitEvaluate","WebEvaluate",new {area=OrderProcessModule.Area})">
+
+    <input type="hidden" id="GoodTasteScore" name="GoodTasteScore"/>
+    <input type="hidden" id="FreshMaterialScore" name="FreshMaterialScore" />
+    <input type="hidden" id="LogisticsScore" name="LogisticsScore"/>
+    <input type="hidden" id="DesMatchScore" name="DesMatchScore"/>
+    <input type="hidden" id="orderId" name="orderId"/>
+    <input type="hidden" id="EvaluateImageIds" name="EvaluateImageIds"/>
+    <div class="per_nav_right_1 fr font_s14 color_666 border_none">
+        <div class="o_list_1">
+            <ul class="order_list_name clearfix bg_pink">
+                <li class="order_one_1">商品</li>
+                <li class="order_two_1">规格</li>
+                <li class="order_three_1">单价</li>
+                <li class="order_four_1">数量</li>
+                <li class="order_five_1">小计</li>
+
+            </ul>
+            @{
+            foreach (var goods in Model.OrderGoods)
+            {
+                    <div class="order_xinxi border_none">
+                        <div class="order_img fl"
+                             style="background: url('@goods.GoodsImage.SmallThumbnail') no-repeat center; background-size: cover;"></div>
+                        <div class="order_jieshao_1 fl">
+                            <p class="order_name_1 color_000">@goods.GoodsName</p>
+
+                        </div>
+                        <div class="order_price_1 color_999 fl">
+                            <p class="order_height_1">@goods.GoodsAttribute</p>
+                        
+                        </div>
+                        <div class="order_price_tol_1  fl">￥@goods.Price</div>
+                        <div class="order_num_1 color_000 fl">@goods.Quantity</div>
+                        <div class="order_price_2 color_orange fl">￥@(goods.Quantity * goods.Price)</div>
+                    </div>
+            }
+            }
+
+        </div>
+        <div class="pinjia">
+            <p class="pinjia_title clearfix">
+                <span class="font_s16 fl ">请填写您宝贵的建议</span><span class="color_999 fr font_s14">认真填写评价可获得5积分</span>
+            </p>
+            <ul class="font_s14 xingxing">
+                <li class="clearfix">
+                    <span class="fl"><span class="color_red">*&nbsp;</span>口感满意：</span>
+                    <div class="pinjia_box kougan fl clearfix">
+                        <span class="full_orange1 full_orange"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <span class="fl"><span class="color_red">*&nbsp;</span>材料新鲜：</span>
+                    <div class="pinjia_box grade fl clearfix">
+                        <span class="full_orange1 full_orange"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <span class="fl"><span class="color_red">*&nbsp;</span>描述相符：</span>
+                    <div class="pinjia_box describe fl clearfix">
+                        <span class="full_orange1 full_orange"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <span class="fl"><span class="color_red">*&nbsp;</span>物流服务：</span>
+                    <div class="pinjia_box serve fl clearfix">
+                        <span class="full_orange1 full_orange"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                        <span class="full_orange1"></span>
+                    </div>
+                </li>
+            </ul>
+            <div class="pinjia_info clearfix">
+                <span class="fl">文字描述：</span>
+                <textarea class="pinjia_text fl" id="Content" name="Content"></textarea>
+            </div>
+        
+            <ul class="clearfix">
+                <li class="clearfix">
+                    <input type="hidden" id="RefundImageIds" name="RefundImageIds" />
+
+                    <div class="fl color_999  color_333">评价图片：</div>
+
+                    <div class="upload_1">
+                        <ul class="upload clearfix">
+                            <li class="first_file  fl">
+                                <input class="files" name="file" multiple="multiple" type="file" id="doc" value="" />
+                            </li>
+                        </ul>
+                    </div>
+
+                    <span class="color_999 img_tips">每张图片大小不超过5M，最多3张，支持GIF、JPG、PNG、BMP格式</span>
+                </li>
+
+            </ul>
+            <div class="tijiao bg_orange" data-id="@Model.Id" data-url="@Url.Action("WebOrderList","WebOrder",new {area="OrderProcess"})">提交</div>
+        </div>
+
+
+    </div>
+</form>
+@section Scripts{
+    @Scripts.Render("~/js/web/evaluateWeb")
+    @Scripts.Render("~/js/web/uploadify")
+ 
+}

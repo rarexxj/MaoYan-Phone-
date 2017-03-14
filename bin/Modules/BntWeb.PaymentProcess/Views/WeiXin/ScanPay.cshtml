@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "微信扫码支付";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<div class="main" style="padding-bottom: 90px;">
+    <div class="bread">
+        <a class="bread-a home" href="@Url.Action("PayType","WebSubmitOrder",new {area = "BntWeb-OrderProcess",order=ViewBag.OrderId})">选择支付方式</a>>
+        <a class="bread-a home" href="javascript:;">微信支付</a>
+        <!--
+        <span class="info-pro-te">共<font style="color:#c40000;">300</font>条相关产品</span> -->
+    </div>
+    <div class="payty-titbox width1190 clearfix">
+        <div class="paddinglr">
+            <a class="payty-r fanhui fr" href="@Url.Action("PayType","WebOrder",new {area = "OrderProcess",order=ViewBag.OrderId})"><span class=""><<</span>返回选择其他支付方式</a>
+        </div>
+    </div>
+    <div class="paytybottom wx-paddingbot width1190">
+        <div class="paddinglr clearfix">
+            <div class="paywx-lbox fl">
+                <div class="paywx-lboxwz">请及时付款，以便订单尽快处理！</div>
+                <div class="paywx-lboxwz">订单号：@ViewBag.OrderNo 实付：¥<span class="wx-priceall">@ViewBag.PayFee</span></div>
+                <div class="paywx-lboxwz">请在提交订单后1小时内付款，否则订单会被取消</div>
+            </div>
+
+            <div class="paywx-rbox fr">
+                <div class="fl erbox">
+                    <span class="weixwz">微信扫一扫支付</span>
+                    @{
+                        if (string.IsNullOrWhiteSpace(ViewBag.UrlImage))
+                        {
+                            <img class="erimg" src="" alt="微信支付参数错误">
+                        }
+                        else
+                        {
+                            <img class="erimg" src="@Url.Content("http://qr.topscan.com/api.php?w=260&m=0&text=" + (string) ViewBag.UrlImage)" alt="">
+                        }
+                    }
+                    
+                </div>
+                <img class="fl errimg" src="/Resources/img1/img37.png" alt="">
+            </div>
+            @*<div class="paywx-rbox fr"><img class="erwimg" src="@Url.Content("http://qr.topscan.com/api.php?w=260&m=0&text=" + (string) ViewBag.UrlImage)" alt=""><img class="errimg" src=""/></div>*@
+        </div>
+    </div>
+</div>
+<script>
+    unload = true;
+    var timer;
+    var i;
+    var orderId = '@ViewBag.OrderId';
+    function check() {
+        $.ajax({
+            url: '@Url.Action("CheckPayStatus")' + "?orderId=" + orderId,
+            type: 'POST'
+        }).done(function (data) {
+            console.log(0);
+            if (data.Success) {
+                my_alert('已付款成功,3秒后自动跳转');
+                window.clearInterval(t2);
+
+                setTimeout(function () {
+                    location.href = '@ViewBag.ReturnUrl';
+                }, 3000);
+            }
+        });
+    }
+    var t2 = window.setInterval("check()", 3000);
+</script>

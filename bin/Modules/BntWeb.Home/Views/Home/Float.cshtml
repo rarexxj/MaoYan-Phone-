@@ -1,0 +1,35 @@
+﻿@using BntWeb.Coupon
+
+@{
+
+    Layout = null;
+
+   
+}
+
+<body>
+    <div class="sidenav">
+        <div class="sidenav-top">
+            <a href="@Url.Action("WebList","WebCoupon",new {area=CouponModule.Area})">
+                <div class="sidenav-yhq">领优惠券</div>
+            </a>
+            <a href="tencent://message/?uin=2438158790&amp;Site=www.xxx.com&amp;Menu=yes"><div class="sidenav-kef">在线客服</div></a>
+            <a class="my_weixin" href="javascrit: ;">
+                <div class="sidenav-wex">关注微信</div>
+                <img class="mobile_pic" style="width:150px ;position: absolute;top: 170px;right: 100px;" src="/Resources/img/weixin.jpg">
+            
+            </a>
+         
+        </div>
+        <div class="sidenav-jt"></div>
+    </div>
+</body>
+<script type="text/javascript">
+    //回到顶部
+    $(".sidenav-jt").on('click', function() {
+        var speed = 200; //滑动的速度
+        $('body,html').animate({ scrollTop: 0 }, speed);
+        return false;
+    });
+  
+</script>

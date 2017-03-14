@@ -1,0 +1,238 @@
+﻿@using System.Web.Optimization
+@using Autofac
+@using BntWeb.Environment
+@using BntWeb.Mall.ViewModels
+@using BntWeb.Security
+@using BntWeb.Security.Identity
+@{
+    ViewBag.SubTitle = "订单评价";
+    Layout = "~/Views/Shared/_PersonalLayout.cshtml";
+
+}
+@model BntWeb.OrderProcess.Models.Order
+@section Styles{
+    @Styles.Render("~/css/web/order/evaluate")
+}
+<div class="per_nav_right_1 fr font_s14 color_666 border_none">
+    <div class="o_list_1">
+        <ul class="order_list_name clearfix bg_pink">
+            <li class="order_one_1">商品</li>
+            <li class="order_two_1">规格</li>
+            <li class="order_three_1">单价</li>
+            <li class="order_four_1">数量</li>
+            <li class="order_five_1">小计</li>
+
+        </ul>
+        @{
+            foreach (var goods in Model.OrderGoods)
+            {
+                <div class="order_xinxi border_none">
+                    <div class="order_img fl"
+                         style="background: url('@goods.GoodsImage.SmallThumbnail') no-repeat center; background-size: cover;"></div>
+                    <div class="order_jieshao_1 fl">
+                        <p class="order_name_1 color_000">@goods.GoodsName</p>
+
+                    </div>
+                    <div class="order_price_1 color_999 fl">
+                        <p class="order_height_1">@goods.GoodsAttribute</p>
+                        @*<p class="order_height_1">约12X12(CM)</p>*@
+                    </div>
+                    <div class="order_price_tol_1  fl">￥@goods.Price</div>
+                    <div class="order_num_1 color_000 fl">@goods.Quantity</div>
+                    <div class="order_price_2 color_orange fl">￥@(goods.Quantity*goods.Price)</div>
+                </div>
+            }
+        }
+        
+    </div>
+    <div class="pinjia">
+        <p class="pinjia_title clearfix">
+            <span class="font_s16 fl ">请填写您宝贵的建议</span><span class="color_999 fr font_s14">认真填写评价可获得20积分</span>
+        </p>
+        <ul class="font_s14 xingxing">
+            <li class="clearfix">
+                <span class="fl"><span class="color_red">*&nbsp;</span>综合评分 ：</span>
+                <div class="pinjia_box grade fl clearfix">
+                    <span class="full_orange1 full_orange"></span>
+                    <span class="full_orange1"></span>
+                    <span class="full_orange1"></span>
+                    <span class="full_orange1"></span>
+                    <span class="full_orange1"></span>
+                </div>
+            </li>
+            <li class="clearfix">
+                <span class="fl"><span class="color_red">*&nbsp;</span>描述相符 ：</span>
+                <div class="pinjia_box describe fl clearfix">
+                    <span class="full_orange1 full_orange"></span>
+                    <span class="full_orange1"></span>
+                    <span class="full_orange1"></span>
+                    <span class="full_orange1"></span>
+                    <span class="full_orange1"></span>
+                </div>
+            </li>
+            <li class="clearfix">
+                <span class="fl"><span class="color_red">*&nbsp;</span>物流服务 ：</span>
+                <div class="pinjia_box serve fl clearfix">
+                    <span class="full_orange1 full_orange"></span>
+                    <span class="full_orange1"></span>
+                    <span class="full_orange1"></span>
+                    <span class="full_orange1"></span>
+                    <span class="full_orange1"></span>
+                </div>
+            </li>
+
+        </ul>
+        <div class="pinjia_info clearfix">
+            <span class="fl">文字描述：</span>
+            <textarea class="pinjia_text fl" name="" rows="" cols=""></textarea>
+        </div>
+        <ul class="upload clearfix">
+            <li class="first_file  fl">
+
+                <input class="files" name="file" multiple="multiple" type="file" id="doc" value=""/>
+                <img id="preview" src=""/>
+
+
+            </li>
+            <li class="first_file  fl">
+
+                <input class="files" name="file" multiple="multiple" type="file" id="doc1" value=""/>
+                <img id="preview1" src=""/>
+
+            </li>
+            <li class="first_file fl">
+
+                <input class="files" name="file" multiple="multiple" type="file" id="doc2" value=""/>
+                <img id="preview2" src=""/>
+
+            </li>
+
+
+        </ul>
+
+        <div class="tijiao bg_orange">提交</div>
+    </div>
+
+
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+        //导航点击
+        $('.index-headnavmainul .index-navli').hover(function () {
+            $(this).addClass('active');
+            $(this).siblings().removeClass('active');
+            $(this).children('.index-navtwo').stop().slideToggle();
+        })
+
+        //
+        pinfen(".grade span");	//综合评分
+        pinfen(".describe span");	//描述相符
+        pinfen(".serve  span");	//物流服务
+        function pinfen(element) {
+            $(element).on("click", function () {
+
+                var index = $(element).index($(this));
+                var length = $(element).length;
+                if (!$(this).hasClass("full_orange")) {
+
+                    $(element).removeClass("full_orange");
+                    for (var i = 0; i < index + 1; i++) {
+
+                        $(element).eq(i).addClass("full_orange")
+
+                    }
+
+                } else {
+
+                    for (var i = length; i > index - 1; i--) {
+
+                        $(element).eq(i).removeClass("full_orange")
+
+                    }
+
+                }
+            })
+        }
+
+
+//		图片
+
+
+        var docObj = '';
+        var imgObjPreview = '';
+
+
+        $("#doc")[0].onchange = function () {
+            docObj = $("#doc")[0];
+            imgObjPreview = $("#preview")[0];
+            setImagePreview();
+            $(".upload li").eq(0).append("<div class='pic_datails'></div>");
+        }
+        $("#doc1")[0].onchange = function () {
+            docObj = $("#doc1")[0];
+            imgObjPreview = $("#preview1")[0];
+            setImagePreview();
+            $(".upload li").eq(1).append("<div class='pic_datails'></div>");
+        }
+        $("#doc2")[0].onchange = function () {
+            docObj = $("#doc2")[0];
+            imgObjPreview = $("#preview2")[0];
+            setImagePreview();
+            $(".upload li").eq(2).append("<div class='pic_datails'></div>");
+        }
+
+//图片删除
+        $(".upload").on("click", ".pic_datails", function () {
+
+            var index1 = $(".upload li").index($(this).parent());
+
+            $(".upload li").eq(index1).find('img')[0].style.display = 'none';
+            $(".upload li").eq(index1).find(".pic_datails").remove();
+
+        })
+
+        //下面用于图片上传预览功能
+        function setImagePreview(avalue) {
+
+            if (docObj.files && docObj.files[0]) {
+//火狐下，直接设img属性
+                imgObjPreview.style.display = 'block';
+                imgObjPreview.style.width = '82px';
+                imgObjPreview.style.height = '82px';
+//imgObjPreview.src = docObj.files[0].getAsDataURL();
+
+//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+                imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+
+            }
+            else {
+//IE下，使用滤镜
+                docObj.select();
+                var imgSrc = document.selection.createRange().text;
+                var localImagId = document.getElementById("localImag" + avalue + "");
+//必须设置初始大小
+                localImagId.style.width = "82px";
+                localImagId.style.height = "82px";
+//图片异常的捕捉，防止用户修改后缀来伪造图片
+                try {
+                    localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                    localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+                }
+                catch (e) {
+                    alert("您上传的图片格式不正确，请重新选择!");
+
+
+                    return false;
+                }
+                imgObjPreview.style.display = 'none';
+                document.selection.empty();
+            }
+            return true;
+        }
+
+    })
+</script>
+}
