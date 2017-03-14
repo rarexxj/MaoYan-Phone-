@@ -25,6 +25,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/0/Child',
+                    dataType:'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -37,6 +38,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/0/Child',
+                    dataType:'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -57,6 +59,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/' + id + '/Child',
+                    dataType:'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -76,6 +79,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/' + id + '/Child',
+                    dataType:'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -96,6 +100,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/' + id + '/Child',
+                    dataType:'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -152,6 +157,7 @@ $(function () {
             subajax: function (data) {
                 $.ajax({
                     url: '/Api/v1/Member/Address',
+                    dataType:'json',
                     type: 'post',
                     data: data
                 }).done(function (rs) {

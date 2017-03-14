@@ -1,13 +1,15 @@
 .comment .box {
     margin-bottom: 0.2rem;
 }
-
+.comment{
+    padding-bottom: 0.4rem;
+}
 .comment .pro-style {
     background: #fff;
 }
 
 .comment .line {
-    padding: 0 0.15rem;
+    padding: 0 0.5rem;
     border-bottom: 1px solid #e8e8e8;
     background: #fff;
     overflow: hidden;
@@ -42,14 +44,14 @@
 
 .comment .line .textarea {
     margin-top: 0.25rem;
-    width: 4.4rem;
+    width:4.6rem;
     font-size: 0.26rem;
     line-height: 0.3rem;
     color: #999999;
     height: 1.55rem;
     background: none;
     border: 0;
-    float: right;
+    float: left;
 }
 
 .comment .line .cal {
@@ -61,4 +63,79 @@
 
 .comment .submit {
     width: 6.1rem;
+}
+
+.pro-style {
+    border-bottom: 1px solid #e8e8e8;
+    display: block;
+    height: 1.3rem;
+    padding: 0.28rem 0.32rem;
+}
+
+.pro-style .img {
+    width: 1.33rem;
+    height: 1.33rem;
+    border: 0.01rem solid #e8e8e8;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 0.26rem;
+}
+
+.pro-style .info {
+    width: 3rem;
+}
+
+.pro-style .name {
+    font-size: 0.3rem;
+    line-height: 0.36rem;
+    color: #3d3d45;
+    height: 0.72rem;
+    overflow: hidden;
+}
+
+.pro-style .color {
+    font-size: 0.26rem;
+    line-height: 0.24rem;
+    color: #999999;
+    margin-top: 0.25rem;
+    width: 3rem;
+}
+
+.pro-style .color span {
+    margin-right: 0.08rem;
+}
+
+.pro-style .num {
+    width: 1.45rem;
+    text-align: right;
+    font-size: 0.24rem;
+    line-height: 0.24rem;
+}
+
+.pro-style .num .price {
+    color: #c0a85f;
+    margin-top: 0.1rem;
+    font-size: 0.3rem;
+}
+
+.pro-style .num .number {
+    margin-top: 0.18rem;
+    color: #333333;
+    font-size: 0.3rem;
+}
+
+.submit{
+    display: block;
+    width: 100%;
+    height:1.16rem;
+    background: #dccc8d;
+    font-size: 0.36rem;
+    color: #fff;
+    margin: 0.77rem auto 0;
+    border: 0;
+    border-radius: 0.07rem;
+    text-align: center;
+    line-height: 1.16rem;
+    border-radius: 6px;
 }

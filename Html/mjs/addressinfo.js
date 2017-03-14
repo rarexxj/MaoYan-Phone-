@@ -22,6 +22,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Member/Address/' + id,
+                    dataType:'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -40,6 +41,7 @@ $(function () {
             morenajax: function () {
                 $.ajax({
                     url: '/Api/v1/Member/Address/' + id + '/Default',
+                    dataType:'json',
                     type: 'patch',
                     data: {
                         addressId: id
@@ -67,6 +69,7 @@ $(function () {
             shanchuajax: function () {
                 $.ajax({
                     url: '/Api/v1/Member/Address/' + id,
+                    dataType:'json',
                     type: 'delete',
                     data: {
                         addressId: id

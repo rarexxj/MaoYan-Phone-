@@ -22,6 +22,7 @@ $(function () {
     function ajax2(data) {
         $.ajax({
             url: '/Api/v1/Member/SendCodeWeixin',
+            dataType:'json',
             type: 'post',
             data: data
         }).done(function (rs) {
@@ -54,6 +55,7 @@ $(function () {
     function ajax3(data) {
         $.ajax({
             url: '/Api/v1/Member/SendCodeWeixin',
+            dataType:'json',
             type: 'post',
             data: data
         }).done(function (rs) {
@@ -98,6 +100,7 @@ $(function () {
     function ajax1(data) {
         $.ajax({
             url: '/Api/v1/Member/' + id + '/PhoneNumber',
+            dataType:'json',
             type: 'patch',
             data: data
         }).done(function (rs) {

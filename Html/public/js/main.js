@@ -134,14 +134,13 @@ $(function () {
     $.nouser = function () {
         $(document).ajaxSuccess(function (a, xhr, settings) {
             if (xhr.responseJSON) {
-                console.log(1232131)
-                var res = xhr.responseJSON
-                if (res.returnCode == 401) {
+                var res = xhr.responseJSON;
+                if (res.returnCode == '401') {
                     $.clear_user()
                     $.Backlog()
                     return false
                 }
-                if (res.returnCode != 200) {
+                if (res.returnCode != '200') {
                     $.oppo(res.msg,1)
                 }
             }

@@ -44,6 +44,10 @@ body{
 	border: 1px solid #dddddd;
 	background: #fff;
 }
+.point-list li .box .img{
+	width:3.53rem;
+	height:3.53rem;
+}
 .point-list li .text{
 	position: relative;
 	padding: 0.24rem 0.22rem 0;

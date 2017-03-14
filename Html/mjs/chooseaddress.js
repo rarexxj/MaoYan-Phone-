@@ -24,6 +24,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Member/Address',
+                    dataType:'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {

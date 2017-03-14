@@ -33,7 +33,7 @@
     float: left;
     width: 0.95rem;
     height: 0.9rem;
-    background: url("../img/img43.jpg") no-repeat;
+    background: url("img/img43.jpg") no-repeat;
     background-size: cover;
 }
 
@@ -231,7 +231,18 @@
 
 .orderbox {
 }
-
+.back{
+    width: 1.76rem;
+    height: 0.6rem;
+    border: 0.02rem solid ##dccc8d;
+    font-size: 0.26rem;
+    line-height: 0.6rem;
+    color: #fff;
+    margin-left: 0.18rem;
+    float: right;
+    text-align: center;
+    background:#dccc8d;
+}
 .pop {
     position: fixed;
     left: 0;
