@@ -22,7 +22,7 @@
     <script type="text/javascript" src="/Html/public/js/vue.js"></script>
 </head>
 <body style="background-color: #f3fbfd">
-<div class="shopcar pb100" id="shopcar">
+<div class="shopcar pb100" id="shopcar" v-cloak="">
     <div class="box" v-for="list in info.Carts" :data-gid="list.GoodsId" :data-id="list.Id">
         <div class="ccheck" v-if="list.Status == 1"></div>
         <div class="invalid" v-if="list.Status == 0"></div>

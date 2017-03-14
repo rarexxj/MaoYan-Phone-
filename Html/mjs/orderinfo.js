@@ -1,12 +1,15 @@
 $(function () {
     $.ADDLOAD()
-    var id=$.getUrlParam('id')
+    var id = $.getUrlParam('id')
     $.checkuser();
     new Vue({
         el: '#main',
         data: {
             info: [],
-            time:''
+            time: '',
+            id:'',
+            money:'',
+            filesid:''
         },
         ready: function () {
             var _this = this;
@@ -20,18 +23,27 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Order/'+id,
+                    url: '/Api/v1/Mall/Order/' + id,
                     type: 'GET'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;
-                        _this.time=rs.data.CreateTime.toString().replace(/-/g, "/");;
+                        _this.time = rs.data.CreateTime.toString().replace(/-/g, "/");
+                        ;
+                        _this.id=rs.data.Id;
+                        _this.money=rs.data.PayFee;
                         console.log(_this.time);
-                        _this.$nextTick(function(){
-                            if(rs.data.OrderStatus==0){
+                        _this.$nextTick(function () {
+                            if (rs.data.OrderStatus == 0) {
                                 _this.countDown(_this.time, '.deadline');
                             }
                         })
+                        var a = [];
+                        for (i = 0; i < rs.data.OrderGoods.length; i++) {
+                            a.push(rs.data.OrderGoods[i].GoodsImage.Id);
+                        }
+                        b=a.join('|');
+                        _this.filesid=b;
                         $.RMLOAD();
                     }
                 })
@@ -55,6 +67,14 @@ $(function () {
                 $('#main').on('click', '.delete-btn', function () {
                     _this.deletajax();
                 })
+
+                $('#main').on('click', '.back', function () {
+                    _this.tuikclick();
+                })
+            },
+            tuikclick: function () {
+                var _this=this;
+                window.location.href='/Html/html/personalcenter/tuiktype.html?oid='+_this.id+'&mp='+_this.money+'&filesid='+_this.filesid
             },
             cancleajax: function () {
                 $.ajax({

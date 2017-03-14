@@ -1,0 +1,133 @@
+.order-info .status {
+    padding: 0.24rem 0.15rem 0.27rem;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 0.2rem;
+}
+
+.order-info .status .color {
+    color: #78a000;
+}
+
+.order-info .status p {
+    font-size: 0.26rem;
+    line-height: 0.48rem;
+    color: #333;
+}
+
+.order-info .status .time {
+    color: #78a000;
+}
+
+.order-info .status .btns {
+    margin-top: 0.44rem;
+}
+
+.order-info .status .btns .btn {
+    width: 2.93rem;
+    height: 0.86rem;
+    border: 1px solid #999999;
+    line-height: 0.86rem;
+    text-align: center;
+    font-size: 0.36rem;
+    color: #999;
+    border-radius: 0.08rem;
+    display: block;
+}
+
+.order-info .status .btns .btn.cur {
+    border-color: #78a000;
+    color: #78a000;
+}
+
+.order-info .status .btns .bigbtn {
+    width: 6.08rem;
+    height: 0.86rem;
+    border: 1px solid #78a000;
+    color: #78a000;
+    text-align: center;
+    font-size: 0.36rem;
+    border-radius: 0.08rem;
+    line-height: 0.86rem;
+    display: block;
+}
+.order-info .choadd {
+    height: 1.62rem;
+    background: #fff;
+    position: relative;
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0 0.32rem 0 0.73rem;
+    background: #fff url("../img/img37.png") no-repeat 0.15rem 0.37rem;
+    background-size: 0.34rem 0.51rem;
+}
+
+.order-info .choadd a {
+    display: block;
+    height: 100%;
+}
+
+.order-info .choadd .name {
+    width: 2.78rem;
+    line-height: 0.69rem;
+    color: #444;
+    font-size: 0.26rem;
+}
+
+.order-info .choadd .tel {
+    line-height: 0.69rem;
+    color: #444;
+    font-size: 0.24rem;
+}
+
+.order-info .choadd .add {
+    font-size: 0.24rem;
+    line-height: 0.35rem;
+    color: #666;
+}
+
+.order-info .pro-style {
+    background: #fff;
+    margin-top: 0.2rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+.order-info .line {
+    height: 0.86rem;
+    padding: 0 0.15rem;
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    overflow: hidden;
+}
+
+.order-info .line .tt {
+    float: left;
+    line-height: 0.86rem;
+    font-size: 0.3rem;
+    color: #333;
+}
+
+.order-info .line .price {
+    font-size: 0.3rem;
+    line-height: 0.86rem;
+    color: #e84608;
+    font-family: 'Arial';
+    float: right;
+}
+
+.order-info .line .price .dec {
+    font-size: 0.24rem;
+}
+
+.order-info .money {
+    margin-top: 0.2rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+.order-info .line.money .price {
+    font-size: 0.36rem;
+}
+
+.order-info .line.money .price .dec {
+    font-size: 0.3rem;
+}

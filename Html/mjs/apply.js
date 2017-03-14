@@ -1,11 +1,10 @@
-/**
- * Created by admin on 2016/9/8.
- */
 $(function () {
-    var oid = $.getUrlParam('oid');
-    var gid = $.getUrlParam('gid');
+    $.checkuser();
+    var oid = $.getUrlParam('oid');     // 订单id
+    var filesid = $.getUrlParam('filesid');     //退款图片Id数组
     var mp = $.getUrlParam('mp');
     var RefundType = $.getUrlParam('RefundType');
+    filesid2=filesid.split('|');
     //退款类型
     if (RefundType==0){
         $('.type').html('仅退款')
@@ -15,7 +14,7 @@ $(function () {
         $('.type').html('换货')
     }
     //默认退款价格
-    $('.priceinput').val(mp);
+    $('.priceinput').val(Number(mp).toFixed(2));
     $('.priceinput').attr('data-max',mp)
     js();
     function js() {
@@ -42,7 +41,7 @@ $(function () {
                 $('.submit').addClass('gray');
                 var datas={
                     OrderId:oid,
-                    SingleGoodsId:gid,
+                    FilesId:filesid2,
                     RefundType:RefundType,
                     RefundAmount:parseFloat($('.priceinput').val()),
                     Reason:$('.textarea').val()
@@ -59,7 +58,7 @@ $(function () {
         }).done(function (rs) {
             if (rs.returnCode == '200'){
                 $.oppo('提交成功',1,function () {
-                    window.location.replace("/Html/html/personalcenter/orderinfo.html?oid="+oid+"&gid="+gid)
+                    window.location.replace("/Html/html/personalcenter/tuikinfo.html?oid="+oid+"&filesid="+filesid)
 
                 })
             }

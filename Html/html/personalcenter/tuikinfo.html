@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-language" content="zh-CN"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="杭州博采网络科技股份有限公司-高端网站建设-http://www.bocweb.cn"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>成都猫眼食品有限责任公司</title>
+    <link rel="stylesheet" href="/Html/public/css/reset.css">
+    <link rel="stylesheet" href="/Html/public/css/main.css">
+    <link rel="stylesheet" href="/Html/public/css/reset.css">
+    <link rel="stylesheet" href="/Html/public/css/main.css">
+    <link rel="stylesheet" href="/Html/css/tuikinfo.css">
+    <script src="/Html/public/js/jQuery.js"></script>
+    <script src="/Html/public/js/vue.js"></script>
+    <script src="/Html/public/js/main.js"></script>
+
+</head>
+<body style="background-color: #f3fbfd">
+<div class="order-info as-info" id="as_info">
+    <div class="statusbox">
+        <!--审核中-->
+        <div class="status" v-if="Datail.RefundStatus==0">
+            <p>订单编号：{{Datail.RefundNo}}</p>
+            <p>订单状态：<span class="e84608">卖家审核中</span></p>
+            <div class="btns f-cb">
+                <a :href="'/Html/AfterSales/ChangeApply.html?aid='+Datail.Id+'&RefundType='+Datail.RefundType+'&money='+Datail.RefundAmount+'&oid='+Datail.OrderId+'&gid='+Datail.SingleGoodsId" class="btn fl">修改申请</a>
+                <div class="btn fr cur can-btns">撤销申请</div>
+            </div>
+        </div>
+        <!--已发货，审核中-->
+        <div class="status" v-if="Datail.RefundStatus==2&&Datail.ReviewResult==1&&Datail.RefundType==1&&Datail.ShippingName">
+            <p>订单编号：{{Datail.RefundNo}}</p>
+            <p>订单状态：<span class="e84608">审核通过,等待卖家退款</span></p>
+        </div>
+        <!--审核通过-->
+        <div class="status" v-if="Datail.ReviewResult==1&&Datail.RefundStatus==3">
+            <p>订单编号：{{Datail.RefundNo}}</p>
+            <p>订单状态：<span class="e84608">审核通过</span></p>
+            <div class="getsuccess">退款成功！ {{Datail.RefundAmount}}元已按照原打款路径退回</div>
+        </div>
+        <!--审核未通过-->
+        <div class="status" v-if="Datail.ReviewResult==0&&Datail.RefundStatus==3">
+            <p>订单编号：{{Datail.RefundNo}}</p>
+            <p>订单状态：<span class="e84608">审核未通过</span></p>
+            <div class="getsuccess">抱歉，你的退款申请审核未通过!</div>
+            <!--<div class="tips">你可以修改后再次发起，或者直接联系客服处理 <br> 客服：宝宝    QQ：601113254</div>-->
+            <div class="tips">{{Datail.ReviemMemo}}</div>
+        </div>
+        <!--退货并退款（审核通过）-->
+        <div class="status" v-if="Datail.ReviewResult==1&&Datail.RefundType==1&&Datail.RefundStatus==2&&Datail.ShippingName==null">
+            <p>订单编号：{{Datail.RefundNo}}</p>
+            <p>订单状态：<span class="e84608">审核通过,等待买家发货</span></p>
+            <!--<p>还剩下 <span class="color day">6</span>天<span class="color hour">23</span>小时 发货</p>-->
+            <div class="btns">
+                <a :href="'/Html/AfterSales/ReturnAddress.html?aid='+Datail.Id" class="bigbtn">发货</a>
+            </div>
+        </div>
+    </div>
+    <!--<div class="choadd">-->
+    <!--<div class="name fl">收货人：{{Datail.Consignee}}</div>-->
+    <!--<span class="tel fl">{{Datail.Tel}}</span>-->
+    <!--<div class="clear"></div>-->
+    <!--<div class="add">收货地址：{{Datail.Address}}</div>-->
+    <!--</div>-->
+    <div class="refund-info" v-if="Datail.ShippingName">
+        <div class="tit">退货详情</div>
+        <p>物流公司：{{Datail.ShippingName}}</p>
+        <p>物流单号：{{Datail.ShippingNo}}</p>
+        <p>退货说明：{{Datail.ShippingMemo}}</p>
+    </div>
+    <div class="pro-style">
+        <div class="img fl" :style="{backgroundImage: 'url('+Goods.MainImage.SmallThumbnail+')'}"></div>
+        <div class="info fl">
+            <div class="name">{{Goods.GoodsName}}</div>
+            <div class="color"><span v-for="sx in Goods.shuxi">{{sx}}</span></div>
+        </div>
+        <div class="num fr">
+            <div class="price">¥ {{Goods.prices1}}.{{Goods.prices2}}</div>
+            <div class="number">x {{Goods.Quantity}}</div>
+        </div>
+    </div>
+    <div class="refund">
+        <div class="linem f-cb">
+            <div class="tt">退款金额</div>
+            <div class="price">¥{{Datail.prices1}}.{{Datail.prices2}}</div>
+        </div>
+        <div class="linem f-cb">
+            <div class="tt">退款原因</div>
+            <div class="reason">{{Datail.Reason}}</div>
+        </div>
+        <div class="seal succeed" v-if="Datail.ReviewResult==1&&Datail.RefundStatus==3"></div>
+        <div class="seal faid" v-if="Datail.ReviewResult==0&&Datail.RefundStatus==3"></div>
+        <div class="seal pass" v-if="Datail.ReviewResult==1&&Datail.RefundStatus==2"></div>
+    </div>
+</div>
+<div class="pop dn pop-can">
+    <div class="box">
+        <p class="tit">确认撤销申请?</p>
+        <div class="btnb">
+            <p><a class="no">取消</a></p>
+            <p><a class="ok can-btn">确定</a></p>
+        </div>
+    </div>
+</div>
+<div class="new-loading"><ul class="small-loading"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul></div>
+<script src="/Html/mjs/tuikinfo.js"></script>
+</body>
+
+</html>

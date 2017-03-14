@@ -78,7 +78,7 @@
                         <div class="proimg" :style="{backgroundImage: '+pro.MainImage.RelativePath+')'}"></div>
                         <div class="wenzbox">
                             <span class="name">{{pro.Name}}</span>
-                            <span class="price">￥{{pro.ShopPrice}}</span>
+                            <span class="price">￥{{pro.ShopPrice.toFixed(2)}}</span>
                         </div>
                     </a>
                 </div>

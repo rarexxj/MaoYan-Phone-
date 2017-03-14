@@ -8,9 +8,9 @@ $(function () {
 
             var data2={}
             if ($(this).find('.pf li.cur').length == '0'){
-                oppo('请评分',1);
+                $.oppo('请评分',1);
             }else if($(this).find('.textarea').val() == ''){
-                oppo('请填写评价',1);
+                $.oppo('请填写评价',1);
             }else{
                 data2={
                     // orderId:id,
@@ -42,15 +42,9 @@ $(function () {
             type:"post"
         }).done(function (rs) {
             if (rs.returnCode == '200'){
-                oppo('提交成功' ,1,function () {
+                $.oppo('提交成功' ,1,function () {
                     window.location.replace("/Html/Order/MyOrder.html?orderType=0")
                 })
-            }else{
-                if(rs.returnCode == '401'){
-                    Backlog();
-                }else{
-                    oppo(rs.msg ,1)
-                }
             }
         })
     }
@@ -64,12 +58,6 @@ $(function () {
         }).done(function (rs) {
             if (rs.returnCode == '200'){
                 view(rs.data);
-            }else{
-                if(rs.returnCode == '401'){
-                    Backlog();
-                }else{
-                    oppo(rs.msg ,1)
-                }
             }
         })
     }
