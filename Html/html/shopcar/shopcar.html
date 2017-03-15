@@ -28,7 +28,7 @@
         <div class="invalid" v-if="list.Status == 0"></div>
         <div class="img fl" :style="{backgroundImage: 'url('+list.GoodsImage.MediumThumbnail+')'}"><a
                 :href="'/Html/Products/Info.html?id='+list.GoodsId"></a></div>
-        <a :href="'/Html/Products/Info.html?id='+list.GoodsId" class="info fr">
+        <a :href="'/Html/html/fenlei/productsinfo.html?id='+list.GoodsId" class="info fr">
             <div class="tt">{{list.GoodsName}}</div>
             <div class="int"><span v-for="sx in list.shuxi">{{sx}}</span></div>
             <div class="bot f-cb" :data-quantity="list.Quantity" :data-stock="list.Stock">

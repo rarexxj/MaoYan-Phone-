@@ -81,19 +81,19 @@
                         </ul>
                     </div>
                     <div class="che-com" id="che_com">
-                        <div class="content" v-for="list in evainfo">
+                        <div class="content" v-for="list in evainfo.Evaluates">
                             <div class="top f-cb">
                                 <div class="name fl" v-if="list.IsAnonymity">匿名</div>
                                 <div class="name fl" v-else="">{{list.MemberName}}</div>
                                 <ul>
                                     <li v-for="xing in 5" :class="[$index<list.Score?'cur':'']"></li>
                                 </ul>
-                                <div class="time fr">{{list.newtime}}</div>
+                                <div class="time fr">{{list.EvaluateTime.split(' ')[0]}}</div>
                             </div>
                             <div class="words">{{list.Content}}</div>
                             <div class="reply" v-if="list.ReplyContent">
                                 {{list.ReplyContent}}
-                                <div class="time">{{list.newrtime}}</div>
+                                <div class="time">{{list.ReplyTime}}</div>
                                 <i></i>
                             </div>
                         </div>

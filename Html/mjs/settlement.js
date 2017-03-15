@@ -79,15 +79,9 @@ $(function () {
                     $('#main').on('click', '.choadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?id=" + id
                     })
-                    $('#main').on('click', '.addadd .a', function () {
-                        window.location.href = "/Html/html/shopcar/chooseaddaddress.html?id=" + id
-                    })
                 } else {
                     $('#main').on('click', '.choadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?gid=" + gid
-                    })
-                    $('#main').on('click', '.addadd .a', function () {
-                        window.location.href = "/Html/html/shopcar/chooseaddaddress.html?gid=" + gid
                     })
                 }
 
@@ -146,7 +140,7 @@ $(function () {
             },
             inputajax: function (message) {
                 $.ajax({
-                    url: '/Api/v1/Mall/Order',
+                    url: '/Api/v1/Mall/OrderSubmit',
                     data: message,
                     type: 'post'
                 }).done(function (rs) {

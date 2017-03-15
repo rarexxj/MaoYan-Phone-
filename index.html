@@ -43,61 +43,62 @@
                 <span class="index-navwz">我的</span>
             </a>
         </div>
-        <div class="sidebarnav">
+        <div class="sidebarnav left">
             <div class="sidebar">
                 <div class="cake" v-for="sidenav in proinfo.OneLevelCategorys">
                     <span class="logo" :style="{backgroundImage:'url('+sidenav.CategoryImage.RelativePath+')'}"></span>
                     <span class="cakewz">{{sidenav.Name}}</span>
                 </div>
             </div>
-            <div class="toleft"></div>
+            <div class="toright"></div>
         </div>
         <div class="rightbar">
             <div class="logo9 scroll"></div>
-            <div class="logo10"></div>
-        </div>
-    </div>
-    <div class="index-box" id="index">
-        <div class="swiper-container">
-            <div class="index-banner swiper-wrapper">
-                <a :href="banner.url" :class="['swiper-slide']" v-for="banner in banner"
-                   :style="{backgroundImage: 'url('+banner.CoverImage.RelativePath+')'}"></a>
+            <div class="logo10"></a>
             </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
         </div>
-        <div class="mainbox">
-            <div class="main" v-for="list in proinfo.Categories">
-                <a :href='"/Html/html/fenlei/productslist.html?id="+list.Id' class="top clearfix">
-                    <div class="title fl">{{list.Name}}</div>
-                    <!--<div class="title fl">蛋糕<span>Cake</span></div>-->
-                    <div class="fr more">更多</div>
-                </a>
-                <div class="products clearfix">
-                    <a :href='"/Html/html/fenlei/productsinfo.html?id="+pro.Id' class="probox" v-for="pro in list.Goods">
-                        <div class="proimg" :style="{backgroundImage: '+pro.MainImage.RelativePath+')'}"></div>
-                        <div class="wenzbox">
-                            <span class="name">{{pro.Name}}</span>
-                            <span class="price">￥{{pro.ShopPrice.toFixed(2)}}</span>
-                        </div>
+        <div class="index-box" id="index">
+            <div class="swiper-container">
+                <div class="index-banner swiper-wrapper">
+                    <a :href="banner.url" :class="['swiper-slide']" v-for="banner in banner"
+                       :style="{backgroundImage: 'url('+banner.CoverImage.RelativePath+')'}"></a>
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="mainbox">
+                <div class="main" v-for="list in proinfo.Categories">
+                    <a :href='"/Html/html/fenlei/productslist.html?id="+list.Id' class="top clearfix">
+                        <div class="title fl">{{list.Name}}</div>
+                        <!--<div class="title fl">蛋糕<span>Cake</span></div>-->
+                        <div class="fr more">更多</div>
                     </a>
+                    <div class="products clearfix">
+                        <a :href='"/Html/html/fenlei/productsinfo.html?id="+pro.Id' class="probox"
+                           v-for="pro in list.Goods">
+                            <div class="proimg" :style="{backgroundImage:'url('+pro.MainImage.RelativePath+')'}"></div>
+                            <div class="wenzbox">
+                                <span class="name">{{pro.Name}}</span>
+                                <span class="price">￥{{pro.ShopPrice.toFixed(2)}}</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="new-loading">
-    <ul class="small-loading">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</div>
-<script type="text/javascript" src="/Html/mjs/index.js"></script>
+    <div class="new-loading">
+        <ul class="small-loading">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="/Html/mjs/index.js"></script>
 </body>
 </html>
