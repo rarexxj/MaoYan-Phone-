@@ -2,7 +2,6 @@ $(function () {
     var aid = $.getUrlParam('aid');
     var oid = $.getUrlParam('oid');
     var gid = $.getUrlParam('gid');
-    var filesid = $.getUrlParam('filesid');
     var money = $.getUrlParam('money');
     var RefundType = $.getUrlParam('RefundType');
     //退款类型
@@ -51,7 +50,7 @@ $(function () {
         }).done(function (rs) {
             if (rs.returnCode == '200'){
                 $.oppo('提交成功',1,function () {
-                    window.location.replace("/Html/AfterSales/Info.html?oid="+oid+"&gid="+gid)
+                    window.location.replace("/Html/html/personalcenter/tuikinfo.html?oid="+oid)
                 })
             }
         }).always(function () {

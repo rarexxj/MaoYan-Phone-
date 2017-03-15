@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="/Html/css/comment.css">
 </head>
 <body style="background-color: #f3fbfd">
-<div class="comment" id="comment">
-    <div class="box" v-for="list in OrderGoods" :data-id="list.SingleGoodsId">
+<div class="comment" id="comment" v-cloak="">
+    <div class="box" v-for="list in OrderGoods" :data-id="list.SingleGoodsId" :data-imgid="list.GoodsImage.Id">
         <div class="pro-style">
             <div class="img fl" :style="{backgroundImage: 'url('+list.GoodsImage.SmallThumbnail+')'}"></div>
             <div class="info fl">
@@ -96,7 +96,18 @@
 
     <div class="submit">确认提交</div>
 </div>
-
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
 
 <script src="/Html/mjs/comment.js"></script>
 

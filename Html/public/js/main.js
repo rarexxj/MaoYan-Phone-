@@ -2,12 +2,6 @@
  * Created by admin on 2016/8/16.
  */
 $(function () {
-    $.ajaxSetup({
-        headers: {
-
-
-        }
-    })
 //rem
     function set_font() {
         // 计算、转换布局单位
@@ -127,7 +121,7 @@ $(function () {
         if (window.TOKEN) {
             $.ajaxSetup({
                 headers: {
-                    'Content-type': 'application/json',
+                    // 'Content-type': 'application/json',
                     Authorization: 'Basic ' + window.base64encode(window.TOKEN)
                 }
             })
@@ -201,6 +195,7 @@ function CountDown(obj) {
     var timer = setInterval(function () {
         if (t == 0) {
             obj.val('获取验证码');
+            obj.removeAttr("disabled");
             clearInterval(timer);
         } else {
             obj.val(t + '秒后重发');

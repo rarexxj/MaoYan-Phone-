@@ -1,5 +1,5 @@
 $(function () {
-    // $.ADDLOAD();
+    $.ADDLOAD();
     $.checkuser();
     var id  = $.getUrlParam('id');
     ajaxinfo();
@@ -15,13 +15,13 @@ $(function () {
                 data2={
                     // orderId:id,
                     SingleGoodsId:$(this).attr('data-id'),
-                    Score:$(this).find('.kg li.cur').length,
-                    LogisticsScore:(this).find('.kg li.cur').length,
-                    DescriptionScore:$(this).find('.kg li.cur').length,
-                    DescriptionScore:$(this).find('.kg li.cur').length,
+                    GoodTasteScore:$(this).find('.kg li.cur').length,
+                    LogisticsScore:$(this).find('.my li.cur').length,
+                    DesMatchScore:$(this).find('.ms li.cur').length,
+                    FreshMaterialScore:$(this).find('.xx li.cur').length,
                     Content:$(this).find('.textarea').val(),
-                    IsAnonymity:$(this).find('.weui_switch').is(':checked'),
-                    FilesId:''
+                    // IsAnonymity:$(this).find('.weui_switch').is(':checked'),
+                    FilesId:$(this).attr('data-imgid')
                 }
                 data1.push(data2)
             }
@@ -46,7 +46,7 @@ $(function () {
         }).done(function (rs) {
             if (rs.returnCode == '200'){
                 $.oppo('提交成功' ,1,function () {
-                    window.location.replace("/Html/Order/MyOrder.html?orderType=0")
+                    window.location.replace("/Html/html/personalcenter/myorder.html?orderType=0")
                 })
             }
         })
@@ -61,11 +61,11 @@ $(function () {
         }).done(function (rs) {
             if (rs.returnCode == '200'){
                 view(rs.data);
+                $.RMLOAD();
             }
         })
     }
     function view(rs) {
-        //转换价格
         new Vue({
             el:'#comment',
             data:rs,
