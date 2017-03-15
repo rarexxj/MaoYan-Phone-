@@ -2,7 +2,12 @@
  * Created by admin on 2016/8/16.
  */
 $(function () {
+    $.ajaxSetup({
+        headers: {
 
+
+        }
+    })
 //rem
     function set_font() {
         // 计算、转换布局单位
@@ -122,6 +127,7 @@ $(function () {
         if (window.TOKEN) {
             $.ajaxSetup({
                 headers: {
+                    'Content-type': 'application/json',
                     Authorization: 'Basic ' + window.base64encode(window.TOKEN)
                 }
             })
@@ -133,8 +139,8 @@ $(function () {
     //自动调取后台错误码
     $.nouser = function () {
         $(document).ajaxSuccess(function (a, xhr, settings) {
-            if (xhr.responseJSON) {
-                var res = xhr.responseJSON;
+            if (xhr.responseText) {
+                var res = JSON.parse(xhr.responseText)
                 if (res.returnCode == '401') {
                     $.clear_user()
                     $.Backlog()

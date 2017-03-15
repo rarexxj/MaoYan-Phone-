@@ -23,6 +23,7 @@ $(function () {
         $.ajax({
             url: '/Api/v1/Login',
             type: 'post',
+            dataType:'json',
             data: {
                 PhoneNumber: _zh,
                 Password: _mm,
