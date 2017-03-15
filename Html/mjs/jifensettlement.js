@@ -1,13 +1,9 @@
 $(function () {
     $.ADDLOAD()
     $.checkuser();
-    var id = $.getUrlParam('id');   //购物车id
-    var gid = $.getUrlParam('gid'); //单品id和数量
+    var id = $.getUrlParam('id');   //积分换购商品id
     var addid = $.getUrlParam('addid');
     var jjid=$.getUrlParam('jjid');
-    if (gid) {
-        var gid2 = gid.split('|')[0]; //单品id
-    }
     var ids = {}
     if (id) {
         if (id.indexOf('|') > 0) {
@@ -18,13 +14,7 @@ $(function () {
     } else {
         ids.IsFromCart = false;
     }
-    if (gid) {
-        ids.SingleGoods = [];
-        var a = {}
-        a.SingleGoodsId = gid.split('|')[0];
-        a.Quantity = gid.split('|')[1];
-        ids.SingleGoods.push(a)
-    }
+
     if (addid) {
         ids.AddressId = addid
     }
@@ -58,11 +48,12 @@ $(function () {
         methods: {
             ajax: function () {
                 var _this = this;
-                console.log(_this.data1)
                 $.ajax({
-                    url: "/Api/v1/Mall/OrderCalculation",
-                    data: _this.data1,
-                    type: 'post'
+                    url: "/Api/v1/Mall/IntegralOrderCalculation?goodsId="+id,
+                    data: {
+                    },
+                    type: 'post',
+                    dataType:'json'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;

@@ -20,6 +20,8 @@
     <script src="/Html/public/js/jQuery.js"></script>
     <script src="/Html/public/js/vue.js"></script>
     <script src="/Html/public/js/main.js"></script>
+    <script src="/Html/public/js/uploadImage.js"></script>
+    <script src="/Html/public/js/exif.js"></script>
 
 </head>
 <body style="background-color: #f3fbfd">
@@ -27,7 +29,7 @@
     <div class="head f-cb">
         <span>头像</span>
         <div class="img fr"><img v-if="info.Avatar" :src="info.Avatar.RelativePath" width="100%" height="100%" alt=""><img v-else="" src="/Html/css/img/img08.png" width="100%" height="100%" alt=""></div>
-        <input type="file" class="file">
+        <input type="file" class="file" accept="image/*" id="uploadImage" onchange="selectFileImage(this)" capture="camera";>
         <div class="jt"></div>
     </div>
     <div class="line bb myname">
