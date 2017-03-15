@@ -319,6 +319,7 @@
     height: 1.05rem;
     background: url("img/logo10.png") no-repeat center;
     background-size: cover;
+    display: block;
 }
 
 .rightbar {

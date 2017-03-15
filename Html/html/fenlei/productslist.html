@@ -22,7 +22,7 @@
     <script type="text/javascript" src="/Html/public/js/vue.js"></script>
     <title>成都猫眼食品有限责任公司</title>
 </head>
-<body>
+<body style="background-color: #f3fbfd">
 <div id="mainlist">
     <div class="box" v-cloak="">
         <div class="index-navbox clearfix">
@@ -45,7 +45,7 @@
         </div>
         <div class="rightbar">
             <div class="logo9 scroll"></div>
-            <div class="logo10"></div>
+            <a :href="'tel:'+telinfo.data" class="logo10"></a>
         </div>
         <div class="products-nav f-cb">
             <div class="left fl f-cb">
@@ -109,7 +109,7 @@
         <div class="mainbox">
             <div class="main">
                 <div class="products clearfix">
-                    <a href="##" class="probox" v-for="pro in info">
+                    <a :href="'/Html/html/fenlei/productsinfo.html?id='+pro.Id" class="probox" v-for="pro in info">
                         <div class="proimg" :style="{backgroundImage: 'url('+pro.MainImage.RelativePath+')'}"></div>
                         <div class="wenzbox">
                             <span class="name">{{pro.Name}}</span>

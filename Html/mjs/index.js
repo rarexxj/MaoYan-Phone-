@@ -4,7 +4,8 @@ $(function () {
         el: '#main',
         data: {
             banner: [],
-            proinfo: []
+            proinfo: [],
+            telinfo:[]
         },
         ready: function () {
             var _this = this;
@@ -13,6 +14,7 @@ $(function () {
             _this.$nextTick(function () {
                 _this.totop();
                 _this.others();
+                _this.tel();
                 setTimeout(function () {
                     _this.swipe();
                 }, 300)
@@ -119,6 +121,19 @@ $(function () {
                         _this.$nextTick(function(){
                             _this.poheight();
                         })
+                        $.RMLOAD();
+                    }
+                })
+            },
+            tel:function () {
+                var _this=this;
+                $.ajax({
+                    url: '/Api/v1/Mall/CustomPhone',
+                    type: 'get'
+                }).done(function (rs) {
+                    if (rs.returnCode == '200') {
+                        _this.telinfo = rs;
+                        console.log(_this.telinfo)
                         $.RMLOAD();
                     }
                 })

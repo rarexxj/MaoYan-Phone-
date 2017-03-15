@@ -8,6 +8,7 @@ $(function () {
         el: '#mainlist',
         data: {
             info: [],
+            telinfo:[],
             ajaxdata:{
                 PageNo: '1',
                 Limit: '10',
@@ -20,6 +21,7 @@ $(function () {
             var _this = this;
             _this.zongheajax();
             _this.$nextTick(function () {
+                _this.tel();
                 _this.totop();
                 _this.zonghpx();
                 _this.xiaolpx();
@@ -180,12 +182,12 @@ $(function () {
                     if (val == '') {
                         $.oppo('请输入关键字', 1)
                     } else {
-                        window.location.href = "/Html/searchlist.html?key=" + encodeURIComponent(encodeURIComponent(val))
+                        window.location.href = "/Html/html/fenlei/searchlist.html?key=" + encodeURIComponent(encodeURIComponent(val))
                     }
                 })
                 $('#mainlist').on('click', '.search-box .con li',function () {
                     var val = $(this).attr('data-tag')
-                    window.location.href = "/Html/searchlist.html?key=" + encodeURIComponent(encodeURIComponent(val))
+                    window.location.href = "/Html/html/fenlei/searchlist.html?key=" + encodeURIComponent(encodeURIComponent(val))
                 })
                 $('.search-box .text').on('keyup', function () {
                     if ($(this).val() == '') {
@@ -208,6 +210,19 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.taginfo=rs.data
+                    }
+                })
+            },
+            tel:function () {
+                var _this=this;
+                $.ajax({
+                    url: '/Api/v1/Mall/CustomPhone',
+                    type: 'get'
+                }).done(function (rs) {
+                    if (rs.returnCode == '200') {
+                        _this.telinfo = rs;
+                        console.log(_this.telinfo)
+                        $.RMLOAD();
                     }
                 })
             }

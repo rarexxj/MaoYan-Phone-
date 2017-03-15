@@ -108,8 +108,11 @@ $(function () {
                     type: 'post'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
-                        window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime)
-
+                        if(rs.data.PayFee==0){
+                            window.location.href="/Html/html/personalcenter/personalcenter.html"
+                        }else{
+                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime)
+                        }
                     }
                 })
             }

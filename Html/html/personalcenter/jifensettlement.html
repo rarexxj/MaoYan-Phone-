@@ -36,23 +36,36 @@
 <div id="main">
     <div class="confirm-order">
         <div class="srollbox">
-            <div class="choadd" v-if="info.DefaultAddress">
+            <div class="choadd" v-if="info.AddAddress">
                 <!--<a :href="'/Html/ShopCar/ChooseAddress.html?id='+backid">-->
                 <div class="a">
-                    <div class="name fl">收货人：{{info.DefaultAddress.Contacts}}</div>
-                    <span class="tel fl">{{info.DefaultAddress.Phone}}</span>
+                    <div class="name fl">收货人：{{info.AddAddress.Contacts}}</div>
+                    <span class="tel fl">{{info.AddAddress.Phone}}</span>
                     <div class="clear"></div>
-                    <div class="add">收货地址：{{info.DefaultAddress.RegionName}}{{info.DefaultAddress.Address}}</div>
+                    <div class="add">收货地址：{{info.AddAddress.RegionName}}{{info.AddAddress.Address}}</div>
                     <i></i>
                 </div>
                 <!--</a>-->
             </div>
-            <div class="addadd" v-else="">
-                <!--<a :href="'/Html/ShopCar/ChooseAddAddress.html?id='+backid">-->
-                <div class="a">
-                    <span class="tt">请添加收货地址</span>
+            <div v-else="">
+                <div class="choadd" v-if="info.DefaultAddress">
+                    <!--<a :href="'/Html/ShopCar/ChooseAddress.html?id='+backid">-->
+                    <div class="a">
+                        <div class="name fl">收货人：{{info.DefaultAddress.Contacts}}</div>
+                        <span class="tel fl">{{info.DefaultAddress.Phone}}</span>
+                        <div class="clear"></div>
+                        <div class="add">收货地址：{{info.DefaultAddress.RegionName}}{{info.DefaultAddress.Address}}</div>
+                        <i></i>
+                    </div>
+                    <!--</a>-->
                 </div>
-                <!--</a>-->
+                <div class="addadd" v-else="">
+                    <!--<a :href="'/Html/ShopCar/ChooseAddAddress.html?id='+backid">-->
+                    <div class="a">
+                        <span class="tt">请添加收货地址</span>
+                    </div>
+                    <!--</a>-->
+                </div>
             </div>
             <div class="shopcar detailed">
                 <div class="box clearfix">
