@@ -3,8 +3,8 @@ $(function () {
     var reg = /^1[3|4|5|7|8]\d{9}$/;
     var id = $.getUrlParam('id');
     var gid = $.getUrlParam('gid');
-    var type = $.getUrlParam('type');
-    var mode=$.getUrlParam('mode');
+    var hgid = $.getUrlParam('hgid');
+
     $.checkuser();
     new Vue({
         el: '#main',
@@ -155,8 +155,10 @@ $(function () {
                         $.oppo('保存成功', 1);
                         if (id) {
                             window.location.href = "/Html/html/shopcar/settlement.html?id=" + id + '&addid=' + rs.data.Id
-                        } else {
+                        } else if(gid){
                             window.location.href = "/Html/html/shopcar/settlement.html?gid=" + gid + '&addid=' + rs.data.Id
+                        }else if(hgid){
+                            window.location.href = "/Html/html/personalcenter/jifensettlement.html?hgid=" + hgid + '&addid=' + rs.data.Id
                         }
                     }
                 })

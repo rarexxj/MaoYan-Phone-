@@ -16,7 +16,7 @@
     <title>成都猫眼食品有限责任公司</title>
     <link rel="stylesheet" href="/Html/public/css/reset.css">
     <link rel="stylesheet" href="/Html/public/css/main.css">
-    <link rel="stylesheet" href="/Html/css/settlement.css">
+    <link rel="stylesheet" href="/Html/css/jifensettlement.css">
 
     <link href="/Html/public/css/mobiscroll/mobiscroll_002.css" rel="stylesheet" type="text/css">
     <link href="/Html/public/css/mobiscroll/mobiscroll.css" rel="stylesheet" type="text/css">
@@ -36,13 +36,13 @@
 <div id="main">
     <div class="confirm-order">
         <div class="srollbox">
-            <div class="choadd" v-if="info.Addresses">
+            <div class="choadd" v-if="info.DefaultAddress">
                 <!--<a :href="'/Html/ShopCar/ChooseAddress.html?id='+backid">-->
                 <div class="a">
-                    <div class="name fl">收货人：{{info.Addresses.Contacts}}</div>
-                    <span class="tel fl">{{info.Addresses.Phone}}</span>
+                    <div class="name fl">收货人：{{info.DefaultAddress.Contacts}}</div>
+                    <span class="tel fl">{{info.DefaultAddress.Phone}}</span>
                     <div class="clear"></div>
-                    <div class="add">收货地址：{{info.Addresses.RegionName}}{{info.Addresses.Address}}</div>
+                    <div class="add">收货地址：{{info.DefaultAddress.RegionName}}{{info.DefaultAddress.Address}}</div>
                     <i></i>
                 </div>
                 <!--</a>-->
@@ -54,78 +54,44 @@
                 </div>
                 <!--</a>-->
             </div>
-            <div class="shopcar detailed" v-if="info.Goods.List.length == 1">
+            <div class="shopcar detailed">
                 <div class="box clearfix">
                     <div class="img fl"
-                         :style="{backgroundImage: 'url('+info.Goods.List[0].GoodsImage.MediumThumbnail+')'}"></div>
+                         :style="{backgroundImage: 'url('+info.Exchangegood[0].MainImage.MediumThumbnail+')'}"></div>
                     <div class="info fr">
-                        <div class="tt">{{info.Goods.List[0].GoodsName}}</div>
-                        <div class="tc f-cb">
-                            <div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>
-                        </div>
-                        <div class="bot f-cb">
-                            <div class="price fl">¥ <span class="amo">{{info.Goods.List[0].Price.toFixed(2)}}</span>
-                            </div>
-                            <div class="num fr">x <span>{{info.Goods.List[0].Quantity}}</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="shopcar detailed" v-if="info.PurchaseGood.PurId">
-                <div class="jjg">加价购：</div>
-                <div class="box clearfix">
-                    <div class="img fl"
-                         :style="{backgroundImage: 'url('+info.PurchaseGood.PurMainImage.MediumThumbnail+')'}"></div>
-                    <div class="info fr">
-                        <div class="tt">{{info.PurchaseGood.PurName}}</div>
+                        <div class="tt">{{info.Exchangegood[0].Name}}</div>
                         <!--<div class="tc f-cb">-->
-                            <!--<div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>-->
+                            <!--<div class="int fl"><span>{{info.Exchangegood[0].GoodsAttribute}}</span></div>-->
                         <!--</div>-->
                         <div class="bot f-cb">
-                            <div class="price fl">¥ <span class="amo">{{info.PurchaseGood.PurPrice.toFixed(2)}}</span>
+                            <div class="price fl">积分：<span class="amo">{{info.Exchangegood[0].ExchangeIntegral}}</span>
                             </div>
-                            <div class="num fr">x <span>{{info.PurchaseGood.PurQuanlity}}</span></div>
+                            <div class="num fr">x <span>1</span></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="pro-list" v-if="info.Goods.List.length > 1">
-                <!--<a href="/Html/ShopCar/ProductsDetailed.html">-->
-                <div class="godeta clearfix">
-                    <ul class="">
-                        <li v-for="list in info.Goods.List">
-                            <div class="img" :style="{backgroundImage:'url('+list.GoodsImage.RelativePath+')'}"></div>
-                            <div class="num">x <span>{{list.Quantity}}</span></div>
-                        </li>
-                    </ul>
-                    <div class="allnum fr">共{{info.Goods.TotalQuantity}}件</div>
-                </div>
-            </div>
-            <div class="line pro-money">
-                <div class="tt fl">商品金额</div>
-                <div class="price fr">¥<span class="amo">{{info.GoodsAmount.toFixed(2)}}</span></div>
-            </div>
+            <!--<div class="line pro-money">-->
+                <!--<div class="tt fl">商品金额</div>-->
+                <!--<div class="price fr">¥<span class="amo">{{info.GoodsAmount.toFixed(2)}}</span></div>-->
+            <!--</div>-->
             <div class="line postage" :data-postage="info.ShippingFee">
                 <div class="tt fl">邮费</div>
                 <div class="price fr" :data-price="ShippingFee">¥<span
-                        class="amo">{{info.ShippingFee.toFixed(2)}}</span></div>
+                        class="amo">{{info.Exchangegood[0].ShopPrice.toFixed(2)}}</span></div>
             </div>
-            <!--<div class="line jifen" style="margin-top: 0.2rem">-->
-                <!--&lt;!&ndash;<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>&ndash;&gt;-->
-                <!--<div class="tt fl">-->
-                    <!--有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元-->
-                <!--</div>-->
+            <div class="line jifen" style="margin-top: 0.2rem">
+                <!--<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>-->
+                <div class="tt fl">
+                    您当前有{{info.MyIntenal.Available}}分
+                </div>
 
                 <!--<div class="weui_cell_ft fr">-->
                     <!--<input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"-->
                            <!--:data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">-->
                 <!--</div>-->
-            <!--</div>-->
-            <div class="line confirm-youh" style="margin-top: 0.2rem" id="yhq" data-price="0"
-                 :data-price2="GoodsAmount">
-                <div class="tt w146">使用优惠券</div>
-                <div class="confirm-youhjt"></div>
             </div>
+
             <div class="line">
                 <label for="shuoming" class="tt w145">订单说明：</label>
                 <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）" name="shuoming" id="shuoming">
@@ -139,7 +105,7 @@
         </div>
         <div class="car-list">
             <div class="hj">
-                合计：<span class="price">¥ <span class="amo" :data-price1="info.allprice" :data-price2="info.GoodsAmount">{{info.GoodsAmount.toFixed(2)}}</span></span>
+                合计：<span class="price">¥ <span class="amo">{{info.Exchangegood[0].ShopPrice.toFixed(2)}}</span></span>
             </div>
             <div class="balance">确认订单</div>
         </div>

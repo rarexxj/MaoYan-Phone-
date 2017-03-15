@@ -6,11 +6,15 @@ $(function () {
     money = Number(money).toFixed(2);
     var time = $.getUrlParam('time');
     var yhq = $.getUrlParam('yhq');
-    yhq = Number(yhq).toFixed(2);
+    if(yhq){
+        yhq = Number(yhq).toFixed(2);
+    }else{
+        yhq=0
+    }
+
     if (time) {
         time = time.toString().replace(/-/g, "/");
     }
-    var GoodsDeposit = $.getUrlParam('GoodsDeposit');
     // $('.orderno').html(OrderNo);
     // $('.jiage').html(Number(money).toFixed(2))
     $.checkuser();
@@ -23,7 +27,8 @@ $(function () {
             needmore: ' ',
             paymentCode: '',
             yhq: yhq,
-            haix: (money - yhq).toFixed(2)
+            haix: (money - yhq).toFixed(2),
+            orderid: $('#orderid').val(Id)
         },
         ready: function () {
             var _this = this;
@@ -36,20 +41,6 @@ $(function () {
             })
         },
         methods: {
-            infoajax: function () {
-                var _this = this;
-                $.ajax({
-                    url: '/Api/v1/Payment/' + _this.paymentCode + '/SignInfo/' + Id,
-                    type: 'post',
-                    dataType: 'json'
-                    // data:_this.data
-                }).done(function (rs) {
-                    if (rs.returnCode == '200') {
-                        _this.info = rs.data;
-                        $.RMLOAD();
-                    }
-                })
-            },
             countDown: function (time, id) {
                 var btn = true;
                 var minute_elem = $(id).find('.min');
@@ -95,19 +86,22 @@ $(function () {
                         if ($('.alipay').hasClass('cur')) {
                             $('.mask').fadeIn();
                             return false;
+                        } else if ($('.huodao').hasClass('cur')) {
+                            window.location.replace("/Html/html/personalcenter/personalcenter.html");
+                            return false;
                         }
                         return true;
                     } else {
                         //判断支付类型
                         if ($('.alipay').hasClass('cur')) {
-                            _this.paymentCode = 'alipay';
-                            _this.infoajax();
+                            $('#paymentCode').val('alipay');
                         } else if ($('.weixin').hasClass('cur')) {
-                            _this.paymentCode = 'weixin';
-                            _this.infoajax();
-                        }else if($('.huodao').hasClass('cur')){
+                            $('#paymentCode').val('weixin');
+                        } else if ($('.huodao').hasClass('cur')) {
                             window.location.replace("/Html/html/personalcenter/personalcenter.html")
+                            return false;
                         }
+                        $('#formid').attr('action', '/Payment/H5/Pay')
                         return true;
                     }
                 });

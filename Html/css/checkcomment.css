@@ -1,15 +1,20 @@
 .box{
-
+    margin-bottom: 0.3rem;
+    border-top: 1px solid #e8e8e8;
 }
 .che-com .pro-style {
     background: #fff;
     padding:0.3rem;
+    border-bottom: 0.01rem solid #dddddd;
+    border-top: 0.01rem solid #dddddd;
 }
 
 .che-com .content {
     padding: 0.35rem 0.15rem;
     background: #fff;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    margin-top: 0.24rem;
 }
 
 .che-com .name {
@@ -28,17 +33,17 @@
     height: 0.34rem;
     float: left;
     margin-right: 0.06rem;
-    background: url("../img/img48.png") no-repeat;
+    background: url("img/img48.png") no-repeat;
     background-size: cover;
 }
 
 .che-com li.cur {
-    background: url("../img/img47.png") no-repeat;
+    background: url("img/img47.png") no-repeat;
     background-size: cover;
 }
 
 .che-com .time {
-    font-size: 0.24rem;
+    font-size: 0.26rem;
     color: #999999;
     line-height: 0.34rem;
 }
@@ -126,7 +131,7 @@
 }
 
 .pro-style .num .number {
-    margin-top: 0.18rem;
+    margin-top: 0.6rem;
     color: #333333;
     font-size: 0.3rem;
 }

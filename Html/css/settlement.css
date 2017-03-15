@@ -31,6 +31,7 @@
     background: url("img/bg4.png");
     background-size: cover;
     position: relative;
+    border-bottom: 0.01rem solid #ddd;
 }
 
 
@@ -202,6 +203,7 @@
     padding: 0.28rem;
     height: 1.86rem;
     border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
     background: #fff;
     position: relative;
 }

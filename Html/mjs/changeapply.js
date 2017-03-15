@@ -1,4 +1,5 @@
 $(function () {
+    $.checkuser();
     var aid = $.getUrlParam('aid');
     var oid = $.getUrlParam('oid');
     var gid = $.getUrlParam('gid');
@@ -13,7 +14,7 @@ $(function () {
         $('.type').html('换货')
     }
     //默认退款价格
-    $('.priceinput').val(money);
+    $('.priceinput').val(Number(money).toFixed(2));
     // $('.priceinput').attr('data-max',mp)
     js();
     function js() {
@@ -29,7 +30,7 @@ $(function () {
             if($('.priceinput').val()==''){
                 $.oppo('请输入退款金额',1)
             }else if($('.textarea').val()==''){
-                $.oppo('请输入退款金额',1)
+                $.oppo('请输入退款原因',1)
             }else{
                 $('.submit').addClass('gray');
                 var datas={
