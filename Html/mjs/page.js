@@ -9,7 +9,6 @@ $(function () {
         ready: function () {
             var _this = this;
             _this.infoajax();
-            $.RMLOAD();
         },
         methods: {
             infoajax: function () {
@@ -20,6 +19,7 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;
+                        $.RMLOAD();
                     }
                 })
             }

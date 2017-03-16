@@ -1,4 +1,5 @@
 $(function(){
+	$.ADDLOAD();
 	$.checkuser();
 	var id=$.get_user('Id');
 	var vm = new Vue({
@@ -21,6 +22,7 @@ $(function(){
 				}).done(function (rs) {
 					if (rs.returnCode == 200) {
 						_this.info=rs.data;
+						$.RMLOAD();
 					}
 				})
 

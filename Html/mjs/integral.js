@@ -30,7 +30,7 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode = '200') {
                         _this.info = rs.data;
-                        $.RMLOAD();
+
                     }
                 })
             },
@@ -49,6 +49,7 @@ $(function () {
                             _this.bdinfo = _this.bdinfo.concat(rs.data.Bills);
                         }
                         window.allpage = Math.ceil(rs.data.TotalCount / _this.ajaxdata.limit);
+                        $.RMLOAD();
                     }
                 })
             },

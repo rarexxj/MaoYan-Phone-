@@ -16,7 +16,7 @@ $(function () {
                 _this.others();
                 _this.tel();
                 setTimeout(function () {
-                    _this.swipe();
+
                 }, 300)
 
             })
@@ -34,6 +34,9 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.banner = rs.data;
+                        _this.$nextTick(function () {
+                            _this.swipe();
+                        })
                         _this.urltype();
                     }
                 })
@@ -120,8 +123,9 @@ $(function () {
                         _this.proinfo = rs.data;
                         _this.$nextTick(function(){
                             _this.poheight();
+                            $.RMLOAD();
                         })
-                        $.RMLOAD();
+
                     }
                 })
             },
@@ -133,8 +137,6 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.telinfo = rs;
-                        console.log(_this.telinfo)
-                        $.RMLOAD();
                     }
                 })
             }

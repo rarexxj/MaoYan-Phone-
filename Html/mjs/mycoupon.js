@@ -1,4 +1,5 @@
 $(function(){
+	$.ADDLOAD();
 	$.checkuser();
 	new Vue({
 		el:'#main',
@@ -38,6 +39,7 @@ $(function(){
 				}).done(function (rs) {
 					if (rs.returnCode == 200) {
 						_this.info=rs.data.Coupons;
+						$.RMLOAD()
 					}
 				})
 

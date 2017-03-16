@@ -21,7 +21,7 @@
     <title>成都猫眼食品有限责任公司</title>
 </head>
 <body style="background-color: #fff">
-<div id="main">
+<div id="main" v-cloak="">
     <div class="x-choose-title">
         <ul>
             <li :class="choose == li.id ? 'cur':''" v-for="li in chooseList" @click="chooseAction(li.id)"><a href="javascript:;" title="">{{li.name}}<i></i></a></li>
@@ -42,7 +42,18 @@
         </div>
     </div>
     <div class="lqbox"><a href="/Html/html/personalcenter/getcoupon.html" class="lqbtn">领取优惠券</a></div>
-
+</div>
+<div class="new-loading">
+    <ul class="small-loading">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </div>
 <script type="text/javascript" src="/Html/mjs/mycoupon.js"></script>
 </body>
