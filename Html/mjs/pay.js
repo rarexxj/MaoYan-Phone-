@@ -27,6 +27,7 @@ $(function () {
             needmore: ' ',
             paymentCode: '',
             yhq: yhq,
+            zongji:Number(yhq)+Number(money),
             haix: (money - yhq).toFixed(2),
             orderid: $('#orderid').val(Id)
         },

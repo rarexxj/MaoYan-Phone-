@@ -216,12 +216,11 @@ $(function () {
             tel:function () {
                 var _this=this;
                 $.ajax({
-                    url: '/Api/v1/Mall/CustomPhone',
+                    url: '/Api/v1/CustomPhone',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.telinfo = rs;
-                        console.log(_this.telinfo)
                         $.RMLOAD();
                     }
                 })
