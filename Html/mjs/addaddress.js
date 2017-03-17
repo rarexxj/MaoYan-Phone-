@@ -1,6 +1,6 @@
 $(function () {
     $.ADDLOAD();
-    var reg =/^1[3|4|5|7|8]\d{9}$/;
+    var reg = /^1[3|4|5|7|8]\d{9}$/;
     $.checkuser();
     new Vue({
         el: '#main',
@@ -20,12 +20,12 @@ $(function () {
             })
         },
         methods: {
-            shengs:function () {
+            shengs: function () {
                 //获得省
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/0/Child',
-                    dataType:'json',
+                    dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -38,7 +38,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/0/Child',
-                    dataType:'json',
+                    dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -59,7 +59,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/' + id + '/Child',
-                    dataType:'json',
+                    dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -79,7 +79,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/' + id + '/Child',
-                    dataType:'json',
+                    dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -100,7 +100,7 @@ $(function () {
                 var _this = this;
                 $.ajax({
                     url: '/Api/v1/Settings/District/' + id + '/Child',
-                    dataType:'json',
+                    dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -118,10 +118,10 @@ $(function () {
                     } else if ($('.ph').val() == '') {
                         $.oppo('手机号不能为空', 1)
                         return false;
-                    } else if(!reg.test($('.ph').val())){
+                    } else if (!reg.test($('.ph').val())) {
                         $.oppo("手机号格式有误", 1);
                         return false;
-                    }else if ($('.postcode').val() == '') {
+                    } else if ($('.postcode').val() == '') {
                         $.oppo('邮政编码不能为空', 1)
                         return false;
                     } else if ($('#province').val() == '') {
@@ -157,13 +157,13 @@ $(function () {
             subajax: function (data) {
                 $.ajax({
                     url: '/Api/v1/Member/Address',
-                    dataType:'json',
+                    dataType: 'json',
                     type: 'post',
                     data: data
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         $.oppo('保存成功', 1);
-                        window.location.replace("/Html/my.html")
+                        window.location.replace("/Html/html/personalcenter/myinfo.html")
                     }
                 })
             }

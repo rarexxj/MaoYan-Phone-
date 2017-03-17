@@ -4,7 +4,7 @@ $(function () {
     var id = $.getUrlParam('id');   //购物车id
     var gid = $.getUrlParam('gid'); //单品id和数量
     var addid = $.getUrlParam('addid');
-    var jjid=$.getUrlParam('jjid');
+    var jjid = $.getUrlParam('jjid');
     if (gid) {
         var gid2 = gid.split('|')[0]; //单品id
     }
@@ -29,10 +29,10 @@ $(function () {
         ids.AddressId = addid
     }
     console.log(jjid)
-    if(jjid!=0){
-        ids.PurchaseId=jjid
-    }else{
-        jjid=''
+    if (jjid != 0) {
+        ids.PurchaseId = jjid
+    } else {
+        jjid = ''
     }
     console.log(ids);
     new Vue({
@@ -40,7 +40,8 @@ $(function () {
         data: {
             info: [],
             data1: ids,
-            yhqinfo:[]
+            yhqinfo: [],
+            zxprice:''
         },
         ready: function () {
             var _this = this;
@@ -51,6 +52,7 @@ $(function () {
                 _this.getCoupon();
                 _this.prosubmit();
                 _this.youhq();
+                _this.oneclick();
                 _this.getsettime();
                 // $.RMLOAD();
             })
@@ -70,6 +72,8 @@ $(function () {
                         //计算总价
                         rs.data.allprice = parseFloat(rs.data.GoodsAmount + rs.data.ShippingFee)
                         $.RMLOAD();
+
+
                     }
                 })
             },
@@ -103,9 +107,9 @@ $(function () {
                 $('.balance').on('click', function () {
                     if ($('.addadd').length) {
                         $.oppo('请选择收货地址', 1);
-                    } else if(!$('#peistime').val()){
+                    } else if (!$('#peistime').val()) {
                         $.oppo('请选择配送时间', 1);
-                    }else {
+                    } else {
                         var prodata = []
                         for (var i = 0; i < _this.info.Goods.List.length; i++) {
                             var pro = {}
@@ -130,8 +134,9 @@ $(function () {
                             Memo: $('.bz').val(),
                             Goods: prodata,
                             CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null,
-                            GoodId:jjid,
-                            BestTime:$('.peit').val()
+                            GoodId: jjid,
+                            BestTime: $('.peit').val(),
+                            OptionalGoodsId: a
                         }
                         console.log(message)
                         _this.inputajax(message);
@@ -148,13 +153,13 @@ $(function () {
                         if ($('.car-list .amo').attr('data-price') == 0) {
                             window.location.replace("/Html/Member/PersonalCenter.html")
                         } else {
-                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + rs.data.PayFee + '&time=' + rs.data.CreateTime+'&yhq='+$('#yhq').attr('data-price'))
+                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + $('.car-list').find('.amo').attr('data-price') + '&time=' + rs.data.CreateTime + '&yhq=' + $('#yhq').attr('data-price'))
                         }
                     }
                 })
             },
             js: function () {
-                var _this=this;
+                var _this = this;
                 var n = $('.weui_switch').attr('data-money')
                 if ($('.weui_switch').is(':checked')) {
                     $('.weui_switch').attr('data-price', n)
@@ -164,7 +169,7 @@ $(function () {
                 _this.getLastPrice();
             },
             getCoupon: function () {
-                var _this=this;
+                var _this = this;
                 $('#yhq').on('click', function () {
                     $('.confirm-order').hide();
                     $('.youhq-box').show();
@@ -193,8 +198,10 @@ $(function () {
                 })
             },
             getLastPrice: function () {
+                var _this=this;
                 // var money = parseFloat($('.car-list .amo').attr('data-price2') - $('.weui_switch').attr('data-price') - $('#yhq').attr('data-price'));
-                var money = parseFloat($('.car-list .amo').attr('data-price2') - $('#yhq').attr('data-price'));
+                var money = parseFloat($('.car-list .amo').attr('data-price2') - $('#yhq').attr('data-price')+_this.zxprice);
+                console.log(_this.zxprice)
                 if (money < 0) {
                     money = 0
                 }
@@ -203,7 +210,7 @@ $(function () {
                 var price = $('.car-list').find('.amo').attr('data-price');
                 $('.car-list').find('.amo').html(price)
             },
-            getsettime:function () {
+            getsettime: function () {
                 // $('.settime').on('click', function () {
                 //     $('.confirm-order').hide();
                 //     $('.timebox').show();
@@ -214,10 +221,10 @@ $(function () {
                 // })
 
                 var currYear = (new Date()).getFullYear();
-                var opt={};
-                opt.date = {preset : 'date'};
-                opt.datetime = {preset : 'datetime'};
-                opt.time = {preset : 'time'};
+                var opt = {};
+                opt.date = {preset: 'date'};
+                opt.datetime = {preset: 'datetime'};
+                opt.time = {preset: 'time'};
                 opt.default = {
                     theme: 'android-ics light', //皮肤样式
                     display: 'modal', //显示方式
@@ -229,28 +236,65 @@ $(function () {
                     // startYear: currYear, //开始年份
                     endYear: currYear + 10, //结束年份
                     minDate: new Date(),
-                    stepMinute:15
+                    stepMinute: 15
                 };
                 var optDateTime = $.extend(opt['datetime'], opt['default']);
                 $("#peistime").mobiscroll(optDateTime).datetime(optDateTime);
 
             },
-            youhq:function () {
-                var _this=this;
+            youhq: function () {
+                var _this = this;
                 $.ajax({
                     url: '/Api/v1/Coupon',
                     type: 'get',
-                    dataType:'json',
-                    data:{
-                        isAvailable:0
+                    dataType: 'json',
+                    data: {
+                        isAvailable: 0
                     }
                 }).done(function (rs) {
                     if (rs.returnCode == 200) {
-                        _this.yhqinfo=rs.data.Coupons;
+                        _this.yhqinfo = rs.data.Coupons;
                     }
                 })
 
-            }
+            },
+            oneclick: function () {
+                var _this = this;
+                //单选
+                $('#main').on('click', '.box', function () {
+                    var zxid = $(this).find('.ccheck').attr('data-zxid');
+                    var zxprice = $(this).find('.ccheck').attr('data-zxprice')
+                    if ($(this).find('.ccheck').hasClass('cur')) {
+                        $(this).find('.ccheck').removeClass('cur');
+                        $(this).removeAttr('data-zxid');
+                        $(this).removeAttr('data-zxprice');
+                    } else {
+                        $(this).find('.ccheck').addClass('cur');
+                        $(this).attr('data-zxid', zxid)
+                        $(this).attr('data-zxprice', zxprice)
+                    }
+
+                    // _this.TotalMoney()
+                    var a = [];
+                    var zxprice=0;
+                    $('.zixuan .box').each(function () {
+                        if ($(this).attr('data-zxid') == undefined) {
+                        } else {
+                            a.push($(this).attr('data-zxid'))
+                        }
+                        if ($(this).attr('data-zxprice') == undefined) {
+                            _price=0
+                        } else {
+                            _price=$(this).attr('data-zxprice')
+
+                        }
+                        zxprice = zxprice + Number(_price)
+                    })
+                    _this.zxprice=zxprice;
+                    _this.getLastPrice()
+                })
+
+            },
         }
     })
 })

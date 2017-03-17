@@ -89,6 +89,25 @@
                     </div>
                 </div>
             </div>
+            <div class="shopcar zixuan detailed" >
+                <div class="jjg">自选商品：</div>
+                <div class="box clearfix" v-for="youwant in info.OptionalGoods" >
+                    <div class="ccheck fl" :data-zxid="youwant.Id" :data-zxprice="youwant.ShopPrice"></div>
+                    <div class="img fl"
+                         :style="{backgroundImage: 'url('+youwant.MainImage.MediumThumbnail+')'}"></div>
+                    <div class="info fr">
+                        <div class="tt">{{youwant.Name}}</div>
+                        <!--<div class="tc f-cb">-->
+                        <!--<div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>-->
+                        <!--</div>-->
+                        <div class="bot f-cb">
+                            <div class="price fl">¥ <span class="amo">{{youwant.ShopPrice.toFixed(2)}}</span>
+                            </div>
+                            <div class="num fr">x <span>1</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="pro-list" v-if="info.Goods.List.length > 1">
                 <!--<a href="/Html/ShopCar/ProductsDetailed.html">-->
                 <div class="godeta clearfix">
