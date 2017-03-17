@@ -36,6 +36,7 @@ $(function () {
                         _this.$nextTick(function () {
                             if (rs.data.OrderStatus == 0) {
                                 _this.countDown(_this.time, '.deadline');
+                                _this.countDown1()
                             }
                         })
                         var a = [];
@@ -45,6 +46,19 @@ $(function () {
                         b=a.join('|');
                         _this.filesid=b;
                         $.RMLOAD();
+
+                        //计算剩余确认收货时间
+                        if (rs.data.OrderStatus == 2) {
+                            var str = rs.data.ShippingTime.split(' ');
+                            str = str.toString().replace(/-/g, "/");
+                            var date = new Date(str);
+                            var deadline = date.getTime() + 10 * 24 * 60 * 60 * 1000;
+                            var mytime = new Date()
+                            var nowtime = mytime.getTime();
+                            var last = (deadline - nowtime) / 1000;
+                            rs.data.conday = parseInt(last / 60 / 60 / 24)
+                            rs.data.conhour = parseInt((last - rs.data.conday * 24 * 60 * 60) / 60 / 60)
+                        }
                     }
                 })
             },
@@ -55,7 +69,7 @@ $(function () {
                     _this.cancleajax();
                 })
                 //确认收货
-                $('#main').on('click', '.confirm-btn', function () {
+                $('#main').on('click', '.confirm-btns', function () {
                     _this.sureajax();
                 })
                 //提醒发货
@@ -64,7 +78,7 @@ $(function () {
                     _this.remindajax(id)
                 })
                 //确认删除订单
-                $('#main').on('click', '.delete-btn', function () {
+                $('#main').on('click', '.del-btns', function () {
                     _this.deletajax();
                 })
 
@@ -149,7 +163,6 @@ $(function () {
                     }, 1000)
                 }
             }
-
         }
     })
 })

@@ -5,11 +5,13 @@
     background: #fff;
     position: relative;
 }
+
 .shopcar .ccheck {
     float: left;
     margin-top: 0.79rem;
     margin-right: 0.19rem;
 }
+
 .shopcar .img {
     width: 1.94rem;
     height: 1.94rem;
@@ -17,10 +19,12 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
 .shopcar .info {
     width: 4.1rem;
     height: 1.96rem;
 }
+
 .shopcar .tt {
     font-size: 0.32rem;
     /*line-height: 0.36rem;*/
@@ -31,6 +35,7 @@
     text-overflow: ellipsis;
     display: block;
 }
+
 .shopcar .tc {
     margin-top: 0.1rem;
     font-size: 0.24rem;
@@ -38,41 +43,48 @@
     color: #999;
 }
 
-.info .int{
+.info .int {
     line-height: 1;
     margin-top: 0.06rem;
     margin-bottom: 0.14rem;
 }
-.int span{
+
+.int span {
     color: #999;
     font-size: 0.28rem;
 }
+
 .shopcar .bot {
     margin-top: 0.1rem;
 }
+
 .shopcar .price {
     font-size: 0.32rem;
     line-height: 0.3rem;
     font-family: 'Arial';
     color: #c0a85f;
 }
-.info .num{
+
+.info .num {
     font-size: 0.32rem;
     color: #333333;;
     line-height: 1;
     margin-top: 0.12rem;
 }
+
 .shopcar .price .amo {
     font-size: 0.3rem;
 }
+
 .shopcar .edit {
     font-size: 0.28rem;
     line-height: 0.3rem;
     color: #333;
-    position:absolute;
-    bottom:0.44rem;
-    right:0.4rem;
+    position: absolute;
+    bottom: 0.44rem;
+    right: 0.4rem;
 }
+
 .shopcar .editbox {
     position: absolute;
     width: 4.1rem;
@@ -82,13 +94,16 @@
     height: 1.96rem;
     display: none;
 }
-.editbox .numbox{
+
+.editbox .numbox {
 }
+
 .shopcar .jian {
     background: url(img/img32.jpg) no-repeat;
     background-size: cover;
     margin-right: 0.24rem;
 }
+
 .shopcar .amount {
     width: 0.84rem;
     height: 0.54rem;
@@ -101,10 +116,12 @@
     line-height: 0.57rem;
     text-align: center;
 }
+
 .shopcar .jia {
     background: url(img/img33.jpg) no-repeat;
     background-size: cover;
 }
+
 .shopcar .good-name {
     width: 3.1rem;
     height: 0.62rem;
@@ -115,21 +132,25 @@
     line-height: 0.62rem;
     padding-left: 0.24rem;
 }
+
 .shopcar .btns {
     margin-top: 0.25rem;
     line-height: 1;
 }
+
 .shopcar .delete {
     padding-right: 0.24rem;
     border-right: 1px solid #999;
     font-size: 0.28rem;
     color: #333;
 }
+
 .shopcar .ok {
     padding-left: 0.24rem;
     font-size: 0.28rem;
     color: #333;
 }
+
 .clearsc {
     font-size: 0.32rem;
     line-height: 0.45rem;
@@ -137,6 +158,7 @@
     text-align: center;
     margin-top: 0.2rem;
 }
+
 .car-list {
     position: fixed;
     width: 100%;
@@ -146,31 +168,37 @@
     border-top: 1px solid #e8e8e8;
     background: #fff;
 }
+
 .car-list .pcheck {
     margin-left: 0.2rem;
     margin-top: 0.32rem;
     float: left;
 }
-.shopcar .ccheck{
+
+.shopcar .ccheck {
     width: 0.3rem;
     height: 0.3rem;
     background: url(img/logo40.png) no-repeat;
     background-size: 0.3rem 0.3rem;
 }
+
 .shopcar .pcheck {
     width: 0.3rem;
     height: 0.3rem;
     background: url(img/logo43.png) no-repeat;
     background-size: 0.3rem 0.3rem;
 }
-.shopcar .ccheck.cur{
+
+.shopcar .ccheck.cur {
     background: url(img/logo41.png) no-repeat;
     background-size: 0.3rem 0.3rem;
 }
+
 .shopcar .pcheck.cur {
     background: url(img/logo44.png) no-repeat;
     background-size: 0.3rem 0.3rem;
 }
+
 .shopcar .invalid {
     width: 0.57rem;
     height: 0.34rem;
@@ -180,6 +208,7 @@
     margin-top: 0.58rem;
     margin-right: 0.07rem;
 }
+
 .car-list .choose span {
     float: left;
     font-size: 0.3rem;
@@ -187,6 +216,7 @@
     line-height: 0.99rem;
     padding-left: 0.2rem;
 }
+
 .car-list .total {
     line-height: 0.99rem;
     text-align: right;
@@ -200,6 +230,7 @@
     line-height: 0.36rem;
     color: #666;
 }
+
 .car-list .balance {
     width: 1.88rem;
     height: 0.99rem;
@@ -209,19 +240,23 @@
     text-align: center;
     line-height: 0.99rem;
 }
+
 .car-list .total p i, .car-list .total p span {
     color: #c3ad6a;
     font-style: normal;
 }
+
 .car-list .total p i, .car-list .total p span {
     color: #c3ad6a;
     font-style: normal;
 }
+
 .car-list .total p {
     font-size: 0.3rem;
     line-height: 0.99rem;
     color: #999;
 }
+
 .search-box {
     position: fixed;
     width: 100%;
@@ -232,6 +267,7 @@
     display: none;
     z-index: 999;
 }
+
 .search-box .nothing {
     position: absolute;
     width: 100%;
@@ -242,12 +278,14 @@
     background: #f7f7f7;
     display: none;
 }
+
 .search-box .nothing .tbs {
     width: 1.51rem;
     height: 1.5rem;
     margin: 2.54rem auto 0;
     background-size: cover;
 }
+
 .search-box .nothing p {
     font-size: 0.3rem;
     color: #666666;
@@ -255,6 +293,7 @@
     text-align: center;
     margin-top: 0.69rem;
 }
+
 .NoBnt {
     width: 2.93rem;
     height: 0.86rem;
@@ -267,6 +306,7 @@
     margin: 0.47rem auto;
     border-radius: 0.08rem;
 }
+
 .subnav {
     height: 0.99rem;
     border-top: 1px solid #e8e8e8;
@@ -279,7 +319,18 @@
     bottom: 0;
     z-index: 28;
 }
+
 .shopcar .jia, .shopcar .jian {
     width: 0.58rem;
     height: 0.59rem;
+}
+
+.zxtitle {
+    font-size: 0.3rem;
+    margin-top: 0.2rem;
+    line-height: 0.8rem;
+    background: #fff;
+    border-top: 0.01rem #e8e8e8 solid;
+    border-bottom: 0.01rem #e8e8e8 solid;
+    padding-left: 0.2rem;
 }

@@ -249,7 +249,7 @@ $(function () {
                     type: 'get',
                     dataType: 'json',
                     data: {
-                        isAvailable: 0
+                        isAvailable: true
                     }
                 }).done(function (rs) {
                     if (rs.returnCode == 200) {

@@ -39,6 +39,7 @@ $(function () {
             // 'orderId':id,
             'Evaluates':data1
         }
+        console.log(datas)
         $.ajax({
             url:'/Api/v1/Order/'+id+'/Evaluate',
             data:datas,
@@ -46,7 +47,7 @@ $(function () {
         }).done(function (rs) {
             if (rs.returnCode == '200'){
                 $.oppo('提交成功' ,1,function () {
-                    window.location.replace("/Html/html/personalcenter/myorder.html?orderType=0")
+                    // window.location.replace("/Html/html/personalcenter/myorder.html?orderType=0")
                 })
             }
         })

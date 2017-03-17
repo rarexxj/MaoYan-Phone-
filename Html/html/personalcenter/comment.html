@@ -24,7 +24,7 @@
 <body style="background-color: #f3fbfd">
 <div class="comment" id="comment" v-cloak="">
     <div class="box" v-for="list in OrderGoods" :data-id="list.SingleGoodsId" :data-imgid="list.GoodsImage.Id">
-        <div class="pro-style">
+        <div class="pro-style" >
             <div class="img fl" :style="{backgroundImage: 'url('+list.GoodsImage.SmallThumbnail+')'}"></div>
             <div class="info fl">
                 <div class="name">{{list.GoodsName.substring(0,18)}}<span v-if="list.GoodsName.length >18">...</span>

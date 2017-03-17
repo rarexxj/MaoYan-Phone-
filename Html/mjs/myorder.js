@@ -32,7 +32,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Order',
+                    url: '/Api/v1/Mall/MyOrder',
                     data: _this.data1,
                     type: 'get'
                 }).done(function (rs) {

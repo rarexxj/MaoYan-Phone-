@@ -19,7 +19,9 @@
 .order-info .status .time {
     color: #c0a85f;
 }
-
+.c0a85f{
+    color: #c0a85f;
+}
 .zhus{
     color: #c0a85f;
 }
@@ -165,8 +167,8 @@
 
 .order-info .logi a {
     display: block;
-    padding: 0.22rem 1rem 0.22rem 0.74rem;
-    background: url("../img/img46.png") no-repeat 0.14rem center;
+    padding: 0.22rem 1rem 0.22rem 0.94rem;
+    background: url("img/img46.png") no-repeat 0.35rem center;
     background-size: 0.45rem 0.33rem;
     position: relative;
 }
@@ -174,7 +176,7 @@
 .order-info .logi .now {
     font-size: 0.24rem;
     line-height: 0.56rem;
-    color: #78a000;
+    color:#c0a85f;
 }
 
 .order-info .logi .time {
@@ -188,17 +190,17 @@
     position: absolute;
     width: 0.18rem;
     height: 0.32rem;
-    background: url("../img/img38.png") no-repeat;
+    background: url("img/img38.png") no-repeat;
     background-size: cover;
     top: 0.56rem;
-    right: 0.17rem;
+    right: 0.3rem;
 }
 
 .order-info .logi .click {
     display: block;
     line-height: 0.97rem;
     font-size: 0.3rem;
-    color: #78a000;
+    color: #8e8e8e;
 }
 .pro-style {
     border-bottom: 1px solid #e8e8e8;
@@ -301,7 +303,7 @@
 .search-box .search {
     width: 5.3rem;
     height: 0.65rem;
-    background: url("../img/img44.png") no-repeat left bottom;
+    background: url("img/img44.png") no-repeat left bottom;
     background-size: 100% 0.1rem;
     position: relative;
 }
@@ -309,7 +311,7 @@
 .search-box .delete {
     width: 0.3rem;
     height: 0.3rem;
-    background: url("../img/search_del.png") no-repeat;
+    background: url("img/search_del.png") no-repeat;
     background-size: contain;
     position: absolute;
     top: 0.17rem;
@@ -321,7 +323,7 @@
     width: 0.6rem;
     height: 0.65rem;
     border: 0;
-    background: url("../img/back.png") no-repeat center center;
+    background: url("img/back.png") no-repeat center center;
     background-size: 0.28rem 0.3rem;
     text-indent: -9999px;
     display: block;
@@ -392,7 +394,7 @@
     width: 1.51rem;
     height: 1.5rem;
     margin: 2.54rem auto 0;
-    background: url("../img/img61.png") no-repeat;
+    background: url("img/img61.png") no-repeat;
     background-size: cover;
 }
 

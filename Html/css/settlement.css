@@ -523,7 +523,7 @@
     background: #f3fbfd;
 }
 .x-coupon .list{
-    padding: 0.3rem 0.75rem 0.5rem;
+    padding: 0.3rem 0.75rem 1rem 0.5rem;
 }
 .x-coupon .list li{
     margin-bottom: 0.4rem;

@@ -31,13 +31,15 @@ $(function(){
 				$('#main').on('click','.lingqu',function () {
 					var code=$(this).parents().attr('data-id');
 					var type=$(this).parents().attr('data-type');
+					var id=$(this).parents().attr('data-yhid');
 					$.ajax({
 						url:'/Api/v1/ReceiveCoupon/'+id,
 						type:'post',
 						dataType:'json',
 						data:{
 							Code:code,
-							Type:type
+							Type:type,
+							Id:id
 						}
 					}).done(function (rs) {
 						if(rs.returnCode==200){

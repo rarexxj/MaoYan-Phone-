@@ -216,7 +216,6 @@ $(function () {
                     $.oppo('请选择商品', 1)
                 } else {
                     $('.ccheck.cur').each(function (index) {
-
                         if (index != 0) {
                             idstr += '|'
                         }

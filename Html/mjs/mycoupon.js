@@ -5,15 +5,15 @@ $(function(){
 		el:'#main',
 		data:{
 			info:[],
-			choose : 0,
+			choose : true,
 			chooseList:[
 				{
 					name : '可用',
-					id : 0
+					id : true
 				},
 				{
 					name : '不可用',
-					id : 1
+					id : false
 				}
 			]
 		},

@@ -39,7 +39,7 @@
     <!--待发货-->
     <div class="status" v-if="info.OrderStatus == 1&&info.RefundStatus==0">
         <p>订单编号：{{info.OrderNo}}</p>
-        <p>订单状态：<span class="e84608">买家已付款，等待卖家发货</span></p>
+        <p>订单状态：<span class="dccc8d">买家已付款，等待卖家发货</span></p>
         <div class="btns f-cb">
             <div class="bigbtn remind-btn">提醒发货</div>
         </div>
@@ -48,7 +48,7 @@
     <!--待确认-->
     <div class="status" v-if="info.OrderStatus == 2&&info.RefundStatus == 0">
         <p>订单编号：{{info.OrderNo}}</p>
-        <p>订单状态：<span class="e84608">买家已付款，等待卖家发货</span></p>
+        <p>订单状态：<span class="dccc8d">买家已付款，等待卖家发货</span></p>
         <p>还剩下 <span class="color">{{info.conday}}</span>天 <span class="color">{{info.conhour}}</span>小时 自动确认</p>
         <div class="btns f-cb">
             <div class="bigbtn confirm-btns">确认收货</div>
@@ -57,19 +57,19 @@
     <!--未评价-->
     <div class="status" v-if="info.EvaluateStatus==0&&info.OrderStatus==3&&info.RefundStatus==0">
         <p>订单编号：{{info.OrderNo}}</p>
-        <p>订单状态：<span class="e84608">交易完成</span></p>
+        <p>订单状态：<span class="dccc8d">交易完成</span></p>
         <div class="btns f-cb">
             <div class="btn fl del-btns">删除订单</div>
-            <a :href="'/Html/Order/Comment.html?id='+Id" class="btn fr cur">评价</a>
+            <a :href="'/Html/html/personalcenter/comment.html?id='+info.Id" class="btn fr cur">评价</a>
         </div>
     </div>
     <!--已评价-->
     <div class="status"  v-if="(info.EvaluateStatus == 1||info.EvaluateStatus == 2)&&info.OrderStatus==3&&info.RefundStatus==0">
         <p>订单编号：{{info.OrderNo}}</p>
-        <p>订单状态：<span class="e84608">交易完成</span></p>
+        <p>订单状态：<span class="dccc8d">交易完成</span></p>
         <div class="btns f-cb">
             <div class="btn fl del-btns delete-btn">删除订单</div>
-            <a :href="'/Html/Order/CheckComment.html?id='+Id" class="btn fr cur">查看评价</a>
+            <a :href="'/Html/html/personalcenter/checkcomment.html?id='+info.Id" class="btn fr cur">查看评价</a>
         </div>
     </div>
     <!--已关闭-->
@@ -83,15 +83,15 @@
     <!--退货中-->
     <div class="status" v-if="info.RefundStatus==1">
         <p>订单编号：{{info.OrderNo}}</p>
-        <p>订单状态：<span class="e84608">退货中</span></p>
+        <p>订单状态：<span class="dccc8d">退货中</span></p>
     </div>
     <!--退款成功-->
     <div class="status" v-if="info.RefundStatus==2">
         <p>订单编号：{{OrderNo}}</p>
-        <p>订单状态：<span class="e84608">退货成功</span></p>
+        <p>订单状态：<span class="dccc8d">退货成功</span></p>
     </div>
     <div class="logi" v-if="info.ShippingStatus == 1">
-        <a :href="'http://m.kuaidi100.com/index_all.html?type='+ShippingCode+'&postid='+ShippingNo+'&callbackurl='+URL+'/Html/Order/Info.html?id='+Id">
+        <a :href="'http://m.kuaidi100.com/index_all.html?type='+info.ShippingCode+'&postid='+info.ShippingNo+'&callbackurl='+URL+'/Html/html/personalcenter/orderinfo.html?id='+info.Id">
             <!--<div class="now">[杭州市]快件已到浙江省杭州市西湖区..</div>-->
             <!--<span class="time">2016-07-10 15:55:00 </span>-->
             <span class="click">点击查看物流</span>
