@@ -49,13 +49,20 @@ $(function () {
             _this.$nextTick(function () {
                 _this.link();
                 _this.js();
+                _this.bianj();
                 _this.getCoupon();
                 _this.prosubmit();
+                _this.jisuanjs();
                 _this.youhq();
                 _this.oneclick();
                 _this.getsettime();
                 // $.RMLOAD();
             })
+        },
+        filter:{
+            datas:function () {
+                
+            }
         },
         methods: {
             ajax: function () {
@@ -83,9 +90,15 @@ $(function () {
                     $('#main').on('click', '.choadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?id=" + id
                     })
+                    $('#main').on('click', '.addadd .a', function () {
+                        window.location.href = "/Html/html/shopcar/chooseaddaddress.html?id=" + id
+                    })
                 } else {
                     $('#main').on('click', '.choadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?gid=" + gid
+                    })
+                    $('#main').on('click', '.addadd .a', function () {
+                        window.location.href = "/Html/html/shopcar/chooseaddaddress.html?gid=" + gid
                     })
                 }
 
@@ -93,6 +106,32 @@ $(function () {
                 //进入商品明细
                 $('#main').on('click', '.godeta', function () {
                     window.location.href = "/Html/html/shopcar/shopcardetails.html?id=" + id
+                })
+            },
+            jisuanjs: function () {
+                //加
+                $('#main').on('click', '.box .jia', function () {
+                    var stock = $(this).parents('.numbox').attr('data-max');
+                    // console.log(stock);
+                    var num = $(this).parents('.numbox').find('.amount').val();
+
+                    if (Number(num) >= Number(stock)) {
+                        num = stock;
+                    } else {
+                        num++;
+                    }
+                    // console.log(num);
+                    $(this).parents('.numbox').find('.amount').val(num)
+                })
+                //减
+                $('#main').on('click', '.box .jian', function () {
+                    var num = $(this).parents('.numbox').find('.amount').val();
+                    if (num <= 1) {
+                        num = 1;
+                    } else {
+                        num--;
+                    }
+                    $(this).parents('.numbox').find('.amount').val(num)
                 })
             },
             //价格计算
@@ -141,6 +180,15 @@ $(function () {
                         console.log(message)
                         _this.inputajax(message);
                     }
+                })
+            },
+            bianj: function () {
+
+                //编辑
+                $('#main').on('click', '.edit', function () {
+
+                    console.log(231312)
+                    $(this).parents('.zixuan').find('.editbox').show();
                 })
             },
             inputajax: function (message) {
@@ -261,17 +309,17 @@ $(function () {
             oneclick: function () {
                 var _this = this;
                 //单选
-                $('#main').on('click', '.box', function () {
-                    var zxid = $(this).find('.ccheck').attr('data-zxid');
-                    var zxprice = $(this).find('.ccheck').attr('data-zxprice')
-                    if ($(this).find('.ccheck').hasClass('cur')) {
-                        $(this).find('.ccheck').removeClass('cur');
-                        $(this).removeAttr('data-zxid');
-                        $(this).removeAttr('data-zxprice');
+                $('#main').on('click', '.ccheck', function () {
+                    var zxid = $(this).attr('data-zxid');
+                    var zxprice = $(this).attr('data-zxprice')
+                    if ($(this).hasClass('cur')) {
+                        $(this).removeClass('cur');
+                        $(this).parents('.box').removeAttr('data-zxid');
+                        $(this).parents('.box').removeAttr('data-zxprice');
                     } else {
-                        $(this).find('.ccheck').addClass('cur');
-                        $(this).attr('data-zxid', zxid)
-                        $(this).attr('data-zxprice', zxprice)
+                        $(this).addClass('cur');
+                        $(this).parents('.box').attr('data-zxid', zxid)
+                        $(this).parents('.box').attr('data-zxprice', zxprice)
                     }
 
                     // _this.TotalMoney()

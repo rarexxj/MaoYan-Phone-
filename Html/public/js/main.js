@@ -77,7 +77,6 @@ $(function () {
     //回跳登录页
     $.Backlog = $.BACKLOGIN = function (back) {
         var from = (back ? back : (location.pathname + location.search));
-
         if ($.is_weixin()) {
             window.location.replace('/WeiXin/Login' + (from ? ('?backUrl=' + from) : ''));
         } else {

@@ -79,7 +79,7 @@
                     <div class="info fr">
                         <div class="tt">{{info.PurchaseGood.PurName}}</div>
                         <!--<div class="tc f-cb">-->
-                            <!--<div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>-->
+                        <!--<div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>-->
                         <!--</div>-->
                         <div class="bot f-cb">
                             <div class="price fl">¥ <span class="amo">{{info.PurchaseGood.PurPrice.toFixed(2)}}</span>
@@ -89,9 +89,10 @@
                     </div>
                 </div>
             </div>
-            <div class="shopcar zixuan detailed" >
+            <div class="shopcar zixuan detailed">
                 <div class="jjg">自选商品：</div>
-                <div class="box clearfix" v-for="youwant in info.OptionalGoods" >
+
+                <div class="box clearfix" v-for="youwant in info.OptionalGoods">
                     <div class="ccheck fl" :data-zxid="youwant.Id" :data-zxprice="youwant.ShopPrice"></div>
                     <div class="img fl"
                          :style="{backgroundImage: 'url('+youwant.MainImage.MediumThumbnail+')'}"></div>
@@ -100,10 +101,16 @@
                         <!--<div class="tc f-cb">-->
                         <!--<div class="int fl"><span>{{info.Goods.List[0].GoodsAttribute}}</span></div>-->
                         <!--</div>-->
-                        <div class="bot f-cb">
+                        <input class="neednum" type="text" placeholder="请选择您要的数字">
+                        <div class="bot f-cb clearfix">
                             <div class="price fl">¥ <span class="amo">{{youwant.ShopPrice.toFixed(2)}}</span>
                             </div>
-                            <div class="num fr">x <span>1</span></div>
+                            <div class="fr numbox">
+                                <div class="jian fl"></div>
+                                <input type="tel" class="amount fl" :value="1" disabled>
+                                <div class="jia fl"></div>
+                            </div>
+                            <!--<div class="num fr">x <span>1</span></div>-->
                         </div>
                     </div>
                 </div>
@@ -130,15 +137,15 @@
                         class="amo">{{info.ShippingFee.toFixed(2)}}</span></div>
             </div>
             <!--<div class="line jifen" style="margin-top: 0.2rem">-->
-                <!--&lt;!&ndash;<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>&ndash;&gt;-->
-                <!--<div class="tt fl">-->
-                    <!--有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元-->
-                <!--</div>-->
+            <!--&lt;!&ndash;<div class="tt fl">可用积分{{AvailableIntegral}}分，可抵扣{{(AvailableIntegral/1000).toFixed(2)}}元</div>&ndash;&gt;-->
+            <!--<div class="tt fl">-->
+            <!--有{{info.AvailableIntegral}}分，可抵{{(info.AvailableIntegral/100*info.IntegralDiscountRate).toFixed(2)}}元-->
+            <!--</div>-->
 
-                <!--<div class="weui_cell_ft fr">-->
-                    <!--<input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"-->
-                           <!--:data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">-->
-                <!--</div>-->
+            <!--<div class="weui_cell_ft fr">-->
+            <!--<input class="weui_switch" type="checkbox" :data-int="info.AvailableIntegral"-->
+            <!--:data-money="info.AvailableIntegral/100*info.IntegralDiscountRate" v-on:change="js() ">-->
+            <!--</div>-->
             <!--</div>-->
             <div class="line confirm-youh" style="margin-top: 0.2rem" id="yhq" data-price="0"
                  :data-price2="GoodsAmount">
@@ -147,7 +154,8 @@
             </div>
             <div class="line">
                 <label for="shuoming" class="tt w145">订单说明：</label>
-                <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）" name="shuoming" id="shuoming">
+                <input type="text" class="text fl  bz" maxlength="50" placeholder="选填，给买家留言（限50字）" name="shuoming"
+                       id="shuoming">
             </div>
             <div class="line settime">
                 <label for="peistime" class="tt w145">配送时间：</label>
@@ -164,10 +172,10 @@
         </div>
     </div>
     <!--<div class="timebox">-->
-        <!--<input type="date" class="date" value="">-->
-        <!--<div class="yhq-btn-box">-->
-            <!--<div class="time-btn">确定</div>-->
-        <!--</div>-->
+    <!--<input type="date" class="date" value="">-->
+    <!--<div class="yhq-btn-box">-->
+    <!--<div class="time-btn">确定</div>-->
+    <!--</div>-->
     <!--</div>-->
     <div class="youhq-box" style="display: none" id="youhq-box">
 

@@ -121,6 +121,12 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.proinfo = rs.data;
+                        for (i=0;i<rs.data.OneLevelCategorys.length;i++){
+                            rs.data.OneLevelCategorys[i].maodian=i;
+                        }
+                        for(j=0;j<rs.data.Categories.length;j++){
+                            rs.data.Categories[i].maodian=i;
+                        }
                         _this.$nextTick(function(){
                             _this.poheight();
                             $.RMLOAD();
