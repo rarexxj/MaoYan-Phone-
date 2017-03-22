@@ -29,10 +29,10 @@ $(function () {
         ids.AddressId = addid
     }
     console.log(jjid)
-    if (jjid != 0) {
+    if (jjid&&jjid != 0) {
         ids.PurchaseId = jjid
-    } else {
-        jjid = ''
+    } else if(jjid==0){
+        ids.PurchaseId = ''
     }
     console.log(ids);
     new Vue({

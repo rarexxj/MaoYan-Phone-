@@ -36,9 +36,11 @@ $(function () {
                             rs.data.Carts[i].allprice = rs.data.Carts[i].Price * rs.data.Carts[i].Quantity;
                             //获取属性数组
                             rs.data.Carts[i].shuxi = []
-                            for (j in rs.data.Carts[i].GoodsAttribute.split(',')) {
-                                rs.data.Carts[i].shuxi[j] = rs.data.Carts[i].GoodsAttribute.split(',')[j]
-                            }
+                            // if (rs.data.Carts[i].GoodsAttribute.split(',')) {
+                            //     for (j in rs.data.Carts[i].GoodsAttribute.split(',')) {
+                            //         rs.data.Carts[i].shuxi[j] = rs.data.Carts[i].GoodsAttribute.split(',')[j]
+                            //     }
+                            // }
                             //获取是否有失效商品
                             shixiao.push(rs.data.Carts[i].Status)
                         }
@@ -58,7 +60,7 @@ $(function () {
                 })
             },
             oneclick: function () {
-                var _this=this;
+                var _this = this;
                 //单选
                 $('#shopcar').on('click', '.box .ccheck', function () {
                     if ($(this).hasClass('cur')) {
@@ -137,7 +139,7 @@ $(function () {
                 })
             },
             clicom: function () {
-                var _this=this;
+                var _this = this;
                 //完成
                 $('#shopcar').on('click', '.box .ok', function () {
                     var num = $(this).parents('.editbox').find('.amount').val();
@@ -174,7 +176,7 @@ $(function () {
                     }).done(function (rs) {
                         if (rs.returnCode == '200') {
                             $.oppo('清除成功', 1, function () {
-                                window.location.href = "/Html/ShopCar/ShopCar.html"
+                                window.location.href = "/Html/html/shopcar/shopcar.html"
                             })
                         }
                     })
@@ -222,7 +224,7 @@ $(function () {
                         idstr += $(this).parent().attr('data-id')
 
                     })
-                    window.location.href = "/Html/html/shopcar/settlement.html?id=" + idstr + "&type=0"
+                    window.location.href = "/Html/html/shopcar/settlement.html?id=" + idstr
                 }
             }
 

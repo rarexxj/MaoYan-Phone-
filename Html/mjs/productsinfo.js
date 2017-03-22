@@ -310,10 +310,14 @@ $(function () {
                                 } else {
                                     $.checkuser();
                                     $(this).addClass('on')
+                                    if($('.jiajg').attr('data-jjid')==0){
+                                        $('.jiajg').attr('data-jjid','')
+                                    }
                                     var listdata = {
                                         GoodsId: id,
                                         SingleGoodsId: $('.get-btn').attr('data-id'),
-                                        Quantity: $('.getnum .amount').val()
+                                        Quantity: $('.getnum .amount').val(),
+                                        PurchaseId:$('.jiajg').attr('data-jjid')
                                     }
                                     _this.addshopcar(listdata);
                                 }
