@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d502e914-54cb-4c69-872a-cdf15f254289" name="maoyan" url="http://121.41.1.0:7016/index.html">
+        <fileTransfer host="121.41.1.0" port="2121">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="2121" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

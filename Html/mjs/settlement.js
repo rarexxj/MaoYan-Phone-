@@ -49,13 +49,20 @@ $(function () {
             _this.$nextTick(function () {
                 _this.link();
                 _this.js();
+                _this.bianj();
                 _this.getCoupon();
                 _this.prosubmit();
+                _this.jisuanjs();
                 _this.youhq();
                 _this.oneclick();
                 _this.getsettime();
                 // $.RMLOAD();
             })
+        },
+        filter:{
+            datas:function () {
+                
+            }
         },
         methods: {
             ajax: function () {
@@ -83,9 +90,15 @@ $(function () {
                     $('#main').on('click', '.choadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?id=" + id
                     })
+                    $('#main').on('click', '.addadd .a', function () {
+                        window.location.href = "/Html/html/shopcar/chooseaddaddress.html?id=" + id
+                    })
                 } else {
                     $('#main').on('click', '.choadd .a', function () {
                         window.location.href = "/Html/html/shopcar/chooseaddress.html?gid=" + gid
+                    })
+                    $('#main').on('click', '.addadd .a', function () {
+                        window.location.href = "/Html/html/shopcar/chooseaddaddress.html?gid=" + gid
                     })
                 }
 
@@ -93,6 +106,32 @@ $(function () {
                 //进入商品明细
                 $('#main').on('click', '.godeta', function () {
                     window.location.href = "/Html/html/shopcar/shopcardetails.html?id=" + id
+                })
+            },
+            jisuanjs: function () {
+                //加
+                $('#main').on('click', '.box .jia', function () {
+                    var stock = $(this).parents('.numbox').attr('data-max');
+                    // console.log(stock);
+                    var num = $(this).parents('.numbox').find('.amount').val();
+
+                    if (Number(num) >= Number(stock)) {
+                        num = stock;
+                    } else {
+                        num++;
+                    }
+                    // console.log(num);
+                    $(this).parents('.numbox').find('.amount').val(num)
+                })
+                //减
+                $('#main').on('click', '.box .jian', function () {
+                    var num = $(this).parents('.numbox').find('.amount').val();
+                    if (num <= 1) {
+                        num = 1;
+                    } else {
+                        num--;
+                    }
+                    $(this).parents('.numbox').find('.amount').val(num)
                 })
             },
             //价格计算
@@ -123,6 +162,16 @@ $(function () {
                         } else {
                             num = 0
                         }
+                        var b = [];
+                        $('.box.cur').each(function () {
+                            var c={};
+                            c.Id=$(this).attr('data-zxid');
+                            c.Quantity=$(this).find('.amount').val();
+                            // c.tip=$(this).find('.neednum').val();
+                            console.log(c)
+                            b.push(c);
+                        })
+                        console.log(b)
                         var message = {
                             Consignee: _this.info.Addresses.Contacts,
                             Province: _this.info.Addresses.Province,
@@ -136,11 +185,20 @@ $(function () {
                             CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null,
                             GoodId: jjid,
                             BestTime: $('.peit').val(),
-                            OptionalGoodsId: a
+                            OptionalGoodsId:b
                         }
                         console.log(message)
-                        _this.inputajax(message);
+                        // _this.inputajax(message);
                     }
+                })
+            },
+            bianj: function () {
+
+                //编辑
+                $('#main').on('click', '.edit', function () {
+
+                    console.log(231312)
+                    $(this).parents('.zixuan').find('.editbox').show();
                 })
             },
             inputajax: function (message) {
@@ -153,7 +211,7 @@ $(function () {
                         if ($('.car-list .amo').attr('data-price') == 0) {
                             window.location.replace("/Html/Member/PersonalCenter.html")
                         } else {
-                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + $('.car-list').find('.amo').attr('data-price') + '&time=' + rs.data.CreateTime + '&yhq=' + $('#yhq').attr('data-price'))
+                            // window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + $('.car-list').find('.amo').attr('data-price') + '&time=' + rs.data.CreateTime + '&yhq=' + $('#yhq').attr('data-price'))
                         }
                     }
                 })
@@ -261,26 +319,31 @@ $(function () {
             oneclick: function () {
                 var _this = this;
                 //单选
-                $('#main').on('click', '.box', function () {
-                    var zxid = $(this).find('.ccheck').attr('data-zxid');
-                    var zxprice = $(this).find('.ccheck').attr('data-zxprice')
-                    if ($(this).find('.ccheck').hasClass('cur')) {
-                        $(this).find('.ccheck').removeClass('cur');
-                        $(this).removeAttr('data-zxid');
-                        $(this).removeAttr('data-zxprice');
+                $('#main').on('click', '.ccheck', function () {
+                    var zxid = $(this).attr('data-zxid');
+                    var zxprice = $(this).attr('data-zxprice')
+                    // var num=$(this).siblings('.info').find('.amount').val();
+                    // var tip=$(this).siblings('.info').find('.neednum').val();
+                    if ($(this).hasClass('cur')) {
+                        $(this).removeClass('cur');
+                        $(this).parents('.box').removeAttr('data-zxid');
+                        $(this).parents('.box').removeAttr('data-zxprice');
+                        $(this).parents('.box').removeClass('cur');
                     } else {
-                        $(this).find('.ccheck').addClass('cur');
-                        $(this).attr('data-zxid', zxid)
-                        $(this).attr('data-zxprice', zxprice)
+                        $(this).addClass('cur');
+                        $(this).parents('.box').addClass('cur');
+                        $(this).parents('.box').attr('data-zxid', zxid)
+                        $(this).parents('.box').attr('data-zxprice', zxprice)
+                        // $(this).parents('.box').attr('data-num', num)
+                        // $(this).parents('.box').attr('data-tip', tip)
                     }
 
                     // _this.TotalMoney()
-                    var a = [];
                     var zxprice=0;
                     $('.zixuan .box').each(function () {
                         if ($(this).attr('data-zxid') == undefined) {
                         } else {
-                            a.push($(this).attr('data-zxid'))
+
                         }
                         if ($(this).attr('data-zxprice') == undefined) {
                             _price=0

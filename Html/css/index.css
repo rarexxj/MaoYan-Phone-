@@ -330,14 +330,14 @@
 }
 
 .toleft {
-    background: url("img/logo7.png") no-repeat center;
-    background-size: cover;
-    width: 0.45rem;
-    height: 1.07rem;
+    background: url("img/logo7.png") no-repeat left center;
+    background-size:0.45rem 1.07rem;
+    width:1.5rem;
+    height:3rem;
     position: absolute;
-    right: -0.45rem;
+    right: -1.5rem;
     top: 50%;
-    margin-top: -0.535rem;
+    margin-top: -1.5rem;
 }
 
 .sidebarnav.left {
@@ -359,12 +359,12 @@
 }
 
 .toright {
-    background: url("img/logo8.png") no-repeat center;
-    background-size: cover;
-    width: 0.45rem;
-    height: 1.07rem;
+    background: url("img/logo8.png") no-repeat left center;
+    background-size:0.45rem 1.07rem;
+    width:1.5rem;
+    height:3rem;
     position: absolute;
-    right: -0.45rem;
+    right: -1.5rem;
     top: 50%;
-    margin-top: -0.535rem;
+    margin-top: -1.5rem;
 }
