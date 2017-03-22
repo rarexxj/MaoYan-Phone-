@@ -162,6 +162,16 @@ $(function () {
                         } else {
                             num = 0
                         }
+                        var b = [];
+                        $('.box.cur').each(function () {
+                            var c={};
+                            c.Id=$(this).attr('data-zxid');
+                            c.Quantity=$(this).find('.amount').val();
+                            // c.tip=$(this).find('.neednum').val();
+                            console.log(c)
+                            b.push(c);
+                        })
+                        console.log(b)
                         var message = {
                             Consignee: _this.info.Addresses.Contacts,
                             Province: _this.info.Addresses.Province,
@@ -175,10 +185,10 @@ $(function () {
                             CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null,
                             GoodId: jjid,
                             BestTime: $('.peit').val(),
-                            OptionalGoodsId: a
+                            OptionalGoodsId:b
                         }
                         console.log(message)
-                        _this.inputajax(message);
+                        // _this.inputajax(message);
                     }
                 })
             },
@@ -201,7 +211,7 @@ $(function () {
                         if ($('.car-list .amo').attr('data-price') == 0) {
                             window.location.replace("/Html/Member/PersonalCenter.html")
                         } else {
-                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + $('.car-list').find('.amo').attr('data-price') + '&time=' + rs.data.CreateTime + '&yhq=' + $('#yhq').attr('data-price'))
+                            // window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + $('.car-list').find('.amo').attr('data-price') + '&time=' + rs.data.CreateTime + '&yhq=' + $('#yhq').attr('data-price'))
                         }
                     }
                 })
@@ -312,23 +322,28 @@ $(function () {
                 $('#main').on('click', '.ccheck', function () {
                     var zxid = $(this).attr('data-zxid');
                     var zxprice = $(this).attr('data-zxprice')
+                    // var num=$(this).siblings('.info').find('.amount').val();
+                    // var tip=$(this).siblings('.info').find('.neednum').val();
                     if ($(this).hasClass('cur')) {
                         $(this).removeClass('cur');
                         $(this).parents('.box').removeAttr('data-zxid');
                         $(this).parents('.box').removeAttr('data-zxprice');
+                        $(this).parents('.box').removeClass('cur');
                     } else {
                         $(this).addClass('cur');
+                        $(this).parents('.box').addClass('cur');
                         $(this).parents('.box').attr('data-zxid', zxid)
                         $(this).parents('.box').attr('data-zxprice', zxprice)
+                        // $(this).parents('.box').attr('data-num', num)
+                        // $(this).parents('.box').attr('data-tip', tip)
                     }
 
                     // _this.TotalMoney()
-                    var a = [];
                     var zxprice=0;
                     $('.zixuan .box').each(function () {
                         if ($(this).attr('data-zxid') == undefined) {
                         } else {
-                            a.push($(this).attr('data-zxid'))
+
                         }
                         if ($(this).attr('data-zxprice') == undefined) {
                             _price=0
