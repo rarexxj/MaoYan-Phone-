@@ -31,8 +31,9 @@ $(function () {
     console.log(jjid)
     if (jjid&&jjid != 0) {
         ids.PurchaseId = jjid
-    } else if(jjid==0){
-        ids.PurchaseId = ''
+    } else if(jjid==0&&jjid==undefined){
+        ids.PurchaseId = '';
+        jjid=0
     }
     console.log(ids);
     new Vue({
@@ -41,7 +42,7 @@ $(function () {
             info: [],
             data1: ids,
             yhqinfo: [],
-            zxprice:''
+            zxprice:0
         },
         ready: function () {
             var _this = this;
@@ -109,6 +110,7 @@ $(function () {
                 })
             },
             jisuanjs: function () {
+                var _this=this;
                 //加
                 $('#main').on('click', '.box .jia', function () {
                     var stock = $(this).parents('.numbox').attr('data-max');
@@ -121,7 +123,23 @@ $(function () {
                         num++;
                     }
                     // console.log(num);
-                    $(this).parents('.numbox').find('.amount').val(num)
+                    $(this).parents('.numbox').find('.amount').val(num);
+                    var zxprice=0;
+                    $('.zixuan .box').each(function () {
+                        if ($(this).attr('data-zxid') == undefined) {
+                        } else {
+
+                        }
+                        if ($(this).attr('data-zxprice') == undefined) {
+                            _price=0
+                        } else {
+                            _price=$(this).attr('data-zxprice')*($(this).find('.amount').val())
+
+                        }
+                        zxprice = zxprice + Number(_price)
+                    })
+                    _this.zxprice=zxprice;
+                    _this.getLastPrice()
                 })
                 //减
                 $('#main').on('click', '.box .jian', function () {
@@ -132,6 +150,23 @@ $(function () {
                         num--;
                     }
                     $(this).parents('.numbox').find('.amount').val(num)
+                    var zxprice=0;
+                    $('.zixuan .box').each(function () {
+                        if ($(this).attr('data-zxid') == undefined) {
+                        } else {
+
+                        }
+                        if ($(this).attr('data-zxprice') == undefined) {
+                            _price=0
+                        } else {
+                            _price=$(this).attr('data-zxprice')*($(this).find('.amount').val())
+
+                        }
+                        zxprice = zxprice + Number(_price)
+                    })
+                    _this.zxprice=zxprice;
+                    _this.getLastPrice()
+
                 })
             },
             //价格计算
@@ -188,7 +223,7 @@ $(function () {
                             OptionalGoodsId:b
                         }
                         console.log(message)
-                        // _this.inputajax(message);
+                        _this.inputajax(message);
                     }
                 })
             },
@@ -211,7 +246,7 @@ $(function () {
                         if ($('.car-list .amo').attr('data-price') == 0) {
                             window.location.replace("/Html/Member/PersonalCenter.html")
                         } else {
-                            // window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + $('.car-list').find('.amo').attr('data-price') + '&time=' + rs.data.CreateTime + '&yhq=' + $('#yhq').attr('data-price'))
+                            window.location.replace("/Html/html/shopcar/pay.html?id=" + rs.data.Id + '&OrderNo=' + rs.data.OrderNo + '&money=' + $('.car-list').find('.amo').attr('data-price') + '&time=' + rs.data.CreateTime + '&yhq=' + $('#yhq').attr('data-price'))
                         }
                     }
                 })
@@ -224,7 +259,7 @@ $(function () {
                 } else {
                     $('.weui_switch').attr('data-price', 0)
                 }
-                _this.getLastPrice();
+                // _this.getLastPrice();
             },
             getCoupon: function () {
                 var _this = this;
@@ -348,7 +383,7 @@ $(function () {
                         if ($(this).attr('data-zxprice') == undefined) {
                             _price=0
                         } else {
-                            _price=$(this).attr('data-zxprice')
+                            _price=$(this).attr('data-zxprice')*($(this).find('.amount').val())
 
                         }
                         zxprice = zxprice + Number(_price)

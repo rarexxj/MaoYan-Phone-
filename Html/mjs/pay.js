@@ -88,7 +88,15 @@ $(function () {
                             $('.mask').fadeIn();
                             return false;
                         } else if ($('.huodao').hasClass('cur')) {
-                            window.location.replace("/Html/html/personalcenter/personalcenter.html");
+                            $.ajax({
+                                url:'/Payment/PayOnDelivery/'+Id,
+                                type:'post',
+                                dataType:'json'
+                            }).done(function (rs) {
+                                if(rs.returnCode=='200'){
+                                    // window.location.replace("/Html/html/personalcenter/personalcenter.html");
+                                }
+                            })
                             return false;
                         }
                         return true;
@@ -99,7 +107,15 @@ $(function () {
                         } else if ($('.weixin').hasClass('cur')) {
                             $('#paymentCode').val('weixin');
                         } else if ($('.huodao').hasClass('cur')) {
-                            window.location.replace("/Html/html/personalcenter/personalcenter.html")
+                            $.ajax({
+                                url:'/Payment/PayOnDelivery/'+Id,
+                                type:'post',
+                                dataType:'json'
+                            }).done(function (rs) {
+                                if(rs.returnCode=='200'){
+                                    // window.location.replace("/Html/html/personalcenter/personalcenter.html");
+                                }
+                            })
                             return false;
                         }
                         $('#formid').attr('action', '/Payment/H5/Pay')
