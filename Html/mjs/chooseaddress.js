@@ -8,7 +8,7 @@ $(function () {
     new Vue({
         el: '#address',
         data: {
-            info: {}
+            info: []
         },
         ready: function () {
             var _this = this;
