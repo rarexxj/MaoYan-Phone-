@@ -30,7 +30,7 @@ $(function () {
             bannerajax: function () {
                 var _this = this
                 $.ajax({
-                    url: '/Api/v1/Carousel/01',
+                    url: URL+'/Api/v1/Carousel/01',
                     type: 'get',
                     data: {
                         key: '03'
@@ -112,7 +112,7 @@ $(function () {
             hotajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Goods/Recommend',
+                    url: URL+'/Api/v1/Mall/Goods/Recommend',
                     type: 'get',
                     data: _this.prodata
                 }).done(function (rs) {

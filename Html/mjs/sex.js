@@ -27,7 +27,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Member/' + $.get_user('Id')+'/Update',
+                    url: URL+'/Api/v1/Member/' + $.get_user('Id')+'/Update',
                     type: 'put',
                     data: {
                         NickName: '',

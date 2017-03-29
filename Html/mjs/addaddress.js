@@ -24,7 +24,7 @@ $(function () {
                 //获得省
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Settings/District/0/Child',
+                    url: URL+'/Api/v1/Settings/District/0/Child',
                     dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
@@ -37,7 +37,7 @@ $(function () {
                 //获得省
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Settings/District/0/Child',
+                    url: URL+'/Api/v1/Settings/District/0/Child',
                     dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
@@ -58,7 +58,7 @@ $(function () {
                 //得到市
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Settings/District/' + id + '/Child',
+                    url: URL+'/Api/v1/Settings/District/' + id + '/Child',
                     dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
@@ -78,7 +78,7 @@ $(function () {
             xian: function (id) {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Settings/District/' + id + '/Child',
+                    url: URL+'/Api/v1/Settings/District/' + id + '/Child',
                     dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
@@ -99,7 +99,7 @@ $(function () {
                 //得到街道
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Settings/District/' + id + '/Child',
+                    url: URL+'/Api/v1/Settings/District/' + id + '/Child',
                     dataType: 'json',
                     type: 'get'
                 }).done(function (rs) {
@@ -156,7 +156,7 @@ $(function () {
             },
             subajax: function (data) {
                 $.ajax({
-                    url: '/Api/v1/Member/Address',
+                    url: URL+'/Api/v1/Member/Address',
                     dataType: 'json',
                     type: 'post',
                     data: data

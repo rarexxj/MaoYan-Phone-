@@ -31,7 +31,7 @@ $(function () {
             ajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: "/Api/v1/Mall/IntegralOrderCalculation",
+                    url: URL+'/Api/v1/Mall/IntegralOrderCalculation',
                     data: ids,
                     type: 'post',
                     dataType: 'json'
@@ -103,7 +103,7 @@ $(function () {
             },
             inputajax: function (message) {
                 $.ajax({
-                    url: '/Api/v1/Mall/ConfirmExchangeSubmit',
+                    url: URL+'/Api/v1/Mall/ConfirmExchangeSubmit',
                     data: message,
                     type: 'post'
                 }).done(function (rs) {

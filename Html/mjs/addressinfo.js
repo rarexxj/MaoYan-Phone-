@@ -21,7 +21,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Member/Address/' + id,
+                    url: URL+'/Api/v1/Member/Address/' + id,
                     dataType:'json',
                     type: 'get'
                 }).done(function (rs) {
@@ -40,7 +40,7 @@ $(function () {
             },
             morenajax: function () {
                 $.ajax({
-                    url: '/Api/v1/Member/Address/' + id + '/Default',
+                    url: URL+'/Api/v1/Member/Address/' + id + '/Default',
                     dataType:'json',
                     type: 'patch',
                     data: {
@@ -68,7 +68,7 @@ $(function () {
             },
             shanchuajax: function () {
                 $.ajax({
-                    url: '/Api/v1/Member/Address/' + id,
+                    url: URL+'/Api/v1/Member/Address/' + id,
                     dataType:'json',
                     type: 'delete',
                     data: {

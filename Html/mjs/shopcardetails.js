@@ -30,7 +30,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/OrderCalculation',
+                    url: URL+'/Api/v1/Mall/OrderCalculation',
                     data:_this.data1,
                     type: 'post'
                 }).done(function (rs) {

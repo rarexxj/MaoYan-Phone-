@@ -18,7 +18,7 @@ $(function () {
             infoajax: function (data) {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Member/' + sfId +'/Update',
+                    url: URL+'/Api/v1/Member/' + sfId +'/Update',
                     type: 'put',
                     data: data
                 }).done(function (rs) {

@@ -45,7 +45,7 @@ $(function () {
     })
     function ajax(datas) {
         $.ajax({
-            url:'/Api/v1/Order/Refund',
+            url:URL+'/Api/v1/Order/Refund',
             type:'patch',
             data:datas
         }).done(function (rs) {

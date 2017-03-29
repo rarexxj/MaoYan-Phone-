@@ -6,7 +6,7 @@ $(function () {
 
     function ajax() {
         $.ajax({
-            url:'/Api/v1/Order/Refund',
+            url:URL+'/Api/v1/Order/Refund',
             type:'get',
             data:{
                 orderId:oid
@@ -41,7 +41,7 @@ $(function () {
         $('.can-btn').on('click',function () {
 
             $.ajax({
-                url:'/Api/v1/Order/Refund/'+rs.Datail.Id,
+                url:URL+'/Api/v1/Order/Refund/'+rs.Datail.Id,
                 type:'delete',
                 data:{
                     applyId:rs.Id

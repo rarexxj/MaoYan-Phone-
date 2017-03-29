@@ -20,6 +20,7 @@
     <script type="text/javascript" src="/Html/public/js/main.js"></script>
     <script type="text/javascript" src="/Html/public/js/swiper.min.js"></script>
     <script type="text/javascript" src="/Html/public/js/vue.js"></script>
+    <script type="text/javascript" src="/Html/public/js/config.js"></script>
     <title>5客蛋糕官网丨这一刻，只因分享</title>
 </head>
 <body>
@@ -58,6 +59,15 @@
             </a>
         </div>
         <div class="index-box" id="index">
+            <div class="hello">
+                <div class="index-headmidl">
+                    <div class="index-headlogo fl" style="background-image: url('/Html/css/img/logo52.png')"></div>
+                    <div class="index-headlogofont fl">
+                        <span class="index-headlogofont1">这一刻，只因分享</span>
+                        <span class="index-headlogofont2">At this moment, For sharing</span>
+                    </div>
+                </div>
+            </div>
             <div class="swiper-container">
                 <div class="index-banner swiper-wrapper">
                     <a :href="banner.url" :class="['swiper-slide']" v-for="banner in banner"
@@ -85,19 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hello">
-                <div class="index-headmidl fl">
-                    <div class="index-headlogo fl" style="background-image: url('/Html/css/img/logo52.png')"></div>
-                    <div class="index-headlogofont fl">
-                        <span class="index-headlogofont1">这一刻，只因分享</span>
-                        <span class="index-headlogofont2">At this moment, For sharing</span>
-                    </div>
-                </div>
-                <div class="index-headmidr fr">
-                    <span class="index-headmidrfont1">配送范围内满100元包邮</span>
-                    <div class="index-headmidrfont2">400-123-1234</div>
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="new-loading">

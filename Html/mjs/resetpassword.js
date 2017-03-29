@@ -23,7 +23,7 @@ $(function () {
                     NewPassword: $('#spw').val()
                 };
                 $.ajax({
-                    url: '/Api/v1/Member/'+id+'/Password',
+                    url: URL+'/Api/v1/Member/'+id+'/Password',
                     type: 'PATCH',
                     data: data
                 }).done(function (rs) {

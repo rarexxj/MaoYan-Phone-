@@ -9,7 +9,7 @@ $(function () {
     ajax();
     function ajax(callback,beforecallback) {
         $.ajax({
-            url:'/Api/v1/Mall/Goods',
+            url:URL+'/Api/v1/Mall/Goods',
             type:'post',
             data:data,
             beforeSend:function () {
@@ -121,7 +121,7 @@ $(function () {
     tagajax();
     function tagajax() {
         $.ajax({
-            url:'/Api/v1/Goods/Tags/BntWeb-Mall',
+            url:URL+'/Api/v1/Goods/Tags/BntWeb-Mall',
             type:'get'
         }).done(function (rs) {
             if (rs.returnCode == '200'){

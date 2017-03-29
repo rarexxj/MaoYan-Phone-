@@ -30,7 +30,7 @@ $(function(){
 			infoajax:function () {
 				var _this=this;
 				$.ajax({
-					url: '/Api/v1/Coupon',
+					url: URL+'/Api/v1/Coupon',
 					type: 'get',
 					dataType:'json',
 					data:{

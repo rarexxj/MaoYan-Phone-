@@ -18,7 +18,7 @@ $(function () {
 
     function ajaxyanz(data) {
         $.ajax({
-            url: '/Api/v1/Member/SendCodeWeixin',
+            url: URL+'/Api/v1/Member/SendCodeWeixin',
             type: 'post',
             data: data
         }).done(function (rs) {
@@ -65,7 +65,7 @@ $(function () {
 
     function ajaxforget(data2) {
         $.ajax({
-            url: '/Api/v1/Member/ResetPassword',
+            url: URL+'/Api/v1/Member/ResetPassword',
             type: 'patch',
             data: data2
         }).done(function (rs) {

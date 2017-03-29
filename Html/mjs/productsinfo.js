@@ -42,7 +42,7 @@ $(function () {
             bannerajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Carousel/01',
+                    url: URL+'/Api/v1/Carousel/01',
                     type: 'get',
                     data: {
                         key: '04'
@@ -62,7 +62,7 @@ $(function () {
                     $.checkuser()
                 }
                 $.ajax({
-                    url: '/Api/v1/Mall/Goods/Attribute',
+                    url: URL+'/Api/v1/Mall/Goods/Attribute',
                     type: 'get',
                     data: {
                         goodId: _this.goodId
@@ -160,7 +160,7 @@ $(function () {
             //取消收藏
             ajaxcancel: function () {
                 $.ajax({
-                    url: '/Api/v1/Mall/Collect/' + id,
+                    url: URL+'/Api/v1/Mall/Collect/' + id,
                     type: 'DELETE'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -172,7 +172,7 @@ $(function () {
             //添加收藏
             ajaxadd: function () {
                 $.ajax({
-                    url: '/Api/v1/Mall/Collect/' + id,
+                    url: URL+'/Api/v1/Mall/Collect/' + id,
                     type: 'post'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -348,7 +348,7 @@ $(function () {
             },
             addshopcar: function (listdata) {
                 $.ajax({
-                    url: '/Api/v1/Mall/Cart',
+                    url: URL+'/Api/v1/Mall/Cart',
                     type: 'post',
                     data: listdata
                 }).done(function (rs) {
@@ -418,7 +418,7 @@ $(function () {
             evaajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/GoodsEvaluates',
+                    url: URL+'/Api/v1/Mall/GoodsEvaluates',
                     type: 'get',
                     data: _this.evadata
                 }).done(function (rs) {
@@ -431,7 +431,7 @@ $(function () {
             headimg: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/GoodsEvaluates/Top',
+                    url: URL+'/Api/v1/Mall/GoodsEvaluates/Top',
                     type: 'get',
                     data: {
                         goodsId: _this.goodId
@@ -445,7 +445,7 @@ $(function () {
             liuljl: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Browse/' + id,
+                    url: URL+'/Api/v1/Mall/Browse/' + id,
                     type: 'POST'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {

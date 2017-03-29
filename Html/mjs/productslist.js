@@ -35,7 +35,7 @@ $(function () {
             zongheajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Goods',
+                    url: URL+'/Api/v1/Mall/Goods',
                     type: 'post',
                     data: _this.ajaxdata
                 }).done(function (rs) {
@@ -205,7 +205,7 @@ $(function () {
             tagajax: function () {
                 var _this=this;
                 $.ajax({
-                    url: '/Api/v1/Goods/Tags/BntWeb-Mall',
+                    url: URL+'/Api/v1/Goods/Tags/BntWeb-Mall',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -216,7 +216,7 @@ $(function () {
             tel:function () {
                 var _this=this;
                 $.ajax({
-                    url: '/Api/v1/CustomPhone',
+                    url: URL+'/Api/v1/CustomPhone',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {

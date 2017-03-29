@@ -32,7 +32,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/MyOrder',
+                    url: URL+'/Api/v1/Mall/MyOrder',
                     data: _this.data1,
                     type: 'get'
                 }).done(function (rs) {
@@ -97,7 +97,7 @@ $(function () {
             },
             deletajax: function (id) {
                 $.ajax({
-                    url: '/Api/v1/Order/' + id,
+                    url: URL+'/Api/v1/Order/' + id,
                     type: 'DELETE'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -110,7 +110,7 @@ $(function () {
             },
             cancleajax: function (id) {
                 $.ajax({
-                    url: '/Api/v1/Order/' + id + '/Cancel',
+                    url: URL+'/Api/v1/Order/' + id + '/Cancel',
                     type: 'PATCH'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -123,7 +123,7 @@ $(function () {
             },
             sureajax: function (id) {
                 $.ajax({
-                    url: '/Api/v1/Order/' + id + '/Complete',
+                    url: URL+'/Api/v1/Order/' + id + '/Complete',
                     type: 'PATCH'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -136,7 +136,7 @@ $(function () {
             },
             remindajax: function (id) {
                 $.ajax({
-                    url: '/Api/v1/Order/' + id + '/Remind',
+                    url: URL+'/Api/v1/Order/' + id + '/Remind',
                     type: 'post'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {

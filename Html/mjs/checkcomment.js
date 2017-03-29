@@ -6,7 +6,7 @@ $(function () {
     ajax();
     function ajax() {
         $.ajax({
-            url:'/Api/v1/Order/'+id+'/Evaluate',
+            url:URL+'/Api/v1/Order/'+id+'/Evaluate',
             dataType:'json',
             type:'get',
             data:{

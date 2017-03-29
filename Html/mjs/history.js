@@ -21,7 +21,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Browse',
+                    url: URL+'/Api/v1/Mall/Browse',
                     type: 'get',
                     data: _this.ajaxdata
                 }).done(function (rs) {
@@ -66,7 +66,7 @@ $(function () {
             },
             deleteajax: function () {
                 $.ajax({
-                    url: "/Api/v1/Mall/Browse",
+                    url: URL+'/Api/v1/Mall/Browse',
                     type: 'delete'
                 }).done(function (rs) {
                     if (rs.returnCode = '200') {

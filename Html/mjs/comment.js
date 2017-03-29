@@ -41,7 +41,7 @@ $(function () {
         }
         console.log(datas)
         $.ajax({
-            url:'/Api/v1/Order/'+id+'/Evaluate',
+            url:URL+'/Api/v1/Order/'+id+'/Evaluate',
             data:datas,
             type:"post"
         }).done(function (rs) {
@@ -54,7 +54,7 @@ $(function () {
     }
     function ajaxinfo() {
         $.ajax({
-            url:'/Api/v1/Mall/Order/'+id,
+            url:URL+'/Api/v1/Mall/Order/'+id,
             tpye:'get',
             data:{
                 id:id

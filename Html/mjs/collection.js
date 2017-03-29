@@ -23,7 +23,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Collect',
+                    url:URL+'/Api/v1/Mall/Collect',
                     dataType:'json',
                     type: 'get',
                     data: _this.ajaxdata
@@ -71,7 +71,7 @@ $(function () {
             },
             ajaxcancel: function (id) {
                 $.ajax({
-                    url: '/Api/v1/Mall/Collect/' + id,
+                    url: URL+'/Api/v1/Mall/Collect/' + id,
                     dataType:'json',
                     type: 'DELETE'
                 }).done(function (rs) {

@@ -375,26 +375,26 @@
 }
 
 .hello{
-    position: absolute;
-    top:0;
     width:100%;
-    left:0;
-    z-index: 100;
-    background: rgba(0,0,0,0.4);
+    height:1rem;
+    background: #fff;
 }
 .index-headlogo{
-    width:1.33rem;
+    width:1.8rem;
     height:1rem;
-    background-size:1.33rem 1rem;
+    background-size:1.8rem 1rem;
     background-position: center;
     background-repeat: no-repeat;
+    margin-right: 0.3rem;
+    margin-left: 0.3rem;
 }
 .index-headlogofont1{
+    margin-top: 0.16rem;
     font-size: 0.2rem;
     color: #dccc8d;
     line-height: 1;
     display: block;
-    margin-bottom: 0.04rem;
+    margin-bottom: 0.1rem;
 }
 
 .index-headlogofont2{

@@ -21,7 +21,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Member/Address',
+                    url: URL+'/Api/v1/Member/Address',
                     dataType:'json',
                     type: 'get'
                 }).done(function (rs) {

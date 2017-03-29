@@ -23,7 +23,7 @@ $(function () {
 
     function ajaxyanz(data) {
         $.ajax({
-            url: '/Api/v1/Member/SendCodeWeixin',
+            url: URL+'/Api/v1/Member/SendCodeWeixin',
             type: 'POST',
             data: data
         }).done(function (rs) {
@@ -70,7 +70,7 @@ $(function () {
 
     function ajaxzhc(data2) {
         $.ajax({
-            url: '/Api/v1/Member',
+            url: URL+'/Api/v1/Member',
             type: 'post',
             data: data2
         }).done(function (rs) {

@@ -25,7 +25,7 @@ $(function () {
                 //积分渲染
                 var _this = this;
                 $.ajax({
-                    url: "/Api/v1/Wallet/Integral",
+                    url: URL+'/Api/v1/Wallet/Integral',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode = '200') {
@@ -38,7 +38,7 @@ $(function () {
                 var _this=this;
                 //资金变动记录渲染
                 $.ajax({
-                    url: '/Api/v1/WalletBill',
+                    url: URL+'/Api/v1/WalletBill',
                     type: 'get',
                     data: _this.ajaxdata
                 }).done(function (rs) {

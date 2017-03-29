@@ -16,7 +16,7 @@ $(function () {
             mainajax: function () {
                 var _this=this;
                 $.ajax({
-                    url: '/Api/v1/Mall/GoodsCategory',
+                    url: URL+'/Api/v1/Mall/GoodsCategory',
                     type: 'get',
                     data: {}
                 }).done(function (rs) {

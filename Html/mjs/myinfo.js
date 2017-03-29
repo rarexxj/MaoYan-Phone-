@@ -22,7 +22,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Member/GetMemberInfo',
+                    url: URL+'/Api/v1/Member/GetMemberInfo',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -87,7 +87,7 @@ $(function () {
             },
             exitajax: function () {
                 $.ajax({
-                    url: '/Api/v1/Logout',
+                    url: URL+'/Api/v1/Logout',
                     type: 'post'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {

@@ -26,7 +26,7 @@ $(function () {
             bannerajax: function () {
                 var _this = this
                 $.ajax({
-                    url: '/Api/v1/Carousel/01',
+                    url: URL+'/Api/v1/Carousel/01',
                     type: 'get',
                     data: {
                         key: '05'
@@ -116,7 +116,7 @@ $(function () {
             proinfoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Home',
+                    url: URL+'/Api/v1/Mall/Home',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -138,7 +138,7 @@ $(function () {
             tel:function () {
                 var _this=this;
                 $.ajax({
-                    url: '/Api/v1/CustomPhone',
+                    url:  URL+'/Api/v1/CustomPhone',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {

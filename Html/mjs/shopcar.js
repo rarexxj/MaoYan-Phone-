@@ -23,7 +23,7 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: '/Api/v1/Mall/Cart',
+                    url: URL+'/Api/v1/Mall/Cart',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -124,7 +124,7 @@ $(function () {
                     // TotalMoney()
                     $.ajax({
 
-                        url: '/Api/v1/Mall/Cart/' + id,
+                        url: URL+'/Api/v1/Mall/Cart/' + id,
                         type: 'DELETE',
                         data: {
                             CartId: id
@@ -153,7 +153,7 @@ $(function () {
                     //编辑购物车
                     var id = $(this).parents('.box').attr('data-id');
                     $.ajax({
-                        url: '/Api/v1/Mall/Cart',
+                        url: URL+'/Api/v1/Mall/Cart',
                         type: 'patch',
                         data: {
                             CartId: id,
@@ -171,7 +171,7 @@ $(function () {
                 //清楚失效商品
                 $('#shopcar').on('click', '.clearsc', function () {
                     $.ajax({
-                        url: '/Api/v1/Mall/Cart/Clear',
+                        url: URL+'/Api/v1/Mall/Cart/Clear',
                         type: 'DELETE'
                     }).done(function (rs) {
                         if (rs.returnCode == '200') {

@@ -14,7 +14,7 @@ $(function () {
             ajax:function () {
                 var _this=this;
                 $.ajax({
-                    url:'/Api/v1/Mall/ConfirmExchangeGoodsList',
+                    url:URL+'/Api/v1/Mall/ConfirmExchangeGoodsList',
                     dataType:'json',
                     type:'GET',
                     data:{},

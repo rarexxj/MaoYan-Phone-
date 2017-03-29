@@ -7,7 +7,7 @@ $(function () {
         methods: {
             ajax: function () {
                 $.ajax({
-                    url: '/Api/v1/Member/' +$.get_user('Id') +'/Update',
+                    url: URL+'/Api/v1/Member/' +$.get_user('Id') +'/Update',
                     dataType:'json',
                     type: 'put',
                     data: {
