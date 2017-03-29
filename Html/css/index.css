@@ -373,3 +373,47 @@
     top: 50%;
     margin-top: -1.5rem;
 }
+
+.hello{
+    position: absolute;
+    top:0;
+    width:100%;
+    left:0;
+    z-index: 100;
+    background: rgba(0,0,0,0.4);
+}
+.index-headlogo{
+    width:1.33rem;
+    height:1rem;
+    background-size:1.33rem 1rem;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.index-headlogofont1{
+    font-size: 0.2rem;
+    color: #dccc8d;
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.04rem;
+}
+
+.index-headlogofont2{
+    font-size: 0.2rem;
+    color: #d6d6d6;
+    display: block;
+    line-height: 1;
+}
+
+.index-headmidrfont1{
+    color: #807467;
+    line-height: 1;
+    display: block;
+    font-size: 0.2rem;
+}
+.index-headmidrfont2{
+    padding-left: 0.34rem;
+    color: #dccc8d;
+    font-size: 0.2rem;
+    background: url(img/logo58.png) no-repeat left;
+    background-size: 0.7rem 0.48rem;
+}
