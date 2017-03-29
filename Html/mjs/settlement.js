@@ -29,11 +29,11 @@ $(function () {
         ids.AddressId = addid
     }
     console.log(jjid)
-    if (jjid&&jjid != 0) {
+    if (jjid && jjid != 0) {
         ids.PurchaseId = jjid
-    } else if(jjid==0&&jjid==undefined){
+    } else if (jjid == 0 && jjid == undefined) {
         ids.PurchaseId = '';
-        jjid=0
+        jjid = 0
     }
     console.log(ids);
     new Vue({
@@ -42,7 +42,7 @@ $(function () {
             info: [],
             data1: ids,
             yhqinfo: [],
-            zxprice:0
+            zxprice: 0
         },
         ready: function () {
             var _this = this;
@@ -60,9 +60,9 @@ $(function () {
                 // $.RMLOAD();
             })
         },
-        filter:{
-            datas:function () {
-                
+        filter: {
+            datas: function () {
+
             }
         },
         methods: {
@@ -110,7 +110,7 @@ $(function () {
                 })
             },
             jisuanjs: function () {
-                var _this=this;
+                var _this = this;
                 //加
                 $('#main').on('click', '.box .jia', function () {
                     var stock = $(this).parents('.numbox').attr('data-max');
@@ -124,21 +124,21 @@ $(function () {
                     }
                     // console.log(num);
                     $(this).parents('.numbox').find('.amount').val(num);
-                    var zxprice=0;
+                    var zxprice = 0;
                     $('.zixuan .box').each(function () {
                         if ($(this).attr('data-zxid') == undefined) {
                         } else {
 
                         }
                         if ($(this).attr('data-zxprice') == undefined) {
-                            _price=0
+                            _price = 0
                         } else {
-                            _price=$(this).attr('data-zxprice')*($(this).find('.amount').val())
+                            _price = $(this).attr('data-zxprice') * ($(this).find('.amount').val())
 
                         }
                         zxprice = zxprice + Number(_price)
                     })
-                    _this.zxprice=zxprice;
+                    _this.zxprice = zxprice;
                     _this.getLastPrice()
                 })
                 //减
@@ -150,21 +150,21 @@ $(function () {
                         num--;
                     }
                     $(this).parents('.numbox').find('.amount').val(num)
-                    var zxprice=0;
+                    var zxprice = 0;
                     $('.zixuan .box').each(function () {
                         if ($(this).attr('data-zxid') == undefined) {
                         } else {
 
                         }
                         if ($(this).attr('data-zxprice') == undefined) {
-                            _price=0
+                            _price = 0
                         } else {
-                            _price=$(this).attr('data-zxprice')*($(this).find('.amount').val())
+                            _price = $(this).attr('data-zxprice') * ($(this).find('.amount').val())
 
                         }
                         zxprice = zxprice + Number(_price)
                     })
-                    _this.zxprice=zxprice;
+                    _this.zxprice = zxprice;
                     _this.getLastPrice()
 
                 })
@@ -199,9 +199,9 @@ $(function () {
                         }
                         var b = [];
                         $('.box.cur').each(function () {
-                            var c={};
-                            c.Id=$(this).attr('data-zxid');
-                            c.Quantity=$(this).find('.amount').val();
+                            var c = {};
+                            c.Id = $(this).attr('data-zxid');
+                            c.Quantity = $(this).find('.amount').val();
                             // c.tip=$(this).find('.neednum').val();
                             console.log(c)
                             b.push(c);
@@ -220,7 +220,7 @@ $(function () {
                             CouponId: $('.youhq.active').attr('data-id') ? $('.youhq.active').attr('data-id') : null,
                             GoodId: jjid,
                             BestTime: $('.peit').val(),
-                            OptionalGoodsId:b
+                            OptionalGoodsId: b
                         }
                         console.log(message)
                         _this.inputajax(message);
@@ -291,9 +291,9 @@ $(function () {
                 })
             },
             getLastPrice: function () {
-                var _this=this;
+                var _this = this;
                 // var money = parseFloat($('.car-list .amo').attr('data-price2') - $('.weui_switch').attr('data-price') - $('#yhq').attr('data-price'));
-                var money = parseFloat($('.car-list .amo').attr('data-price2') - $('#yhq').attr('data-price')+_this.zxprice);
+                var money = parseFloat($('.car-list .amo').attr('data-price2') - $('#yhq').attr('data-price') + _this.zxprice);
                 console.log(_this.zxprice)
                 if (money < 0) {
                     money = 0
@@ -374,25 +374,24 @@ $(function () {
                     }
 
                     // _this.TotalMoney()
-                    var zxprice=0;
+                    var zxprice = 0;
                     $('.zixuan .box').each(function () {
                         if ($(this).attr('data-zxid') == undefined) {
                         } else {
 
                         }
                         if ($(this).attr('data-zxprice') == undefined) {
-                            _price=0
+                            _price = 0
                         } else {
-                            _price=$(this).attr('data-zxprice')*($(this).find('.amount').val())
+                            _price = $(this).attr('data-zxprice') * ($(this).find('.amount').val())
 
                         }
                         zxprice = zxprice + Number(_price)
                     })
-                    _this.zxprice=zxprice;
+                    _this.zxprice = zxprice;
                     _this.getLastPrice()
                 })
-
-            },
+            }
         }
     })
 })
