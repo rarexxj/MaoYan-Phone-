@@ -76,13 +76,16 @@ $(function () {
 
     //回跳登录页
     $.Backlog = $.BACKLOGIN = function (back) {
-        var from = (back ? back : (location.pathname + location.search));
-        if ($.is_weixin()) {
-            window.location.replace('/WeiXin/Login' + (from ? ('?backUrl=' + from) : ''));
-        } else {
-            //填写路径
-            window.location.replace('/Html/html/personalcenter/login.html' + (from ? ('?from=' + window.base64encode(from)) : ''))
-        }
+        // var from = (back ? back : (location.pathname + location.search));
+        //     //填写路径
+        // window.location.replace('/Html/html/personalcenter/login.html' + (from ? ('?from=' + window.base64encode(from)) : ''))
+        window.location.replace('/Html/html/personalcenter/login.html')
+        // if ($.is_weixin()) {
+        //     window.location.replace('/WeiXin/Login' + (from ? ('?backUrl=' + from) : ''));
+        // } else {
+        //     //填写路径
+        //     window.location.replace('/Html/html/personalcenter/login.html' + (from ? ('?from=' + window.base64encode(from)) : ''))
+        // }
 
     }
 
@@ -101,20 +104,20 @@ $(function () {
 
     //授权
     $.checkuser = function (back) {
-        if ($.is_weixin()) {
-            var user = $.cookie('userInfo');
-            if (user) {
-                user = JSON.parse(window.base64decodes(user))
-                $.put_user(user)
-                localStorage.setItem('qy_loginToken', user.PhoneNumber + ':' + user.DynamicToken);
-                //新增
-                if(user.Avatar != null){
-                    localStorage['qy_head']=user.Id+'|'+user.Avatar.SmallThumbnail;
-                }
-                $.removeCookie('userInfo');
-            }
-
-        }
+        // if ($.is_weixin()) {
+        //     var user = $.cookie('userInfo');
+        //     if (user) {
+        //         user = JSON.parse(window.base64decodes(user))
+        //         $.put_user(user)
+        //         localStorage.setItem('qy_loginToken', user.PhoneNumber + ':' + user.DynamicToken);
+        //         //新增
+        //         if(user.Avatar != null){
+        //             localStorage['qy_head']=user.Id+'|'+user.Avatar.SmallThumbnail;
+        //         }
+        //         $.removeCookie('userInfo');
+        //     }
+        //
+        // }
 
         window.TOKEN = localStorage.getItem('qy_loginToken')
         if (window.TOKEN) {

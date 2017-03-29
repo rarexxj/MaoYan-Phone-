@@ -95,11 +95,16 @@
 	display: block;
 	border-radius: 6px;
 	margin: 0 auto;
+	display: inline-block;
 }
 .lqbox{
-	position: absolute;
-	bottom:0.2rem;
+	position: fixed;
+	bottom:0rem;
 	width:7.5rem;
+	height:1.2rem;
+	line-height: 1.2rem;
+	background-color: #fff;
+	text-align: center;
 }
 .lingqu{
 	width:100%;

@@ -16,15 +16,14 @@ $(function () {
                 pageNo: 1
             },
             evainfo: [],
-            headinfo: []
+            headinfo: [],
+            banner:[]
         },
         ready: function () {
             var _this = this;
             _this.ajax();
             _this.$nextTick(function () {
-                setTimeout(function () {
-                    _this.swipe();
-                }, 400);
+                _this.bannerajax();
                 _this.guige();
                 _this.Calculation();
                 _this.tab();
@@ -39,6 +38,24 @@ $(function () {
         },
 
         methods: {
+            //banner
+            bannerajax: function () {
+                var _this = this;
+                $.ajax({
+                    url: '/Api/v1/Carousel/01',
+                    type: 'get',
+                    data: {
+                        key: '04'
+                    }
+                }).done(function (rs) {
+                    if (rs.returnCode == '200') {
+                        _this.banner = rs.data;
+                        _this.$nextTick(function () {
+                            _this.swipe();
+                        })
+                    }
+                })
+            },
             ajax: function () {
                 var _this = this;
                 if (localStorage.getItem('qy_loginToken')) {
@@ -449,169 +466,3 @@ $(function () {
         }
     })
 })
-
-
-// $(function () {
-//     //效果js
-//     mySwiper();
-//     function mySwiper() {
-//         var mySwiper = new Swiper('.swiper-container', {
-//             direction: 'horizontal',
-//             loop: true,
-//             paginationClickable: true,
-//             autoplay: 2500,
-//             slidesPerView: 'auto',
-//             centeredSlides: true,
-//             grabCursor: true,
-//             autoplayDisableOnInteraction: false,
-//             // 如果需要分页器
-//             pagination: '.swiper-pagination'
-//         })
-//     }
-//
-//
-//     //选择
-//     choose();
-//     function choose() {
-//         $('.size').on('click', function () {
-//             $('.size-mask').show();
-//         })
-//         $('.size-mask .tc li').on('click', function () {
-//             $(this).addClass('cur').siblings().removeClass('cur');
-//         })
-//         //关闭
-//         $('.size-mask .close').on('click', function () {
-//             $('.size-mask').hide();
-//         })
-//
-//     }
-//
-//
-//
-//
-//
-//
-//     //切换
-//     tab();
-//     function tab() {
-//         $('.information .btn').eq(0).on('click', function () {
-//             $(this).addClass('cur').siblings().removeClass('cur');
-//             $('.infoajax').show();
-//             $('.evaluateajax').hide();
-//         })
-//         $('.information .btn').eq(1).on('click', function () {
-//             $(this).addClass('cur').siblings().removeClass('cur');
-//             $('.infoajax').hide();
-//             $('.evaluateajax').show();
-//         })
-//     }
-//
-//     //收藏
-//     coll();
-//     function coll() {
-//         $('.goshop .coll').on('click', function () {
-//             $('.goshop .coll').addClass('on')
-//             $.oppo('商品已加入收藏夹', 1)
-//         })
-//     }
-//
-//     //用户评价
-//     // var flag = true;
-//     // $(window).scroll(function () {
-//     //     if ($('.eva-btn').hasClass('cur')) {
-//     //         var H = $('body,html').height();
-//     //         var h = $(window).height();
-//     //         var t = $('body').scrollTop();
-//     //         if (t >= H - h * 1.1 && flag == true) {
-//     //             flag = false;
-//     //             evadata.pageNo++;
-//     //             if (evadata.pageNo > colpage) {
-//     //                 $('.loading').hide();
-//     //             } else {
-//     //                 ajaxeva(function () {
-//     //                     setTimeout(function () {
-//     //                         flag = true;
-//     //                     }, 500)
-//     //                 }, function () {
-//     //                     $('.loading').show();
-//     //                 })
-//     //             }
-//     //         }
-//     //     }
-//     //
-//     // })
-//
-//     //加入购物车
-//     $('.addshopc').on('click', function () {
-//         console.log(2312)
-//         $.oppo('商品已加入购物车', 1)
-//         // $('.size-mask').show();
-//     })
-//
-//     $('.infoBox').on('click', '.pro-in-gocart', function () {
-//         $(this).addClass('on')
-//     })
-//
-//     //购买
-//     $('.infoBox').on('click', '.gobuy', function () {
-//         $('.size-mask').show();
-//     })
-//
-// })0
-
-
-// //用户评价
-// var eval;
-// var evadata={
-//     goodsId:id,
-//     pageNo:'1',
-//     limit:'5'
-//
-// }
-// ajaxeva();
-// function ajaxeva(callback,beforecallback) {
-//     $.ajax({
-//         url:'/Api/v1/Mall/GoodsEvaluates',
-//         type:'get',
-//         data:evadata,
-//         beforeSend:function () {
-//             if(typeof beforecallback=='function'){beforecallback()}
-//         }
-//     }).done(function (rs) {
-//         if (rs.returnCode == '200'){
-//             vieweva(rs.data);
-//             window.colpage=Math.ceil(rs.data.TotalCount/evadata.limit)
-//         }else{
-//             if(rs.returnCode == '401'){
-//                 Backlog();
-//             }else{
-//                 oppo(rs.msg ,1)
-//             }
-//         }
-//     }).always(function () {
-//         if(typeof callback=='function'){callback()}
-//     })
-// }
-//
-//
-// //评价前9名头像
-// ajaxhead();
-// function ajaxhead() {
-//     $.ajax({
-//         url:'/Api/v1/Mall/GoodsEvaluates/top',
-//         type:'get',
-//         data:{
-//             goodsId:id
-//         }
-//     }).done(function (rs) {
-//         if (rs.returnCode == '200'){
-//             viewhead(rs)
-//         }else{
-//             if(rs.returnCode == '401'){
-//                 Backlog();
-//             }else{
-//                 oppo(rs.msg ,1)
-//             }
-//         }
-//     })
-// }

@@ -6,10 +6,10 @@ $(function () {
     money = Number(money).toFixed(2);
     var time = $.getUrlParam('time');
     var yhq = $.getUrlParam('yhq');
-    if(yhq){
+    if (yhq) {
         yhq = Number(yhq).toFixed(2);
-    }else{
-        yhq=0
+    } else {
+        yhq = 0
     }
 
     if (time) {
@@ -27,7 +27,7 @@ $(function () {
             needmore: ' ',
             paymentCode: '',
             yhq: yhq,
-            zongji:Number(yhq)+Number(money),
+            zongji: Number(yhq) + Number(money),
             haix: (money - yhq).toFixed(2),
             orderid: $('#orderid').val(Id)
         },
@@ -82,45 +82,65 @@ $(function () {
             paymode: function () {
                 var _this = this;
                 $(".shoppay").on("click", '#subimitButton', function () {
-                    if ($.is_weixin()) {
-                        //如果是选择的支付宝，显示遮罩
-                        if ($('.alipay').hasClass('cur')) {
-                            $('.mask').fadeIn();
-                            return false;
-                        } else if ($('.huodao').hasClass('cur')) {
-                            $.ajax({
-                                url:'/Payment/PayOnDelivery/'+Id,
-                                type:'post',
-                                dataType:'json'
-                            }).done(function (rs) {
-                                if(rs.returnCode=='200'){
-                                    // window.location.replace("/Html/html/personalcenter/personalcenter.html");
-                                }
-                            })
-                            return false;
-                        }
-                        return true;
-                    } else {
-                        //判断支付类型
-                        if ($('.alipay').hasClass('cur')) {
-                            $('#paymentCode').val('alipay');
-                        } else if ($('.weixin').hasClass('cur')) {
-                            $('#paymentCode').val('weixin');
-                        } else if ($('.huodao').hasClass('cur')) {
-                            $.ajax({
-                                url:'/Payment/PayOnDelivery/'+Id,
-                                type:'post',
-                                dataType:'json'
-                            }).done(function (rs) {
-                                if(rs.returnCode=='200'){
-                                    // window.location.replace("/Html/html/personalcenter/personalcenter.html");
-                                }
-                            })
-                            return false;
-                        }
-                        $('#formid').attr('action', '/Payment/H5/Pay')
-                        return true;
+                    // if ($.is_weixin()) {
+                    //     //如果是选择的支付宝，显示遮罩
+                    //     if ($('.alipay').hasClass('cur')) {
+                    //         $('.mask').fadeIn();
+                    //         return false;
+                    //     } else if ($('.huodao').hasClass('cur')) {
+                    //         $.ajax({
+                    //             url:'/Payment/PayOnDelivery/'+Id,
+                    //             type:'post',
+                    //             dataType:'json'
+                    //         }).done(function (rs) {
+                    //             if(rs.returnCode=='200'){
+                    //                 // window.location.replace("/Html/html/personalcenter/personalcenter.html");
+                    //             }
+                    //         })
+                    //         return false;
+                    //     }
+                    //     return true;
+                    // } else {
+                    //     //判断支付类型
+                    //     if ($('.alipay').hasClass('cur')) {
+                    //         $('#paymentCode').val('alipay');
+                    //     } else if ($('.weixin').hasClass('cur')) {
+                    //         $('#paymentCode').val('weixin');
+                    //     } else if ($('.huodao').hasClass('cur')) {
+                    //         $.ajax({
+                    //             url:'/Payment/PayOnDelivery/'+Id,
+                    //             type:'post',
+                    //             dataType:'json'
+                    //         }).done(function (rs) {
+                    //             if(rs.returnCode=='200'){
+                    //                 // window.location.replace("/Html/html/personalcenter/personalcenter.html");
+                    //             }
+                    //         })
+                    //         return false;
+                    //     }
+                    //     $('#formid').attr('action', '/Payment/H5/Pay')
+                    //     return true;
+                    // }
+
+                    //判断支付类型
+                    if ($('.alipay').hasClass('cur')) {
+                        $('#paymentCode').val('alipay');
+                    } else if ($('.weixin').hasClass('cur')) {
+                        $('#paymentCode').val('weixin');
+                    } else if ($('.huodao').hasClass('cur')) {
+                        $.ajax({
+                            url: '/Payment/PayOnDelivery/' + Id,
+                            type: 'post',
+                            dataType: 'json'
+                        }).done(function (rs) {
+                            if (rs.returnCode == '200') {
+                                // window.location.replace("/Html/html/personalcenter/personalcenter.html");
+                            }
+                        })
+                        return false;
                     }
+                    $('#formid').attr('action', '/Payment/H5/Pay')
+                    return true;
                 });
             }
         }

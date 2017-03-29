@@ -81,6 +81,10 @@
     width: 7.5rem;
 }
 
+.mainbox{
+    /*background-color: #f3fbfd;*/
+}
+
 .products .proimg {
     width: 100%;
     height: 2rem;

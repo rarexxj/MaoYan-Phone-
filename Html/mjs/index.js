@@ -29,7 +29,7 @@ $(function () {
                     url: '/Api/v1/Carousel/01',
                     type: 'get',
                     data: {
-                        key: '01'
+                        key: '05'
                     }
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -64,7 +64,7 @@ $(function () {
                 new Swiper('.swiper-container', {
                     direction: 'horizontal',
                     paginationClickable: true,
-                    autoplay: 2500,
+                    autoplay: 3500,
                     loop: true,
                     autoplayDisableOnInteraction: false,
                     // 如果需要分页器
@@ -125,7 +125,7 @@ $(function () {
                             rs.data.OneLevelCategorys[i].maodian=i;
                         }
                         for(j=0;j<rs.data.Categories.length;j++){
-                            rs.data.Categories[i].maodian=i;
+                            rs.data.Categories[j].maodian=j;
                         }
                         _this.$nextTick(function(){
                             _this.poheight();
