@@ -142,21 +142,27 @@ $(function () {
                     // $('#formid').attr('action', '/Payment/H5/Pay')
                     // return true;
 
-                    //判断支付类型
                     if ($('.alipay').hasClass('cur')) {
-                        $('#paymentCode').val('alipay');
+                        if($.is_weixin()){
+                            $('.mask').fadeIn();
+                            return false;
+                        }else{
+                            $('#paymentCode').val('alipay');
+                        }
                     } else if ($('.huodao').hasClass('cur')) {
                         $.ajax({
-                            url: '/Payment/PayOnDelivery/' + Id,
+                            // url: URL+'/Payment/PayOnDelivery/' + Id,
+                            url: '/Api/v1/Payment/PayOnDelivery/' + Id,
                             type: 'post',
                             dataType: 'json'
                         }).done(function (rs) {
                             if (rs.returnCode == '200') {
-                                // window.location.replace("/Html/html/personalcenter/personalcenter.html");
+                                window.location.replace("/Html/html/personalcenter/personalcenter.html");
                             }
                         })
                         return false;
                     }
+                    // $('#formid').attr('action', URL+'/Payment/H5/Pay')
                     $('#formid').attr('action', '/Payment/H5/Pay')
                     return true;
                 });

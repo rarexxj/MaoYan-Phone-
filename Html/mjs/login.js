@@ -21,7 +21,8 @@ $(function () {
 
     function ajax() {
         $.ajax({
-            url: URL+'/Api/v1/Login',
+            // url: URL+'/Api/v1/Login',
+            url: '/Api/v1/Login',
             type: 'post',
             dataType:'json',
             data: {

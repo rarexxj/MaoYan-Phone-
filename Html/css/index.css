@@ -325,8 +325,23 @@
     background: url("img/logo10.png") no-repeat center;
     background-size: cover;
     display: block;
+    margin-bottom: 0.03rem;
 }
 
+.logoqq{
+    width: 0.82rem;
+    height: 1.05rem;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: 0.72rem 0.72rem;
+    display: block;
+}
+.qqbox{
+    width: 0.82rem;
+    height: 1.05rem;
+    background-color: #d6c88a;
+    display: block;
+}
 .rightbar {
     position: absolute;
     top: 50%;

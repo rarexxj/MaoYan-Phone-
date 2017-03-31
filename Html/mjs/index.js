@@ -5,7 +5,8 @@ $(function () {
         data: {
             banner: [],
             proinfo: [],
-            telinfo:[]
+            telinfo:[],
+            qinfo:[]
         },
         ready: function () {
             var _this = this;
@@ -15,6 +16,7 @@ $(function () {
                 _this.totop();
                 _this.others();
                 _this.tel();
+                _this.qq();
                 setTimeout(function () {
 
                 }, 300)
@@ -26,7 +28,8 @@ $(function () {
             bannerajax: function () {
                 var _this = this
                 $.ajax({
-                    url: URL+'/Api/v1/Carousel/01',
+                    // url: URL+'/Api/v1/Carousel/01',
+                    url:'/Api/v1/Carousel/01',
                     type: 'get',
                     data: {
                         key: '05'
@@ -116,13 +119,14 @@ $(function () {
             proinfoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/Home',
+                    // url: URL+'/Api/v1/Mall/Home',
+                    url:'/Api/v1/Mall/Home',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.proinfo = rs.data;
-                        for (i=0;i<rs.data.OneLevelCategorys.length;i++){
-                            rs.data.OneLevelCategorys[i].maodian=i;
+                        for (i=0;i<rs.data.navigationcategory.length;i++){
+                            rs.data.navigationcategory[i].maodian=i;
                         }
                         for(j=0;j<rs.data.Categories.length;j++){
                             rs.data.Categories[j].maodian=j;
@@ -138,11 +142,24 @@ $(function () {
             tel:function () {
                 var _this=this;
                 $.ajax({
-                    url:  URL+'/Api/v1/CustomPhone',
+                    // url:  URL+'/Api/v1/CustomPhone',
+                    url:  '/Api/v1/CustomPhone',
                     type: 'get'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.telinfo = rs;
+                    }
+                })
+            },
+            qq:function () {
+                var _this=this;
+                $.ajax({
+                    // url:  URL+'/Api/v1/CustomPhone',
+                    url:'/Api/v1/Order/CustomQq',
+                    type: 'get'
+                }).done(function (rs) {
+                    if (rs.returnCode == '200') {
+                        _this.qinfo = rs.data;
                     }
                 })
             }

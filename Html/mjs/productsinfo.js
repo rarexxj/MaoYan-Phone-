@@ -1,6 +1,7 @@
 $(function () {
     $.ADDLOAD();
     window.TOKEN = localStorage.getItem('qy_loginToken');
+    console.log(TOKEN)
     var id = $.getUrlParam('id');
     new Vue({
         el: '#main',
@@ -29,7 +30,9 @@ $(function () {
                 _this.tab();
                 _this.collect();
                 _this.evaajax();
-                _this.liuljl();
+                if(TOKEN){
+                    _this.liuljl();
+                }
                 _this.gotobuy();
                 _this.headimg();
                 _this.jjgou();
@@ -42,7 +45,8 @@ $(function () {
             bannerajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: URL+'/Api/v1/Carousel/01',
+                    // url: URL+'/Api/v1/Carousel/01',
+                    url: '/Api/v1/Carousel/01',
                     type: 'get',
                     data: {
                         key: '04'
@@ -62,7 +66,8 @@ $(function () {
                     $.checkuser()
                 }
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/Goods/Attribute',
+                    // url: URL+'/Api/v1/Mall/Goods/Attribute',
+                    url:'/Api/v1/Mall/Goods/Attribute',
                     type: 'get',
                     data: {
                         goodId: _this.goodId
@@ -160,7 +165,8 @@ $(function () {
             //取消收藏
             ajaxcancel: function () {
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/Collect/' + id,
+                    // url: URL+'/Api/v1/Mall/Collect/' + id,
+                    url:'/Api/v1/Mall/Collect/' + id,
                     type: 'DELETE'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -172,7 +178,8 @@ $(function () {
             //添加收藏
             ajaxadd: function () {
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/Collect/' + id,
+                    // url: URL+'/Api/v1/Mall/Collect/' + id,
+                    url: '/Api/v1/Mall/Collect/' + id,
                     type: 'post'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
@@ -309,11 +316,12 @@ $(function () {
                 $('#main').on('click', '.pro-in-gocart', function () {
                     if (!TOKEN) {
                         $.oppo('您还未登录', 1, function () {
-                            if ($.is_weixin()) {
-                                window.location.href = '/WeiXin/Login';
-                            } else {
-                                window.location.href = '/Html/html/personalcenter/login.html';
-                            }
+                            window.location.href = '/Html/html/personalcenter/login.html';
+                            // if ($.is_weixin()) {
+                            //     window.location.href = '/WeiXin/Login';
+                            // } else {
+                            //     window.location.href = '/Html/html/personalcenter/login.html';
+                            // }
                         })
                     } else {
                         if ($(this).hasClass('on')) {
@@ -348,7 +356,8 @@ $(function () {
             },
             addshopcar: function (listdata) {
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/Cart',
+                    // url: URL+'/Api/v1/Mall/Cart',
+                    url: '/Api/v1/Mall/Cart',
                     type: 'post',
                     data: listdata
                 }).done(function (rs) {
@@ -366,11 +375,12 @@ $(function () {
                 $('#main').on('click', '.pro-in-gobuy', function () {
                     if (!TOKEN) {
                         $.oppo('您还未登录', 1, function () {
-                            if ($.is_weixin()) {
-                                window.location.href = '/WeiXin/Login';
-                            } else {
-                                window.location.href = '/Html/html/personalcenter/login.html';
-                            }
+                            window.location.href = '/Html/html/personalcenter/login.html';
+                            // if ($.is_weixin()) {
+                            //     window.location.href = '/WeiXin/Login';
+                            // } else {
+                            //     window.location.href = '/Html/html/personalcenter/login.html';
+                            // }
                         })
                     } else {
                         if ($(this).hasClass('on')) {
@@ -418,7 +428,8 @@ $(function () {
             evaajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/GoodsEvaluates',
+                    // url: URL+'/Api/v1/Mall/GoodsEvaluates',
+                    url: '/Api/v1/Mall/GoodsEvaluates',
                     type: 'get',
                     data: _this.evadata
                 }).done(function (rs) {
@@ -431,7 +442,8 @@ $(function () {
             headimg: function () {
                 var _this = this;
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/GoodsEvaluates/Top',
+                    // url: URL+'/Api/v1/Mall/GoodsEvaluates/Top',
+                    url: '/Api/v1/Mall/GoodsEvaluates/Top',
                     type: 'get',
                     data: {
                         goodsId: _this.goodId
@@ -445,7 +457,8 @@ $(function () {
             liuljl: function () {
                 var _this = this;
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/Browse/' + id,
+                    // url: URL+'/Api/v1/Mall/Browse/' + id,
+                    url: '/Api/v1/Mall/Browse/' + id,
                     type: 'POST'
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {

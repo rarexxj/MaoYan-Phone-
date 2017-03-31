@@ -21,7 +21,8 @@ $(function () {
             infoajax: function () {
                 var _this = this;
                 $.ajax({
-                    url: URL+'/Api/v1/Member/GetMemberInfo',
+                    // url: URL+'/Api/v1/Member/GetMemberInfo',
+                    url: '/Api/v1/Member/GetMemberInfo',
                     type: 'get',
                     dataType: "json"
                 }).done(function (rs) {
@@ -33,7 +34,8 @@ $(function () {
             prostate: function () {
                 var _this = this;
                 $.ajax({
-                    url: URL+'/Api/v1/Member/CenterInfo',
+                    // url: URL+'/Api/v1/Member/CenterInfo',
+                    url: '/Api/v1/Member/CenterInfo',
                     type: 'get',
                     dataType: "json"
                 }).done(function (rs) {

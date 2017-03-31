@@ -70,7 +70,8 @@ $(function () {
                 var _this = this;
                 console.log(_this.data1)
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/OrderCalculation',
+                    // url: URL+'/Api/v1/Mall/OrderCalculation',
+                    url: '/Api/v1/Mall/OrderCalculation',
                     data: _this.data1,
                     type: 'post'
                 }).done(function (rs) {
@@ -238,7 +239,8 @@ $(function () {
             },
             inputajax: function (message) {
                 $.ajax({
-                    url: URL+'/Api/v1/Mall/OrderSubmit',
+                    // url: URL+'/Api/v1/Mall/OrderSubmit',
+                    url: '/Api/v1/Mall/OrderSubmit',
                     data: message,
                     type: 'post'
                 }).done(function (rs) {
@@ -338,7 +340,8 @@ $(function () {
             youhq: function () {
                 var _this = this;
                 $.ajax({
-                    url: URL+'/Api/v1/Coupon',
+                    // url: URL+'/Api/v1/Coupon',
+                    url:'/Api/v1/Coupon',
                     type: 'get',
                     dataType: 'json',
                     data: {

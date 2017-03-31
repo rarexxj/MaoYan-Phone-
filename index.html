@@ -46,7 +46,7 @@
         </div>
         <div class="sidebarnav left">
             <div class="sidebar">
-                <a class="cake" v-for="sidenav in proinfo.OneLevelCategorys" :href="'#'+sidenav.maodian">
+                <a class="cake" v-for="sidenav in proinfo.navigationcategory" :href="'#'+sidenav.maodian">
                     <span class="logo" :style="{backgroundImage:'url('+sidenav.CategoryImage.RelativePath+')'}"></span>
                     <span class="cakewz">{{sidenav.Name}}</span>
                 </a>
@@ -56,7 +56,8 @@
         <div class="rightbar">
             <div class="logo9 scroll"></div>
             <a :href="'tel:'+telinfo.data" class="logo10"></a>
-            </a>
+            <!--<a class="logoqq" target="_blank" href="tencent://message/?uin=1234567890&Site=sc.chinaz.com&Menu=yes"></a>-->
+            <a target="_blank" :href="'http://wpa.qq.com/msgrd?v=3&uin='+qinfo+'&site=qq&menu=yes'" class="qqbox"><span class="logoqq" style="background-image: url('/Html/css/img/logoqq.png')"></span></a>
         </div>
         <div class="index-box" id="index">
             <div class="hello">
