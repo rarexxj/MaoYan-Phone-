@@ -1,0 +1,7 @@
+2017-03-24 09:08:18,695 [7] BntWeb.Environment.DefaultBntWebHost - (null) - DEBUG BeginRequest
+2017-03-24 09:08:18,699 [7] BntWeb.Environment.DefaultBntWebHost - (null) - DEBUG EndRequest
+2017-03-24 09:08:22,015 [7] BntWeb.Environment.DefaultBntWebHost - (null) - DEBUG BeginRequest
+2017-03-24 09:08:23,168 [7] BntWeb.Environment.DefaultBntWebHost - (null) - DEBUG EndRequest
+2017-03-24 16:13:51,477 [7] BntWeb.Environment.DefaultBntWebHost - (null) - DEBUG BeginRequest
+2017-03-24 16:13:51,478 [7] BntWeb.Environment.DefaultBntWebHost - (null) - DEBUG EndRequest
+2017-03-24 16:13:51,600 [8] BntWeb.Environment.DefaultBntWebHost - (null) - DEBUG EndRequest

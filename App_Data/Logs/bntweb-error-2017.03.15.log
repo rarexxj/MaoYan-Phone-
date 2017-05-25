@@ -1,0 +1,761 @@
+2017-03-15 08:55:08,103 [13] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/OrderCalculation]
+System.NullReferenceException: Î´½«¶ÔÏóÒıÓÃÉèÖÃµ½¶ÔÏóµÄÊµÀı¡£
+   ÔÚ BntWeb.Mall.ApiControllers.OrderCalculationController.OrderCalculation(OrderCalculationModel calculationModel)
+   ÔÚ lambda_method(Closure , Object , Object[] )
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 08:57:38,291 [13] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/OrderCalculation]
+System.NullReferenceException: Î´½«¶ÔÏóÒıÓÃÉèÖÃµ½¶ÔÏóµÄÊµÀı¡£
+   ÔÚ BntWeb.Mall.ApiControllers.OrderCalculationController.OrderCalculation(OrderCalculationModel calculationModel)
+   ÔÚ lambda_method(Closure , Object , Object[] )
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 09:00:20,631 [14] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/OrderCalculation]
+System.NullReferenceException: Î´½«¶ÔÏóÒıÓÃÉèÖÃµ½¶ÔÏóµÄÊµÀı¡£
+   ÔÚ BntWeb.Mall.ApiControllers.OrderCalculationController.OrderCalculation(OrderCalculationModel calculationModel)
+   ÔÚ lambda_method(Closure , Object , Object[] )
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 09:02:53,200 [13] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/OrderCalculation]
+System.NullReferenceException: Î´½«¶ÔÏóÒıÓÃÉèÖÃµ½¶ÔÏóµÄÊµÀı¡£
+   ÔÚ BntWeb.Mall.ApiControllers.OrderCalculationController.OrderCalculation(OrderCalculationModel calculationModel)
+   ÔÚ lambda_method(Closure , Object , Object[] )
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 09:25:03,198 [8] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/OrderCalculation]
+System.NullReferenceException: Î´½«¶ÔÏóÒıÓÃÉèÖÃµ½¶ÔÏóµÄÊµÀı¡£
+   ÔÚ BntWeb.Mall.ApiControllers.OrderCalculationController.OrderCalculation(OrderCalculationModel calculationModel)
+   ÔÚ lambda_method(Closure , Object , Object[] )
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 09:25:08,038 [6] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/OrderCalculation]
+System.NullReferenceException: Î´½«¶ÔÏóÒıÓÃÉèÖÃµ½¶ÔÏóµÄÊµÀı¡£
+   ÔÚ BntWeb.Mall.ApiControllers.OrderCalculationController.OrderCalculation(OrderCalculationModel calculationModel)
+   ÔÚ lambda_method(Closure , Object , Object[] )
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 09:26:15,516 [8] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/OrderCalculation]
+System.NullReferenceException: Î´½«¶ÔÏóÒıÓÃÉèÖÃµ½¶ÔÏóµÄÊµÀı¡£
+   ÔÚ BntWeb.Mall.ApiControllers.OrderCalculationController.OrderCalculation(OrderCalculationModel calculationModel)
+   ÔÚ lambda_method(Closure , Object , Object[] )
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 09:26:30,791 [9] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/OrderCalculation]
+System.NullReferenceException: Î´½«¶ÔÏóÒıÓÃÉèÖÃµ½¶ÔÏóµÄÊµÀı¡£
+   ÔÚ BntWeb.Mall.ApiControllers.OrderCalculationController.OrderCalculation(OrderCalculationModel calculationModel)
+   ÔÚ lambda_method(Closure , Object , Object[] )
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   ÔÚ System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 10:50:24,234 [41] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Coupon?isAvailable=0]
+System.OperationCanceledException: ÒÑÈ¡Ïû¸Ã²Ù×÷¡£
+   ÔÚ System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 15:39:59,191 [91] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/Order?orderType=1&pageNo=1&limit=10&keywords=]
+System.OperationCanceledException: ÒÑÈ¡Ïû¸Ã²Ù×÷¡£
+   ÔÚ System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 16:44:51,985 [133] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/Goods/Attribute?goodId=7d99ffe1-ea20-4066-9ec4-8ad15dba1d2c]
+System.OperationCanceledException: ÒÑÈ¡Ïû¸Ã²Ù×÷¡£
+   ÔÚ System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 16:44:52,088 [127] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/Browse/7d99ffe1-ea20-4066-9ec4-8ad15dba1d2c]
+System.OperationCanceledException: ÒÑÈ¡Ïû¸Ã²Ù×÷¡£
+   ÔÚ System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 17:10:43,528 [114] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/Goods]
+System.OperationCanceledException: ÒÑÈ¡Ïû¸Ã²Ù×÷¡£
+   ÔÚ System.Threading.CancellationToken.ThrowOperationCanceledException()
+   ÔÚ System.Net.Http.HttpContentExtensions.<ReadAsAsyncCore>d__0`1.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.ModelBinding.FormatterParameterBinding.<ExecuteBindingAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Controllers.HttpActionBinding.<ExecuteBindingAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 17:20:33,810 [102] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Member/Address]
+System.OperationCanceledException: ÒÑÈ¡Ïû¸Ã²Ù×÷¡£
+   ÔÚ System.Threading.CancellationToken.ThrowIfCancellationRequested()
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.SecurityFilter..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiActionFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 17:20:34,080 [116] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/IntegralOrderCalculation]
+System.OperationCanceledException: ÒÑÈ¡Ïû¸Ã²Ù×÷¡£
+   ÔÚ System.Threading.CancellationToken.ThrowOperationCanceledException()
+   ÔÚ System.Net.Http.HttpContentExtensions.<ReadAsAsyncCore>d__0`1.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.ModelBinding.FormatterParameterBinding.<ExecuteBindingAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Controllers.HttpActionBinding.<ExecuteBindingAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 17:20:34,464 [154] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/IntegralOrderCalculation]
+System.OperationCanceledException: ÒÑÈ¡Ïû¸Ã²Ù×÷¡£
+   ÔÚ System.Threading.CancellationToken.ThrowOperationCanceledException()
+   ÔÚ System.Net.Http.HttpContentExtensions.<ReadAsAsyncCore>d__0`1.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.ModelBinding.FormatterParameterBinding.<ExecuteBindingAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Controllers.HttpActionBinding.<ExecuteBindingAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2017-03-15 17:20:36,119 [143] BntWeb.WebApi.Filters.UnhandledApiExceptionFilter - (null) - ·¢ÉúÒ»¸öÎ´´¦ÀíµÄÒì³£²Ù×÷ [http://localhost:8002/Api/v1/Mall/IntegralOrderCalculation]
+System.OperationCanceledException: ÒÑÈ¡Ïû¸Ã²Ù×÷¡£
+   ÔÚ System.Threading.CancellationToken.ThrowOperationCanceledException()
+   ÔÚ System.Net.Http.HttpContentExtensions.<ReadAsAsyncCore>d__0`1.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.ModelBinding.FormatterParameterBinding.<ExecuteBindingAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Controllers.HttpActionBinding.<ExecuteBindingAsyncCore>d__0.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ BntWeb.WebApi.Filters.BasicAuthenticationAttribute..()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ BntWeb.WebApi.Filters.BntWebApiAuthorizationFilterDispatcher.?.()
+--- Òı·¢Òì³£µÄÉÏÒ»Î»ÖÃÖĞ¶ÑÕ»¸ú×ÙµÄÄ©Î² ---
+   ÔÚ System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ÔÚ System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   ÔÚ System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()

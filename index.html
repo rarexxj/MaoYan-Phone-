@@ -46,7 +46,7 @@
         </div>
         <div class="sidebarnav left">
             <div class="sidebar">
-                <a class="cake" v-for="sidenav in proinfo.navigationcategory" :href="'#'+sidenav.maodian">
+                <a class="cake" v-for="sidenav in proinfo.navigationcategory" :href="'/Html/html/fenlei/productslist.html?id='+sidenav.Id">
                     <span class="logo" :style="{backgroundImage:'url('+sidenav.CategoryImage.RelativePath+')'}"></span>
                     <span class="cakewz">{{sidenav.Name}}</span>
                 </a>

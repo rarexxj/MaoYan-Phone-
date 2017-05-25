@@ -24,15 +24,13 @@ $(function () {
             var _this = this;
             _this.ajax();
             _this.$nextTick(function () {
-                _this.bannerajax();
+                // _this.bannerajax();
                 _this.guige();
                 _this.Calculation();
                 _this.tab();
                 _this.collect();
                 _this.evaajax();
-                if(TOKEN){
-                    _this.liuljl();
-                }
+
                 _this.gotobuy();
                 _this.headimg();
                 _this.jjgou();
@@ -54,16 +52,14 @@ $(function () {
                 }).done(function (rs) {
                     if (rs.returnCode == '200') {
                         _this.banner = rs.data;
-                        _this.$nextTick(function () {
-                            _this.swipe();
-                        })
                     }
                 })
             },
             ajax: function () {
                 var _this = this;
                 if (localStorage.getItem('qy_loginToken')) {
-                    $.checkuser()
+                    $.checkuser();
+                    _this.liuljl();
                 }
                 $.ajax({
                     // url: URL+'/Api/v1/Mall/Goods/Attribute',
@@ -76,6 +72,9 @@ $(function () {
                     if (rs.returnCode == '200') {
                         _this.info = rs.data;
                         _this.guigechioce();
+                        _this.$nextTick(function () {
+                            _this.swipe();
+                        })
                         $.RMLOAD()
                     }
                 });
